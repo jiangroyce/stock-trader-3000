@@ -28,6 +28,22 @@ function LoginFormModal() {
     }
   };
 
+  const handleDemo = (e) => {
+    e.preventDefault();
+    setErrors({});
+    const demoUser = {};
+    demoUser.email = "demo@aa.io";
+    demoUser.password = "password";
+    return dispatch(thunkLogin(demoUser))
+      .then(closeModal)
+      .catch(async (res) => {
+        const data = await res.json();
+        if (data && data.errors) {
+          setErrors(data.errors);
+        }
+      });
+  };
+
   return (
     <>
       <h1>Log In</h1>
@@ -54,6 +70,9 @@ function LoginFormModal() {
         {errors.password && <p>{errors.password}</p>}
         <button type="submit">Log In</button>
       </form>
+      <button className="demo-user" onClick={handleDemo}>
+        Demo User
+      </button>
     </>
   );
 }
