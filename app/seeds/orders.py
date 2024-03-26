@@ -11,7 +11,7 @@ def seed_orders():
     bobbie1 = Order(
         portfolio_id=3, stock_ticker='AAPL', order_number=1, cost_basis=100.00, quantity=1)
     demo2 = Order(
-        portfolio_id=1, stock_ticker='MSFT', order_number=2, cost_basis=100.00, quantity=1)
+        portfolio_id=1, stock_ticker='MSFT', order_number=1, cost_basis=100.00, quantity=1)
     marnie2 = Order(
         portfolio_id=2, stock_ticker='MSFT', order_number=2, cost_basis=100.00, quantity=1)
     bobbie2 = Order(
@@ -22,7 +22,8 @@ def seed_orders():
         portfolio_id=2, stock_ticker='GOOG', order_number=3, cost_basis=100.00, quantity=1)
     bobbie3 = Order(
         portfolio_id=3, stock_ticker='GOOG', order_number=3, cost_basis=100.00, quantity=1)
-
+    demo4 = Order(
+        portfolio_id=1, stock_ticker='AAPL', order_number=3, cost_basis=150.00, quantity=-1)
     db.session.add(demo1)
     db.session.add(marnie1)
     db.session.add(bobbie1)
@@ -32,6 +33,7 @@ def seed_orders():
     db.session.add(demo3)
     db.session.add(marnie3)
     db.session.add(bobbie3)
+    db.session.add(demo4)
     db.session.commit()
 
 

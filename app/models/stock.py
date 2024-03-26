@@ -12,3 +12,13 @@ class Stock(db.Model):
     market_cap = db.Column(db.Float)
     shares_outstanding = db.Column(db.Float)
     data = db.Column(db.JSON)
+
+    def to_dict(self):
+        return {
+            'ticker': self.ticker,
+            'name': self.name,
+            'price': self.price,
+            'sector': self.sector,
+            "market_cap": self.market_cap,
+            "shares_outstanding": self.shares_outstanding
+        }

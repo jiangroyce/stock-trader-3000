@@ -9,3 +9,5 @@ class Portfolio(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
     cash = db.Column(db.Float)
     order_number = db.Column(db.Integer, default = 1)
+
+    orders = db.relationship("Order", back_populates="portfolio")
