@@ -30,4 +30,6 @@ def portfolio():
     response["GL$"] = (response["price"] - response["cost_basis"]) * response["quantity"]
     response["GL%"] = response["price"]/response["cost_basis"] - 1
     response["portfolio_weight"] = response["value"]/response["value"].sum()
+    response.loc[response.name == "Cash", "GL$"] = 0
+    response.loc[response.name == "Cash", "GL%"] = 0
     return response.to_json(orient="records")

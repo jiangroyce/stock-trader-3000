@@ -2,7 +2,7 @@ from flask.cli import AppGroup
 from .users import seed_users, undo_users
 from .stocks import seed_stocks, undo_stocks
 from .portfolios import seed_portfolios, undo_portfolios
-from.orders import seed_orders, undo_orders
+from .orders import seed_orders, undo_orders
 from .strategies import seed_strategies, undo_strategies
 from .watchlists import seed_watchlists, undo_watchlists
 from .screeners import seed_screeners, undo_screeners

@@ -1,6 +1,16 @@
+import { useEffect } from "react";
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchPortfolio } from "../../redux/portfolio";
 import "./Dashboard.css"
 
+
 function Dashboard() {
+    const dispatch = useDispatch();
+    const user = useSelector((state) => state.session.user)
+    const portfolio = useSelector((state) => state.portfolio.portfolio)
+    useEffect(() => {
+        dispatch(fetchPortfolio());
+    }, [dispatch])
     return (
         <>
         <div className="dashboard-left">
@@ -9,10 +19,10 @@ function Dashboard() {
                 <table>
                     <thead>
                         <tr>
+                            <th scope="col">Ticker</th>
                             <th scope="col">Stock</th>
                             <th scope="col">Last Price</th>
-                            <th scope="col">Today's $ Change</th>
-                            <th scope="col">Today's % Change</th>
+                            <th scope="col">Quantity</th>
                             <th scope="col">Total $ Change</th>
                             <th scope="col">Total % Change</th>
                             <th scope="col">Current Value</th>
@@ -20,6 +30,21 @@ function Dashboard() {
                             <th scope="col">Avg Cost Basis</th>
                         </tr>
                     </thead>
+                    <tbody>
+                        {portfolio?.map((order) => (
+                            <tr>
+                                <th scope="row">{order.ticker}</th>
+                                <td>{order.name}</td>
+                                <td>$ {order.price.toFixed(2)}</td>
+                                <td>{order.quantity}</td>
+                                <td>$ {order["GL%"] ? order["GL$"] : "-"}</td>
+                                <td>{order["GL%"] ? (order["GL%"] * 100).toFixed(2) + "%": "-"}</td>
+                                <td>$ {order.value.toFixed(2).toLocaleString()}</td>
+                                <td>{(order.portfolio_weight * 100).toFixed(2)}%</td>
+                                <td>$ {order.cost_basis.toFixed(2)}</td>
+                            </tr>
+                        ))}
+                    </tbody>
                 </table>
             </div>
             <div className="market-snapshot-container">

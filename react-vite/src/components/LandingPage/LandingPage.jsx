@@ -13,7 +13,7 @@ function LandingPage() {
         </>
         )
     } else {
-        navigate("/dashboard")
+        return navigate("/dashboard")
     }
 }
 
