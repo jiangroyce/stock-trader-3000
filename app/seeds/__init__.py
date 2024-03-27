@@ -1,6 +1,6 @@
 from flask.cli import AppGroup
 from .users import seed_users, undo_users
-from .stocks import seed_stocks, undo_stocks
+from .stocks.stocks import seed_stocks, undo_stocks
 from .portfolios import seed_portfolios, undo_portfolios
 from .orders import seed_orders, undo_orders
 from .strategies import seed_strategies, undo_strategies
