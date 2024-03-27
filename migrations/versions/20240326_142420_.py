@@ -1,7 +1,7 @@
 """empty message
 
 Revision ID: 4064ed006094
-Revises: 
+Revises:
 Create Date: 2024-03-26 14:24:20.580511
 
 """
@@ -25,7 +25,8 @@ def upgrade():
     sa.Column('sector', sa.String(), nullable=True),
     sa.Column('market_cap', sa.Float(), nullable=True),
     sa.Column('shares_outstanding', sa.Float(), nullable=True),
-    sa.Column('data', sa.JSON(), nullable=True),
+    sa.Column('info', sa.JSON(), nullable=True),
+    sa.Column('history', sa.JSON(), nullable=True),
     sa.PrimaryKeyConstraint('ticker')
     )
     op.create_table('users',

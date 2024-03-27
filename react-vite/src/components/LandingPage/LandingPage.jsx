@@ -1,9 +1,8 @@
 import { useSelector } from "react-redux";
 import "./LandingPage.css";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, Navigate } from "react-router-dom";
 
 function LandingPage() {
-    const navigate = useNavigate();
     const loggedIn = useSelector((state) => state.session.user)
     if (!loggedIn) {
         return (
@@ -13,7 +12,7 @@ function LandingPage() {
         </>
         )
     } else {
-        return navigate("/dashboard")
+        return <Navigate to="/dashboard" />
     }
 }
 

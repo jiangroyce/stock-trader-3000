@@ -11,7 +11,8 @@ class Stock(db.Model):
     sector = db.Column(db.String)
     market_cap = db.Column(db.Float)
     shares_outstanding = db.Column(db.Float)
-    data = db.Column(db.JSON)
+    info = db.Column(db.JSON)
+    history = db.Column(db.JSON)
 
     def to_dict(self):
         return {
