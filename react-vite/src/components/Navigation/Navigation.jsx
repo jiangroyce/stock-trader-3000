@@ -16,9 +16,9 @@ function Navigation() {
   const closeMenu = () => setShowMenu(false);
 
   return (
-    <ul>
-      <li>
-        <NavLink to="/"><img className="landing-logo" src="https://i.kym-cdn.com/entries/icons/original/000/029/959/Screen_Shot_2019-06-05_at_1.26.32_PM.jpg" alt="stonk-trader-logo" /></NavLink>
+    <ul className="nav-bar">
+      <li className="landing-logo">
+        <NavLink to="/"><h1>Stonk Trader 3000</h1></NavLink>
       </li>
 
       <li className="stock-search">

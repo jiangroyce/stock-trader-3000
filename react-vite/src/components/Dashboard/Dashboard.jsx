@@ -11,8 +11,10 @@ function Dashboard() {
     useEffect(() => {
         dispatch(fetchPortfolio());
     }, [dispatch])
+    const currencyFormat = new Intl.NumberFormat("en-US", {style: "currency", currency: "USD"})
+
     return (
-        <>
+        <div className="dashboard">
         <div className="dashboard-left">
             <div className="portfolio-container">
                 <h2>Portfolio</h2>
@@ -35,13 +37,13 @@ function Dashboard() {
                             <tr>
                                 <th scope="row">{order.ticker}</th>
                                 <td>{order.name}</td>
-                                <td>$ {order.price.toFixed(2)}</td>
-                                <td>{order.quantity}</td>
-                                <td>$ {order["GL%"] ? order["GL$"] : "-"}</td>
+                                <td>{order.price? currencyFormat.format(order.price): "-"}</td>
+                                <td>{order.quantity || "-"}</td>
+                                <td>{order["GL%"] ? currencyFormat.format(order["GL$"]) : "-"}</td>
                                 <td>{order["GL%"] ? (order["GL%"] * 100).toFixed(2) + "%": "-"}</td>
-                                <td>$ {order.value.toFixed(2).toLocaleString()}</td>
+                                <td>{currencyFormat.format(order.value)}</td>
                                 <td>{(order.portfolio_weight * 100).toFixed(2)}%</td>
-                                <td>$ {order.cost_basis.toFixed(2)}</td>
+                                <td>{order.cost_basis ? currencyFormat.format(order.cost_basis) : "-"}</td>
                             </tr>
                         ))}
                     </tbody>
@@ -81,7 +83,7 @@ function Dashboard() {
                 </div>
             </div>
         </div>
-        </>
+        </div>
     )
 }
 
