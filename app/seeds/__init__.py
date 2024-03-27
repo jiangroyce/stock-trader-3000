@@ -45,7 +45,6 @@ def stock_seeder():
 @seed_commands.command('undo')
 def undo():
     undo_users()
-    undo_stocks()
     undo_portfolios()
     undo_orders()
     undo_strategies()

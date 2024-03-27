@@ -5,15 +5,24 @@ from sqlalchemy.sql import text
 # Adds a demo Watchlist, you can add other Watchlists here if you want
 def seed_watchlists():
     demo = Watchlist(
-        name='Big Tech', user_id=1, stock_ticker='AAPL')
+        name='Big Tech', user_id=1, stock_ticker='AAPL', list_number=0)
     marnie = Watchlist(
-        name='Big Tech', user_id=1, stock_ticker='MSFT')
+        name='Big Tech', user_id=1, stock_ticker='MSFT', list_number=0)
     bobbie = Watchlist(
-        name='Big Tech', user_id=1, stock_ticker='GOOG')
+        name='Big Tech', user_id=1, stock_ticker='GOOG', list_number=0)
+    demo2 = Watchlist(
+        name='Big Pharma', user_id=1, stock_ticker='PFE', list_number=1)
+    marnie2 = Watchlist(
+        name='Big Pharma', user_id=1, stock_ticker='JNJ', list_number=1)
+    bobbie2 = Watchlist(
+        name='Big Pharma', user_id=1, stock_ticker='LLY', list_number=1)
 
     db.session.add(demo)
     db.session.add(marnie)
     db.session.add(bobbie)
+    db.session.add(demo2)
+    db.session.add(marnie2)
+    db.session.add(bobbie2)
     db.session.commit()
 
 

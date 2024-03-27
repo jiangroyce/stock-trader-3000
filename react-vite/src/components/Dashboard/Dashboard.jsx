@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchPortfolio } from "../../redux/portfolio";
+import { fetchWatchlists } from "../../redux/watchlist";
 import { Navigate } from "react-router-dom";
 import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
 import CreateWatchlistModal from "../CreateWatchlistModal";
@@ -11,8 +12,10 @@ function Dashboard() {
     const dispatch = useDispatch();
     const user = useSelector((state) => state.session.user)
     const portfolio = useSelector((state) => state.portfolio.portfolio)
+    const watchlists = useSelector((state) => state.watchlist.watchlists)
     useEffect(() => {
         dispatch(fetchPortfolio());
+        dispatch(fetchWatchlists());
     }, [dispatch])
     const currencyFormat = new Intl.NumberFormat("en-US", {style: "currency", currency: "USD"})
 
@@ -79,17 +82,22 @@ function Dashboard() {
                                 modalComponent={<CreateWatchlistModal />}
                             />
                         </div>
-                        <div className="watchlist">
-                            <div className="watchlist-title">
-                                <h3>My List 1</h3>
-                                <button>Expand</button>
-                            </div>
-                            <div className="watchlist-info">
-                                <div className="watchlist-stock">
-                                    TSLA | chart | $180 | +5%
+                        {watchlists?.map((watchlist, index) => (
+                            <div className="watchlist" key={index}>
+                                <div className="watchlist-title">
+                                    <h3>{watchlist.name}</h3>
+                                    <button>Expand</button>
+                                </div>
+                                <div className="watchlist-info">
+                                    {watchlist.stocks.map((stock, index) => (
+                                        <div className="watchlist-stock" key={index}>
+                                            {stock.ticker} | {stock.name} | {currencyFormat.format(stock.price)}
+                                        </div>
+                                    ))}
                                 </div>
                             </div>
-                        </div>
+                        ))
+                        }
                     </div>
                 </div>
             </>) :

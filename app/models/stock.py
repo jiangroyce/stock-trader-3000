@@ -14,6 +14,8 @@ class Stock(db.Model):
     info = db.Column(db.JSON)
     history = db.Column(db.JSON)
 
+    watchlists = db.relationship("Watchlist", back_populates="stock")
+
     def to_dict(self):
         return {
             'ticker': self.ticker,

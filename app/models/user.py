@@ -13,6 +13,7 @@ class User(db.Model, UserMixin):
     name = db.Column(db.String(40), nullable=False)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
+    list_number = db.Column(db.Integer, default=1)
 
     # portfolio = db.relationship("Portfolio")
 
