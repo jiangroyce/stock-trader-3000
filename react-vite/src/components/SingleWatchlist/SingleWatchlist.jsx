@@ -1,7 +1,7 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom"
-import { fetchWatchlists } from "../../redux/watchlist";
+import { putWatchlist, fetchWatchlists } from "../../redux/watchlist";
 import Watchlists from "../Watchlists";
 import "./SingleWatchlist.css"
 
@@ -12,6 +12,8 @@ function SingleWatchlist() {
     const navigate = useNavigate();
     const watchlists = useSelector((state) => state.watchlists);
     const watchlist = watchlists[listId] ? watchlists[listId] : null;
+    const [name, setName] = useState(watchlist?.name);
+    const [errors, setErrors] = useState({})
 
     const currencyFormat = new Intl.NumberFormat("en-US", {style: "currency", currency: "USD"})
 
@@ -20,12 +22,26 @@ function SingleWatchlist() {
         dispatch(fetchWatchlists())
     }, [dispatch]);
 
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        console.log(name)
+        const response = await dispatch(putWatchlist({name, "list_number": listId}));
+        if (response?.errors) {
+            setErrors(response.errors)
+        }
+    }
+
     return (
         <>
         {watchlist && user && (
             <div className="single-watchlist">
                 <div className="watchlist-details">
-                    <h1>{watchlist?.name}</h1>
+                    <input
+                        type="text"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        onBlur={handleSubmit}
+                        />
                     <table className="watchlist-stocks">
                         <thead>
                             <tr>

@@ -77,3 +77,24 @@ def getList(id):
         else:
             response[watchlist.list_number]["stocks"].append(watchlist.stock.to_dict() if watchlist.stock else None)
     return jsonify(response)
+
+@watchlist_routes.route("/current/<int:id>", methods=["PUT"])
+@login_required
+def editList(id):
+    """
+    Edit watchlist for current user
+    """
+    watchlists = Watchlist.query.filter_by(user_id=current_user.id, list_number=id).all()
+    form = WatchlistForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        response = {}
+        for watchlist in watchlists:
+            watchlist.name=form.data["name"]
+            if watchlist.list_number not in response:
+                response[watchlist.list_number] = {"name": watchlist.name, "list_number": watchlist.list_number, "stocks": [watchlist.stock.to_dict()] if watchlist.stock else []}
+            else:
+                response[watchlist.list_number]["stocks"].append(watchlist.stock.to_dict() if watchlist.stock else None)
+        db.session.commit()
+        return jsonify(response)
+    return {'message': 'Bad Request', 'errors': form.errors}, 400

@@ -1,17 +1,13 @@
 const LOAD_WATCHLISTS = 'watchlists/load';
-const LOAD_WATCHLIST = 'watchlists/fetch'
+const LOAD_WATCHLIST = 'watchlists/fetch';
+const EDIT_WATCHLIST = 'watchlists/edit';
 const CLEAR_WATCHLISTS = 'watchlists/clear';
 const ADD_WATCHLIST = 'watchlists/add';
 const ADD_STOCK = 'watchlists/addStock'
 
-const loadWatchlists = (watchlists) => ({
+export const loadWatchlists = (watchlists) => ({
   type: LOAD_WATCHLISTS,
   payload: watchlists
-});
-
-const loadWatchlist = (watchlist) => ({
-  type: LOAD_WATCHLIST,
-  payload: watchlist
 });
 
 export const clearWatchlists = () => ({
@@ -26,7 +22,12 @@ export const addWatchlist = (watchlist) => ({
 export const addStock = (watchlist) => ({
   type: ADD_STOCK,
   payload: watchlist
-})
+});
+
+export const editWatchlist = (watchlist) => ({
+  type: EDIT_WATCHLIST,
+  payload: watchlist
+});
 
 export const fetchWatchlists = () => async (dispatch) => {
 	const response = await fetch("/api/watchlists/current");
@@ -54,6 +55,21 @@ export const createWatchlist = (payload) => async (dispatch) => {
     return watchlist
   }
 };
+
+export const putWatchlist = (payload) => async (dispatch) => {
+  const response = await fetch(`/api/watchlists/current/${payload.list_number}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload)
+  });
+  const watchlist = await response.json();
+  if (response.ok) {
+    dispatch(editWatchlist(watchlist))
+    return watchlist
+  } else {
+    return watchlist
+  }
+}
 
 export const fetchWatchlist = (listId) => async (dispatch) => {
   const response = await fetch(`/api/watchlists/current/${listId}`);
@@ -90,10 +106,16 @@ function sessionReducer(state = initialState, action) {
       return {...action.payload};
     case ADD_WATCHLIST:
       return { ...state, [action.payload.list_number]: action.payload};
-    case ADD_STOCK:
+    case ADD_STOCK: {
       const newState = { ...state }
       newState[action.payload.list_number].stocks.push(action.payload.stock);
-      return { newState }
+      return newState
+    }
+    case EDIT_WATCHLIST: {
+      const newState = { ...state }
+      newState[action.payload.list_number].name = action.payload.name;
+      return newState
+    }
     case CLEAR_WATCHLISTS:
       return initialState;
     default:
