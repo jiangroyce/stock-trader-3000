@@ -18,9 +18,9 @@ def seed_stocks():
         try:
             dbinstance = Stock(ticker=ticker, name=info["shortName"], price=info["currentPrice"], sector=info["sector"], market_cap=info["marketCap"]/1000000, shares_outstanding=info["sharesOutstanding"]/1000000, info=json.dumps(info), history=json.dumps(history.to_json(orient="records")))
             db.session.add(dbinstance)
+            db.session.commit()
         except:
             continue
-    db.session.commit()
     # for index, row in tickers.iterrows():
     #     ticker = row["Symbol"]
     #     info = yf.Tickers
