@@ -1,0 +1,19 @@
+.edit-watchlist {
+    display: none;
+    list-style: none;
+    gap: 5px;
+}
+
+.watchlist-title:hover > .edit-watchlist, .edit-watchlist:hover {
+    display: flex;
+}
+
+.edit-watchlist-dropdown {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    list-style: none;
+    gap: 5px;
+  }

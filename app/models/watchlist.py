@@ -2,12 +2,15 @@ from .db import db, environment, SCHEMA, add_prefix_for_prod
 
 class Watchlist(db.Model):
     __tablename__ = 'watchlists'
+    constraints = [
+        db.UniqueConstraint('user_id', 'list_number', 'stock_ticker')
+    ]
     if environment == "production":
-        __table_args__ = {'schema': SCHEMA}
-
+        constraints.append({'schema': SCHEMA})
+    __table_args__ = tuple(constraints)
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer,  db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
-    stock_ticker = db.Column(db.String, db.ForeignKey(add_prefix_for_prod("stocks.ticker")), nullable=False)
+    stock_ticker = db.Column(db.String, db.ForeignKey(add_prefix_for_prod("stocks.ticker")), nullable=True)
     list_number = db.Column(db.Integer, nullable=False)
     name = db.Column(db.String, nullable=False)
 

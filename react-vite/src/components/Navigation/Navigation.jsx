@@ -12,8 +12,6 @@ function Navigation() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const loggedIn = useSelector((state) => state.session.user);
-  const [showMenu, setShowMenu] = useState(false);
-  const closeMenu = () => setShowMenu(false);
 
   return (
     <ul className="nav-bar">
@@ -36,12 +34,10 @@ function Navigation() {
           <>
             <OpenModalMenuItem
               itemText="Log In"
-              onItemClick={closeMenu}
               modalComponent={<LoginFormModal />}
             />
             <OpenModalMenuItem
               itemText="Sign Up"
-              onItemClick={closeMenu}
               modalComponent={<SignupFormModal />}
             />
           </>

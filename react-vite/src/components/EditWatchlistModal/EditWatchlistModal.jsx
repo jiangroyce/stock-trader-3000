@@ -2,11 +2,11 @@ import { useState } from "react";
 import { createWatchlist } from "../../redux/watchlist";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
-import "./CreateWatchlistModal.css";
+import "./EditWatchlistModal.css";
 
-function CreateWatchlistModal() {
+function EditWatchlistModal({watchlist}) {
   const dispatch = useDispatch();
-  const [name, setName] = useState("");
+  const [name, setName] = useState(watchlist.name);
   const [errors, setErrors] = useState({});
   const { closeModal } = useModal();
 
@@ -22,7 +22,7 @@ function CreateWatchlistModal() {
 
   return (
     <>
-      <h1>Create Watchlist</h1>
+      <h1>Edit Watchlist</h1>
       <form onSubmit={handleSubmit} onReset={()=>closeModal()}>
         <label>
           List name
@@ -35,10 +35,10 @@ function CreateWatchlistModal() {
         </label>
         {errors.name && <p>{errors.name}</p>}
         <button type="reset">Cancel</button>
-        <button type="submit">Create List</button>
+        <button type="submit">Confirm</button>
       </form>
     </>
   );
 }
 
-export default CreateWatchlistModal;
+export default EditWatchlistModal;

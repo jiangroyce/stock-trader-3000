@@ -12,7 +12,7 @@ import watchlistReducer from "./watchlist"
 const rootReducer = combineReducers({
   session: sessionReducer,
   portfolio: portfolioReducer,
-  watchlist: watchlistReducer
+  watchlists: watchlistReducer
 });
 
 let enhancer;
