@@ -62,3 +62,18 @@ def addStock():
         db.session.commit()
         return jsonify({"name": newWatchlist.name, "list_number": newWatchlist.list_number, "stock": newWatchlist.stock.to_dict()})
     return {'message': 'Bad Request', 'errors': form.errors}, 400
+
+@watchlist_routes.route("/current/<int:id>")
+@login_required
+def getList(id):
+    """
+    Add stock to a watchlist for current user
+    """
+    watchlists = Watchlist.query.filter_by(user_id=current_user.id, list_number=id).all()
+    response = {}
+    for watchlist in watchlists:
+        if watchlist.list_number not in response:
+            response[watchlist.list_number] = {"name": watchlist.name, "list_number": watchlist.list_number, "stocks": [watchlist.stock.to_dict()] if watchlist.stock else []}
+        else:
+            response[watchlist.list_number]["stocks"].append(watchlist.stock.to_dict() if watchlist.stock else None)
+    return jsonify(response)

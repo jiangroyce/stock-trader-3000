@@ -1,4 +1,5 @@
 const LOAD_WATCHLISTS = 'watchlists/load';
+const LOAD_WATCHLIST = 'watchlists/fetch'
 const CLEAR_WATCHLISTS = 'watchlists/clear';
 const ADD_WATCHLIST = 'watchlists/add';
 const ADD_STOCK = 'watchlists/addStock'
@@ -6,6 +7,11 @@ const ADD_STOCK = 'watchlists/addStock'
 const loadWatchlists = (watchlists) => ({
   type: LOAD_WATCHLISTS,
   payload: watchlists
+});
+
+const loadWatchlist = (watchlist) => ({
+  type: LOAD_WATCHLIST,
+  payload: watchlist
 });
 
 export const clearWatchlists = () => ({
@@ -49,6 +55,18 @@ export const createWatchlist = (payload) => async (dispatch) => {
   }
 };
 
+export const fetchWatchlist = (listId) => async (dispatch) => {
+  const response = await fetch(`/api/watchlists/current/${listId}`);
+	if (response.ok) {
+		const data = await response.json();
+		if (data.errors) {
+			return;
+		}
+
+		dispatch(addWatchlist(data));
+  }
+};
+
 export const addToList = (payload) => async (dispatch) => {
   const response = await fetch("/api/watchlists/add-stock", {
     method: "POST",
@@ -62,7 +80,8 @@ export const addToList = (payload) => async (dispatch) => {
   } else {
     return watchlist
   }
-}
+};
+
 const initialState = {};
 
 function sessionReducer(state = initialState, action) {

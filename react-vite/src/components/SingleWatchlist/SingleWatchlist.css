@@ -1,0 +1,4 @@
+.single-watchlist {
+    display: flex;
+    justify-content: space-between;
+}

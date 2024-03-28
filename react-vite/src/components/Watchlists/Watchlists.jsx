@@ -1,6 +1,5 @@
 import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
 import CreateWatchlistModal from "../CreateWatchlistModal";
-import { useState, useEffect, useRef } from "react";
 import { CiCircleRemove, CiSettings } from "react-icons/ci";
 import "./Watchlists.css"
 import { NavLink } from "react-router-dom";
@@ -21,7 +20,7 @@ function Watchlists({watchlists}) {
             {Object.values(watchlists)?.map((watchlist, index) => (
                 <div className="watchlist" key={index}>
                     <div className="watchlist-title">
-                        <NavLink>{watchlist.name}</NavLink>
+                        <NavLink to={`/watchlists/${watchlist.list_number}`}>{watchlist.name}</NavLink>
                         <div className="edit-watchlist">
                         <OpenModalMenuItem
                             itemText={<CiSettings />}
