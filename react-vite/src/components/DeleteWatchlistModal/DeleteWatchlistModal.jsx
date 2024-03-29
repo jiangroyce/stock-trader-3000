@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { deleteWatchlist } from "../../redux/watchlist";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
