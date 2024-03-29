@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { createWatchlist } from "../../redux/watchlist";
+import { putWatchlist } from "../../redux/watchlist";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import "./EditWatchlistModal.css";
@@ -13,7 +13,7 @@ function EditWatchlistModal({watchlist}) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const response = await dispatch(createWatchlist({name}));
+    const response = await dispatch(putWatchlist({name, "list_number": watchlist.list_number}));
 
     if (response?.errors) {
       setErrors(response.errors)

@@ -1,6 +1,7 @@
 const LOAD_WATCHLISTS = 'watchlists/load';
 const LOAD_WATCHLIST = 'watchlists/fetch';
 const EDIT_WATCHLIST = 'watchlists/edit';
+const REMOVE_WATCHLIST = 'watchlists/remove';
 const CLEAR_WATCHLISTS = 'watchlists/clear';
 const ADD_WATCHLIST = 'watchlists/add';
 const ADD_STOCK = 'watchlists/addStock'
@@ -19,6 +20,10 @@ export const addWatchlist = (watchlist) => ({
   payload: watchlist
 });
 
+export const removeWatchlist = (list_number) => ({
+  type: REMOVE_WATCHLIST,
+  list_number
+})
 export const addStock = (watchlist) => ({
   type: ADD_STOCK,
   payload: watchlist
@@ -62,12 +67,25 @@ export const putWatchlist = (payload) => async (dispatch) => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload)
   });
+  console.log(payload)
   const watchlist = await response.json();
   if (response.ok) {
     dispatch(editWatchlist(watchlist))
     return watchlist
   } else {
     return watchlist
+  }
+};
+
+export const deleteWatchlist = (list_number) => async (dispatch) => {
+  const response = await fetch(`/api/watchlists/current/${list_number}`, {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json" }
+  });
+  if (response.ok) {
+    const data = response.json()
+    dispatch(removeWatchlist(list_number))
+    return data
   }
 }
 
@@ -113,7 +131,12 @@ function sessionReducer(state = initialState, action) {
     }
     case EDIT_WATCHLIST: {
       const newState = { ...state }
-      newState[action.payload.list_number].name = action.payload.name;
+      newState[action.payload.list_number]= action.payload;
+      return newState
+    }
+    case REMOVE_WATCHLIST: {
+      const newState = { ...state }
+      delete newState[action.list_number]
       return newState
     }
     case CLEAR_WATCHLISTS:

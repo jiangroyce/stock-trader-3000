@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom"
-import { putWatchlist, fetchWatchlists } from "../../redux/watchlist";
+import { putWatchlist, fetchWatchlists, fetchWatchlist } from "../../redux/watchlist";
 import Watchlists from "../Watchlists";
 import "./SingleWatchlist.css"
 
@@ -20,11 +20,11 @@ function SingleWatchlist() {
 
     useEffect(() => {
         dispatch(fetchWatchlists())
-    }, [dispatch]);
+        dispatch(fetchWatchlist(listId)).then(setName(watchlist?.name))
+    }, [dispatch, watchlist?.name]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(name)
         const response = await dispatch(putWatchlist({name, "list_number": listId}));
         if (response?.errors) {
             setErrors(response.errors)

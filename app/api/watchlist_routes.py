@@ -96,5 +96,17 @@ def editList(id):
             else:
                 response[watchlist.list_number]["stocks"].append(watchlist.stock.to_dict() if watchlist.stock else None)
         db.session.commit()
-        return jsonify(response)
+        return jsonify(response[id])
     return {'message': 'Bad Request', 'errors': form.errors}, 400
+
+@watchlist_routes.route("/current/<int:id>", methods=["DELETE"])
+@login_required
+def deleteList(id):
+    """
+    Delete watchlist for current user
+    """
+    watchlists = Watchlist.query.filter_by(user_id=current_user.id, list_number=id).all()
+    for watchlist in watchlists:
+        db.session.delete(watchlist)
+    db.session.commit()
+    return jsonify({"message": "Successfully deleted"})
