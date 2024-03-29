@@ -5,6 +5,8 @@ import LandingPage from '../components/LandingPage';
 import Layout from './Layout';
 import Dashboard from '../components/Dashboard';
 import SingleWatchlist from '../components/SingleWatchlist';
+import StockDetails from '../components/StockDetails';
+import SearchBar from '../components/SearchBar';
 
 export const router = createBrowserRouter([
   {
@@ -29,6 +31,14 @@ export const router = createBrowserRouter([
       {
         path: "watchlists/:listId",
         element: <SingleWatchlist />
+      },
+      {
+        path: "stocks/:ticker",
+        element: <StockDetails/>
+      },
+      {
+        path: "search",
+        element: <SearchBar />
       }
     ],
   },

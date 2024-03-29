@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchPortfolio } from "../../redux/portfolio";
 import { fetchWatchlists } from "../../redux/watchlist";
-import { Navigate } from "react-router-dom";
+import { NavLink, Navigate } from "react-router-dom";
 import "./Dashboard.css"
 import Watchlists from "../Watchlists";
 
@@ -42,7 +42,7 @@ function Dashboard() {
                             <tbody>
                                 {portfolio?.map((order, index) => (
                                     <tr key={index}>
-                                        <th scope="row">{order.ticker}</th>
+                                        <th scope="row">{order.ticker == "-" ? order.ticker : (<NavLink to={`/stocks/${order?.ticker}`}>{order.ticker}</NavLink>)}</th>
                                         <td>{order.name}</td>
                                         <td>{order.price? currencyFormat.format(order.price): "-"}</td>
                                         <td>{order.quantity || "-"}</td>
