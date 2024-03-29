@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom"
+import { NavLink, useParams } from "react-router-dom";
+import { FaLightbulb } from "react-icons/fa";
 import { putWatchlist, fetchWatchlists, fetchWatchlist } from "../../redux/watchlist";
 import Watchlists from "../Watchlists";
 import "./SingleWatchlist.css"
@@ -9,7 +10,6 @@ function SingleWatchlist() {
     const { listId } = useParams();
     const user = useSelector((state) => state.session.user)
     const dispatch = useDispatch();
-    const navigate = useNavigate();
     const watchlists = useSelector((state) => state.watchlists);
     const watchlist = watchlists[listId] ? watchlists[listId] : null;
     const [name, setName] = useState(watchlist?.name);
@@ -21,7 +21,7 @@ function SingleWatchlist() {
     useEffect(() => {
         dispatch(fetchWatchlists())
         dispatch(fetchWatchlist(listId)).then(setName(watchlist?.name))
-    }, [dispatch, watchlist?.name]);
+    }, [dispatch, listId, watchlist?.name]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -36,12 +36,14 @@ function SingleWatchlist() {
         {watchlist && user && (
             <div className="single-watchlist">
                 <div className="watchlist-details">
+                    <FaLightbulb />
                     <input
                         type="text"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         onBlur={handleSubmit}
                         />
+                    <div>{watchlist.stocks.length} Items</div>
                     <table className="watchlist-stocks">
                         <thead>
                             <tr>
@@ -55,7 +57,7 @@ function SingleWatchlist() {
                         <tbody>
                             {watchlist?.stocks?.map((stock, index) => (
                                 <tr key={index}>
-                                    <th scope="row">{stock?.ticker}</th>
+                                    <th scope="row"><NavLink to={`/stocks/${stock?.ticker}`}>{stock?.ticker}</NavLink></th>
                                     <td>{stock?.name}</td>
                                     <td>{stock?.price ? currencyFormat.format(stock.price): "-"}</td>
                                     <td>{stock?.sector}</td>
