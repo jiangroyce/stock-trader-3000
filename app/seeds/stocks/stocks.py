@@ -13,10 +13,11 @@ def seed_stocks():
     # infotest = stocks.tickers["AAPL"].info
     # stonktest = Stock(ticker="AAPL", name=infotest["shortName"], price=infotest["currentPrice"], sector=infotest["sector"], market_cap=infotest["marketCap"]/1000000, shares_outstanding=infotest["sharesOutstanding"]/1000000, data=json.dumps(infotest))
     for ticker in tickers:
-        info = stocks.tickers[ticker].info
-        history = stocks.tickers[ticker].history(period="2y")
         try:
-            dbinstance = Stock(ticker=ticker, name=info["shortName"], price=info["currentPrice"], sector=info["sector"], market_cap=info["marketCap"]/1000000, shares_outstanding=info["sharesOutstanding"]/1000000, info=json.dumps(info), history=json.dumps(history.to_json(orient="records")))
+            info = stocks.tickers[ticker].info
+            history = stocks.tickers[ticker].history(period="2y").reset_index()
+            history["Date"] = history["Date"].dt.strftime("%Y-%m-%d")
+            dbinstance = Stock(ticker=ticker, name=info["shortName"], price=info["currentPrice"], sector=info["sector"], market_cap=info["marketCap"]/1000000, shares_outstanding=info["sharesOutstanding"]/1000000, info=json.dumps(info), history=history.reset_index().to_json(orient="records"))
             db.session.add(dbinstance)
             db.session.commit()
         except:

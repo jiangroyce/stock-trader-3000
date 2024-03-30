@@ -1,45 +1,231 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Plot from "react-plotly.js";
 import "./StockDetails.css"
+import { fetchStock } from "../../redux/stock";
 function StockDetails() {
     const { ticker } = useParams();
-    // const stock = useSelector((state) => state.stocks.ticker)
+    const dispatch = useDispatch();
+    const currencyFormat = new Intl.NumberFormat("en-US", {style: "currency", currency: "USD"});
+    const stock = useSelector((state) => state.stocks)[ticker];
+
+    const [isLoaded, setIsLoaded] = useState(false)
+    const [orderType, setOrderType] = useState("Buy");
+    const [quantityType, setQuantityType] = useState("Shares");
+    const [quantity, setQuantity] = useState(0);
+    const [orderLimit, setOrderLimit] = useState("Market");
+    const [orderConditions, setOrderConditions] = useState({});
+    const [orderTotal, setOrderTotal] = useState(0);
+
+    let total = quantityType == "Shares" ? quantity * stock?.price : quantity;
+
+    const ref = useRef(null);
+    const data = stock?.history;
+    const [x, open, high, low, close] = [[],[],[],[],[]];
+    data?.forEach(({ Date, Open, High, Low, Close }) => {
+        x.push(Date);
+        open.push(Number(Open));
+        high.push(Number(High));
+        low.push(Number(Low));
+        close.push(Number(Close));
+    })
+
+    const calcTotal = (total) => setOrderTotal(total)
+    const previewOrder = async (e) => {
+        e.preventDefault();
+
+    }
 
     useEffect(() => {
-        document.title = `${ticker} - $420.00 | Stonk Trader 3000`
-    })
-    return (
-    <>
-        <h1>StockDetailsPage</h1>
-        <Plot
-            data={[
-                {
+        const loadData = async () => {
+            await dispatch(fetchStock(ticker))
+            setIsLoaded(true)
+        }
+        loadData();
+    }, [dispatch, ticker])
 
-                    x: ['2017-01-04', '2017-01-05', '2017-01-06', '2017-01-09', '2017-01-10', '2017-01-11', '2017-01-12', '2017-01-13', '2017-01-17', '2017-01-18', '2017-01-19', '2017-01-20', '2017-01-23', '2017-01-24', '2017-01-25', '2017-01-26', '2017-01-27', '2017-01-30', '2017-01-31', '2017-02-01', '2017-02-02', '2017-02-03', '2017-02-06', '2017-02-07', '2017-02-08', '2017-02-09', '2017-02-10', '2017-02-13', '2017-02-14', '2017-02-15'],
+    document.title = `${ticker} - $${stock?.price} Stonk Trader 3000`
+    if (!isLoaded) return <h1>Loading</h1>
+    else return (
+        <>
+        { stock && data && (
+            <div className="stock-details-page">
+                <div className="stock-details" ref={ref}>
+                    <h1>{stock.name}</h1>
+                    <h2>{currencyFormat.format(stock.price)}</h2>
+                    <Plot
+                        className="stock-chart"
+                        data={[
+                            {
+                                x,
+                                open,
+                                high,
+                                low,
+                                close,
+                                increasing: {line: {color: 'green'}},
+                                decreasing: {line: {color: 'red'}},
+                                line: {color: 'black'},
+                                type: 'candlestick',
+                                xaxis: 'x',
+                                yaxis: 'y'
+                            }]}
+                        useResizeHandler={true}
+                        layout={ {
+                            margin: {
+                                t: 0,
+                                b: 0,
+                                l: 50,
+                                r: 0
+                            },
+                            hovermode: "x",
+                            xaxis: {
+                                autorange: true,
+                                rangeslider: {
+                                    visible: false
+                                },
+                                rangeselector: {
+                                    x: -0.02,
+                                    y: -0.1,
+                                    buttons:
+                                    [{
+                                        step: 'month',
+                                        stepmode: 'backward',
+                                        count: 1,
+                                        label: "1M"
+                                    },
+                                    {
+                                        step: 'month',
+                                        stepmode: 'backward',
+                                        count: 6,
+                                        label: "6M"
+                                    },
+                                    {
+                                        step: 'year',
+                                        stepmode: 'backward',
+                                        count: 1,
+                                        label: "1Y"
+                                    },
+                                    {
+                                        step: 'all',
+                                        label: "2Y"
+                                    },
+                                ]}
+                            },
+                            yaxis: {
+                                tickprefix: "$ "
+                            }
+                        } }
+                    />
+                    <div className="stock-about">
+                        <h2>About</h2>
+                        <div className="stock-about-content">{stock.info.longBusinessSummary}</div>
+                        <div className="stock-info">
+                            <div className="stock-info-card">
+                                <h3>CEO</h3>
+                                <div>{stock.info.companyOfficers[0].name}</div>
+                            </div>
+                            <div className="stock-info-card">
+                                <h3>Employees</h3>
+                                <div>{stock.info.fullTimeEmployees.toLocaleString()}</div>
+                            </div>
+                            <div className="stock-info-card">
+                                <h3>Headquarters</h3>
+                                <div>{stock.info.city}, {stock.info.country}</div>
+                            </div>
+                            <div className="stock-info-card">
+                            <h3>Industry</h3>
+                            <div>{stock.info.industry}</div>
+                        </div>
+                        <div className="stock-info-card">
+                            <h3>Sector</h3>
+                            <div>{stock.sector}</div>
+                        </div>
+                        </div>
+                    </div>
+                    <div className="stock-statistics-container">
+                        <h2>Key Statistics</h2>
+                        <div className="stock-statistics">
+                            <div className="stock-stat-card">
+                                <h3>Market cap</h3>
+                                <div>{currencyFormat.format(stock.market_cap/1000)}B</div>
+                            </div>
+                            <div className="stock-stat-card">
+                                <h3>Price-Earnings Ratio</h3>
+                                <div>{stock.info.trailingPE}</div>
+                            </div>
+                            <div className="stock-stat-card">
+                                <h3>Dividend Yield</h3>
+                                <div>{stock.info.dividendYield ? (stock.info.dividendYield * 100).toFixed(1) + "%" : "-"}</div>
+                            </div>
+                            <div className="stock-stat-card">
+                                <h3>Avg Volume</h3>
+                                <div>{stock.info.averageVolume}</div>
+                            </div>
+                            <div className="stock-stat-card">
+                                <h3>Daily High</h3>
+                                <div>{currencyFormat.format(stock.info.dayHigh)}</div>
+                            </div>
+                            <div className="stock-stat-card">
+                                <h3>Daily Low</h3>
+                                <div>{currencyFormat.format(stock.info.dayLow)}</div>
+                            </div>
+                            <div className="stock-stat-card">
+                                <h3>Open Price</h3>
+                                <div>{currencyFormat.format(stock.info.open)}</div>
+                            </div>
+                            <div className="stock-stat-card">
+                                <h3>52 Week High</h3>
+                                <div>{currencyFormat.format(stock.info.fiftyTwoWeekHigh)}</div>
+                            </div>
+                            <div className="stock-stat-card">
+                                <h3>52 Week Low</h3>
+                                <div>{currencyFormat.format(stock.info.fiftyTwoWeekLow)}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="stock-actions">
+                    <form className="order-form" onSubmit={previewOrder}>
+                        <div className="order-header">
+                            <h2>Trade {ticker}</h2>
+                            <div>Buying Power:</div>
+                        </div>
+                        <div className="order-types">
+                            <div className={"order-type-button " + (orderType == "Buy" ? "selected" : "")} onClick={()=>setOrderType("Buy")}>Buy</div>
+                            <div className={"order-type-button " + (orderType == "Sell" ? "selected" : "")} onClick={()=>setOrderType("Sell")}>Sell</div>
+                        </div>
+                        <div className="order-quantity">
+                            <div className="order-types">
+                            <div className={"order-type-button " + (quantityType == "Shares" ? "selected" : "")} onClick={()=>setQuantityType("Shares")}>Shares</div>
+                            <div className={"order-type-button " + (quantityType == "Dollars" ? "selected" : "")} onClick={()=>setQuantityType("Dollars")}>Dollars</div>
+                            </div>
+                            <input
+                                type="number"
+                                placeholder={quantityType == "Shares" ? "# of Shares" : "$ Dollars"}
+                                onBlur={() => calcTotal(total)}
+                                onChange={(e) => setQuantity(Number(e.target.value))}
+                            />
+                        </div>
+                        <div className="order-limit">
+                            <div className="order-types">
+                                <div className={"order-type-button " + (orderLimit == "Market" ? "selected" : "")} onClick={()=>setOrderLimit("Market")}>Market</div>
+                                <div className={"order-type-button " + (orderLimit == "Limit" ? "selected" : "")} onClick={()=>setOrderLimit("Limit")}>Limit</div>
+                            </div>
+                            <label>Time in Force<select/></label>
+                            <label>Conditions<select/></label>
+                        </div>
+                        <div className="order-value">
+                            Estimated Value: $ {orderTotal.toFixed(2)}
+                        </div>
+                        <button>Preview Order</button>
+                    </form>
+                    <button>Add to Watchlist</button>
+                </div>
+            </div>
+        )}
+        </>
 
-                    close: [116.019997, 116.610001, 117.910004, 118.989998, 119.110001, 119.75, 119.25, 119.040001, 120, 119.989998, 119.779999, 120, 120.080002, 119.970001, 121.879997, 121.940002, 121.949997, 121.629997, 121.349998, 128.75, 128.529999, 129.080002, 130.289993, 131.529999, 132.039993, 132.419998, 132.119995, 133.289993, 135.020004, 135.509995],
-
-                    decreasing: {line: {color: 'red'}},
-
-                    high: [116.510002, 116.860001, 118.160004, 119.43, 119.379997, 119.93, 119.300003, 119.620003, 120.239998, 120.5, 120.089996, 120.449997, 120.809998, 120.099998, 122.099998, 122.440002, 122.349998, 121.629997, 121.389999, 130.490005, 129.389999, 129.190002, 130.5, 132.089996, 132.220001, 132.449997, 132.940002, 133.820007, 135.089996, 136.270004],
-
-                    increasing: {line: {color: 'green'}},
-
-                    line: {color: 'black'},
-
-                    low: [115.75, 115.809998, 116.470001, 117.940002, 118.300003, 118.599998, 118.209999, 118.809998, 118.220001, 119.709999, 119.370003, 119.730003, 119.769997, 119.5, 120.279999, 121.599998, 121.599998, 120.660004, 120.620003, 127.010002, 127.779999, 128.160004, 128.899994, 130.449997, 131.220001, 131.119995, 132.050003, 132.75, 133.25, 134.619995],
-
-                    open: [115.849998, 115.919998, 116.779999, 117.949997, 118.769997, 118.739998, 118.900002, 119.110001, 118.339996, 120, 119.400002, 120.449997, 120, 119.550003, 120.419998, 121.669998, 122.139999, 120.93, 121.150002, 127.029999, 127.980003, 128.309998, 129.130005, 130.539993, 131.350006, 131.649994, 132.460007, 133.080002, 133.470001, 135.520004],
-
-                    type: 'candlestick',
-                    xaxis: 'x',
-                    yaxis: 'y'
-                  }]}
-            layout={ {width: "2vw", height: "2vh", title: `${ticker}`} }
-        />
-    </>
     )
 }
 

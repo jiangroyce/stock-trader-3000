@@ -1,5 +1,5 @@
-const LOAD_STOCK = 'portfolio/load';
-const CLEAR_STOCKS = 'portfolio/clear-all';
+const LOAD_STOCK = 'stocks/load';
+const CLEAR_STOCKS = 'stocks/clear-all';
 
 const loadStock = (stock) => ({
   type: LOAD_STOCK,
@@ -26,9 +26,9 @@ const initialState = {};
 
 function sessionReducer(state = initialState, action) {
   switch (action.type) {
-    case LOAD_PORTFOLIO:
-      return { ...state, portfolio: action.payload };
-    case CLEAR_PORTFOLIO:
+    case LOAD_STOCK:
+      return { ...state, [action.payload.ticker]: action.payload };
+    case CLEAR_STOCKS:
       return {};
     default:
       return state;

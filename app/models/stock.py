@@ -1,3 +1,4 @@
+import json
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 
 class Stock(db.Model):
@@ -24,4 +25,16 @@ class Stock(db.Model):
             'sector': self.sector,
             "market_cap": self.market_cap,
             "shares_outstanding": self.shares_outstanding
+        }
+
+    def full_details(self):
+        return {
+            'ticker': self.ticker,
+            'name': self.name,
+            'price': self.price,
+            'sector': self.sector,
+            "market_cap": self.market_cap,
+            "shares_outstanding": self.shares_outstanding,
+            "info": json.loads(self.info),
+            "history": json.loads(self.history)
         }

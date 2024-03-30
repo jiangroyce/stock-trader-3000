@@ -12,6 +12,7 @@ function Dashboard() {
     const user = useSelector((state) => state.session.user)
     const portfolio = useSelector((state) => state.portfolio.portfolio)
     const watchlists = useSelector((state) => state.watchlists)
+    document.title = "Stonk Trader 3000"
     useEffect(() => {
         dispatch(fetchPortfolio());
         dispatch(fetchWatchlists());
@@ -20,7 +21,7 @@ function Dashboard() {
 
     return (
         <div className="dashboard">
-            { user ? (
+            { user ? portfolio && (
             <>
                 <div className="dashboard-left">
                     <div className="portfolio-container">
