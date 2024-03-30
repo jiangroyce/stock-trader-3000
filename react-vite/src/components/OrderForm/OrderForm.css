@@ -1,0 +1,22 @@
+.order-types {
+    display: flex;
+}
+
+.order-type-button {
+    width: 50%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    padding: 5%;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.order-type-button:hover {
+    text-decoration: underline;
+}
+
+
+.selected {
+    background-color: darkgray;
+}

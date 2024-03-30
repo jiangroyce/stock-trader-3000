@@ -19,10 +19,11 @@ class Order(db.Model):
 
     def to_dict(self):
         return {
-            'id': self.id,
+            'order_number': self.order_number,
             'portfolio_id': self.portfolio_id,
             'stock_ticker': self.stock_ticker,
             'cost_basis': self.cost_basis,
             "quantity": self.quantity,
+            "placed_on": self.createdAt,
             "stock": self.stock.to_dict()
         }

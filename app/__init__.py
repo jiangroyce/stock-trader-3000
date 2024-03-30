@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, request, session, redirect
+from flask import Flask, request, session, redirect
 from flask_cors import CORS
 from flask_migrate import Migrate
 from flask_wtf.csrf import CSRFProtect, generate_csrf
@@ -10,6 +10,7 @@ from .api.auth_routes import auth_routes
 from .api.portfolio_routes import portfolio_routes
 from .api.watchlist_routes import watchlist_routes
 from .api.stock_routes import stock_routes
+from .api.order_routes import order_routes
 from .seeds import seed_commands
 from .config import Config
 
@@ -34,6 +35,7 @@ app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(portfolio_routes, url_prefix='/api/portfolios')
 app.register_blueprint(watchlist_routes, url_prefix='/api/watchlists')
 app.register_blueprint(stock_routes, url_prefix='/api/stocks')
+app.register_blueprint(order_routes, url_prefix='/api/orders')
 db.init_app(app)
 Migrate(app, db)
 

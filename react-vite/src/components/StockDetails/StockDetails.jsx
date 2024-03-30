@@ -4,22 +4,14 @@ import { useSelector, useDispatch } from "react-redux";
 import Plot from "react-plotly.js";
 import "./StockDetails.css"
 import { fetchStock } from "../../redux/stock";
+import OrderForm from "../OrderForm";
+
 function StockDetails() {
     const { ticker } = useParams();
     const dispatch = useDispatch();
     const currencyFormat = new Intl.NumberFormat("en-US", {style: "currency", currency: "USD"});
     const stock = useSelector((state) => state.stocks)[ticker];
-
     const [isLoaded, setIsLoaded] = useState(false)
-    const [orderType, setOrderType] = useState("Buy");
-    const [quantityType, setQuantityType] = useState("Shares");
-    const [quantity, setQuantity] = useState(0);
-    const [orderLimit, setOrderLimit] = useState("Market");
-    const [orderConditions, setOrderConditions] = useState({});
-    const [orderTotal, setOrderTotal] = useState(0);
-
-    let total = quantityType == "Shares" ? quantity * stock?.price : quantity;
-
     const ref = useRef(null);
     const data = stock?.history;
     const [x, open, high, low, close] = [[],[],[],[],[]];
@@ -30,12 +22,6 @@ function StockDetails() {
         low.push(Number(Low));
         close.push(Number(Close));
     })
-
-    const calcTotal = (total) => setOrderTotal(total)
-    const previewOrder = async (e) => {
-        e.preventDefault();
-
-    }
 
     useEffect(() => {
         const loadData = async () => {
@@ -186,40 +172,7 @@ function StockDetails() {
                     </div>
                 </div>
                 <div className="stock-actions">
-                    <form className="order-form" onSubmit={previewOrder}>
-                        <div className="order-header">
-                            <h2>Trade {ticker}</h2>
-                            <div>Buying Power:</div>
-                        </div>
-                        <div className="order-types">
-                            <div className={"order-type-button " + (orderType == "Buy" ? "selected" : "")} onClick={()=>setOrderType("Buy")}>Buy</div>
-                            <div className={"order-type-button " + (orderType == "Sell" ? "selected" : "")} onClick={()=>setOrderType("Sell")}>Sell</div>
-                        </div>
-                        <div className="order-quantity">
-                            <div className="order-types">
-                            <div className={"order-type-button " + (quantityType == "Shares" ? "selected" : "")} onClick={()=>setQuantityType("Shares")}>Shares</div>
-                            <div className={"order-type-button " + (quantityType == "Dollars" ? "selected" : "")} onClick={()=>setQuantityType("Dollars")}>Dollars</div>
-                            </div>
-                            <input
-                                type="number"
-                                placeholder={quantityType == "Shares" ? "# of Shares" : "$ Dollars"}
-                                onBlur={() => calcTotal(total)}
-                                onChange={(e) => setQuantity(Number(e.target.value))}
-                            />
-                        </div>
-                        <div className="order-limit">
-                            <div className="order-types">
-                                <div className={"order-type-button " + (orderLimit == "Market" ? "selected" : "")} onClick={()=>setOrderLimit("Market")}>Market</div>
-                                <div className={"order-type-button " + (orderLimit == "Limit" ? "selected" : "")} onClick={()=>setOrderLimit("Limit")}>Limit</div>
-                            </div>
-                            <label>Time in Force<select/></label>
-                            <label>Conditions<select/></label>
-                        </div>
-                        <div className="order-value">
-                            Estimated Value: $ {orderTotal.toFixed(2)}
-                        </div>
-                        <button>Preview Order</button>
-                    </form>
+                    <OrderForm stock={stock} />
                     <button>Add to Watchlist</button>
                 </div>
             </div>

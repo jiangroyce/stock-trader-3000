@@ -23,7 +23,7 @@ def seed_orders():
     bobbie3 = Order(
         portfolio_id=3, stock_ticker='GOOG', order_number=3, cost_basis=100.00, quantity=1)
     demo4 = Order(
-        portfolio_id=1, stock_ticker='AAPL', order_number=3, cost_basis=150.00, quantity=-1)
+        portfolio_id=1, stock_ticker='AAPL', order_number=3, cost_basis=150.00, quantity=1)
     db.session.add(demo1)
     db.session.add(marnie1)
     db.session.add(bobbie1)

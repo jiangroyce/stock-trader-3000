@@ -21,7 +21,6 @@ def portfolio():
     for ticker, group in data.groupby("ticker"):
         group["cost"] = group["cost_basis"] * group["quantity"]
         if group["quantity"].sum() == 0:
-            portfolio.cash -= group["cost"].sum()
             continue
         avg_cost = group["cost"].sum() / group["quantity"].sum()
         cost += group["cost"].sum()
@@ -40,3 +39,9 @@ def portfolio():
     totals = pd.DataFrame([totals], columns=response.columns)
     final = pd.concat([response, totals])
     return final.to_json(orient="records")
+
+@portfolio_routes.route("/current/cash")
+@login_required
+def getCash():
+    portfolio = Portfolio.query.get(current_user.id)
+    return jsonify({"purchasing_power": portfolio.cash})
