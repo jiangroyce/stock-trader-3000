@@ -22,14 +22,14 @@ export default function PreviewOrderModal({order, cash}) {
             setErrors(response.errors)
         } else {
             closeModal();
-            window.alert("Order Successfully Placed, redirecting to dashboard")
+            window.alert("Order Successfully Placed, Redirecting to Dashboard")
             navigate("/dashboard")
         }
     }
     return (
         <div className="preview-order">
             <h2>Preview Order</h2>
-            <div>{order.orderType}: {order.quantity} shares of {order.ticker} Stock at {currencyFormat.format(order.price)}</div>
+            <div>{order.orderType}: {order.quantity.toFixed(2)} shares of {order.ticker} Stock at {currencyFormat.format(order.price)}</div>
             <div>Order Total: {currencyFormat.format(order.total)}</div>
             <div>Buying Power: {currencyFormat.format(cash)}</div>
             <div>Buying Power after Order: {currencyFormat.format(cash - Math.abs(order.total))}</div>

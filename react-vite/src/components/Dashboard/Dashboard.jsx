@@ -46,7 +46,7 @@ function Dashboard() {
                                         <th scope="row">{order.ticker == "-" ? order.ticker : (<NavLink to={`/stocks/${order?.ticker}`}>{order.ticker}</NavLink>)}</th>
                                         <td>{order.name}</td>
                                         <td>{order.price? currencyFormat.format(order.price): "-"}</td>
-                                        <td>{order.quantity || "-"}</td>
+                                        <td>{order.quantity.toFixed(2) || "-"}</td>
                                         <td>{order["GL%"] ? currencyFormat.format(order["GL$"]) : "-"}</td>
                                         <td>{order["GL%"] ? (order["GL%"] * 100).toFixed(2) + "%": "-"}</td>
                                         <td>{currencyFormat.format(order.value)}</td>
