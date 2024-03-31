@@ -10,7 +10,7 @@ function OrderForm({stock}) {
     const dispatch = useDispatch();
     const currencyFormat = new Intl.NumberFormat("en-US", {style: "currency", currency: "USD"});
     const buying_power = useSelector((state) => state.portfolio.purchasing_power)
-    const [orderType, setOrderType] = useState("Buy");
+    const [orderType, setOrderType] = useState("");
     const [quantityType, setQuantityType] = useState("Shares");
     const [quantity, setQuantity] = useState(0);
     // const [orderLimit, setOrderLimit] = useState("Market");
@@ -19,19 +19,41 @@ function OrderForm({stock}) {
     const [errors, setErrors] = useState({});
     const [order, setOrder] = useState({});
 
-    let total = quantityType == "Shares" ? quantity * stock?.price : quantity;
-    const calcOrder = (total) => {
+    const calcOrder = (orderType, quantity) => {
+        let total = quantity * stock.price
         setErrors({})
         if (total > buying_power) setErrors({"funds": "Not Enough Funds"})
         const payload = {
             orderType,
             ticker: stock.ticker,
             price: stock.price,
-            quantity: quantityType == "Shares" ? quantity : quantity/stock.price,
-            total: total
+            quantity,
+            total
         }
         setOrderTotal(total);
         setOrder(payload);
+    };
+
+    const calcOrderType = (str) => {
+        setOrderType(str);
+        calcOrder(str, quantity);
+    };
+
+    const calcQuantityType = (q) => {
+        setQuantityType(q);
+        let quant
+        if (q == "Dollars") quant = quantity / stock.price
+        else quant = quantity
+        setQuantity(quant)
+        calcOrder(orderType, quant);
+    };
+
+    const calcQuantity = (q) => {
+        let quant;
+        if (quantityType == "Dollars") quant = q / stock.price;
+        else quant = q;
+        setQuantity(quant);
+        calcOrder(orderType, quant)
     }
 
     const previewOrder = (e) => {
@@ -48,20 +70,21 @@ function OrderForm({stock}) {
                             <div>Buying Power: {buying_power ? currencyFormat.format(buying_power) : "-"}</div>
                         </div>
                         <div className="order-types">
-                            <div className={"order-type-button " + (orderType == "Buy" ? "selected" : "")} onClick={()=>setOrderType("Buy")}>Buy</div>
-                            <div className={"order-type-button " + (orderType == "Sell" ? "selected" : "")} onClick={()=>setOrderType("Sell")}>Sell</div>
+                            <div className={"order-type-button " + (orderType == "Buy" ? "selected" : "")} onClick={()=>calcOrderType("Buy")}>Buy</div>
+                            <div className={"order-type-button " + (orderType == "Sell" ? "selected" : "")} onClick={()=>calcOrderType("Sell")}>Sell</div>
                         </div>
                         <div className="order-quantity">
                             <div className="order-types">
-                            <div className={"order-type-button " + (quantityType == "Shares" ? "selected" : "")} onClick={()=>setQuantityType("Shares")}>Shares</div>
-                            <div className={"order-type-button " + (quantityType == "Dollars" ? "selected" : "")} onClick={()=>setQuantityType("Dollars")}>Dollars</div>
+                            <div className={"order-type-button " + (quantityType == "Shares" ? "selected" : "")} onClick={()=>calcQuantityType("Shares")}>Shares</div>
+                            <div className={"order-type-button " + (quantityType == "Dollars" ? "selected" : "")} onClick={()=>calcQuantityType("Dollars")}>Dollars</div>
                             </div>
+                            <label>
+                            {quantityType == "Shares" ? "# of Shares" : "$ Dollars"}:
                             <input
                                 type="number"
-                                placeholder={quantityType == "Shares" ? "# of Shares" : "$ Dollars"}
-                                onBlur={() => calcOrder(total)}
-                                onChange={(e) => setQuantity(Number(e.target.value))}
+                                onBlur={(e) => calcQuantity(Number(e.target.value))}
                             />
+                            </label>
                         </div>
                         {/* <div className="order-limit">
                             <div className="order-types">
