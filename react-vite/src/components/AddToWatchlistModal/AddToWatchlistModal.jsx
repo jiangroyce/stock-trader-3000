@@ -21,9 +21,6 @@ export default function AddToWatchlistModal({stock}) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // find differences in lists(end) vs checkedLists(beg)
-        const add = [];
-        const remove = [];
         for (let item of lists) if (!checkedLists.includes(item)) {
             const payload = {
                 name: watchlists[item].name,
@@ -42,8 +39,6 @@ export default function AddToWatchlistModal({stock}) {
             const response = await dispatch(deleteFromList(payload));
             if (response?.errors) setErrors(response.errors);
         }
-
-        // remove from no longer in lists
         closeModal();
     };
 
@@ -88,7 +83,7 @@ export default function AddToWatchlistModal({stock}) {
         loadData()
     }, [dispatch, stock.ticker]);
 
-    if (!isLoaded) return <h1>Loading</h1>
+    if (!isLoaded || !lists?.length) return <h1>Loading</h1>
     else return (
         <div className="preview-order">
             <h2>Add {stock.ticker} to Your Lists</h2>
@@ -115,18 +110,19 @@ export default function AddToWatchlistModal({stock}) {
         <button type="submit">Create List</button>
       </form>
             </div>
-            {Object.values(watchlists).map((watchlist, index) => (
-                <div className="watchlist-card" key={index}>
-                    <input type="checkbox"  value={watchlist.list_number} onChange={handleCheck} checked={lists?.includes(watchlist.list_number)}/>
-                    <div className="watchlist-info-card">
-                        <FaLightbulb />
-                        <div className="watchlist-info">
-                            <div className="watchlist-name">{watchlist?.name}</div>
-                            <div className="watchlist-length">{watchlist?.stocks?.length} item(s)</div>
+            {Object.values(watchlists).map((watchlist, index) => {
+                if (index < Object.values(watchlists).length - 1) return (
+                    <div className="watchlist-card" key={index}>
+                        <input type="checkbox"  value={watchlist.list_number} onChange={handleCheck} checked={lists?.includes(watchlist.list_number)}/>
+                        <div className="watchlist-info-card">
+                            <FaLightbulb />
+                            <div className="watchlist-info">
+                                <div className="watchlist-name">{watchlist?.name}</div>
+                                <div className="watchlist-length">{watchlist?.stocks?.length} item(s)</div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            ))}
+            )})}
             <button onClick={handleSubmit}>Save Changes</button>
         </div>
     )
