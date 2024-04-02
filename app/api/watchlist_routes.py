@@ -21,6 +21,12 @@ def watchlists():
             response[watchlist.list_number]["stocks"].append(watchlist.stock.to_dict() if watchlist.stock else None)
     return jsonify(response)
 
+@watchlist_routes.route("/current/<ticker>")
+@login_required
+def getLists(ticker):
+    watchlists = Watchlist.query.filter_by(user_id=current_user.id, stock_ticker=ticker).all()
+    return jsonify([watchlist.list_number for watchlist in watchlists])
+
 @watchlist_routes.route("/new-list", methods=["POST"])
 @login_required
 def newWatchlist():
@@ -61,6 +67,26 @@ def addStock():
         db.session.add(newWatchlist)
         db.session.commit()
         return jsonify({"name": newWatchlist.name, "list_number": newWatchlist.list_number, "stock": newWatchlist.stock.to_dict()})
+    return {'message': 'Bad Request', 'errors': form.errors}, 400
+
+@watchlist_routes.route("/remove-stock", methods=["POST"])
+@login_required
+def removeStock():
+    """
+    Remove stock to a watchlist for current user
+    """
+    form = AddStockForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        user = User.query.get(current_user.id)
+        watchlist = Watchlist.query.filter_by(
+            list_number=form.data["list_number"],
+            stock_ticker=form.data["stock_ticker"],
+            user_id=user.id
+        ).first()
+        db.session.delete(watchlist)
+        db.session.commit()
+        return jsonify({"message": "Successfully Deleted"})
     return {'message': 'Bad Request', 'errors': form.errors}, 400
 
 @watchlist_routes.route("/current/<int:id>")

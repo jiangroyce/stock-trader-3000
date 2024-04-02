@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { createOrder } from "../../redux/order";
 import { fetchCash } from "../../redux/portfolio";
 import OpenModalButton from "../OpenModalButton";
 import PreviewOrderModal from "./PreviewOrderModal";
@@ -54,15 +53,17 @@ function OrderForm({stock}) {
         else quant = q;
         setQuantity(quant);
         calcOrder(orderType, quant)
-    }
+    };
 
     const previewOrder = (e) => {
         e.preventDefault();
         setErrors({})
-    }
+    };
+
     useEffect(() => {
         dispatch(fetchCash());
-    }, [dispatch])
+    }, [dispatch]);
+
     return (
         <form className="order-form" onSubmit={previewOrder}>
                         <div className="order-header">
@@ -75,8 +76,8 @@ function OrderForm({stock}) {
                         </div>
                         <div className="order-quantity">
                             <div className="order-types">
-                            <div className={"order-type-button " + (quantityType == "Shares" ? "selected" : "")} onClick={()=>calcQuantityType("Shares")}>Shares</div>
-                            <div className={"order-type-button " + (quantityType == "Dollars" ? "selected" : "")} onClick={()=>calcQuantityType("Dollars")}>Dollars</div>
+                                <div className={"order-type-button " + (quantityType == "Shares" ? "selected" : "")} onClick={()=>calcQuantityType("Shares")}>Shares</div>
+                                <div className={"order-type-button " + (quantityType == "Dollars" ? "selected" : "")} onClick={()=>calcQuantityType("Dollars")}>Dollars</div>
                             </div>
                             <label>
                             {quantityType == "Shares" ? "# of Shares" : "$ Dollars"}:
@@ -97,7 +98,7 @@ function OrderForm({stock}) {
                         <div className="order-value">
                             Estimated Value: $ {orderTotal?.toFixed(2)}
                         </div>
-                        {errors.funds ? <p>{errors.funds}</p> :(
+                        {errors.funds ? <p>{errors.funds}</p> : (
                         <OpenModalButton
                             buttonText="Preview Order"
                             modalComponent={<PreviewOrderModal order={order} cash={buying_power}/>}

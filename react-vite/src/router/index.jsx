@@ -7,6 +7,7 @@ import Dashboard from '../components/Dashboard';
 import SingleWatchlist from '../components/SingleWatchlist';
 import StockDetails from '../components/StockDetails';
 import SearchBar from '../components/SearchBar';
+import Screener from '../components/Screener';
 
 export const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ export const router = createBrowserRouter([
       {
         path: "search",
         element: <SearchBar />
+      },
+      {
+        path: "screener",
+        element: <Screener />
       }
     ],
   },

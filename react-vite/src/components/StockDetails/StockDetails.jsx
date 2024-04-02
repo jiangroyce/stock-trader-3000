@@ -5,6 +5,8 @@ import Plot from "react-plotly.js";
 import "./StockDetails.css"
 import { fetchStock } from "../../redux/stock";
 import OrderForm from "../OrderForm";
+import OpenModalButton from "../OpenModalButton";
+import AddToWatchlistModal from "../AddToWatchlistModal";
 
 function StockDetails() {
     const { ticker } = useParams();
@@ -173,7 +175,10 @@ function StockDetails() {
                 </div>
                 <div className="stock-actions">
                     <OrderForm stock={stock} />
-                    <button>Add to Watchlist</button>
+                    <OpenModalButton
+                        buttonText="Add to Watchlist"
+                        modalComponent={<AddToWatchlistModal stock={stock} />}
+                    />
                 </div>
             </div>
         )}
