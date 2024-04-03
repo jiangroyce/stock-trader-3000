@@ -1,3 +1,29 @@
-.hidden{
+.create-watchlist {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.hidden {
     display: None;
+}
+
+.watchlist-card {
+    display: flex;
+}
+
+.watchlist-info-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.watchlist-info-card > svg {
+    font-size: xx-large;
+}
+
+.watchlist-info {
+    display: flex;
+    flex-direction: column;
 }

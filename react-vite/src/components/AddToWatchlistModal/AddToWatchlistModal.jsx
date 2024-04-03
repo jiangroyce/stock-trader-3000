@@ -81,7 +81,7 @@ export default function AddToWatchlistModal({stock, checkedLists}) {
     // No checked lists with stock will cause always laoding
     if (!isLoaded || !lists) return <h1>Loading</h1>
     else return (
-        <div className="preview-order">
+        <div className="add-stock-modal">
             <h2>Add {stock.ticker} to Your Lists</h2>
             <div className={"create-watchlist " + (click ? "hidden" : "")} onClick={() => setClick(true)}>
                 <FaPlus />
