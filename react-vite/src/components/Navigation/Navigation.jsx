@@ -1,5 +1,5 @@
 import { NavLink, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import SearchBar from "../SearchBar";
 import ProfileButton from "./ProfileButton";
 import { FaSearch } from "react-icons/fa";
 import "./Navigation.css";
@@ -20,8 +20,7 @@ function Navigation() {
       </li>
 
       <li className="stock-search">
-        <FaSearch />
-        <input type="search" placeholder="Search for stocks"/>
+        <SearchBar />
       </li>
 
       {loggedIn ?

@@ -1,0 +1,33 @@
+.search-results {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    border: 3px solid gray;
+    border-top: 0;
+    width: 500px;
+    background-color: white;
+    z-index: -1;
+}
+.search-results:hover {
+    box-shadow: 0px 0px 3px black;
+    z-index: -1;
+}
+
+.search-bar-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 3px;
+    width: 100%;
+}
+
+.search-bar-container > input {
+    width: 95%;
+    border: none;
+}
+
+.search-bar-container > input:focus {
+    outline: none;
+}

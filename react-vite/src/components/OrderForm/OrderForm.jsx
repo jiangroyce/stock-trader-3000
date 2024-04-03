@@ -11,7 +11,7 @@ function OrderForm({stock}) {
     const buying_power = useSelector((state) => state.portfolio.purchasing_power)
     const [orderType, setOrderType] = useState("");
     const [quantityType, setQuantityType] = useState("Shares");
-    const [quantity, setQuantity] = useState(0);
+    const [quantity, setQuantity] = useState("");
     // const [orderLimit, setOrderLimit] = useState("Market");
     // const [orderConditions, setOrderConditions] = useState({});
     const [orderTotal, setOrderTotal] = useState(0);
@@ -35,23 +35,19 @@ function OrderForm({stock}) {
 
     const calcOrderType = (str) => {
         setOrderType(str);
-        calcOrder(str, quantity);
     };
 
     const calcQuantityType = (q) => {
         setQuantityType(q);
-        let quant
-        if (q == "Dollars") quant = quantity / stock.price
-        else quant = quantity
-        setQuantity(quant)
-        calcOrder(orderType, quant);
+        setQuantity("")
+        calcOrder(orderType, 0);
     };
 
     const calcQuantity = (q) => {
         let quant;
         if (quantityType == "Dollars") quant = q / stock.price;
         else quant = q;
-        setQuantity(quant);
+        setQuantity(q);
         calcOrder(orderType, quant)
     };
 
@@ -83,7 +79,8 @@ function OrderForm({stock}) {
                             {quantityType == "Shares" ? "# of Shares" : "$ Dollars"}:
                             <input
                                 type="number"
-                                onBlur={(e) => calcQuantity(Number(e.target.value))}
+                                value={quantity}
+                                onChange={(e) => calcQuantity(Number(e.target.value))}
                                 required
                             />
                             </label>
@@ -99,13 +96,13 @@ function OrderForm({stock}) {
                         <div className="order-value">
                             Estimated Value: $ {orderTotal?.toFixed(2)}
                         </div>
-                        {errors.funds ? <p>{errors.funds}</p> : (
+                        {errors.funds ? <p>{errors.funds}</p> : orderTotal ? (
                         <OpenModalButton
                             type="submit"
                             buttonText="Preview Order"
                             modalComponent={<PreviewOrderModal order={order} cash={buying_power}/>}
                         />
-                        )}
+                        ) : null}
                     </form>
     )
 }

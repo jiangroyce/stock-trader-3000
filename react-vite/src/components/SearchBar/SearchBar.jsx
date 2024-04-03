@@ -1,38 +1,55 @@
 import "./SearchBar.css"
 import { FaSearch } from "react-icons/fa";
-import { useState } from "react";
-function SearchBar() {
-    const [input, setInput] = useState("");
-    const [results, setResults] = useState([]);
+import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchAllStocks } from "../../redux/stock";
+import { NavLink } from "react-router-dom";
 
-    const fetchData = async (value) => {
-        const response = await fetch("https://jsonplaceholder.typicode.com/users")
-        const data = await response.json()
-        const results = await data.filter(user => {
-            return value && user && user.name && user.name.toLowerCase().includes(value)
-        });
-        setResults(results)
+function SearchBar() {
+    const dispatch = useDispatch();
+    const stocks = useSelector(state => state.stocks.stocks)
+    const [input, setInput] = useState("");
+    const [tickers, setTickers] = useState([]);
+    const [companies, setCompanies] = useState([]);
+
+    const handleTickers = (value) => {
+        const res = stocks?.filter(stock => value && stock && stock.ticker.toLowerCase().startsWith(value.toLowerCase())).slice(0, 5);
+        setTickers(res);
+    };
+
+    const handleCompanies = (value) => {
+        const res = stocks?.filter(stock => value && stock && stock.name.toLowerCase().startsWith(value.toLowerCase())).slice(0, 5);
+        setCompanies(res);
     }
 
     const handleInput = (value) => {
         setInput(value);
-        fetchData(value)
-    }
+        handleTickers(value);
+        handleCompanies(value);
+    };
+
+    useEffect(() => {
+        dispatch(fetchAllStocks());
+    }, [dispatch]);
+
     return (
         <div className="search-bar-container">
-            <div className="input-container">
-                <FaSearch />
-                <input
-                    placeholder="Search Stocks"
-                    value={input}
-                    onChange={(e) => handleInput(e.target.value)}
-                    />
-                </div>
-            <div className="search-results">
-                {results?.map((result, index) => (
-                    <div key={index}>{result.name}</div>
+            <FaSearch />
+            <input
+                placeholder="Search Stocks"
+                value={input}
+                onChange={(e) => handleInput(e.target.value)}
+                />
+            {input && (<div className="search-results">
+                {input && (<h2>Matched Tickers: </h2>)}
+                {tickers?.map((result, index) => (
+                    <NavLink onClick={() => setInput("")} key={index} to={`/stocks/${result.ticker}`}>{result.name} ({result.ticker})</NavLink>
                 ))}
-            </div>
+                {input && (<h2>Matched Names: </h2>)}
+                {companies?.map((result, index) => (
+                    <NavLink onClick={() => setInput("")} key={index} to={`/stocks/${result.ticker}`}>{result.name} ({result.ticker})</NavLink>
+                ))}
+            </div>)}
         </div>
     )
 }

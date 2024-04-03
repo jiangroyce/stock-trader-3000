@@ -13,3 +13,12 @@ def getStock(ticker):
     """
     stock = Stock.query.get(ticker)
     return jsonify(stock.full_details())
+
+@stock_routes.route("/all")
+@login_required
+def getAllStock():
+    """
+    Get All Stocks
+    """
+    stocks = Stock.query.all()
+    return jsonify([stock.to_dict() for stock in stocks])

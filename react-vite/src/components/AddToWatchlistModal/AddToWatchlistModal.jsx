@@ -1,22 +1,18 @@
 import { useModal } from "../../context/Modal";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { fetchWatchlists, createWatchlist, addToList, fetchListsWStocks, deleteFromList } from "../../redux/watchlist";
+import { fetchWatchlists, createWatchlist, addToList, deleteFromList } from "../../redux/watchlist";
 import { FaLightbulb, FaPlus } from "react-icons/fa";
-import "./AddToWatchlistModal.css";
 import { useEffect, useState } from "react";
+import "./AddToWatchlistModal.css";
 
-export default function AddToWatchlistModal({stock}) {
-    const currencyFormat = new Intl.NumberFormat("en-US", {style: "currency", currency: "USD"});
+export default function AddToWatchlistModal({stock, checkedLists}) {
     const dispatch = useDispatch();
-    const navigate = useNavigate();
     const [click, setClick] = useState(false);
     const [name, setName] = useState("");
     const [errors, setErrors] = useState({});
     const { closeModal } = useModal();
     const watchlists = useSelector(state => state.watchlists);
-    const checkedLists = useSelector(state => state.watchlists.lists);
-    const [lists, setLists] = useState(checkedLists);
+    const [lists, setLists] = useState(checkedLists || null);
     const [isLoaded, setIsLoaded] = useState(false);
 
     const handleSubmit = async (e) => {
@@ -77,13 +73,13 @@ export default function AddToWatchlistModal({stock}) {
     useEffect(() => {
         const loadData = async () => {
             await dispatch(fetchWatchlists())
-            await dispatch(fetchListsWStocks(stock.ticker))
             setIsLoaded(true)
         }
         loadData()
-    }, [dispatch, stock.ticker]);
+    }, [dispatch]);
 
-    if (!isLoaded || !checkedLists.length) return <h1>Loading</h1>
+    // No checked lists with stock will cause always laoding
+    if (!isLoaded || !lists) return <h1>Loading</h1>
     else return (
         <div className="preview-order">
             <h2>Add {stock.ticker} to Your Lists</h2>

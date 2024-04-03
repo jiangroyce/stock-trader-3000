@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Plot from "react-plotly.js";
 import "./StockDetails.css"
 import { fetchStock } from "../../redux/stock";
+import { fetchListsWStocks } from "../../redux/watchlist";
 import OrderForm from "../OrderForm";
 import OpenModalButton from "../OpenModalButton";
 import AddToWatchlistModal from "../AddToWatchlistModal";
@@ -13,6 +14,7 @@ function StockDetails() {
     const dispatch = useDispatch();
     const currencyFormat = new Intl.NumberFormat("en-US", {style: "currency", currency: "USD"});
     const stock = useSelector((state) => state.stocks)[ticker];
+    const checkedLists = useSelector(state => state.watchlists.lists);
     const [isLoaded, setIsLoaded] = useState(false)
     const ref = useRef(null);
     const data = stock?.history;
@@ -27,7 +29,8 @@ function StockDetails() {
 
     useEffect(() => {
         const loadData = async () => {
-            await dispatch(fetchStock(ticker))
+            await dispatch(fetchStock(ticker));
+            await dispatch(fetchListsWStocks(ticker));
             setIsLoaded(true)
         }
         loadData();
@@ -115,7 +118,7 @@ function StockDetails() {
                             </div>
                             <div className="stock-info-card">
                                 <h3>Employees</h3>
-                                <div>{stock.info.fullTimeEmployees.toLocaleString()}</div>
+                                <div>{stock.info.fullTimeEmployees?.toLocaleString()}</div>
                             </div>
                             <div className="stock-info-card">
                                 <h3>Headquarters</h3>
@@ -177,7 +180,7 @@ function StockDetails() {
                     <OrderForm stock={stock} />
                     <OpenModalButton
                         buttonText="Add to Watchlist"
-                        modalComponent={<AddToWatchlistModal stock={stock} />}
+                        modalComponent={<AddToWatchlistModal stock={stock} checkedLists={checkedLists}/>}
                     />
                 </div>
             </div>
