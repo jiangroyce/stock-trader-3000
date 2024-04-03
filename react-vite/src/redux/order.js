@@ -43,7 +43,7 @@ const initialState = {};
 function orderReducer(state = initialState, action) {
     switch (action.type) {
         case LOAD_ORDERS:
-          return {...action.payload};
+          return {...state, orders: action.payload.orders};
         case ADD_ORDER:
           return { ...state, [action.payload.order_number]: action.payload};
         default:

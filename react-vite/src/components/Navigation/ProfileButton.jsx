@@ -49,12 +49,10 @@ function ProfileButton() {
           {user && (
             <>
               <h2>{user.name}</h2>
-              <li><NavLink to="/account">Account</NavLink></li>
-              <li><NavLink to="/trade">Trade</NavLink></li>
-              <li><NavLink to="/transfers">Transfers</NavLink></li>
-              <li><NavLink to="/watchlists">Watchlists</NavLink></li>
-              <li><NavLink to="/strategies">Strategies</NavLink></li>
-              <li><NavLink to="/history">History</NavLink></li>
+              <li><NavLink to="/account/summary">Account</NavLink></li>
+              <li><NavLink to="/account/transfers">Transfers</NavLink></li>
+              <li><NavLink to="/account/strategies">Strategies</NavLink></li>
+              <li><NavLink to="/account/history">History</NavLink></li>
               <li><button onClick={logout}>Log Out</button></li>
             </>
           )}

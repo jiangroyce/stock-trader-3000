@@ -8,6 +8,11 @@ import SingleWatchlist from '../components/SingleWatchlist';
 import StockDetails from '../components/StockDetails';
 import SearchBar from '../components/SearchBar';
 import Screener from '../components/Screener';
+import Account from '../components/Account';
+import AccountSummary from '../components/AccountSummary';
+import Trade from '../components/Trade';
+import Transfers from '../components/Transfers';
+import OrderHistory from '../components/OrderHistory';
 
 export const router = createBrowserRouter([
   {
@@ -44,6 +49,28 @@ export const router = createBrowserRouter([
       {
         path: "screener",
         element: <Screener />
+      },
+      {
+        path: "account",
+        element: <Account />,
+        children: [
+          {
+            path: "summary",
+            element: <AccountSummary />
+          },
+          {
+            path: "transfers",
+            element: <Transfers />
+          },
+          {
+            path: "strategies",
+            element: <h1>strategies</h1>
+          },
+          {
+            path: "history",
+            element: <OrderHistory />
+          },
+        ]
       }
     ],
   },

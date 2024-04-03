@@ -83,7 +83,7 @@ export default function AddToWatchlistModal({stock}) {
         loadData()
     }, [dispatch, stock.ticker]);
 
-    if (!isLoaded || !lists?.length) return <h1>Loading</h1>
+    if (!isLoaded || !checkedLists.length) return <h1>Loading</h1>
     else return (
         <div className="preview-order">
             <h2>Add {stock.ticker} to Your Lists</h2>

@@ -1,0 +1,14 @@
+.active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+li.account-navbar-item:has(> a.active) {
+    border-bottom: 3px solid green;
+}
+
+.account-navbar {
+    display: flex;
+    width: 50%;
+    justify-content: space-evenly;
+}

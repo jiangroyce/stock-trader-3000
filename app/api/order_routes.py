@@ -39,4 +39,4 @@ def place_order():
 def get_orders():
     orders = Order.query.filter_by(portfolio_id=current_user.id).all()
     response = sorted([order.to_dict() for order in orders], key=lambda d: d["order_number"], reverse=True)
-    return jsonify(response)
+    return jsonify({"orders": response})

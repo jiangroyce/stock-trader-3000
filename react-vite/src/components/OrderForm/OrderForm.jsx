@@ -84,6 +84,7 @@ function OrderForm({stock}) {
                             <input
                                 type="number"
                                 onBlur={(e) => calcQuantity(Number(e.target.value))}
+                                required
                             />
                             </label>
                         </div>
@@ -100,6 +101,7 @@ function OrderForm({stock}) {
                         </div>
                         {errors.funds ? <p>{errors.funds}</p> : (
                         <OpenModalButton
+                            type="submit"
                             buttonText="Preview Order"
                             modalComponent={<PreviewOrderModal order={order} cash={buying_power}/>}
                         />

@@ -102,7 +102,7 @@ def getList(id):
             response[watchlist.list_number] = {"name": watchlist.name, "list_number": watchlist.list_number, "stocks": [watchlist.stock.to_dict()] if watchlist.stock else []}
         else:
             response[watchlist.list_number]["stocks"].append(watchlist.stock.to_dict() if watchlist.stock else None)
-    return jsonify(response)
+    return jsonify(response[id])
 
 @watchlist_routes.route("/current/<int:id>", methods=["PUT"])
 @login_required
