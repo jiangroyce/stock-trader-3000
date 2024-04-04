@@ -17,3 +17,18 @@
     list-style: none;
     gap: 5px;
   }
+
+.watchlists-container {
+    width: 275px;
+}
+
+.watchlists-container > * {
+    font-size: large;
+}
+
+.watchlist-stock {
+    height: 60px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+}

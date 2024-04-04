@@ -1,6 +1,6 @@
 const LOAD_STOCK = 'stocks/load';
 const LOAD_ALL_STOCKS = 'stocks/loadAll';
-const CLEAR_STOCKS = 'stocks/clear-all';
+const CLEAR_STOCKS = 'stocks/clearAll';
 
 const loadStock = (stock) => ({
   type: LOAD_STOCK,

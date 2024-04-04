@@ -31,7 +31,9 @@ function WatchlistCard({watchlist}) {
             {open && (<div className="watchlist-info">
                 {watchlist.stocks?.map((stock, index) => (
                     <div className="watchlist-stock" key={index}>
-                        {stock?.ticker} | {stock?.name} | {currencyFormat.format(stock?.price)}
+                        <div>{stock?.ticker}</div>
+                        <div>{stock?.name}</div>
+                        <div>{currencyFormat.format(stock?.price)}</div>
                     </div>
                 ))}
             </div>)}

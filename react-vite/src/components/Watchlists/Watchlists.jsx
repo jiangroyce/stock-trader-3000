@@ -13,8 +13,8 @@ function Watchlists({watchlists}) {
                     modalComponent={<CreateWatchlistModal />}
                 />
             </div>
-            {Object.values(watchlists)?.map((watchlist, index) => {
-                if (index < Object.values(watchlists).length - 1) return (<WatchlistCard watchlist={watchlist} key={index} />)})
+            {Object.entries(watchlists)?.map(([key, watchlist], index) => {
+                if (key != "lists") return (<WatchlistCard watchlist={watchlist} key={index} />)})
             }
         </div>
     )
