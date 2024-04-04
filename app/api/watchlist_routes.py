@@ -13,6 +13,8 @@ def watchlists():
     Get all watchlists of current user
     """
     watchlists = Watchlist.query.filter_by(user_id=current_user.id).all()
+    defaults = Watchlist.query.filter_by(user_id=1).all()
+    watchlists.extend(defaults)
     response = {}
     for watchlist in watchlists:
         if watchlist.list_number not in response:
@@ -132,6 +134,8 @@ def deleteList(id):
     Delete watchlist for current user
     """
     watchlists = Watchlist.query.filter_by(user_id=current_user.id, list_number=id).all()
+    if not watchlists:
+        return jsonify({'message': 'Bad Request', 'errors': {"404": "Watchlist Not Found"}}), 404
     for watchlist in watchlists:
         db.session.delete(watchlist)
     db.session.commit()

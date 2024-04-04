@@ -1,6 +1,6 @@
 from .db import db
-from .user import User
 from .stock import Stock
+from .user import User
 from .portfolio import Portfolio
 from .order import Order
 from .screener import Screener

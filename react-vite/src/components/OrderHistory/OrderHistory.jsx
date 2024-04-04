@@ -27,6 +27,7 @@ export default function OrderHistory() {
                     <th scope="col">Total Cost</th>
                 </tr>
             </thead>
+            <tbody>
             {orders?.map((order, index) => (
             <tr key={index}>
                 <th scope="row">{order.order_number}</th>
@@ -37,6 +38,7 @@ export default function OrderHistory() {
                 <td>{order.cost_basis * order.quantity}</td>
             </tr>
             ))}
+            </tbody>
         </table>
         </>
 

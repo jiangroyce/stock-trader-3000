@@ -32,7 +32,7 @@ function LoginFormModal() {
     e.preventDefault();
     setErrors({});
     const demoUser = {};
-    demoUser.email = "demo@aa.io";
+    demoUser.email = "marnie@aa.io";
     demoUser.password = "password";
     return dispatch(thunkLogin(demoUser))
       .then(closeModal)

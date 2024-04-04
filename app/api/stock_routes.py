@@ -22,3 +22,12 @@ def getAllStock():
     """
     stocks = Stock.query.all()
     return jsonify([stock.to_dict() for stock in stocks])
+
+@stock_routes.route("/sells")
+@login_required
+def getSells():
+    """
+    Get Details for given Stock
+    """
+    stocks = Stock.query.filter_by(recommendation="buy").all()
+    return jsonify([stock.full_details() for stock in stocks])

@@ -31,7 +31,7 @@ function WatchlistCard({watchlist}) {
             {open && (<div className="watchlist-info">
                 {watchlist.stocks?.map((stock, index) => (
                     <div className="watchlist-stock" key={index}>
-                        <div>{stock?.ticker}</div>
+                        <NavLink to={`/stocks/${stock?.ticker}`}>{stock?.ticker}</NavLink>
                         <div>{stock?.name}</div>
                         <div>{currencyFormat.format(stock?.price)}</div>
                     </div>

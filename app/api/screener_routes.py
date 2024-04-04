@@ -12,4 +12,6 @@ def getScreeners():
     Get All Screeners of Current user
     """
     screeners = Screener.query.filter_by(user_id=current_user.id).all()
+    defaults = Screener.query.filter_by(user_id=1).all()
+    screeners.extend(defaults)
     return jsonify([screener.to_dict() for screener in screeners])

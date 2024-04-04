@@ -3,12 +3,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchCash } from "../../redux/portfolio";
 import OpenModalButton from "../OpenModalButton";
 import PreviewOrderModal from "./PreviewOrderModal";
+import DepositModal from "../Transfers/DepositModal";
 import "./OrderForm.css";
 
-function OrderForm({stock}) {
+function OrderForm({stock, ownedShares}) {
     const dispatch = useDispatch();
     const currencyFormat = new Intl.NumberFormat("en-US", {style: "currency", currency: "USD"});
-    const buying_power = useSelector((state) => state.portfolio.purchasing_power)
+    const buying_power = useSelector((state) => state.portfolio.purchasing_power);
     const [orderType, setOrderType] = useState("");
     const [quantityType, setQuantityType] = useState("Shares");
     const [quantity, setQuantity] = useState("");
@@ -22,6 +23,7 @@ function OrderForm({stock}) {
         let total = quantity * stock.price
         setErrors({})
         if (total > buying_power) setErrors({"funds": "Not Enough Funds"})
+        if (orderType == "Sell" && ownedShares - quantity < 0) setErrors({"shares": "Not Enough Shares"})
         const payload = {
             orderType,
             ticker: stock.ticker,
@@ -65,6 +67,7 @@ function OrderForm({stock}) {
                         <div className="order-header">
                             <h2>Trade {stock?.ticker}</h2>
                             <div>Buying Power: {buying_power ? currencyFormat.format(buying_power) : "-"}</div>
+                            <div>Shares Owned: {ownedShares}</div>
                         </div>
                         <div className="order-types">
                             <div className={"order-type-button " + (orderType == "Buy" ? "selected" : "")} onClick={()=>calcOrderType("Buy")}>Buy</div>
@@ -96,12 +99,17 @@ function OrderForm({stock}) {
                         <div className="order-value">
                             Estimated Value: $ {orderTotal?.toFixed(2)}
                         </div>
-                        {errors.funds ? <p>{errors.funds}</p> : orderTotal ? (
-                        <OpenModalButton
-                            type="submit"
-                            buttonText="Preview Order"
-                            modalComponent={<PreviewOrderModal order={order} cash={buying_power}/>}
-                        />
+                        {Object.keys(errors)?.length ?
+                        <div className="error-funds">
+                            {Object.values(errors).map((error, index) => <p key={index}>{error}</p>)}
+                            {errors.funds && <OpenModalButton buttonText="Deposit" modalComponent={<DepositModal />}/>}
+                        </div> :
+                            orderTotal && orderType ? (
+                            <OpenModalButton
+                                type="submit"
+                                buttonText="Preview Order"
+                                modalComponent={<PreviewOrderModal order={order} cash={buying_power}/>}
+                            />
                         ) : null}
                     </form>
     )

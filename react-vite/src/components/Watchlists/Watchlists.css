@@ -20,6 +20,7 @@
 
 .watchlists-container {
     width: 275px;
+    max-width: 275px;
 }
 
 .watchlists-container > * {
@@ -31,4 +32,8 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2px;
+}
+
+.watchlist-title > a{
+    overflow: hidden;
 }

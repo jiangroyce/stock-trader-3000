@@ -106,11 +106,11 @@ export const deleteWatchlist = (list_number) => async (dispatch) => {
     method: "DELETE",
     headers: { "Content-Type": "application/json" }
   });
+  const data = response.json()
   if (response.ok) {
-    const data = response.json()
     dispatch(removeWatchlist(list_number))
-    return data
   }
+  return data
 }
 
 export const fetchWatchlist = (listId) => async (dispatch) => {

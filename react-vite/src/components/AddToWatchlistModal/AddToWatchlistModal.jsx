@@ -78,7 +78,6 @@ export default function AddToWatchlistModal({stock, checkedLists}) {
         loadData()
     }, [dispatch]);
 
-    // No checked lists with stock will cause always laoding
     if (!isLoaded || !lists) return <h1>Loading</h1>
     else return (
         <div className="add-stock-modal">
@@ -106,8 +105,9 @@ export default function AddToWatchlistModal({stock, checkedLists}) {
         <button type="submit">Create List</button>
       </form>
             </div>
-            {Object.values(watchlists).map((watchlist, index) => {
-                if (index < Object.values(watchlists).length - 1) return (
+            {/* change to object.entries check key if number and less than 20000 */}
+            {Object.entries(watchlists).map(([id, watchlist], index) => {
+                if (id < 20000) return (
                     <div className="watchlist-card" key={index}>
                         <input type="checkbox"  value={watchlist.list_number} onChange={handleCheck} checked={lists?.includes(watchlist.list_number)}/>
                         <div className="watchlist-info-card">

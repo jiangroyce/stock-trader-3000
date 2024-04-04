@@ -28,6 +28,7 @@ wtforms = "==3.0.1"
 pandas = "*"
 numpy = "*"
 yfinance = {extras = ["nospam", "repair"], version = "*"}
+email-validator = "*"
 
 [dev-packages]
 

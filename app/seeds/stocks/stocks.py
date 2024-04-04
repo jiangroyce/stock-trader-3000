@@ -7,38 +7,25 @@ import json
 
 # Adds a demo user, you can add other stocks here if you want
 def seed_stocks():
+    # aapl = yf.Ticker("AAPL")
+    # infotest = aapl.info
+    # historytest = aapl.history(period="2y").reset_index()
+    # stonktest = Stock(ticker="AAPL", name=infotest["shortName"], info=infotest, history=historytest)
+    # db.session.add(stonktest)
+    # db.session.commit()
     data = pd.read_csv("app/seeds/stocks/sp-500-index-03-26-2024.csv")
     tickers = data.loc[:,"Symbol"].to_list()
     stocks = yf.Tickers(" ".join(tickers))
-    # infotest = stocks.tickers["AAPL"].info
-    # stonktest = Stock(ticker="AAPL", name=infotest["shortName"], price=infotest["currentPrice"], sector=infotest["sector"], market_cap=infotest["marketCap"]/1000000, shares_outstanding=infotest["sharesOutstanding"]/1000000, data=json.dumps(infotest))
     for ticker in tickers:
         try:
             info = stocks.tickers[ticker].info
             history = stocks.tickers[ticker].history(period="2y").reset_index()
             history["Date"] = history["Date"].dt.strftime("%Y-%m-%d")
-            dbinstance = Stock(ticker=ticker, name=info["shortName"], price=info["currentPrice"], sector=info["sector"], market_cap=info["marketCap"]/1000000, shares_outstanding=info["sharesOutstanding"]/1000000, info=json.dumps(info), history=history.reset_index().to_json(orient="records"))
+            dbinstance = Stock(ticker=ticker, name=info["shortName"], info=info, history=history)
             db.session.add(dbinstance)
             db.session.commit()
         except:
             continue
-    # for index, row in tickers.iterrows():
-    #     ticker = row["Symbol"]
-    #     info = yf.Tickers
-    #     stock = Stock(ticker=row["Symbol"], name=row["Name"], price=row["Last"])
-    #     db.session.add(stock)
-    # db.session.commit()
-    # aapl = Stock(
-    #     ticker='AAPL', name='Apple Inc.', price=169.71, sector="Technology", market_cap=2620644.917248, shares_outstanding=15441899.520)
-    # msft = Stock(
-    #     ticker='MSFT', name='Microsoft Inc.', price=421.65, sector="Technology", market_cap=3133044.948992, shares_outstanding=7430439.936)
-    # goog = Stock(
-    #     ticker='GOOG', name='Alphabet Inc.', price=151.70, sector="Technology", market_cap=1878759.047168, shares_outstanding=5671000.064)
-
-    # db.session.add(aapl)
-    # db.session.add(msft)
-    # db.session.add(goog)
-    # db.session.commit()
 
 
 # Uses a raw SQL query to TRUNCATE or DELETE the stocks table. SQLAlchemy doesn't

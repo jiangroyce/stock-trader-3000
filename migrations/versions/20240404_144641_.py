@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: bb510385ff67
+Revision ID: ecd8f202ccaf
 Revises: 
-Create Date: 2024-03-28 09:49:04.390578
+Create Date: 2024-04-04 14:46:41.454519
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'bb510385ff67'
+revision = 'ecd8f202ccaf'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -22,11 +22,28 @@ def upgrade():
     sa.Column('ticker', sa.String(), nullable=False),
     sa.Column('name', sa.String(), nullable=False),
     sa.Column('price', sa.Float(), nullable=True),
-    sa.Column('sector', sa.String(), nullable=True),
     sa.Column('market_cap', sa.Float(), nullable=True),
     sa.Column('shares_outstanding', sa.Float(), nullable=True),
-    sa.Column('info', sa.JSON(), nullable=True),
-    sa.Column('history', sa.JSON(), nullable=True),
+    sa.Column('past_year_return', sa.Float(), nullable=True),
+    sa.Column('past_outperformance', sa.Float(), nullable=True),
+    sa.Column('trailing_pe', sa.Float(), nullable=True),
+    sa.Column('forward_pe', sa.Float(), nullable=True),
+    sa.Column('pb', sa.Float(), nullable=True),
+    sa.Column('dividend_yield', sa.Float(), nullable=True),
+    sa.Column('recommendation', sa.String(), nullable=True),
+    sa.Column('target_mean', sa.Float(), nullable=True),
+    sa.Column('short_interest', sa.Float(), nullable=True),
+    sa.Column('fifty_two_high', sa.Float(), nullable=True),
+    sa.Column('distance_to_52_high', sa.Float(), nullable=True),
+    sa.Column('fifty_two_low', sa.Float(), nullable=True),
+    sa.Column('distance_to_52_low', sa.Float(), nullable=True),
+    sa.Column('industry', sa.String(), nullable=True),
+    sa.Column('sector', sa.String(), nullable=True),
+    sa.Column('past_day_return', sa.Float(), nullable=True),
+    sa.Column('past_month_return', sa.Float(), nullable=True),
+    sa.Column('avg_volume', sa.Float(), nullable=True),
+    sa.Column('_info', sa.JSON(), nullable=True),
+    sa.Column('_history', sa.JSON(), nullable=True),
     sa.PrimaryKeyConstraint('ticker')
     )
     op.create_table('users',

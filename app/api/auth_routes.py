@@ -59,7 +59,7 @@ def sign_up():
         db.session.add(user)
         db.session.commit()
         login_user(user)
-        portfolio = Portfolio(id=user.id, user_id=user.id)
+        portfolio = Portfolio(id=user.id, user_id=user.id, cash=0)
         db.session.add(portfolio)
         db.session.commit()
         return user.to_dict()

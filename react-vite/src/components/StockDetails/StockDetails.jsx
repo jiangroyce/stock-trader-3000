@@ -5,6 +5,7 @@ import Plot from "react-plotly.js";
 import "./StockDetails.css"
 import { fetchStock } from "../../redux/stock";
 import { fetchListsWStocks } from "../../redux/watchlist";
+import { fetchShares } from "../../redux/portfolio";
 import OrderForm from "../OrderForm";
 import OpenModalButton from "../OpenModalButton";
 import AddToWatchlistModal from "../AddToWatchlistModal";
@@ -15,6 +16,8 @@ function StockDetails() {
     const currencyFormat = new Intl.NumberFormat("en-US", {style: "currency", currency: "USD"});
     const stock = useSelector((state) => state.stocks)[ticker];
     const checkedLists = useSelector(state => state.watchlists.lists);
+    const portfolio = useSelector(state => state.portfolio);
+    const ownedShares = portfolio[ticker];
     const [isLoaded, setIsLoaded] = useState(false)
     const ref = useRef(null);
     const data = stock?.history;
@@ -31,6 +34,7 @@ function StockDetails() {
         const loadData = async () => {
             await dispatch(fetchStock(ticker));
             await dispatch(fetchListsWStocks(ticker));
+            await dispatch(fetchShares(ticker));
             setIsLoaded(true)
         }
         loadData();
@@ -177,7 +181,7 @@ function StockDetails() {
                     </div>
                 </div>
                 <div className="stock-actions">
-                    <OrderForm stock={stock} />
+                    <OrderForm stock={stock} ownedShares={ownedShares} />
                     <OpenModalButton
                         buttonText="Add to Watchlist"
                         modalComponent={<AddToWatchlistModal stock={stock} checkedLists={checkedLists}/>}
