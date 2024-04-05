@@ -4,6 +4,14 @@
     --glaucous: #5F84BAff;
     --lapis-lazuli: #325DA2ff;
     --yale-blue: #1B3B7Eff;
-    --pale-dogwood: #D2B6A9ff;
+    --pale-dogwood: rgb(255, 255, 255);
     --raisin-black: #2B272Bff;
 }
+
+* {
+    background-color: var(--yale-blue);
+    color: var(--pale-dogwood);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* mediaquery width 1100 */

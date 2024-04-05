@@ -5,6 +5,7 @@ import { fetchWatchlists } from "../../redux/watchlist";
 import { NavLink, Navigate } from "react-router-dom";
 import "./Dashboard.css"
 import Watchlists from "../Watchlists";
+import { fetchAllScreeners } from "../../redux/screener";
 
 
 function Dashboard() {
@@ -16,6 +17,7 @@ function Dashboard() {
     useEffect(() => {
         dispatch(fetchPortfolio());
         dispatch(fetchWatchlists());
+        dispatch(fetchAllScreeners());
     }, [dispatch])
     const currencyFormat = new Intl.NumberFormat("en-US", {style: "currency", currency: "USD"})
 
