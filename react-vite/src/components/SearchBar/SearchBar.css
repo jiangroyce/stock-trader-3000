@@ -76,6 +76,7 @@
     border: 1px solid var(--pale-dogwood);
     font-size: x-large;
     background-color: var(--lapis-lazuli);
+    color: var(--pale-dogwood);
 }
 
 .search-bar > * {

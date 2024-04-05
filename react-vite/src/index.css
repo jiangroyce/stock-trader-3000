@@ -9,9 +9,15 @@
 }
 
 * {
-    background-color: var(--yale-blue);
-    color: var(--pale-dogwood);
     font-family: Arial, Helvetica, sans-serif;
+}
+
+* > a:visited {
+    color: black;
+}
+
+* > a {
+    color: black;
 }
 
 /* mediaquery width 1100 */
