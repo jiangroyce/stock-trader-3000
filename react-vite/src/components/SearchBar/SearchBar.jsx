@@ -1,5 +1,5 @@
 import "./SearchBar.css"
-import { FaSearch } from "react-icons/fa";
+import { FaSearch, FaPlus } from "react-icons/fa";
 import { useEffect, useState, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchAllStocks } from "../../redux/stock";
@@ -57,8 +57,8 @@ function SearchBar() {
     }, [dispatch]);
 
     return (
-        <div className="search-bar-container" ref={searchRef}>
-            <div className="search-bar">
+        <div className="search-container">
+            <div className="search-bar" ref={searchRef}>
                 <FaSearch />
                 <input
                     onFocus={() => setOpen(true)}
@@ -69,16 +69,25 @@ function SearchBar() {
             </div>
             {!input ? (open && (<div className="search-results">
                 <h2>Stock Screeners</h2>
-                {screeners?.map((screener, index) => (<NavLink onClick={handleExit} key={index} to={`/screener?id=${screener.id}`}>{screener.name}</NavLink>))}
+                <div className="results-container">
+                    <NavLink onClick={handleExit} to={`/screener`}><FaPlus />Custom Screener</NavLink>
+                    {screeners?.map((screener, index) => (<NavLink onClick={handleExit} key={index} to={`/screener?id=${screener.id}`}>{screener.name}</NavLink>))}
+                </div>
             </div>)) :
             (open && (<div className="search-results">
                 {input && (<h2>Matched Tickers: </h2>)}
                 {tickers?.map((result, index) => (
-                    <NavLink onClick={handleExit} key={index} to={`/stocks/${result.ticker}`}>{result.name} ({result.ticker})</NavLink>
+                    <NavLink onClick={handleExit} key={index} to={`/stocks/${result.ticker}`}>
+                        <div>{result.ticker}</div>
+                        <div>{result.name}</div>
+                    </NavLink>
                 ))}
                 {input && (<h2>Matched Names: </h2>)}
                 {companies?.map((result, index) => (
-                    <NavLink onClick={handleExit} key={index} to={`/stocks/${result.ticker}`}>{result.name} ({result.ticker})</NavLink>
+                    <NavLink onClick={handleExit} key={index} to={`/stocks/${result.ticker}`}>
+                        <div>{result.ticker}</div>
+                        <div>{result.name}</div>
+                    </NavLink>
                 ))}
             </div>))}
         </div>

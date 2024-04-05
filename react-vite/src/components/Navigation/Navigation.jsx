@@ -9,8 +9,6 @@ import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 
 function Navigation() {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
   const loggedIn = useSelector((state) => state.session.user);
 
   return (
@@ -19,27 +17,28 @@ function Navigation() {
         <NavLink to="/"><h1>Stonk Trader 3000</h1></NavLink>
       </li>
 
-      <li className="stock-search">
-        <SearchBar />
-      </li>
-
       {loggedIn ?
         (
+          <>
+          <SearchBar />
           <li>
             <ProfileButton />
           </li>
+          </>
         )  :
         (
-          <>
+          <div className="logged-out">
             <OpenModalMenuItem
+              className="log-in"
               itemText="Log In"
               modalComponent={<LoginFormModal />}
             />
             <OpenModalMenuItem
+              className="log-out"
               itemText="Sign Up"
               modalComponent={<SignupFormModal />}
             />
-          </>
+          </div>
         )
       }
 

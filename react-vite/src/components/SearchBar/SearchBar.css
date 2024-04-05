@@ -2,38 +2,97 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 70px;
-    border: 3px solid gray;
+    top: 60px;
+    border: 1px solid var(--pale-dogwood);
     border-top: 0;
-    width: 500px;
-    background-color: white;
-}
-.search-results:hover {
-    box-shadow: 0px 0px 3px black;
+    width: 450px;
+    box-sizing: border-box;
+    padding: 10px;
+    background-color: var(--lapis-lazuli);
 }
 
-.search-bar-container {
+.search-results > * {
+    background-color: var(--lapis-lazuli);
+}
+
+.search-results > h2 {
+    font-size: medium;
+    opacity: 0.5;
+}
+
+.search-results > a {
+    text-decoration: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+    align-items: center;
+    height: 20px;
+}
+.search-results > a > div {
+    text-align: left;
+    height: 100%;
+    overflow: hidden;
+}
+.search-results > a:hover {
+    opacity: 0.7;
+}
+
+.results-container {
+    padding: 5px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+}
+
+.results-container > a {
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
-    width: 100%;
+    align-items: center;
+    text-align: center;
+    border: 1px solid var(--pale-dogwood);
+    border-radius: 24px;
+    padding: 8px 16px;
+    gap: 5px;
+    text-decoration: none;
+    background-color: var(--lapis-lazuli);
+}
+.results-container > a > * {
+    background-color: var(--lapis-lazuli);
+}
+
+.results-container > a:hover {
+    opacity: 0.7;
 }
 .search-bar {
+    position: relative;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     gap: 10px;
-    padding: 3px;
-    width: 100%;
+    padding: 10px;
+    width: 450px;
+    height: 40px;
     box-sizing: border-box;
+    border: 1px solid var(--pale-dogwood);
+    font-size: x-large;
+    background-color: var(--lapis-lazuli);
+    color: var(--pale-dogwood);
+}
+
+.search-bar > * {
+    background-color: var(--lapis-lazuli);
+}
+
+.search-bar:hover {
+    opacity: 0.7;
 }
 
 .search-bar > input {
-    width: 95%;
+    width: 100%;
     border: none;
 }
 
 .search-bar > input:focus {
     outline: none;
+    background-color: var(--lapis-lazuli);
 }

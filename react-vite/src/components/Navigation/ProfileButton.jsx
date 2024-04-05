@@ -1,11 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { FaUserCircle } from 'react-icons/fa';
+import { FaUserCircle, FaSmileBeam, FaMoneyBill, FaHistory, FaSignOutAlt } from 'react-icons/fa';
+import { ImLoop2 } from "react-icons/im";
 import { thunkLogout } from "../../redux/session";
 import { NavLink, useNavigate } from "react-router-dom";
 import { clearPortfolio } from "../../redux/portfolio";
 import { clearScreeners } from "../../redux/screener";
-import { clearStocks } from "../../redux/stock";
 import { clearWatchlists } from "../../redux/watchlist";
 
 function ProfileButton() {
@@ -38,12 +38,11 @@ function ProfileButton() {
 
   const logout = (e) => {
     e.preventDefault();
-    dispatch(thunkLogout());
     dispatch(clearPortfolio());
     dispatch(clearScreeners());
     dispatch(clearWatchlists());
     closeMenu();
-    navigate("/");
+    dispatch(thunkLogout()).then(navigate("/"))
   };
 
   return (
@@ -56,11 +55,13 @@ function ProfileButton() {
           {user && (
             <>
               <h2>{user.name}</h2>
-              <li><NavLink to="/account/summary" onClick={closeMenu}>Account</NavLink></li>
-              <li><NavLink to="/account/transfers" onClick={closeMenu}>Transfers</NavLink></li>
-              <li><NavLink to="/account/strategies" onClick={closeMenu}>Strategies</NavLink></li>
-              <li><NavLink to="/account/history" onClick={closeMenu}>History</NavLink></li>
-              <li><button onClick={logout}>Log Out</button></li>
+              ______________________
+              <li><NavLink to="/account/summary" onClick={closeMenu}><FaSmileBeam />Account</NavLink></li>
+              <li><NavLink to="/account/transfers" onClick={closeMenu}><FaMoneyBill />Transfers</NavLink></li>
+              <li><NavLink to="/account/strategies" onClick={closeMenu}><ImLoop2 />Strategies</NavLink></li>
+              <li><NavLink to="/account/history" onClick={closeMenu}><FaHistory />History</NavLink></li>
+              ______________________
+              <li><a onClick={logout}><FaSignOutAlt />Log Out</a></li>
             </>
           )}
         </ul>
