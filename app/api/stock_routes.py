@@ -2,6 +2,7 @@ from flask import Blueprint, jsonify
 from flask_login import login_required, current_user
 from app.models import Stock, Order
 import pandas as pd
+from sqlalchemy import and_
 
 stock_routes = Blueprint('stocks', __name__)
 
@@ -29,5 +30,10 @@ def getSells():
     """
     Get Details for given Stock
     """
-    stocks = Stock.query.filter_by(recommendation="buy").all()
-    return jsonify([stock.full_details() for stock in stocks])
+    # stocks = Stock.query.filter_by(recommendation="buy").all()
+    # return jsonify([stock.to_dict() for stock in stocks])
+    key1 = "price"
+    key2 = "sector"
+    conditions = [(getattr(Stock, key1) > 500), (getattr(Stock, key2) == "technology")]
+    stocks = Stock.query.filter(and_(*conditions))
+    return jsonify([stock.to_dict() for stock in stocks])

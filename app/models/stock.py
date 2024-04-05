@@ -127,22 +127,15 @@ class Stock(db.Model):
 
     watchlists = db.relationship("Watchlist", back_populates="stock")
 
-    def to_dict(self):
-        return {
-            'ticker': self.ticker,
-            'name': self.name,
-            'price': self.price,
-            'sector': self.sector,
-            "market_cap": self.market_cap,
-            "shares_outstanding": self.shares_outstanding,
-            "avg_volume": self.avg_volume,
-            "1d_return": self.past_day_return,
-            "1m_return": self.past_month_return,
-            "1y_return": self.past_year_return,
-            "1y_performance": self.past_year_vs_market,
-            "pe": self.pe,
-            "recommendation": self.recommendation
-        }
+    # def to_dict(self):
+    #     return {
+    #         'ticker': self.ticker,
+    #         'name': self.name,
+    #         'price': self.price,
+    #         'sector': self.sector,
+    #         "market_cap": self.market_cap,
+    #         "shares_outstanding": self.shares_outstanding,
+    #     }
 
     def full_details(self):
         return {
@@ -152,13 +145,33 @@ class Stock(db.Model):
             'sector': self.sector,
             "market_cap": self.market_cap,
             "shares_outstanding": self.shares_outstanding,
-            # "info": json.loads(self.info),
-            # "history": json.loads(self.history),
-            "avg_volume": self.avg_volume,
-            "1d_return": self.past_day_return,
-            "1m_return": self.past_month_return,
-            "1y_return": self.past_year_return,
-            "1y_performance": self.past_year_vs_market,
-            "pe": self.pe,
-            "recommendation": self.recommendation
+            "info": self.info,
+            "history": self.history,
+        }
+
+    def to_dict(self):
+        return {
+            "ticker" : self.ticker,
+            "name" : self.name,
+            "price" : self.price,
+            "market_cap" : self.market_cap,
+            "shares_outstanding" : self.shares_outstanding,
+            "past_year_return" : self.past_year_return,
+            "past_outperformance" : self.past_outperformance,
+            "trailing_pe" : self.trailing_pe,
+            "forward_pe" : self.forward_pe,
+            "pb" : self.pb,
+            "dividend_yield" : self.dividend_yield,
+            "recommendation" : self.recommendation,
+            "target_mean" : self.target_mean,
+            "short_interest" : self.short_interest,
+            "fifty_two_high" : self.fifty_two_high,
+            "distance_to_52_high" : self.distance_to_52_high,
+            "fifty_two_low" : self.fifty_two_low,
+            "distance_to_52_low" : self.distance_to_52_low,
+            "industry" : self.industry,
+            "sector" : self.sector,
+            "past_day_return" : self.past_day_return,
+            "past_month_return" : self.past_month_return,
+            "avg_volume" : self.avg_volume,
         }

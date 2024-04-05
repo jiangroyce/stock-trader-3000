@@ -1,7 +1,7 @@
 """empty message
 
 Revision ID: ecd8f202ccaf
-Revises: 
+Revises:
 Create Date: 2024-04-04 14:46:41.454519
 
 """

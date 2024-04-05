@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 2e1bb30a300f
+Revision ID: f6406d3f9f36
 Revises: ecd8f202ccaf
-Create Date: 2024-04-04 14:47:27.562224
+Create Date: 2024-04-04 15:44:54.159278
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '2e1bb30a300f'
+revision = 'f6406d3f9f36'
 down_revision = 'ecd8f202ccaf'
 branch_labels = None
 depends_on = None
@@ -22,7 +22,28 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(), nullable=False),
-    sa.Column('params', sa.JSON(), nullable=False),
+    sa.Column('_params', sa.JSON(), nullable=False),
+    sa.Column('price', sa.String(), nullable=True),
+    sa.Column('market_cap', sa.String(), nullable=True),
+    sa.Column('shares_outstanding', sa.String(), nullable=True),
+    sa.Column('past_year_return', sa.String(), nullable=True),
+    sa.Column('past_outperformance', sa.String(), nullable=True),
+    sa.Column('trailing_pe', sa.String(), nullable=True),
+    sa.Column('forward_pe', sa.String(), nullable=True),
+    sa.Column('pb', sa.String(), nullable=True),
+    sa.Column('dividend_yield', sa.String(), nullable=True),
+    sa.Column('recommendation', sa.String(), nullable=True),
+    sa.Column('target_mean', sa.String(), nullable=True),
+    sa.Column('short_interest', sa.String(), nullable=True),
+    sa.Column('fifty_two_high', sa.String(), nullable=True),
+    sa.Column('distance_to_52_high', sa.String(), nullable=True),
+    sa.Column('fifty_two_low', sa.String(), nullable=True),
+    sa.Column('distance_to_52_low', sa.String(), nullable=True),
+    sa.Column('industry', sa.String(), nullable=True),
+    sa.Column('sector', sa.String(), nullable=True),
+    sa.Column('past_day_return', sa.String(), nullable=True),
+    sa.Column('past_month_return', sa.String(), nullable=True),
+    sa.Column('avg_volume', sa.String(), nullable=True),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
