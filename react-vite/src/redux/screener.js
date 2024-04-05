@@ -2,9 +2,9 @@ const LOAD_SCREENER = 'screeners/load';
 const LOAD_ALL_SCREENERS = 'screeners/loadAll';
 const CLEAR_SCREENERS = 'screeners/clearAll';
 
-const loadScreener = (screener) => ({
+const loadScreener = (id, screener) => ({
   type: LOAD_SCREENER,
-  payload: screener
+  payload: {id, screener}
 });
 
 const loadScreeners = (screeners) => ({
@@ -17,14 +17,15 @@ export const clearScreeners = () => ({
 });
 
 export const fetchScreener = (id) => async (dispatch) => {
-	const response = await fetch(`/api/screener/${id}`);
+  if (!id) return
+	const response = await fetch(`/api/screener/apply/${id}`);
 	if (response.ok) {
 		const data = await response.json();
 		if (data.errors) {
 			return;
 		}
 
-		dispatch(loadScreener(data));
+		dispatch(loadScreener(id, data));
 	}
 };
 
@@ -41,7 +42,7 @@ const initialState = {};
 function sessionReducer(state = initialState, action) {
   switch (action.type) {
     case LOAD_SCREENER:
-      return { ...state, [action.payload.id]: action.payload };
+      return { ...state, [action.payload.id]: action.payload.screener };
     case LOAD_ALL_SCREENERS:
       return { screeners: action.payload, ...state };
     case CLEAR_SCREENERS:

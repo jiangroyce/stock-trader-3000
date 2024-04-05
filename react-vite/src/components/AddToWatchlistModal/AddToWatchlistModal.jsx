@@ -1,6 +1,6 @@
 import { useModal } from "../../context/Modal";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchWatchlists, createWatchlist, addToList, deleteFromList } from "../../redux/watchlist";
+import { fetchWatchlists, createWatchlist, addToList, deleteFromList, fetchListsWStocks } from "../../redux/watchlist";
 import { FaLightbulb, FaPlus } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import "./AddToWatchlistModal.css";
@@ -12,8 +12,14 @@ export default function AddToWatchlistModal({stock, checkedLists}) {
     const [errors, setErrors] = useState({});
     const { closeModal } = useModal();
     const watchlists = useSelector(state => state.watchlists);
-    const [lists, setLists] = useState(checkedLists || null);
+    let inLists = watchlists?.lists
+    if (!checkedLists) checkedLists=inLists
+    const [lists, setLists] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
+
+    useEffect(() => {
+        setLists(checkedLists)
+    }, [checkedLists])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -73,12 +79,16 @@ export default function AddToWatchlistModal({stock, checkedLists}) {
     useEffect(() => {
         const loadData = async () => {
             await dispatch(fetchWatchlists())
+            await dispatch(fetchListsWStocks(stock.ticker));
             setIsLoaded(true)
         }
         loadData()
     }, [dispatch]);
 
-    if (!isLoaded || !lists) return <h1>Loading</h1>
+    if (!isLoaded || lists === undefined) {
+        console.log("l", lists)
+        console.log("cL", checkedLists)
+        return <h1>Loading</h1>}
     else return (
         <div className="add-stock-modal">
             <h2>Add {stock.ticker} to Your Lists</h2>

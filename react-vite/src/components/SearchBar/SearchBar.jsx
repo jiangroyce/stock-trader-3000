@@ -69,7 +69,7 @@ function SearchBar() {
             </div>
             {!input ? (open && (<div className="search-results">
                 <h2>Stock Screeners</h2>
-                {screeners?.map((screener, index) => (<NavLink key={index} to={`/screener?${screener.id}`}>{screener.name}</NavLink>))}
+                {screeners?.map((screener, index) => (<NavLink onClick={handleExit} key={index} to={`/screener?id=${screener.id}`}>{screener.name}</NavLink>))}
             </div>)) :
             (open && (<div className="search-results">
                 {input && (<h2>Matched Tickers: </h2>)}

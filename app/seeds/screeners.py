@@ -8,7 +8,9 @@ def seed_screeners():
     demo = Screener(
         name='Technology Stocks (Default)', user_id=1, params={"sector": "technology "})
     marnie = Screener(
-        name='Large Cap Stocks (Default)', user_id=1, params={"market_cap": "> 1000000"})
+        name='Mega Cap Stocks (Default)', user_id=1, params={"market_cap": "> 200000"})
+    johnson = Screener(
+        name='Trillionaires (Default)', user_id=1, params={"market_cap": "> 1000000"})
     test = Screener(
         name='Winning Value Stocks (Default)', user_id=1, params={"trailing_pe": "< 20", "past_outperformance": "> 0"})
     db.session.add(demo)
