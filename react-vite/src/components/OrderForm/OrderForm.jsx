@@ -37,6 +37,7 @@ function OrderForm({stock, ownedShares}) {
 
     const calcOrderType = (str) => {
         setOrderType(str);
+        setQuantity("")
     };
 
     const calcQuantityType = (q) => {
@@ -64,54 +65,63 @@ function OrderForm({stock, ownedShares}) {
 
     return (
         <form className="order-form" onSubmit={previewOrder}>
-                        <div className="order-header">
-                            <h2>Trade {stock?.ticker}</h2>
-                            <div>Buying Power: {buying_power ? currencyFormat.format(buying_power) : "-"}</div>
-                            <div>Shares Owned: {ownedShares}</div>
-                        </div>
-                        <div className="order-types">
-                            <div className={"order-type-button " + (orderType == "Buy" ? "selected" : "")} onClick={()=>calcOrderType("Buy")}>Buy</div>
-                            <div className={"order-type-button " + (orderType == "Sell" ? "selected" : "")} onClick={()=>calcOrderType("Sell")}>Sell</div>
-                        </div>
-                        <div className="order-quantity">
-                            <div className="order-types">
-                                <div className={"order-type-button " + (quantityType == "Shares" ? "selected" : "")} onClick={()=>calcQuantityType("Shares")}>Shares</div>
-                                <div className={"order-type-button " + (quantityType == "Dollars" ? "selected" : "")} onClick={()=>calcQuantityType("Dollars")}>Dollars</div>
-                            </div>
-                            <label>
-                            {quantityType == "Shares" ? "# of Shares" : "$ Dollars"}:
-                            <input
-                                type="number"
-                                value={quantity}
-                                onChange={(e) => calcQuantity(Number(e.target.value))}
-                                required
-                            />
-                            </label>
-                        </div>
-                        {/* <div className="order-limit">
-                            <div className="order-types">
-                                <div className={"order-type-button " + (orderLimit == "Market" ? "selected" : "")} onClick={()=>setOrderLimit("Market")}>Market</div>
-                                <div className={"order-type-button " + (orderLimit == "Limit" ? "selected" : "")} onClick={()=>setOrderLimit("Limit")}>Limit</div>
-                            </div>
-                            <label>Time in Force<select/></label>
-                            <label>Conditions<select/></label>
-                        </div> */}
-                        <div className="order-value">
-                            Estimated Value: $ {orderTotal?.toFixed(2)}
-                        </div>
-                        {Object.keys(errors)?.length ?
-                        <div className="error-funds">
-                            {Object.values(errors).map((error, index) => <p key={index}>{error}</p>)}
-                            {errors.funds && <OpenModalButton buttonText="Deposit" modalComponent={<DepositModal />}/>}
-                        </div> :
-                            orderTotal && orderType ? (
-                            <OpenModalButton
-                                type="submit"
-                                buttonText="Preview Order"
-                                modalComponent={<PreviewOrderModal order={order} cash={buying_power}/>}
-                            />
-                        ) : null}
-                    </form>
+            <div className="order-header">
+                <div className="order-info">
+                    <h2>Trade {stock?.ticker}</h2>
+                    <h4>Price: {currencyFormat.format(stock?.price)}</h4>
+                </div>
+                <div className="order-buying-power">Buying Power: {buying_power ? currencyFormat.format(buying_power) : "-"}</div>
+            </div>
+            <div className="order-types">
+                <div className={"order-type-button " + (orderType == "Buy" ? "selected" : "")} onClick={()=>calcOrderType("Buy")}>Buy</div>
+                <div className={"order-type-button " + (orderType == "Sell" ? "selected" : "")} onClick={()=>calcOrderType("Sell")}>Sell</div>
+            </div>
+            <div className="order-quantity">
+                <div className="order-types">
+                    <div className={"order-type-button " + (quantityType == "Shares" ? "selected" : "")} onClick={()=>calcQuantityType("Shares")}>Shares</div>
+                    <div className={"order-type-button " + (quantityType == "Dollars" ? "selected" : "")} onClick={()=>calcQuantityType("Dollars")}>Dollars</div>
+                </div>
+            </div>
+            <div className="quantity-inputs">
+                <label>
+                {quantityType == "Shares" ? "# of Shares" : "$ Dollars"}:
+                <input
+                    type="number"
+                    value={quantity}
+                    min={0}
+                    max={10000}
+                    onChange={(e) => calcQuantity(Number(e.target.value))}
+                    onBlur={(e) => e.target.value ? calcQuantity(Number(e.target.value)) : calcQuantity("")}
+                    onFocus={() => calcQuantity("")}
+                    required
+                    />
+                </label>
+                <div>Shares Owned: {ownedShares}</div>
+            </div>
+            {/* <div className="order-limit">
+                <div className="order-types">
+                    <div className={"order-type-button " + (orderLimit == "Market" ? "selected" : "")} onClick={()=>setOrderLimit("Market")}>Market</div>
+                    <div className={"order-type-button " + (orderLimit == "Limit" ? "selected" : "")} onClick={()=>setOrderLimit("Limit")}>Limit</div>
+                </div>
+                <label>Time in Force<select/></label>
+                <label>Conditions<select/></label>
+            </div> */}
+            <div className="order-value">
+                Estimated Value: $ {orderTotal?.toFixed(2)}
+            </div>
+            {Object.keys(errors)?.length ?
+            <div className="error-funds">
+                {Object.values(errors).map((error, index) => <p className="errors" key={index}>* {error}</p>)}
+                {errors.funds && <OpenModalButton buttonText="Deposit" modalComponent={<DepositModal />}/>}
+            </div> :
+                orderTotal && orderType && quantity ? (
+                <OpenModalButton
+                    type="submit"
+                    buttonText="Preview Order"
+                    modalComponent={<PreviewOrderModal order={order} cash={buying_power}/>}
+                />
+            ) : null}
+        </form>
     )
 }
 

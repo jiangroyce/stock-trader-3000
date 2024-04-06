@@ -97,7 +97,10 @@ def getList(id):
     """
     Add stock to a watchlist for current user
     """
-    watchlists = Watchlist.query.filter_by(user_id=current_user.id, list_number=id).all()
+    user_id = current_user.id
+    if id >= 20000:
+        user_id = 1
+    watchlists = Watchlist.query.filter_by(user_id=user_id, list_number=id).all()
     response = {}
     for watchlist in watchlists:
         if watchlist.list_number not in response:

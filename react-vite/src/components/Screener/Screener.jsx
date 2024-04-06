@@ -1,15 +1,17 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchAllStocks } from "../../redux/stock";
-import { fetchAllScreeners, fetchScreener } from "../../redux/screener";
-import { NavLink } from "react-router-dom";
+import { fetchScreener } from "../../redux/screener";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import OpenModalButton from "../OpenModalButton";
 import AddToWatchlistModal from "../AddToWatchlistModal";
 import FilterCard from "./FilterCard";
+import { FaPlus } from "react-icons/fa";
 import "./Screener.css"
 
 function AllStocksPage() {
+    const navigate = useNavigate();
     const currencyFormat = new Intl.NumberFormat("en-US", {style: "currency", currency: "USD"});
     const location = useLocation();
     const id = location.search.split("id=")[1];
@@ -263,7 +265,7 @@ function AllStocksPage() {
                     </thead>
                     <tbody>
                     {stocks?.map((stock) => (
-                        <tr className="stock-card" key={stock.ticker}>
+                        <tr className="stock-card" onClick={() => navigate(`/stocks/${stock.ticker}`)} key={stock.ticker}>
                             <th scope="row">{stock.ticker}</th>
                             <td>{stock.name}</td>
                             <td>{(stock.past_day_return * 100).toFixed(2)}%</td>
@@ -281,8 +283,8 @@ function AllStocksPage() {
                             <td>{(stock.past_outperformance * 100).toFixed(2)}%</td>
                             <td>
                                 <OpenModalButton
-                                buttonText="+"
-                                modalComponent={<AddToWatchlistModal stock={stock}/>}/>
+                                    buttonText={<FaPlus/>}
+                                    modalComponent={<AddToWatchlistModal stock={stock}/>}/>
                             </td>
                         </tr>
                     ))}

@@ -1,0 +1,27 @@
+.preview-order {
+    display: flex;
+    flex-direction: column;
+    padding: 10%;
+    gap: 10px;
+}
+
+.preview-order > h2 {
+    margin-top: 0;
+}
+
+.preview-order > button {
+    margin-top: 5px;
+    align-self: center;
+    padding: 5%;
+    width: 70%;
+    border-radius: 25px;
+    font-size: large;
+    border: 1px solid var(--pale-dogwood);
+    background-color: transparent;
+    color: var(--pale-dogwood);
+    cursor: pointer;
+}
+
+.preview-order > button:hover {
+    opacity: 0.7;
+}

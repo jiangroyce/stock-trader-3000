@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from "react-redux";
 import Plot from "react-plotly.js";
 import "./StockDetails.css"
 import { fetchStock } from "../../redux/stock";
-import { fetchListsWStocks } from "../../redux/watchlist";
 import { fetchShares } from "../../redux/portfolio";
 import OrderForm from "../OrderForm";
 import OpenModalButton from "../OpenModalButton";
@@ -15,7 +14,6 @@ function StockDetails() {
     const dispatch = useDispatch();
     const currencyFormat = new Intl.NumberFormat("en-US", {style: "currency", currency: "USD"});
     const stock = useSelector((state) => state.stocks)[ticker];
-    const checkedLists = useSelector(state => state.watchlists.lists);
     const portfolio = useSelector(state => state.portfolio);
     const ownedShares = portfolio[ticker];
     const [isLoaded, setIsLoaded] = useState(false)
@@ -33,7 +31,6 @@ function StockDetails() {
     useEffect(() => {
         const loadData = async () => {
             await dispatch(fetchStock(ticker));
-            await dispatch(fetchListsWStocks(ticker));
             await dispatch(fetchShares(ticker));
             setIsLoaded(true)
         }
@@ -73,8 +70,11 @@ function StockDetails() {
                                 l: 50,
                                 r: 0
                             },
+                            paper_bgcolor:"#1B3B7Eff",
+                            plot_bgcolor:"#1B3B7Eff",
                             hovermode: "x",
                             xaxis: {
+                                color: "white",
                                 autorange: true,
                                 rangeslider: {
                                     visible: false
@@ -104,11 +104,16 @@ function StockDetails() {
                                     {
                                         step: 'all',
                                         label: "2Y"
-                                    },
-                                ]}
+                                    }],
+                                    bgcolor: "#325DA2ff",
+                                    font: {
+                                        color: "white"
+                                    }
+                                }
                             },
                             yaxis: {
-                                tickprefix: "$ "
+                                tickprefix: "$ ",
+                                color: "white"
                             }
                         } }
                     />
@@ -134,7 +139,7 @@ function StockDetails() {
                         </div>
                         <div className="stock-info-card">
                             <h3>Sector</h3>
-                            <div>{stock.sector}</div>
+                            <div>{stock.info.sector}</div>
                         </div>
                         </div>
                     </div>
@@ -147,7 +152,7 @@ function StockDetails() {
                             </div>
                             <div className="stock-stat-card">
                                 <h3>Price-Earnings Ratio</h3>
-                                <div>{stock.info.trailingPE}</div>
+                                <div>{stock.info.trailingPE?.toFixed(2)}</div>
                             </div>
                             <div className="stock-stat-card">
                                 <h3>Dividend Yield</h3>
@@ -155,7 +160,10 @@ function StockDetails() {
                             </div>
                             <div className="stock-stat-card">
                                 <h3>Avg Volume</h3>
-                                <div>{stock.info.averageVolume}</div>
+                                <div>{stock.info.averageVolume.toLocaleString("en", {
+                                        minimumFractionDigits: 0,
+                                        maximumFractionDigits: 0})}
+                                </div>
                             </div>
                             <div className="stock-stat-card">
                                 <h3>Daily High</h3>
@@ -184,7 +192,7 @@ function StockDetails() {
                     <OrderForm stock={stock} ownedShares={ownedShares} />
                     <OpenModalButton
                         buttonText="Add to Watchlist"
-                        modalComponent={<AddToWatchlistModal stock={stock} checkedLists={checkedLists}/>}
+                        modalComponent={<AddToWatchlistModal stock={stock} ticker={ticker}/>}
                     />
                 </div>
             </div>

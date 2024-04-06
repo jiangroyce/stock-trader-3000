@@ -1,22 +1,30 @@
 .edit-watchlist {
-    display: none;
+    min-width: 50px;
+    display: flex;
+    visibility: hidden;
     list-style: none;
     gap: 5px;
 }
 
-.watchlist-title:hover > .edit-watchlist, .edit-watchlist:hover {
-    display: flex;
+.edit-watchlist > li {
+    cursor: pointer;
+    font-size: large;
 }
 
-.edit-watchlist-dropdown {
+.watchlist-info {
+    padding: 0 20px;
+}
+
+.edit-watchlist > li:hover {
+    color: var(--lapis-lazuli);
+}
+.watchlist-bar-header:hover > .watchlist-right > .edit-watchlist, .edit-watchlist:hover {
+    visibility: visible;
+}
+
+.watchlist-right {
     display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 50%;
-    right: 5%;
-    list-style: none;
-    gap: 5px;
-  }
+}
 
 .watchlists-container {
     width: 275px;
@@ -29,11 +37,70 @@
 
 .watchlist-stock {
     height: 60px;
+    max-height: 60px;
+    overflow: hidden;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2px;
+    justify-content: space-between;
 }
 
-.watchlist-title > a{
+.watchlist-stock:hover {
+    color: var(--lapis-lazuli);
+}
+
+.watchlists-header {
+    padding: 0 20px;
+}
+
+.watchlists-header > button {
+    display: flex;
+    padding: 2px;
+    font-size: xx-large;
+    background-color: transparent;
+    border: none;
+    color: var(--pale-dogwood);
+    cursor: pointer;
+}
+
+.watchlists-header > button:hover {
+    opacity: 0.7;
+}
+
+.watchlist-bar-header {
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+.watchlist-bar-header > a {
     overflow: hidden;
+    width: 180px;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    gap: 5px;
+}
+.watchlist-bar-header > a > svg {
+    font-size: xx-large;
+}
+
+.watchlist-bar-header > a:hover {
+    color: var(--lapis-lazuli);
+}
+.watchlist-expand {
+    background-color: transparent;
+    border: none;
+    color: var(--pale-dogwood);
+    font-size: large;
+    cursor: pointer;
+}
+
+.watchlist-expand:hover {
+    color: var(--lapis-lazuli);
+}
+
+.watchlist {
+    border: none;
 }

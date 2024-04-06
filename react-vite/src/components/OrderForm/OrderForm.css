@@ -4,7 +4,7 @@
 
 .order-type-button {
     width: 50%;
-    border: 1px solid black;
+    border: 1px solid var(--pale-dogwood);
     display: flex;
     justify-content: center;
     padding: 5%;
@@ -13,10 +13,102 @@
 }
 
 .order-type-button:hover {
-    text-decoration: underline;
+    opacity: 0.7;
 }
 
 
 .selected {
-    background-color: darkgray;
+    background-color: var(--lapis-lazuli);
+}
+
+.order-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 250px;
+    margin-bottom: 15px;
+    height: 375px;
+}
+
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order-info > * {
+    margin: 0;
+}
+
+.order-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.order-buying-power {
+    width: 35%;
+    text-align: right;
+}
+
+.quantity-inputs {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 5px;
+}
+
+.quantity-inputs > label {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    gap: 10px;
+}
+
+.quantity-inputs > label > input {
+    width: 100%;
+    background-color: var(--lapis-lazuli);
+    color: var(--pale-dogwood);
+    border: none;
+}
+
+.quantity-inputs > label > input:focus {
+    outline: none;
+}
+
+.quantity-inputs > div {
+    width: 30%;
+}
+
+.order-value {
+    align-self: flex-end;
+    margin-bottom: 15px;
+    text-align: right;
+}
+
+.error-funds {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.errors {
+    margin: 0;
+    color: red;
+}
+
+.order-form > button {
+    align-self: center;
+    font-size: large;
+    width: 70%;
+    border: 1px solid var(--pale-dogwood);
+    background-color: transparent;
+    color: var(--pale-dogwood);
+    display: flex;
+    justify-content: center;
+    padding: 5%;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.order-form > button:hover {
+    opacity: 0.7;
 }

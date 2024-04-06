@@ -11,4 +11,10 @@ li.account-navbar-item:has(> a.active) {
     display: flex;
     width: 50%;
     justify-content: space-evenly;
+    list-style: none;
+}
+
+.account-page {
+    padding: 20px;
+    color: var(--pale-dogwood);
 }

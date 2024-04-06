@@ -1,0 +1,22 @@
+.footer {
+    position: absolute;
+    bottom: 5px;
+    display: flex;
+    width: 100%;
+    align-self: center;
+    justify-content: space-evenly;
+    font-size: xx-large;
+    color: var(--pale-dogwood);
+}
+
+.footer > a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.footer > a:hover {
+    opacity: 0.7;
+}

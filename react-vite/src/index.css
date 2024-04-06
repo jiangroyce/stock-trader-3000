@@ -13,11 +13,16 @@
 }
 
 * > a:visited {
-    color: black;
+    color: var(--pale-dogwood);
 }
 
 * > a {
-    color: black;
+    color: var(--pale-dogwood);
+    text-decoration: none;
+}
+
+html {
+    background-color: var(--yale-blue);
 }
 
 /* mediaquery width 1100 */

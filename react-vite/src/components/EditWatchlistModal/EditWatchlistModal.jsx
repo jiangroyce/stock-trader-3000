@@ -21,7 +21,7 @@ function EditWatchlistModal({watchlist}) {
   };
 
   return (
-    <>
+    <div className="login-modal">
       <h1>Edit Watchlist</h1>
       <form onSubmit={handleSubmit} onReset={()=>closeModal()}>
         <label>
@@ -34,10 +34,12 @@ function EditWatchlistModal({watchlist}) {
           />
         </label>
         {errors.name && <p>{errors.name}</p>}
-        <button type="reset">Cancel</button>
-        <button type="submit">Confirm</button>
+        <div className="actions">
+          <button type="reset">Cancel</button>
+          <button type="submit">Confirm</button>
+        </div>
       </form>
-    </>
+    </div>
   );
 }
 

@@ -65,8 +65,8 @@ export const fetchListsWStocks = (ticker) => async (dispatch) => {
     if (data.errors) {
 			return;
 		}
-
 		dispatch(loadListsWithStock(data));
+    return data
   }
 }
 
@@ -91,7 +91,6 @@ export const putWatchlist = (payload) => async (dispatch) => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload)
   });
-  console.log(payload)
   const watchlist = await response.json();
   if (response.ok) {
     dispatch(editWatchlist(watchlist))
@@ -148,7 +147,8 @@ export const deleteFromList = (payload) => async (dispatch) => {
   });
   const watchlist = await response.json();
   if (response.ok) {
-    dispatch(removeStock(payload))
+    dispatch(removeStock(payload));
+    return
   } else {
     return
   }
@@ -164,6 +164,7 @@ function sessionReducer(state = initialState, action) {
     case ADD_STOCK: {
       const newState = { ...state }
       newState[action.payload.list_number].stocks.push(action.payload.stock);
+      newState.lists?.push(action.payload.list_number);
       return newState
     }
     case REMOVE_STOCK: {
@@ -171,7 +172,10 @@ function sessionReducer(state = initialState, action) {
       const stocks = newState[action.payload.list_number].stocks
       const remIdx = stocks.findIndex((e) => e.ticker == action.payload.stock_ticker)
       const removed = stocks.splice(remIdx, 1)
-      newState[action.payload.list_number].stocks = stocks
+      newState[action.payload.list_number].stocks = [...stocks]
+      const newLists = newState.lists
+      newLists?.splice(newLists?.indexOf(action.payload.list_number))
+      newState.lists = [...newLists]
       return newState
     }
     case EDIT_WATCHLIST: {
@@ -186,7 +190,7 @@ function sessionReducer(state = initialState, action) {
     }
     case LOAD_LISTS_WITH_STOCK: {
       const newState = { ...state }
-      newState["lists"] = action.payload;
+      newState.lists = [...action.payload];
       return newState
     }
     case CLEAR_WATCHLISTS:

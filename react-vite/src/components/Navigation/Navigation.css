@@ -13,6 +13,7 @@
   background-color: var(--lapis-lazuli);
   width: 200px;
   margin-top: 5px;
+  color: var(--pale-dogwood);
 }
 
 .profile-dropdown > * {
@@ -20,10 +21,11 @@
 }
 
 .profile-dropdown > h2 {
-  font-size: large;
+  font-size: x-large;
   padding: 10px 10px 0px 10px;
   border-bottom: var(--pale-dogwood);
   margin-bottom: 0;
+  color: var(--pale-dogwood);
 }
 .profile-dropdown > li {
   font-size: medium;

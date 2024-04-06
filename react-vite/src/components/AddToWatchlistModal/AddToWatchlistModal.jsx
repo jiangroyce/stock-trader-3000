@@ -1,29 +1,27 @@
 import { useModal } from "../../context/Modal";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchWatchlists, createWatchlist, addToList, deleteFromList, fetchListsWStocks } from "../../redux/watchlist";
-import { FaLightbulb, FaPlus } from "react-icons/fa";
-import { useEffect, useState } from "react";
+import { FaPlus } from "react-icons/fa";
+import { useEffect, useState} from "react";
 import "./AddToWatchlistModal.css";
+import { useNavigate } from "react-router-dom";
+import WatchlistCheckCard from "./WatchlistCheckCard";
 
-export default function AddToWatchlistModal({stock, checkedLists}) {
+export default function AddToWatchlistModal({stock, ticker}) {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const [click, setClick] = useState(false);
     const [name, setName] = useState("");
     const [errors, setErrors] = useState({});
     const { closeModal } = useModal();
     const watchlists = useSelector(state => state.watchlists);
-    let inLists = watchlists?.lists
-    if (!checkedLists) checkedLists=inLists
+    const [initialList, setInitialList] = useState(null);
     const [lists, setLists] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
 
-    useEffect(() => {
-        setLists(checkedLists)
-    }, [checkedLists])
-
     const handleSubmit = async (e) => {
         e.preventDefault();
-        for (let item of lists) if (!checkedLists.includes(item)) {
+        for (let item of lists) if (!initialList.includes(item)) {
             const payload = {
                 name: watchlists[item].name,
                 list_number: item,
@@ -32,7 +30,7 @@ export default function AddToWatchlistModal({stock, checkedLists}) {
             const response = await dispatch(addToList(payload));
             if (response?.errors) setErrors(response.errors);
         }
-        for (let item of checkedLists) if (!lists.includes(item)) {
+        for (let item of initialList) if (!lists.includes(item)) {
             const payload = {
                 name: watchlists[item].name,
                 list_number: item,
@@ -42,10 +40,13 @@ export default function AddToWatchlistModal({stock, checkedLists}) {
             if (response?.errors) setErrors(response.errors);
         }
         closeModal();
+        navigate(`/stocks/${ticker}`)
     };
 
     const createList = async (e) => {
         e.preventDefault();
+        setErrors({})
+        setClick(false);
 
         const response = await dispatch(createWatchlist({name}));
 
@@ -60,34 +61,25 @@ export default function AddToWatchlistModal({stock, checkedLists}) {
             const addToListResponse = await dispatch(addToList(payload));
             if (addToListResponse?.errors) setErrors(addToListResponse.errors);
             else {
-                setClick(false);
+                checkedLists.push(payload.list_number)
+                setLists([...lists, payload.list_number])
                 setName("");
             }
-        };
-    };
-
-    const handleCheck = async (e) => {
-        const index = lists.indexOf(Number(e.target.value))
-        if (index !== -1) {
-            const newList = lists.splice(index, 1)
-            setLists([...lists])
-        } else {
-            setLists([...lists, Number(e.target.value)])
         }
-    }
+    };
 
     useEffect(() => {
         const loadData = async () => {
             await dispatch(fetchWatchlists())
-            await dispatch(fetchListsWStocks(stock.ticker));
+            const checkedLists = await dispatch(fetchListsWStocks(ticker));
+            setLists([...checkedLists])
+            setInitialList([...checkedLists])
             setIsLoaded(true)
         }
         loadData()
     }, [dispatch]);
 
     if (!isLoaded || lists === undefined) {
-        console.log("l", lists)
-        console.log("cL", checkedLists)
         return <h1>Loading</h1>}
     else return (
         <div className="add-stock-modal">
@@ -96,39 +88,34 @@ export default function AddToWatchlistModal({stock, checkedLists}) {
                 <FaPlus />
                 Create New List
             </div>
-            <div className={"create-watchlist " + (!click ? "hidden" : "")}>
+            <div className={"create-watchlist-form " + (!click ? "hidden" : "")}>
             <form onSubmit={createList} onReset={() => {
                 setClick(false);
                 setName("");
                 }}>
-        <label>
-          List name
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
-        </label>
-        {errors.name && <p>{errors.name}</p>}
-        <button type="reset">Cancel</button>
-        <button type="submit">Create List</button>
-      </form>
+                <label>
+                List name:
+                <input
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    required
+                />
+                </label>
+                {errors.name && <p>{errors.name}</p>}
+                <div className="actions">
+                    <button type="reset">Cancel</button>
+                    <button type="submit">Create List</button>
+                </div>
+            </form>
             </div>
             {/* change to object.entries check key if number and less than 20000 */}
-            {Object.entries(watchlists).map(([id, watchlist], index) => {
-                if (id < 20000) return (
-                    <div className="watchlist-card" key={index}>
-                        <input type="checkbox"  value={watchlist.list_number} onChange={handleCheck} checked={lists?.includes(watchlist.list_number)}/>
-                        <div className="watchlist-info-card">
-                            <FaLightbulb />
-                            <div className="watchlist-info">
-                                <div className="watchlist-name">{watchlist?.name}</div>
-                                <div className="watchlist-length">{watchlist?.stocks?.length} item(s)</div>
-                            </div>
-                        </div>
-                    </div>
-            )})}
+            <div className="watchlist-card-container">
+                {Object.entries(watchlists).map(([id, watchlist], index) => {
+                    if (id < 20000) return (
+                        <WatchlistCheckCard watchlist={watchlist} lists={lists} setLists={setLists} key={index}/>
+                )})}
+            </div>
             <button onClick={handleSubmit}>Save Changes</button>
         </div>
     )

@@ -1,4 +1,4 @@
-import { FaChevronUp, FaChevronDown } from "react-icons/fa";
+import { FaChevronUp, FaChevronDown, FaLightbulb } from "react-icons/fa";
 import { CiCircleRemove, CiSettings } from "react-icons/ci";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
@@ -14,27 +14,29 @@ function WatchlistCard({watchlist}) {
     const toggle = () => setOpen(!open)
     return (
         <div className="watchlist">
-            <div className="watchlist-title">
-                <NavLink to={`/watchlists/${watchlist.list_number}`}>{watchlist.name}</NavLink>
-                <div className="edit-watchlist">
-                <OpenModalMenuItem
-                    itemText={<CiSettings />}
-                    modalComponent={<EditWatchlistModal watchlist={watchlist}/>}
-                />
-                <OpenModalMenuItem
-                    itemText={<CiCircleRemove />}
-                    modalComponent={<DeleteWatchlistModal watchlist={watchlist}/>}
-                />
+            <div className="watchlist-bar-header">
+                <NavLink to={`/watchlists/${watchlist.list_number}`}><FaLightbulb />{watchlist.name}</NavLink>
+                <div className="watchlist-right">
+                    <div className="edit-watchlist">
+                        <OpenModalMenuItem
+                            itemText={<CiSettings />}
+                            modalComponent={<EditWatchlistModal watchlist={watchlist}/>}
+                        />
+                        <OpenModalMenuItem
+                            itemText={<CiCircleRemove />}
+                            modalComponent={<DeleteWatchlistModal watchlist={watchlist}/>}
+                        />
+                    </div>
+                    <button className="watchlist-expand" onClick={toggle}>{ open ? (<FaChevronUp />) : (<FaChevronDown />) }</button>
                 </div>
-                <button onClick={toggle}>{ open ? (<FaChevronUp />) : (<FaChevronDown />) }</button>
             </div>
             {open && (<div className="watchlist-info">
                 {watchlist.stocks?.map((stock, index) => (
-                    <div className="watchlist-stock" key={index}>
-                        <NavLink to={`/stocks/${stock?.ticker}`}>{stock?.ticker}</NavLink>
+                    <NavLink to={`/stocks/${stock?.ticker}`} className="watchlist-stock" key={index}>
+                        <div>{stock?.ticker}</div>
                         <div>{stock?.name}</div>
                         <div>{currencyFormat.format(stock?.price)}</div>
-                    </div>
+                    </NavLink>
                 ))}
             </div>)}
         </div>

@@ -3,12 +3,15 @@
     padding: 0 40px;
     justify-content: space-between;
     gap: 10px;
+    background-color: var(--yale-blue);
+    color: var(--pale-dogwood);
 }
 
 .watchlists-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 1px solid var(--pale-dogwood);
 }
 
 .watchlist {
@@ -20,22 +23,26 @@
     align-items: center;
 }
 
-.portfolio-container > table {
+table {
     table-layout: fixed;
     width: 100%;
     border-collapse: collapse;
     border: 1px solid var(--pale-dogwood);
     padding: 5px;
 }
-.portfolio-container > table > thead th:nth-child(1) {
+table > thead th:nth-child(1) {
     width: 5%;
 }
-.portfolio-container > table > thead th {
+table > thead th {
     width: 10%;
 }
 
-.portfolio-container > table > tbody tr {
+table > tbody tr {
     height: 50px;
     border-top: 1px solid var(--pale-dogwood);
     text-align: center;
+}
+
+.watchlists-container {
+    border: 1px solid var(--pale-dogwood);
 }

@@ -1,0 +1,7 @@
+.landing-page {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--pale-dogwood);
+}

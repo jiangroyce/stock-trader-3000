@@ -36,14 +36,22 @@ function SingleWatchlist() {
         {watchlist && user && (
             <div className="single-watchlist">
                 <div className="watchlist-details">
+                    <div className="single-watchlist-header">
+                    <label>
                     <FaLightbulb />
-                    <input
-                        type="text"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        onBlur={handleSubmit}
-                        />
-                    <div>{watchlist.stocks.length} Items</div>
+                    {watchlist.list_number < 20000 ?
+                        <input
+                            className="watchlist-name"
+                            type="text"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            onBlur={handleSubmit}
+                        /> :
+                        <div className="watchlist-name defaults">{watchlist.name}</div>
+                    }
+                    </label>
+                        <div>{watchlist.stocks.length} Items</div>
+                    </div>
                     <table className="watchlist-stocks">
                         <thead>
                             <tr>

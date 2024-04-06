@@ -17,7 +17,7 @@ export default function Transfers() {
         <div className="transfers-page">
             <h1>Start a Transfer</h1>
             <h2>Withdrawable Cash: {currencyFormat.format(buying_power)}</h2>
-            <div className="transfers-actions">
+            <div className="actions">
                 <OpenModalButton
                     buttonText="Deposit"
                     modalComponent={<DepositModal />}
