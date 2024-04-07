@@ -9,6 +9,7 @@
     box-sizing: border-box;
     padding: 10px;
     background-color: var(--lapis-lazuli);
+    margin-left: -600px;
 }
 
 .search-results > * {
@@ -77,6 +78,7 @@
     font-size: x-large;
     background-color: var(--lapis-lazuli);
     color: var(--pale-dogwood);
+    margin-left: -600px;
 }
 
 .search-bar > * {

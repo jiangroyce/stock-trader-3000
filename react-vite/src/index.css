@@ -2,14 +2,14 @@
 /* CSS HEX */
 :root {
     --glaucous: #5F84BAff;
-    --lapis-lazuli: #325DA2ff;
-    --yale-blue: #1B3B7Eff;
+    --lapis-lazuli: #6d7486;
+    --yale-blue: #232427;
     --pale-dogwood: rgb(255, 255, 255);
     --raisin-black: #2B272Bff;
 }
 
 * {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Roboto", sans-serif;
 }
 
 * > a:visited {
@@ -26,3 +26,7 @@ html {
 }
 
 /* mediaquery width 1100 */
+
+::placeholder {
+    color: var(--pale-dogwood);
+}
