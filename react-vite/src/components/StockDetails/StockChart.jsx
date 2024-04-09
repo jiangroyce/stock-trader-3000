@@ -5,7 +5,7 @@ export default function StockChart({stock}) {
     const [dateRange, setDateRange] = useState(1.0)
     const stockData = stock.history;
     const dataStart = stockData.length * dateRange;
-    const data = stockData.slice(Math.floor(dataStart - stockData.length));
+    const data = stockData.slice(Math.floor(stockData.length - dataStart));
     const [x, open, high, low, close] = [[],[],[],[],[]];
     data.forEach(({ Date, Open, High, Low, Close }) => {
         x.push(Date);
@@ -47,10 +47,10 @@ export default function StockChart({stock}) {
                     color: "white",
                     autorange: true,
                     rangeslider: {
-                        visible: false,
+                        visible: false
                     },
                     rangeselector: {
-                        visible: false
+                        buttons: []
                     },
                     rangebreaks: [
                         {bounds: ["sat", "mon"]},
