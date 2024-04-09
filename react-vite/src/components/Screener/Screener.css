@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: row;
     gap: 15px;
-    color: var(--pale-dogwood);
+    color: var(--white);
 }
 
 .filter-container {
@@ -24,7 +24,7 @@
 .filter-header > button {
     background-color: transparent;
     border: none;
-    color: var(--pale-dogwood);
+    color: var(--white);
     cursor: pointer;
 }
 
@@ -32,12 +32,12 @@ td > button {
     background-color: transparent;
     font-size: larger;
     border: none;
-    color: var(--pale-dogwood);
+    color: var(--white);
     cursor: pointer;
     z-index: 1;
 }
 td > button:hover {
-    opacity: 0.7;
+    color: var(--green);
 }
 
 .stock-card {

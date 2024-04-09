@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     gap: 10px;
-    color: var(--pale-dogwood);
+    color: var(--white);
     padding: 0 40px;
 }
 
@@ -32,22 +32,21 @@
     position: sticky;
     top: 150px;
     right: 2%;
-    border: 1px solid var(--pale-dogwood);
+    border: 1px solid var(--white);
     border-radius: 10px;
 }
 
 .stock-chart {
     width: 100%;
-    background-color: var(--yale-blue);
 }
 
 .stock-actions > button {
     align-self: center;
     font-size: large;
     width: 70%;
-    border: 1px solid var(--pale-dogwood);
+    border: 1px solid var(--green);
     background-color: transparent;
-    color: var(--pale-dogwood);
+    color: var(--green);
     display: flex;
     justify-content: center;
     padding: 5%;

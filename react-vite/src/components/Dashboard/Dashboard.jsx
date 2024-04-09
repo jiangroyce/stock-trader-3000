@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchPortfolio } from "../../redux/portfolio";
 import { fetchWatchlists } from "../../redux/watchlist";
@@ -10,17 +10,23 @@ import { fetchAllScreeners } from "../../redux/screener";
 
 function Dashboard() {
     const dispatch = useDispatch();
-    const user = useSelector((state) => state.session.user)
-    const portfolio = useSelector((state) => state.portfolio.portfolio)
-    const watchlists = useSelector((state) => state.watchlists)
-    document.title = "Stonk Trader 3000"
-    useEffect(() => {
-        dispatch(fetchPortfolio());
-        dispatch(fetchWatchlists());
-        dispatch(fetchAllScreeners());
-    }, [dispatch])
+    const user = useSelector((state) => state.session.user);
+    const portfolio = useSelector((state) => state.portfolio.portfolio);
+    const watchlists = useSelector((state) => state.watchlists);
+    const [loaded, setLoaded] = useState(false);
     const currencyFormat = new Intl.NumberFormat("en-US", {style: "currency", currency: "USD"})
+    document.title = "Dashboard | Stonk Trader 3000"
+    useEffect(() => {
+        const loadData = async () => {
+            await dispatch(fetchPortfolio());
+            await dispatch(fetchWatchlists());
+            await dispatch(fetchAllScreeners());
+            setLoaded(true)
+        }
+        loadData();
+    }, [dispatch])
 
+    if (!loaded) return <h1>Loading</h1>
     return (
         <div className="dashboard">
             { user ? portfolio && (

@@ -15,9 +15,9 @@
     align-self: center;
     font-size: large;
     width: 70%;
-    border: 1px solid var(--pale-dogwood);
+    border: 1px solid var(--white);
     background-color: transparent;
-    color: var(--pale-dogwood);
+    color: var(--white);
     display: flex;
     justify-content: center;
     padding: 5%;
@@ -32,9 +32,9 @@
 .demo-user {
     font-size: large;
     width: 70%;
-    border: 1px solid var(--pale-dogwood);
+    border: 1px solid var(--white);
     background-color: transparent;
-    color: var(--pale-dogwood);
+    color: var(--white);
     display: flex;
     justify-content: center;
     padding: 5%;

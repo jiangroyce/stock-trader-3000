@@ -1,12 +1,12 @@
 .footer {
     position: absolute;
-    bottom: 5px;
+    top: 100%;
     display: flex;
     width: 100%;
     align-self: center;
     justify-content: space-evenly;
     font-size: xx-large;
-    color: var(--pale-dogwood);
+    color: var(--white);
 }
 
 .footer > a {

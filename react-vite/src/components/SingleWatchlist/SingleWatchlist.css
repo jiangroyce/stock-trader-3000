@@ -1,7 +1,7 @@
 .single-watchlist {
     display: flex;
     justify-content: space-between;
-    color: var(--pale-dogwood);
+    color: var(--white);
     margin-top: 20px;
 }
 
@@ -28,14 +28,14 @@
 
 .watchlist-name {
     font-size: 50px;
-    color: var(--pale-dogwood);
+    color: var(--white);
     background-color: transparent;
     border: none;
     cursor: pointer;
 }
 
 .watchlist-name:hover {
-    background-color: var(--lapis-lazuli);
+    background-color: var(--gray);
 }
 .defaults {
     cursor: default;

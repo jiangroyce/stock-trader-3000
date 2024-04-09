@@ -4,7 +4,7 @@
 
 .order-type-button {
     width: 50%;
-    border: 1px solid var(--pale-dogwood);
+    border: 1px solid var(--white);
     display: flex;
     justify-content: center;
     padding: 5%;
@@ -18,7 +18,8 @@
 
 
 .selected {
-    background-color: var(--lapis-lazuli);
+    color: var(--green);
+    border-color: var(--green);
 }
 
 .order-form {
@@ -66,8 +67,8 @@
 
 .quantity-inputs > label > input {
     width: 100%;
-    background-color: var(--lapis-lazuli);
-    color: var(--pale-dogwood);
+    background-color: var(--gray);
+    color: var(--white);
     border: none;
 }
 
@@ -99,9 +100,9 @@
     align-self: center;
     font-size: large;
     width: 70%;
-    border: 1px solid var(--pale-dogwood);
+    border: 1px solid var(--green);
     background-color: transparent;
-    color: var(--pale-dogwood);
+    color: var(--green);
     display: flex;
     justify-content: center;
     padding: 5%;

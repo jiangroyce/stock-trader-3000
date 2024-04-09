@@ -46,20 +46,20 @@ function ProfileButton() {
 
   return (
     <>
-      <button onClick={toggleMenu} className="profile-button">
-        <FaUserCircle />
-      </button>
+      <a onClick={toggleMenu} className="profile-button">
+        Account
+      </a>
       {showMenu && (
         <ul className={"profile-dropdown"} ref={ulRef}>
           {user && (
             <>
               <h2>{user.name}</h2>
-              ______________________
+              __________________________________________
               <li><NavLink to="/account/summary" onClick={closeMenu}><FaSmileBeam />Account</NavLink></li>
               <li><NavLink to="/account/transfers" onClick={closeMenu}><FaMoneyBill />Transfers</NavLink></li>
               <li><NavLink to="/account/strategies" onClick={closeMenu}><ImLoop2 />Strategies</NavLink></li>
               <li><NavLink to="/account/history" onClick={closeMenu}><FaHistory />History</NavLink></li>
-              ______________________
+              __________________________________________
               <li><a onClick={logout}><FaSignOutAlt />Log Out</a></li>
             </>
           )}

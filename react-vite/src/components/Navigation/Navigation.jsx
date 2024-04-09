@@ -1,9 +1,8 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import SearchBar from "../SearchBar";
 import ProfileButton from "./ProfileButton";
-import { FaSearch } from "react-icons/fa";
 import "./Navigation.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import OpenModalMenuItem from "./OpenModalMenuItem";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
@@ -12,22 +11,22 @@ function Navigation() {
   const loggedIn = useSelector((state) => state.session.user);
 
   return (
-    <ul className="nav-bar">
-      <li className="landing-logo">
-        <NavLink to="/"><h1>Stonk Trader 3000</h1></NavLink>
-      </li>
-
+    <>
       {loggedIn ?
-        (
-          <>
-          <SearchBar />
-          <li>
+        <div className="nav-bar">
+          <div className="nav-bar-left">
+            <NavLink className="landing-logo" to="/"><img src="./public/stonks-logo.png" alt="stonks-logo" width="50px"/></NavLink>
+            <SearchBar />
+          </div>
+          <div className="nav-bar-right">
+            <NavLink>Dashboard</NavLink>
+            <NavLink>Screeners</NavLink>
+            <NavLink>Watchlists</NavLink>
+            <NavLink>Strategies</NavLink>
             <ProfileButton />
-          </li>
-          </>
-        )  :
-        (
-          <div className="logged-out">
+          </div>
+        </div> :
+        <div className="nav-bar">
             <OpenModalMenuItem
               className="log-in"
               itemText="Log In"
@@ -38,11 +37,9 @@ function Navigation() {
               itemText="Sign Up"
               modalComponent={<SignupFormModal />}
             />
-          </div>
-        )
+        </div>
       }
-
-    </ul>
+    </>
   );
 }
 
