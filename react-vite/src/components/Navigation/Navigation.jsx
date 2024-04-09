@@ -15,7 +15,7 @@ function Navigation() {
       {loggedIn ?
         <div className="nav-bar">
           <div className="nav-bar-left">
-            <NavLink className="landing-logo" to="/"><img src="./public/stonks-logo.png" alt="stonks-logo" width="50px"/></NavLink>
+            <NavLink className="landing-logo" to="/"><img src="/stonks-logo.png" alt="stonks-logo" width="50px"/></NavLink>
             <SearchBar />
           </div>
           <div className="nav-bar-right">

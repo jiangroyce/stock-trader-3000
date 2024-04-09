@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import "./OrderHistory.css"
 import { useEffect, useState } from "react";
 import { fetchOrders } from "../../redux/order";
+import Loading from "../Loading";
 
 export default function OrderHistory() {
     const [isLoaded, setIsLoaded] = useState(false)
@@ -12,7 +13,7 @@ export default function OrderHistory() {
         dispatch(fetchOrders()).then(setIsLoaded(true))
     }, [dispatch, setIsLoaded])
 
-    if (!isLoaded) return <h1>Loading</h1>
+    if (!isLoaded) return <Loading />
     else return (
         <>
         <h1>Order History</h1>

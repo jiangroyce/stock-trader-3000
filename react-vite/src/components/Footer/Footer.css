@@ -1,12 +1,12 @@
 .footer {
     position: absolute;
-    top: 100%;
     display: flex;
     width: 100%;
     align-self: center;
     justify-content: space-evenly;
     font-size: xx-large;
     color: var(--white);
+    margin-top: 40px;
 }
 
 .footer > a {

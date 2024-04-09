@@ -8,6 +8,7 @@ import OpenModalButton from "../OpenModalButton";
 import AddToWatchlistModal from "../AddToWatchlistModal";
 import StockChart from "./StockChart";
 import "./StockDetails.css"
+import Loading from "../Loading";
 
 function StockDetails() {
     const { ticker } = useParams();
@@ -29,7 +30,7 @@ function StockDetails() {
     }, [dispatch, ticker])
 
     document.title = `${ticker} - $${stock?.price} Stonk Trader 3000`
-    if (!isLoaded) return <h1>Loading</h1>
+    if (!isLoaded) return <Loading />
     else return (
         <>
         { stock && (

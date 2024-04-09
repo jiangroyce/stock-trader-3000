@@ -70,7 +70,7 @@ function SearchBar() {
             {!input ? (open && (<div className="search-results">
                 <h2>Stock Screeners</h2>
                 <div className="results-container">
-                    <NavLink onClick={handleExit} to={`/screener`}><FaPlus />Custom Screener</NavLink>
+                    <NavLink onClick={handleExit} to={`/screener?id=0`}><FaPlus />Custom Screener</NavLink>
                     {screeners?.map((screener, index) => (<NavLink onClick={handleExit} key={index} to={`/screener?id=${screener.id}`}>{screener.name}</NavLink>))}
                 </div>
             </div>)) :

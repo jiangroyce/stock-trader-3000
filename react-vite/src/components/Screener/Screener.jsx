@@ -8,25 +8,47 @@ import OpenModalButton from "../OpenModalButton";
 import AddToWatchlistModal from "../AddToWatchlistModal";
 import FilterCard from "./FilterCard";
 import { FaPlus } from "react-icons/fa";
+import Loading from "../Loading"
 import "./Screener.css"
 
 function AllStocksPage() {
     const navigate = useNavigate();
     const currencyFormat = new Intl.NumberFormat("en-US", {style: "currency", currency: "USD"});
     const location = useLocation();
-    const id = location.search.split("id=")[1];
+    const id = +location.search.split("id=")[1];
     const screeners = useSelector((state) => state.screeners);
     const screener = screeners?.screeners?.filter(item => item?.id == id)[0];
     const [isLoaded, setIsLoaded] = useState(false)
+    const [filters, setFilters] = useState([])
+    const [allStocks, setAllStocks] = useState([])
     const stocks = id ? screeners[+id] : useSelector((state) => state.stocks.stocks);
+    const applyFilters = (stocks, filters) => {
+        filters.forEach((filterCB) => {
+            // console.log(typeof(filter))
+            const res = stocks.filter((item) => filterCB(item))
+            setAllStocks(res)
+        })
+    }
+    console.log("allStocks", allStocks)
+    // const allStocks = stocks?.filter((item) => {
+    //     filters.forEach((filter) => filter(item))
+    // });
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        setAllStocks(stocks)
+    }, [stocks?.length])
+
+    useEffect(() => {
+        applyFilters(stocks, filters)
+    }, [filters])
 
     useEffect(() => {
         dispatch(fetchAllStocks());
         dispatch(fetchScreener(id ? +id : undefined)).then(() => setIsLoaded(true))
     }, [dispatch, id]);
 
-    if (!isLoaded) return <h1>Loading</h1>
+    if (!isLoaded) return <Loading />
     else return (
         <div className="screener-page">
             <div className="filters">
@@ -40,7 +62,10 @@ function AllStocksPage() {
                             <p>Under 100,000</p>
                             <p>Under 200,000</p>
                             <p>Under 500,000</p>
-                            <p>Under 1,000,000</p>
+                            <button onClick={() => {
+                                const cb = (some) => some.avg_volume < 1000000;
+                                setFilters([...filters, cb])
+                                }}>Under 1,000,000</button>
                             <p>Over 50,000</p>
                             <p>Over 100,000</p>
                             <p>Over 200,000</p>
@@ -245,8 +270,8 @@ function AllStocksPage() {
             </div>
             <div className="all-stocks">
                 <div className="screener-header">
-                    <h2>{screener?.name}</h2>
-                    {<p>{stocks?.length} items</p>}{/*· Updated */}
+                    <h2>{screener?.name || "All Stocks"}</h2>
+                    {<p>{allStocks?.length} items</p>}{/*· Updated */}
                 </div>
                 <table>
                     <thead>
@@ -264,7 +289,7 @@ function AllStocksPage() {
                         </tr>
                     </thead>
                     <tbody>
-                    {stocks?.map((stock) => (
+                    {allStocks?.map((stock) => (
                         <tr className="stock-card" onClick={() => navigate(`/stocks/${stock.ticker}`)} key={stock.ticker}>
                             <th scope="row">{stock.ticker}</th>
                             <td>{stock.name}</td>
@@ -284,7 +309,7 @@ function AllStocksPage() {
                             <td>
                                 <OpenModalButton
                                     buttonText={<FaPlus/>}
-                                    modalComponent={<AddToWatchlistModal stock={stock}/>}/>
+                                    modalComponent={<AddToWatchlistModal stock={stock} ticker={stock.ticker}/>}/>
                             </td>
                         </tr>
                     ))}

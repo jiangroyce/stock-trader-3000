@@ -2,7 +2,8 @@ import Plot from "react-plotly.js";
 import { useState } from "react";
 
 export default function StockChart({stock}) {
-    const [dateRange, setDateRange] = useState(1.0)
+    const [dateRange, setDateRange] = useState(1.0);
+    const [selected, setSelected] = useState(1);
     const stockData = stock.history;
     const dataStart = stockData.length * dateRange;
     const data = stockData.slice(Math.floor(stockData.length - dataStart));
@@ -13,7 +14,12 @@ export default function StockChart({stock}) {
         high.push(Number(High));
         low.push(Number(Low));
         close.push(Number(Close));
-    })
+    });
+
+    const handleRange = (e) => {
+        setSelected(e.target.value);
+        setDateRange(1/e.target.value);
+    }
     return (
         <>
         <Plot
@@ -50,7 +56,15 @@ export default function StockChart({stock}) {
                         visible: false
                     },
                     rangeselector: {
-                        buttons: []
+                        x: -0.02,
+                        y: -0.1,
+                        buttons:
+                        [{
+                            step: 'month',
+                            stepmode: 'backward',
+                            count: 1,
+                            label: "1M"
+                        }]
                     },
                     rangebreaks: [
                         {bounds: ["sat", "mon"]},
@@ -71,11 +85,11 @@ export default function StockChart({stock}) {
         <div className="range-selector">
             {/* <button>1D</button>
             <button>1W</button> */}
-            <button onClick={() => setDateRange(1/24)}>1M</button>
-            <button onClick={() => setDateRange(1/8)}>3M</button>
-            <button onClick={() => setDateRange(1/4)}>6M</button>
-            <button onClick={() => setDateRange(1/2)}>1Y</button>
-            <button onClick={() => setDateRange(1)}>MAX</button>
+            <button className={selected == 24 ? "selected" : ""}value={24} onClick={(e) => handleRange(e)}>1M</button>
+            <button className={selected == 8 ? "selected" : ""}value={8} onClick={(e) => handleRange(e)}>3M</button>
+            <button className={selected == 4 ? "selected" : ""}value={4} onClick={(e) => handleRange(e)}>6M</button>
+            <button className={selected == 2 ? "selected" : ""}value={2} onClick={(e) => handleRange(e)}>1Y</button>
+            <button className={selected == 1 ? "selected" : ""}value={1} onClick={(e) => handleRange(e)}>MAX</button>
         </div>
         </>
         )

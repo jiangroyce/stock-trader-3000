@@ -6,6 +6,7 @@ import { NavLink, Navigate } from "react-router-dom";
 import "./Dashboard.css"
 import Watchlists from "../Watchlists";
 import { fetchAllScreeners } from "../../redux/screener";
+import Loading from "../Loading";
 
 
 function Dashboard() {
@@ -26,7 +27,7 @@ function Dashboard() {
         loadData();
     }, [dispatch])
 
-    if (!loaded) return <h1>Loading</h1>
+    if (!loaded) return <Loading />
     return (
         <div className="dashboard">
             { user ? portfolio && (

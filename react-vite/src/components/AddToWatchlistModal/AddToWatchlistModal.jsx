@@ -6,10 +6,10 @@ import { useEffect, useState} from "react";
 import "./AddToWatchlistModal.css";
 import { useNavigate } from "react-router-dom";
 import WatchlistCheckCard from "./WatchlistCheckCard";
+import Loading from "../Loading";
 
 export default function AddToWatchlistModal({stock, ticker}) {
     const dispatch = useDispatch();
-    const navigate = useNavigate();
     const [click, setClick] = useState(false);
     const [name, setName] = useState("");
     const [errors, setErrors] = useState({});
@@ -40,7 +40,6 @@ export default function AddToWatchlistModal({stock, ticker}) {
             if (response?.errors) setErrors(response.errors);
         }
         closeModal();
-        navigate(`/stocks/${ticker}`)
     };
 
     const createList = async (e) => {
@@ -80,7 +79,7 @@ export default function AddToWatchlistModal({stock, ticker}) {
     }, [dispatch]);
 
     if (!isLoaded || lists === undefined) {
-        return <h1>Loading</h1>}
+        return <Loading />}
     else return (
         <div className="add-stock-modal">
             <h2>Add {stock.ticker} to Your Lists</h2>
