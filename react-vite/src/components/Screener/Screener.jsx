@@ -8,7 +8,8 @@ import OpenModalButton from "../OpenModalButton";
 import AddToWatchlistModal from "../AddToWatchlistModal";
 import FilterCard from "./FilterCard";
 import { FaPlus } from "react-icons/fa";
-import Loading from "../Loading"
+import Loading from "../Loading";
+import * as f from "./filters";
 import "./Screener.css"
 
 function AllStocksPage() {
@@ -18,21 +19,18 @@ function AllStocksPage() {
     const id = +location.search.split("id=")[1];
     const screeners = useSelector((state) => state.screeners);
     const screener = screeners?.screeners?.filter(item => item?.id == id)[0];
-    const [isLoaded, setIsLoaded] = useState(false)
-    const [filters, setFilters] = useState([])
-    const [allStocks, setAllStocks] = useState([])
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [filters, setFilters] = useState({});
+    const [selected, setSelected] = useState({});
+    const [allStocks, setAllStocks] = useState([]);
     const stocks = id ? screeners[+id] : useSelector((state) => state.stocks.stocks);
     const applyFilters = (stocks, filters) => {
-        filters.forEach((filterCB) => {
+        Object.values(filters).forEach((filterCB) => {
             // console.log(typeof(filter))
             const res = stocks.filter((item) => filterCB(item))
             setAllStocks(res)
         })
     }
-    console.log("allStocks", allStocks)
-    // const allStocks = stocks?.filter((item) => {
-    //     filters.forEach((filter) => filter(item))
-    // });
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -40,7 +38,8 @@ function AllStocksPage() {
     }, [stocks?.length])
 
     useEffect(() => {
-        applyFilters(stocks, filters)
+        if (allStocks?.length) applyFilters(allStocks, filters)
+        else applyFilters(stocks, filters)
     }, [filters])
 
     useEffect(() => {
@@ -56,215 +55,253 @@ function AllStocksPage() {
                 <div className="filter-container">
                     <FilterCard
                         title={<h3>Average Volume</h3>}
+                        attr={"avg_volume"}
+                        callback={f.avg_volume}
+                        filters={filters}
+                        setFilters={setFilters}
+                        setSelected={setSelected}
+                        selected={selected}
+                        setAllStocks={setAllStocks}
                         options={
                         <>
-                            <p>Under 50,000</p>
-                            <p>Under 100,000</p>
-                            <p>Under 200,000</p>
-                            <p>Under 500,000</p>
-                            <button onClick={() => {
-                                const cb = (some) => some.avg_volume < 1000000;
-                                setFilters([...filters, cb])
-                                }}>Under 1,000,000</button>
-                            <p>Over 50,000</p>
-                            <p>Over 100,000</p>
-                            <p>Over 200,000</p>
-                            <p>Over 500,000</p>
-                            <p>Over 1,000,000</p>
-                            <p>Custom Range</p>
-                        </>} />
+                            <div>
+                                <input type="radio" name="avg_volume" value="< 50000" checked={selected.avg_volume == "< 50000"} id="< 50000"/>
+                                <label htmlFor="< 50000">Under 50,000</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="avg_volume" value="< 100000" checked={selected.avg_volume == "< 100000"} id="< 100000" />
+                                <label htmlFor="< 100000">Under 100,000</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="avg_volume" value="< 200000" checked={selected.avg_volume == "< 200000"} id="< 200000" />
+                                <label htmlFor="< 200000">Under 200,000</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="avg_volume" value="< 500000" checked={selected.avg_volume == "< 500000"} id="< 500000" />
+                                <label htmlFor="< 500000">Under 500,000</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="avg_volume" value="< 1000000" checked={selected.avg_volume == "< 1000000"} id="< 1000000" />
+                                <label htmlFor="< 1000000">Under 1,000,000</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="avg_volume" value="> 50000" checked={selected.avg_volume == "> 50000"} id="> 50000" />
+                                <label htmlFor="> 50000">Over 50,000</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="avg_volume" value="> 100000" checked={selected.avg_volume == "> 100000"} id="> 100000" />
+                                <label htmlFor="> 100000">Over 100,000</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="avg_volume" value="> 200000" checked={selected.avg_volume == "> 200000"} id="> 200000" />
+                                <label htmlFor="> 200000">Over 200,000</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="avg_volume" value="> 500000" checked={selected.avg_volume == "> 500000"} id="> 500000" />
+                                <label htmlFor="> 500000">Over 500,000</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="avg_volume" value="> 1000000" checked={selected.avg_volume == "> 1000000"} id="> 1000000" />
+                                <label htmlFor="> 1000000">Over 1,000,000</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="avg_volume" value="< 10000000" checked={selected.avg_volume == "< 10000000"} id="< 10000000" />
+                                <label htmlFor="< 100000">Custom Range</label>
+                            </div>
+                        </>}
+                         />
                     <FilterCard
                         title={<h3>Share Price</h3>}
                         options={
                         <>
-                            <p>Under $10</p>
-                            <p>Under $50</p>
-                            <p>Under $100</p>
-                            <p>Over $10</p>
-                            <p>Over $50</p>
-                            <p>Over $100</p>
-                            <p>Custom Range</p>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Under $10</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Under $50</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Under $100</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Over $10</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Over $50</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Over $100</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Custom Range</label>
                         </>} />
                     <FilterCard
                         title={<h3>52 Week Range</h3>}
                         options={
                             <>
-                                <p>High Within 1% of Current Price</p>
-                                <p>High Within 5% of Current Price</p>
-                                <p>High Within 20% of Current Price</p>
-                                <p>High Within 40% of Current Price</p>
-                                <p>Low Within 1% of Current Price</p>
-                                <p>Low Within 5% of Current Price</p>
-                                <p>Low Within 20% of Current Price</p>
-                                <p>Low Within 40% of Current Price</p>
-                                <p>Custom Range</p>
+                                <input type="radio" name="avg_volume" /><label htmlFor="">High Within 1% of Current Price</label>
+                                <input type="radio" name="avg_volume" /><label htmlFor="">High Within 5% of Current Price</label>
+                                <input type="radio" name="avg_volume" /><label htmlFor="">High Within 20% of Current Price</label>
+                                <input type="radio" name="avg_volume" /><label htmlFor="">High Within 40% of Current Price</label>
+                                <input type="radio" name="avg_volume" /><label htmlFor="">Low Within 1% of Current Price</label>
+                                <input type="radio" name="avg_volume" /><label htmlFor="">Low Within 5% of Current Price</label>
+                                <input type="radio" name="avg_volume" /><label htmlFor="">Low Within 20% of Current Price</label>
+                                <input type="radio" name="avg_volume" /><label htmlFor="">Low Within 40% of Current Price</label>
+                                <input type="radio" name="avg_volume" /><label htmlFor="">Custom Range</label>
                             </>} />
                     <FilterCard
                         title={<h3>Daily % Change</h3>}
                         options={
                         <>
-                            <p>Up more than 0%</p>
-                            <p>Up more than 5%</p>
-                            <p>Up more than 10%</p>
-                            <p>Up more than 20%</p>
-                            <p>Down more than 0%</p>
-                            <p>Down more than 5%</p>
-                            <p>Down more than 10%</p>
-                            <p>Down more than 20%</p>
-                            <p>Custom Range</p>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Up more than 0%</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Up more than 5%</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Up more than 10%</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Up more than 20%</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Down more than 0%</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Down more than 5%</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Down more than 10%</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Down more than 20%</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Custom Range</label>
                         </>} />
                     <FilterCard
                         title={<h3>Monthly % Change</h3>}
                         options={
                             <>
-                                <p>Up more than 0%</p>
-                                <p>Up more than 5%</p>
-                                <p>Up more than 10%</p>
-                                <p>Up more than 20%</p>
-                                <p>Up more than 30%</p>
-                                <p>Down more than 0%</p>
-                                <p>Down more than 5%</p>
-                                <p>Down more than 10%</p>
-                                <p>Down more than 20%</p>
-                                <p>Down more than 30%</p>
-                                <p>Custom Range</p>
+                                <input type="radio" name="avg_volume" /><label htmlFor="">Up more than 0%</label>
+                                <input type="radio" name="avg_volume" /><label htmlFor="">Up more than 5%</label>
+                                <input type="radio" name="avg_volume" /><label htmlFor="">Up more than 10%</label>
+                                <input type="radio" name="avg_volume" /><label htmlFor="">Up more than 20%</label>
+                                <input type="radio" name="avg_volume" /><label htmlFor="">Up more than 30%</label>
+                                <input type="radio" name="avg_volume" /><label htmlFor="">Down more than 0%</label>
+                                <input type="radio" name="avg_volume" /><label htmlFor="">Down more than 5%</label>
+                                <input type="radio" name="avg_volume" /><label htmlFor="">Down more than 10%</label>
+                                <input type="radio" name="avg_volume" /><label htmlFor="">Down more than 20%</label>
+                                <input type="radio" name="avg_volume" /><label htmlFor="">Down more than 30%</label>
+                                <input type="radio" name="avg_volume" /><label htmlFor="">Custom Range</label>
                             </>} />
                     <FilterCard
                         title={<h3>Yearly % Change</h3>}
                         options={
                         <>
-                            <p>Up more than 0%</p>
-                            <p>Up more than 5%</p>
-                            <p>Up more than 10%</p>
-                            <p>Up more than 20%</p>
-                            <p>Up more than 30%</p>
-                            <p>Up more than 40%</p>
-                            <p>Up more than 50%</p>
-                            <p>Down more than 0%</p>
-                            <p>Down more than 5%</p>
-                            <p>Down more than 10%</p>
-                            <p>Down more than 20%</p>
-                            <p>Down more than 30%</p>
-                            <p>Down more than 40%</p>
-                            <p>Down more than 50%</p>
-                            <p>Custom Range</p>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Up more than 0%</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Up more than 5%</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Up more than 10%</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Up more than 20%</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Up more than 30%</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Up more than 40%</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Up more than 50%</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Down more than 0%</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Down more than 5%</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Down more than 10%</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Down more than 20%</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Down more than 30%</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Down more than 40%</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Down more than 50%</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Custom Range</label>
                         </>} />
                     <FilterCard
                         title={<h3>Yearly % Change Over Market</h3>}
                         options={
                         <>
-                            <p>Up more than 0%</p>
-                            <p>Up more than 5%</p>
-                            <p>Up more than 10%</p>
-                            <p>Up more than 20%</p>
-                            <p>Up more than 30%</p>
-                            <p>Up more than 40%</p>
-                            <p>Up more than 50%</p>
-                            <p>Down more than 0%</p>
-                            <p>Down more than 5%</p>
-                            <p>Down more than 10%</p>
-                            <p>Down more than 20%</p>
-                            <p>Down more than 30%</p>
-                            <p>Down more than 40%</p>
-                            <p>Down more than 50%</p>
-                            <p>Custom Range</p>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Up more than 0%</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Up more than 5%</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Up more than 10%</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Up more than 20%</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Up more than 30%</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Up more than 40%</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Up more than 50%</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Down more than 0%</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Down more than 5%</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Down more than 10%</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Down more than 20%</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Down more than 30%</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Down more than 40%</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Down more than 50%</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Custom Range</label>
                         </>} />
                     <FilterCard
                         title={<h3>Market Cap</h3>}
                         options={
                         <>
-                            <p>Small Cap ($300M - $2B)</p>
-                            <p>Mid Cap ($2B - $10B)</p>
-                            <p>Large Cap ($10B+)</p>
-                            <p>Mega Cap ($200B+)</p>
-                            <p>Custom Range</p>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Small Cap ($300M - $2B)</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Mid Cap ($2B - $10B)</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Large Cap ($10B+)</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Mega Cap ($200B+)</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Custom Range</label>
                         </>} />
                     <FilterCard
                         title={<h3>Sector</h3>}
                         options={
                         <>
-                            {<p>Sector Name</p> /* sectors.map((sector, index) => (<p key={index}>sector</p>)) */}
+                            {<><input type="text" /><label htmlFor="">Sector Name</label> </>/* sectors.map((sector, index) => (<p key={index}>sector</label>)) */}
                         </>} />
                     <FilterCard
                         title={<h3>Shares Outstanding</h3>}
                         options={
                         <>
-                            <p>Under 1M</p>
-                            <p>Under 5M</p>
-                            <p>Under 20M</p>
-                            <p>Under 50M</p>
-                            <p>Under 100M</p>
-                            <p>Over 1M</p>
-                            <p>Over 5M</p>
-                            <p>Over 20M</p>
-                            <p>Over 50M</p>
-                            <p>Over 100M</p>
-                            <p>Custom Range</p>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Under 1M</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Under 5M</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Under 20M</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Under 50M</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Under 100M</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Over 1M</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Over 5M</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Over 20M</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Over 50M</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Over 100M</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Custom Range</label>
                         </>} />
                     <FilterCard
                         title={<h3>Short Interest %</h3>}
                         options={
                         <>
-                            <p>Under 1%</p>
-                            <p>Under 5%</p>
-                            <p>Under 10%</p>
-                            <p>Over 1%</p>
-                            <p>Over 5%</p>
-                            <p>Over 10%</p>
-                            <p>Over 15%</p>
-                            <p>Over 20%</p>
-                            <p>Custom Range</p>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Under 1%</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Under 5%</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Under 10%</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Over 1%</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Over 5%</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Over 10%</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Over 15%</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Over 20%</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Custom Range</label>
                         </>}/>
                     <FilterCard
                         title={<h3>Analyst Ratings</h3>}
                         options={
                         <>
-                            <p>Buy</p>
-                            <p>Hold</p>
-                            <p>Mixed</p>
-                            <p>Sell</p>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Buy</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Hold</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Mixed</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Sell</label>
                         </>} />
                     <FilterCard
                         title={<h3>Dividend Yield</h3>}
                         options={
                         <>
-                            <p>None</p>
-                            <p>2% or Less</p>
-                            <p>Over 2%</p>
-                            <p>Over 5%</p>
-                            <p>Custom Range</p>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">None</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">2% or Less</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Over 2%</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Over 5%</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Custom Range</label>
                         </>} />
                     <FilterCard
                         title={<h3>Trailing PE Ratio</h3>}
                         options={
                         <div>
-                            <p>More than 0</p>
-                            <p>More than 5</p>
-                            <p>More than 15</p>
-                            <p>More than 20</p>
-                            <p>More than 50</p>
-                            <p>Less than 20</p>
-                            <p>Less than 50</p>
-                            <p>Custom Range</p>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">More than 0</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">More than 5</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">More than 15</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">More than 20</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">More than 50</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Less than 20</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Less than 50</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Custom Range</label>
                         </div>} />
                     <FilterCard
-                        title={<h3>Forward PE Ratio</h3>}
+                        title={<h3>htmlForward PE Ratio</h3>}
                         options={<div>
-                            <p>More than 0</p>
-                            <p>More than 5</p>
-                            <p>More than 15</p>
-                            <p>More than 20</p>
-                            <p>More than 50</p>
-                            <p>Less than 20</p>
-                            <p>Less than 50</p>
-                            <p>Custom Range</p>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">More than 0</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">More than 5</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">More than 15</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">More than 20</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">More than 50</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Less than 20</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Less than 50</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Custom Range</label>
                         </div>} />
                     <FilterCard
                         title={<h3>Price to Book Ratio</h3>}
                         options={<div>
-                            <p>Less than 5</p>
-                            <p>More than 5</p>
-                            <p>Custom Range</p>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Less than 5</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">More than 5</label>
+                            <input type="radio" name="avg_volume" /><label htmlFor="">Custom Range</label>
                         </div>} />
                 </div>
             </div>

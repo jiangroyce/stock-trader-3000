@@ -27,6 +27,10 @@ function Navigation() {
           </div>
         </div> :
         <div className="nav-bar">
+          <div className="nav-bar-left">
+            <NavLink className="landing-logo" to="/"><img src="/stonks-logo.png" alt="stonks-logo" width="50px"/></NavLink>
+          </div>
+          <div className="logged-out">
             <OpenModalMenuItem
               className="log-in"
               itemText="Log In"
@@ -37,6 +41,7 @@ function Navigation() {
               itemText="Sign Up"
               modalComponent={<SignupFormModal />}
             />
+          </div>
         </div>
       }
     </>

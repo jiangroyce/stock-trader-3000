@@ -26,10 +26,28 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  color: var(--white);
 }
 
 /* Nav Bar Button Styling */
 .nav-bar-right > a:hover {
+  color: var(--green);
+}
+
+.logged-out {
+  display: flex;
+  color: var(--white);
+  width: 25%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logged-out > div {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.logged-out > div:hover {
   color: var(--green);
 }
 

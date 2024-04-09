@@ -62,3 +62,14 @@ td > button:hover {
 .all-stocks > table {
     width: 100%;
 }
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+fieldset > div {
+    display: flex;
+    gap: 5px;
+}
