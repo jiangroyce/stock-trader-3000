@@ -288,85 +288,137 @@ function AllStocksPage() {
                         </>} />
                     <FilterCard
                         title={<h3>Shares Outstanding</h3>}
+                        attr={"shares_outstanding"}
+                        callback={f.shares_outstanding}
+                        filters={filters}
+                        setFilters={setFilters}
+                        setSelected={setSelected}
+                        selected={selected}
+                        setAllStocks={setAllStocks}
                         options={
                         <>
-                            <input type="radio" name="avg_volume" /><label htmlFor="">Under 1M</label>
-                            <input type="radio" name="avg_volume" /><label htmlFor="">Under 5M</label>
-                            <input type="radio" name="avg_volume" /><label htmlFor="">Under 20M</label>
-                            <input type="radio" name="avg_volume" /><label htmlFor="">Under 50M</label>
-                            <input type="radio" name="avg_volume" /><label htmlFor="">Under 100M</label>
-                            <input type="radio" name="avg_volume" /><label htmlFor="">Over 1M</label>
-                            <input type="radio" name="avg_volume" /><label htmlFor="">Over 5M</label>
-                            <input type="radio" name="avg_volume" /><label htmlFor="">Over 20M</label>
-                            <input type="radio" name="avg_volume" /><label htmlFor="">Over 50M</label>
-                            <input type="radio" name="avg_volume" /><label htmlFor="">Over 100M</label>
-                            <input type="radio" name="avg_volume" /><label htmlFor="">Custom Range</label>
+                            <label><input type="radio" name="shares_outstanding" value="< 1000000" checked={selected.shares_outstanding == "< 1000000"}/>Under 1M</label>
+                            <label><input type="radio" name="shares_outstanding" value="< 5000000" checked={selected.shares_outstanding == "< 5000000"}/>Under 5M</label>
+                            <label><input type="radio" name="shares_outstanding" value="< 20000000" checked={selected.shares_outstanding == "< 20000000"}/>Under 20M</label>
+                            <label><input type="radio" name="shares_outstanding" value="< 50000000" checked={selected.shares_outstanding == "< 50000000"}/>Under 50M</label>
+                            <label><input type="radio" name="shares_outstanding" value="< 100000000" checked={selected.shares_outstanding == "< 100000000"}/>Under 100M</label>
+                            <label><input type="radio" name="shares_outstanding" value="> 1000000" checked={selected.shares_outstanding == "> 1000000"}/>Over 1M</label>
+                            <label><input type="radio" name="shares_outstanding" value="> 5000000" checked={selected.shares_outstanding == "> 5000000"}/>Over 5M</label>
+                            <label><input type="radio" name="shares_outstanding" value="> 20000000" checked={selected.shares_outstanding == "> 20000000"}/>Over 20M</label>
+                            <label><input type="radio" name="shares_outstanding" value="> 50000000" checked={selected.shares_outstanding == "> 50000000"}/>Over 50M</label>
+                            <label><input type="radio" name="shares_outstanding" value="> 100000000" checked={selected.shares_outstanding == "> 100000000"}/>Over 100M</label>
+                            <label><input type="radio" name="shares_outstanding" value="0000" checked={selected.shares_outstanding == "0000"}/>Custom Range</label>
                         </>} />
                     <FilterCard
                         title={<h3>Short Interest %</h3>}
+                        attr={"short_interest"}
+                        callback={f.short_interest}
+                        filters={filters}
+                        setFilters={setFilters}
+                        setSelected={setSelected}
+                        selected={selected}
+                        setAllStocks={setAllStocks}
                         options={
                         <>
-                            <input type="radio" name="avg_volume" /><label htmlFor="">Under 1%</label>
-                            <input type="radio" name="avg_volume" /><label htmlFor="">Under 5%</label>
-                            <input type="radio" name="avg_volume" /><label htmlFor="">Under 10%</label>
-                            <input type="radio" name="avg_volume" /><label htmlFor="">Over 1%</label>
-                            <input type="radio" name="avg_volume" /><label htmlFor="">Over 5%</label>
-                            <input type="radio" name="avg_volume" /><label htmlFor="">Over 10%</label>
-                            <input type="radio" name="avg_volume" /><label htmlFor="">Over 15%</label>
-                            <input type="radio" name="avg_volume" /><label htmlFor="">Over 20%</label>
-                            <input type="radio" name="avg_volume" /><label htmlFor="">Custom Range</label>
+                            <label><input type="radio" name="short_interest" value="< 1" checked={selected.short_interest == "< 1"} />Under 1%</label>
+                            <label><input type="radio" name="short_interest" value="< 5" checked={selected.short_interest == "< 5"} />Under 5%</label>
+                            <label><input type="radio" name="short_interest" value="< 10" checked={selected.short_interest == "< 10"} />Under 10%</label>
+                            <label><input type="radio" name="short_interest" value="> 1" checked={selected.short_interest == "> 1"} />Over 1%</label>
+                            <label><input type="radio" name="short_interest" value="> 5" checked={selected.short_interest == "> 5"} />Over 5%</label>
+                            <label><input type="radio" name="short_interest" value="> 10" checked={selected.short_interest == "> 10"} />Over 10%</label>
+                            <label><input type="radio" name="short_interest" value="> 15" checked={selected.short_interest == "> 15"} />Over 15%</label>
+                            <label><input type="radio" name="short_interest" value="> 20" checked={selected.short_interest == "> 20"} />Over 20%</label>
+                            <label><input type="radio" name="short_interest" value="0000" checked={selected.short_interest == "0000"} />Custom Range</label>
                         </>}/>
                     <FilterCard
                         title={<h3>Analyst Ratings</h3>}
+                        attr={"recommendation"}
+                        callback={f.recommendation}
+                        filters={filters}
+                        setFilters={setFilters}
+                        setSelected={setSelected}
+                        selected={selected}
+                        setAllStocks={setAllStocks}
                         options={
                         <>
-                            <input type="radio" name="avg_volume" /><label htmlFor="">Buy</label>
-                            <input type="radio" name="avg_volume" /><label htmlFor="">Hold</label>
-                            <input type="radio" name="avg_volume" /><label htmlFor="">Mixed</label>
-                            <input type="radio" name="avg_volume" /><label htmlFor="">Sell</label>
+                            <label><input type="radio" name="recommendation" value="buy" checked={selected.recommendation == "buy"}/>Buy</label>
+                            <label><input type="radio" name="recommendation" value="hold" checked={selected.recommendation == "hold"}/>Hold</label>
+                            <label><input type="radio" name="recommendation" value="sell" checked={selected.recommendation == "sell"}/>Sell</label>
+                            <label><input type="radio" name="recommendation" value="none" checked={selected.recommendation == "none"}/>None</label>
                         </>} />
                     <FilterCard
                         title={<h3>Dividend Yield</h3>}
+                        attr={"dividend_yield"}
+                        callback={f.dividend_yield}
+                        filters={filters}
+                        setFilters={setFilters}
+                        setSelected={setSelected}
+                        selected={selected}
+                        setAllStocks={setAllStocks}
                         options={
                         <>
-                            <input type="radio" name="avg_volume" /><label htmlFor="">None</label>
-                            <input type="radio" name="avg_volume" /><label htmlFor="">2% or Less</label>
-                            <input type="radio" name="avg_volume" /><label htmlFor="">Over 2%</label>
-                            <input type="radio" name="avg_volume" /><label htmlFor="">Over 5%</label>
-                            <input type="radio" name="avg_volume" /><label htmlFor="">Custom Range</label>
+                            <label><input type="radio" name="dividend_yield" value="0" checked={selected.dividend_yield == "0"}/>None</label>
+                            <label><input type="radio" name="dividend_yield" value="< 2" checked={selected.dividend_yield == "< 2"}/>2% or Less</label>
+                            <label><input type="radio" name="dividend_yield" value="> 2" checked={selected.dividend_yield == "> 2"}/>Over 2%</label>
+                            <label><input type="radio" name="dividend_yield" value="> 5" checked={selected.dividend_yield == "> 5"}/>Over 5%</label>
+                            <label><input type="radio" name="dividend_yield" value="00" checked={selected.dividend_yield == "00"}/>Custom Range</label>
                         </>} />
                     <FilterCard
                         title={<h3>Trailing PE Ratio</h3>}
+                        attr={"trailing_pe"}
+                        callback={f.trailing_pe}
+                        filters={filters}
+                        setFilters={setFilters}
+                        setSelected={setSelected}
+                        selected={selected}
+                        setAllStocks={setAllStocks}
                         options={
-                        <div>
-                            <input type="radio" name="avg_volume" /><label htmlFor="">More than 0</label>
-                            <input type="radio" name="avg_volume" /><label htmlFor="">More than 5</label>
-                            <input type="radio" name="avg_volume" /><label htmlFor="">More than 15</label>
-                            <input type="radio" name="avg_volume" /><label htmlFor="">More than 20</label>
-                            <input type="radio" name="avg_volume" /><label htmlFor="">More than 50</label>
-                            <input type="radio" name="avg_volume" /><label htmlFor="">Less than 20</label>
-                            <input type="radio" name="avg_volume" /><label htmlFor="">Less than 50</label>
-                            <input type="radio" name="avg_volume" /><label htmlFor="">Custom Range</label>
-                        </div>} />
-                    <FilterCard
+                        <>
+                            <label><input type="radio" name="trailing_pe" value="> 5" selected={selected.trailing_pe == "> 5"} />More than 5</label>
+                            <label><input type="radio" name="trailing_pe" value="> 15" selected={selected.trailing_pe == "> 15"} />More than 15</label>
+                            <label><input type="radio" name="trailing_pe" value="> 20" selected={selected.trailing_pe == "> 20"} />More than 20</label>
+                            <label><input type="radio" name="trailing_pe" value="> 50" selected={selected.trailing_pe == "> 50"} />More than 50</label>
+                            <label><input type="radio" name="trailing_pe" value="< 5" selected={selected.trailing_pe == "< 5"} />Less than 5</label>
+                            <label><input type="radio" name="trailing_pe" value="< 15" selected={selected.trailing_pe == "< 15"} />Less than 15</label>
+                            <label><input type="radio" name="trailing_pe" value="< 20" selected={selected.trailing_pe == "< 20"} />Less than 20</label>
+                            <label><input type="radio" name="trailing_pe" value="< 50" selected={selected.trailing_pe == "< 50"} />Less than 50</label>
+                            <label><input type="radio" name="trailing_pe" value="00" selected={selected.trailing_pe == "00"} />Custom Range</label>
+                        </>} />
+                        <FilterCard
                         title={<h3>Forward PE Ratio</h3>}
-                        options={<div>
-                            <input type="radio" name="avg_volume" /><label htmlFor="">More than 0</label>
-                            <input type="radio" name="avg_volume" /><label htmlFor="">More than 5</label>
-                            <input type="radio" name="avg_volume" /><label htmlFor="">More than 15</label>
-                            <input type="radio" name="avg_volume" /><label htmlFor="">More than 20</label>
-                            <input type="radio" name="avg_volume" /><label htmlFor="">More than 50</label>
-                            <input type="radio" name="avg_volume" /><label htmlFor="">Less than 20</label>
-                            <input type="radio" name="avg_volume" /><label htmlFor="">Less than 50</label>
-                            <input type="radio" name="avg_volume" /><label htmlFor="">Custom Range</label>
-                        </div>} />
+                        attr={"forward_pe"}
+                        callback={f.forward_pe}
+                        filters={filters}
+                        setFilters={setFilters}
+                        setSelected={setSelected}
+                        selected={selected}
+                        setAllStocks={setAllStocks}
+                        options={
+                        <>
+                            <label><input type="radio" name="forward_pe" value="> 5" selected={selected.forward_pe == "> 5"} />More than 5</label>
+                            <label><input type="radio" name="forward_pe" value="> 15" selected={selected.forward_pe == "> 15"} />More than 15</label>
+                            <label><input type="radio" name="forward_pe" value="> 20" selected={selected.forward_pe == "> 20"} />More than 20</label>
+                            <label><input type="radio" name="forward_pe" value="> 50" selected={selected.forward_pe == "> 50"} />More than 50</label>
+                            <label><input type="radio" name="forward_pe" value="< 5" selected={selected.forward_pe == "< 5"} />Less than 5</label>
+                            <label><input type="radio" name="forward_pe" value="< 15" selected={selected.forward_pe == "< 15"} />Less than 15</label>
+                            <label><input type="radio" name="forward_pe" value="< 20" selected={selected.forward_pe == "< 20"} />Less than 20</label>
+                            <label><input type="radio" name="forward_pe" value="< 50" selected={selected.forward_pe == "< 50"} />Less than 50</label>
+                            <label><input type="radio" name="forward_pe" value="00" selected={selected.forward_pe == "00"} />Custom Range</label>
+                        </>} />
                     <FilterCard
                         title={<h3>Price to Book Ratio</h3>}
-                        options={<div>
-                            <input type="radio" name="avg_volume" /><label htmlFor="">Less than 5</label>
-                            <input type="radio" name="avg_volume" /><label htmlFor="">More than 5</label>
-                            <input type="radio" name="avg_volume" /><label htmlFor="">Custom Range</label>
-                        </div>} />
+                        attr={"pb"}
+                        callback={f.pb}
+                        filters={filters}
+                        setFilters={setFilters}
+                        setSelected={setSelected}
+                        selected={selected}
+                        setAllStocks={setAllStocks}
+                        options={<>
+                            <label><input type="radio" name="pb" value="< 5" selected={selected.pb == "< 5"}/>Less than 5</label>
+                            <label><input type="radio" name="pb" value="> 5" selected={selected.pb == "> 5"}/>More than 5</label>
+                            <label><input type="radio" name="pb" value="< 5" selected={selected.pb == "00"}/>Custom Range</label>
+                        </>} />
                 </div>
                 <button onClick={() => clearFilters()}>Clear Filters</button>
                 <button>Save Screener</button>
