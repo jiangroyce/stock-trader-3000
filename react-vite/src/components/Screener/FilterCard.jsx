@@ -34,8 +34,3 @@ function FilterCard({title, options, callback, filters, setFilters, attr, setSel
 }
 
 export default FilterCard;
-
-
-                            {/* <button onClick={() => {
-                                setFilters([...filters, f.avg_volume("<", 1000000)])
-                            }}>Under 1,000,000</button> */}
