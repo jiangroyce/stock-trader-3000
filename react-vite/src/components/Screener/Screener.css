@@ -6,7 +6,6 @@
 }
 
 .filter-container {
-    width: 250px;
     height: 1000px;
     max-height: 1000px;
     overflow-y: scroll;
@@ -19,6 +18,8 @@
 
 .filter-card {
     font-size: smaller;
+    width: 250px;
+    max-width: 250px;
 }
 
 .filter-header > button {
@@ -63,6 +64,10 @@ td > button:hover {
     width: 100%;
 }
 
+fieldset{
+    min-width: 0;
+}
+
 fieldset {
     display: flex;
     flex-direction: column;
@@ -72,4 +77,20 @@ fieldset {
 fieldset > div {
     display: flex;
     gap: 5px;
+}
+
+.custom-actions {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.custom-inputs {
+    display: flex;
+    gap: 5px;
+
+}
+
+.custom-inputs > input {
+    width: 50%;
 }

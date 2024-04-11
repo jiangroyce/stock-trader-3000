@@ -75,7 +75,7 @@ export const router = createBrowserRouter([
             element: <OrderHistory />
           },
         ]
-      }
+      },
     ],
   },
 ]);

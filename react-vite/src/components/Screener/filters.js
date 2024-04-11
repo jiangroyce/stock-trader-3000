@@ -1,10 +1,12 @@
 export const avg_volume = (cond=">") => {
     const numCond = cond.split(" ")
-    switch (numCond[0]){
+    switch (numCond[0]) {
         case "<":
             return (item) => item.avg_volume < numCond[1]
         case ">":
             return (item) => item.avg_volume > numCond[1]
+        case "custom":
+            return (item) => item.avg_volume > numCond[1] && item.avg_volume < numCond[2]
         default:
             return (item) => item
     }
@@ -17,6 +19,8 @@ export const price = (cond=">") => {
             return (item) => item.price < numCond[1]
         case ">":
             return (item) => item.price > numCond[1]
+        case "custom":
+            return (item) => item.price > numCond[1] && item.price < numCond[2]
         default:
             return (item) => item
     }
@@ -41,6 +45,8 @@ export const past_day_return = (cond=">") => {
             return (item) => item.past_day_return < -numCond[1]/100
         case ">":
             return (item) => item.past_day_return > numCond[1]/100
+        case "custom":
+            return (item) => item.past_day_return > numCond[1]/100 && item.past_day_return < numCond[2]/100
         default:
             return (item) => item
     }
@@ -53,6 +59,8 @@ export const past_month_return = (cond=">") => {
             return (item) => item.past_month_return < -numCond[1]/100
         case ">":
             return (item) => item.past_month_return > numCond[1]/100
+        case "custom":
+            return (item) => item.past_month_return > numCond[1]/100 && item.past_month_return < numCond[2]/100
         default:
             return (item) => item
     }
@@ -65,6 +73,8 @@ export const past_year_return = (cond=">") => {
             return (item) => item.past_year_return < -numCond[1]/100
         case ">":
             return (item) => item.past_year_return > numCond[1]/100
+        case "custom":
+            return (item) => item.past_year_return > numCond[1]/100 && item.past_year_return < numCond[2]/100
         default:
             return (item) => item
     }
@@ -77,6 +87,8 @@ export const past_outperformance = (cond=">") => {
             return (item) => item.past_outperformance < -numCond[1]/100
         case ">":
             return (item) => item.past_outperformance > numCond[1]/100
+        case "custom":
+            return (item) => item.past_outperformance > numCond[1]/100 && item.past_outperformance < numCond[2]/100
         default:
             return (item) => item
     }
@@ -90,6 +102,8 @@ export const market_cap = (cond=">") => {
         case ">":
             return (item) => item.market_cap > numCond[1]
         case "[":
+            return (item) => item.market_cap > numCond[1] && item.market_cap < numCond[2]
+        case "custom":
             return (item) => item.market_cap > numCond[1] && item.market_cap < numCond[2]
         default:
             return (item) => item
@@ -110,6 +124,8 @@ export const shares_outstanding = (cond=">") => {
             return (item) => item.shares_outstanding > numCond[1]/1000000
         case "[":
             return (item) => item.shares_outstanding > numCond[1]/1000000 && item.shares_outstanding < numCond[2]/1000000
+        case "custom":
+            return (item) => item.shares_outstanding > numCond[1] && item.shares_outstanding < numCond[2]
         default:
             return (item) => item
     }
@@ -122,7 +138,7 @@ export const short_interest = (cond=">") => {
             return (item) => item.short_interest < numCond[1]/100
         case ">":
             return (item) => item.short_interest > numCond[1]/100
-        case "[":
+        case "custom":
             return (item) => item.short_interest > numCond[1]/100 && item.short_interest < numCond[2]/100
         default:
             return (item) => item
@@ -143,7 +159,7 @@ export const dividend_yield = (cond=">") => {
             return (item) => item.dividend_yield > numCond[1]/100
         case "0":
             return (item) => !item.dividend_yield
-        case "[":
+        case "custom":
             return (item) => item.dividend_yield > numCond[1]/100 && item.dividend_yield < numCond[2]/100
         default:
             return (item) => item
@@ -159,7 +175,7 @@ export const trailing_pe = (cond=">") => {
             return (item) => item.trailing_pe > numCond[1]
         case "0":
             return (item) => !item.trailing_pe
-        case "[":
+        case "custom":
             return (item) => item.trailing_pe > numCond[1] && item.trailing_pe < numCond[2]
         default:
             return (item) => item
@@ -175,7 +191,7 @@ export const forward_pe = (cond=">") => {
             return (item) => item.forward_pe > numCond[1]
         case "0":
             return (item) => !item.forward_pe
-        case "[":
+        case "custom":
             return (item) => item.forward_pe > numCond[1] && item.forward_pe < numCond[2]
         default:
             return (item) => item
@@ -191,7 +207,7 @@ export const pb = (cond=">") => {
             return (item) => item.pb > numCond[1]
         case "0":
             return (item) => !item.pb
-        case "[":
+        case "custom":
             return (item) => item.pb > numCond[1] && item.pb < numCond[2]
         default:
             return (item) => item
