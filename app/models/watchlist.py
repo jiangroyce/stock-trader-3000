@@ -11,10 +11,12 @@ class Watchlist(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer,  db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
     stock_ticker = db.Column(db.String, db.ForeignKey(add_prefix_for_prod("stocks.ticker")), nullable=True)
+    market_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("markets.id")), nullable=True)
     list_number = db.Column(db.Integer, nullable=False)
     name = db.Column(db.String, nullable=False)
 
     stock = db.relationship("Stock", back_populates="watchlists")
+    market = db.relationship("Market", back_populates="watchlists")
 
     def to_dict(self):
         return {

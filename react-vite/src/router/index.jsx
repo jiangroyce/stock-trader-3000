@@ -13,6 +13,8 @@ import AccountSummary from '../components/AccountSummary';
 import Transfers from '../components/Transfers';
 import OrderHistory from '../components/OrderHistory';
 import Loading from '../components/Loading/Loading';
+import AccountWatchlists from '../components/AccountWatchlists';
+import AccountScreeners from '../components/AccountScreeners';
 
 export const router = createBrowserRouter([
   {
@@ -65,6 +67,14 @@ export const router = createBrowserRouter([
           {
             path: "transfers",
             element: <Transfers />
+          },
+          {
+            path: "watchlists",
+            element: <AccountWatchlists />
+          },
+          {
+            path: "screeners",
+            element: <AccountScreeners />
           },
           {
             path: "strategies",

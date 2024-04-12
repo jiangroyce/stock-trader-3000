@@ -1,5 +1,6 @@
 from .db import db
 from .stock import Stock
+from .market import Market
 from .user import User
 from .portfolio import Portfolio
 from .order import Order

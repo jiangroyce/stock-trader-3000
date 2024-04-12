@@ -4,11 +4,10 @@ import RangeSlider from "react-range-slider-input";
 import 'react-range-slider-input/dist/style.css';
 
 
-function FilterCard({title, options, callback, filters, setFilters, attr, setSelected, selected, setAllStocks, min, max}) {
-
+function FilterCard({title, options, callback, filters, setFilters, attr, setSelected, selected, setAllStocks, allStocks, min, max}) {
     const [open, setOpen] = useState(false);
-    const [custom, setCustom] = useState(false);
-    const [value, setValue] = useState([min, max])
+    const [custom, setCustom] = useState(selected[attr]?.startsWith("custom"));
+    const [value, setValue] = useState(selected[attr]?.startsWith("custom")? [selected[attr].split(" ")[1], selected[attr].split(" ")[2]] : [min, max])
 
     const toggle = () => setOpen(!open);
 
@@ -17,7 +16,7 @@ function FilterCard({title, options, callback, filters, setFilters, attr, setSel
             if (e.target.value != "custom") {
                 setCustom(false)
                 setValue([min, max])
-                setAllStocks([])
+                setAllStocks(allStocks)
                 setFilters(
                     {
                         ...filters,
@@ -34,9 +33,7 @@ function FilterCard({title, options, callback, filters, setFilters, attr, setSel
                 })
                 setCustom(true)
             }
-        } else {
-            null
-        }
+        } else null
     };
     const setMin = (e) => {
         const val = [...value]

@@ -19,10 +19,10 @@ function Navigation() {
             <SearchBar />
           </div>
           <div className="nav-bar-right">
-            <NavLink>Dashboard</NavLink>
-            <NavLink>Screeners</NavLink>
-            <NavLink>Watchlists</NavLink>
-            <NavLink>Strategies</NavLink>
+            <NavLink to={"/dashboard"}>Dashboard</NavLink>
+            <NavLink to={"/account/watchlists"}>Watchlists</NavLink>
+            <NavLink to={"/account/screeners"}>Screeners</NavLink>
+            <NavLink to={"/account/strategies"}>Strategies</NavLink>
             <ProfileButton />
           </div>
         </div> :

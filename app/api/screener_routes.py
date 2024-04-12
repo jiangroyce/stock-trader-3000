@@ -1,7 +1,8 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from app.models import Stock, Screener
+from app.models import Stock, Screener, User, db
 from sqlalchemy import and_
+from app.forms import ScreenerForm
 import pandas as pd
 
 screener_routes = Blueprint('screener', __name__)
@@ -16,6 +17,28 @@ def getScreeners():
     defaults = Screener.query.filter_by(user_id=1).all()
     screeners.extend(defaults)
     return jsonify([screener.to_dict() for screener in screeners])
+
+@screener_routes.route("/save", methods=["POST"])
+@login_required
+def saveScreener():
+    """
+    Creates new screener for current user
+    """
+    print(request.data)
+    form = ScreenerForm()
+    form["csrf_token"].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        user = User.query.get(current_user.id)
+        newScreener = Screener(
+            name=form.data["name"],
+            user_id=user.id,
+            params=form.data["params"]
+        )
+        db.session.add(newScreener)
+        db.session.commit()
+        return jsonify(newScreener.to_dict())
+    return {'message': 'Bad Request', 'errors': form.errors}, 400
+
 
 @screener_routes.route("/apply/<int:id>")
 @login_required
@@ -33,6 +56,9 @@ def applyScreener(id):
             conditions.append((getattr(Stock, key) < cond))
         elif op == "=":
             conditions.append((getattr(Stock, key) == cond))
+        else:
+            cond2 = float(ps[2])
+            conditions.append((getattr(Stock, key).between(cond, cond2)))
     def stringConditions(key, value):
             conditions.append((getattr(Stock, key).in_(value.split(" "))))
 

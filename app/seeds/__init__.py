@@ -6,6 +6,7 @@ from .orders import seed_orders, undo_orders
 from .strategies import seed_strategies, undo_strategies
 from .watchlists import seed_watchlists, undo_watchlists
 from .screeners import seed_screeners, undo_screeners
+from .markets import seed_markets, undo_markets
 
 from app.models.db import db, environment, SCHEMA
 
@@ -41,6 +42,12 @@ def stock_seeder():
         undo_stocks()
     seed_stocks()
 
+@seed_commands.command('markets')
+def market_seeder():
+    if environment == 'production':
+        undo_markets()
+    seed_markets()
+
 # Creates the `flask seed undo` command
 @seed_commands.command('undo')
 def undo():
@@ -54,3 +61,7 @@ def undo():
 @seed_commands.command('undo-stocks')
 def stock_unseeder():
     undo_stocks()
+
+@seed_commands.command('undo-markets')
+def market_unseeder():
+    undo_markets()
