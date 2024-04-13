@@ -62,8 +62,8 @@ def getValue():
     Get Current User's Portfolio Value
     """
     portfolio = Portfolio.query.get(current_user.id)
-    response = calc_response(portfolio)
-    return jsonify({"portfolio_value" : response.value.iloc[-1]})
+    # response = calc_response(portfolio)
+    return jsonify({"portfolio_value" : portfolio.value})
 
 @portfolio_routes.route("/current/cash")
 @login_required

@@ -9,5 +9,14 @@ class Portfolio(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
     cash = db.Column(db.Float)
     order_number = db.Column(db.Integer, default = 1)
-
+    transfers = db.relationship("Transfer", back_populates="portfolio")
     orders = db.relationship("Order", back_populates="portfolio")
+
+    @property
+    def value(self):
+        data = sum([order.cost_basis * order.quantity for order in self.orders])
+        return data + self.cash
+
+    @property
+    def history(self):
+        pass
