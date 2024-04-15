@@ -75,11 +75,11 @@ export const fetchShares = (ticker) => async (dispatch) => {
 }
 
 
-export const addCash = (amount) => async (dispatch) => {
-  const response = await fetch("/api/portfolios/current/add-cash", {
+export const addCash = (quantity) => async (dispatch) => {
+  const response = await fetch("/api/portfolios/current/transfer", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({amount})
+    body: JSON.stringify({quantity})
   });
   if (response.ok) {
     const data = await response.json();

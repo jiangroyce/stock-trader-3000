@@ -7,7 +7,7 @@ from .strategies import seed_strategies, undo_strategies
 from .watchlists import seed_watchlists, undo_watchlists
 from .screeners import seed_screeners, undo_screeners
 from .markets import seed_markets, undo_markets
-
+from .transfers import seed_transfers, undo_transfers
 from app.models.db import db, environment, SCHEMA
 
 # Creates a seed group to hold our commands
@@ -29,12 +29,14 @@ def seed():
         undo_strategies()
         undo_watchlists()
         undo_screeners()
+        undo_transfers()
     seed_users()
     seed_portfolios()
     seed_orders()
     seed_strategies()
     seed_watchlists()
     seed_screeners()
+    seed_transfers()
 
 @seed_commands.command('stocks')
 def stock_seeder():
@@ -57,6 +59,7 @@ def undo():
     undo_strategies()
     undo_watchlists()
     undo_screeners()
+    undo_transfers()
 
 @seed_commands.command('undo-stocks')
 def stock_unseeder():
