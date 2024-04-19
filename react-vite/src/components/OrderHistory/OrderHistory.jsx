@@ -2,17 +2,19 @@ import { useSelector, useDispatch } from "react-redux";
 import "./OrderHistory.css"
 import { useEffect, useState } from "react";
 import { fetchOrders } from "../../redux/order";
+import Loading from "../Loading";
 
 export default function OrderHistory() {
     const [isLoaded, setIsLoaded] = useState(false)
     const dispatch = useDispatch();
+    const currencyFormat = new Intl.NumberFormat("en-US", {style: "currency", currency: "USD"})
     const orders = useSelector((state) => state.orders.orders);
 
     useEffect(() => {
         dispatch(fetchOrders()).then(setIsLoaded(true))
     }, [dispatch, setIsLoaded])
 
-    if (!isLoaded) return <h1>Loading</h1>
+    if (!isLoaded) return <Loading />
     else return (
         <>
         <h1>Order History</h1>
@@ -31,11 +33,11 @@ export default function OrderHistory() {
             {orders?.map((order, index) => (
             <tr key={index}>
                 <th scope="row">{order.order_number}</th>
-                <td>{order.placed_on}</td>
+                <td>{order.placed_on.split(", ")[1].slice(0,11)}</td>
                 <td>{order.stock_ticker}</td>
-                <td>{order.cost_basis}</td>
+                <td>{currencyFormat.format(order.cost_basis)}</td>
                 <td>{order.quantity}</td>
-                <td>{order.cost_basis * order.quantity}</td>
+                <td>{currencyFormat.format(order.cost_basis * order.quantity)}</td>
             </tr>
             ))}
             </tbody>

@@ -21,15 +21,14 @@
 
 #modal-content {
   position: absolute;
-  background-color: var(--yale-blue);
+  background-color: var(--gray);
   width: 25%;
   height: fit-content;
   min-height: 300px;
-  color: var(--pale-dogwood);
+  color: var(--white);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px solid var(--pale-dogwood);
   border-radius: 15px;
 }

@@ -6,17 +6,19 @@
     gap: 5px;
 }
 
-.edit-watchlist > li {
+.edit-watchlist > div {
     cursor: pointer;
     font-size: large;
 }
 
 .watchlist-info {
     padding: 0 20px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--light-gray);
 }
 
-.edit-watchlist > li:hover {
-    color: var(--lapis-lazuli);
+.edit-watchlist > div:hover {
+    color: var(--green);
 }
 .watchlist-bar-header:hover > .watchlist-right > .edit-watchlist, .edit-watchlist:hover {
     visibility: visible;
@@ -27,12 +29,12 @@
 }
 
 .watchlists-container {
-    width: 275px;
-    max-width: 275px;
+    width: 300px;
+    max-width: 300px;
 }
 
 .watchlists-container > * {
-    font-size: large;
+    font-size: medium;
 }
 
 .watchlist-stock {
@@ -43,10 +45,11 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 2px;
     justify-content: space-between;
+    align-items: center;
 }
 
 .watchlist-stock:hover {
-    color: var(--lapis-lazuli);
+    background-color: var(--light-gray);
 }
 
 .watchlists-header {
@@ -56,15 +59,15 @@
 .watchlists-header > button {
     display: flex;
     padding: 2px;
-    font-size: xx-large;
+    font-size: large;
     background-color: transparent;
     border: none;
-    color: var(--pale-dogwood);
+    color: var(--white);
     cursor: pointer;
 }
 
 .watchlists-header > button:hover {
-    opacity: 0.7;
+    color: var(--green);
 }
 
 .watchlist-bar-header {
@@ -86,19 +89,23 @@
     font-size: xx-large;
 }
 
+.watchlist-bar-header:hover {
+    background-color: var(--light-gray);
+}
+
 .watchlist-bar-header > a:hover {
-    color: var(--lapis-lazuli);
+    color: var(--green);
 }
 .watchlist-expand {
     background-color: transparent;
     border: none;
-    color: var(--pale-dogwood);
+    color: var(--white);
     font-size: large;
     cursor: pointer;
 }
 
 .watchlist-expand:hover {
-    color: var(--lapis-lazuli);
+    color: var(--green);
 }
 
 .watchlist {

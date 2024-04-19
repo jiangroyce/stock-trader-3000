@@ -62,9 +62,11 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.Column('stock_ticker', sa.String(), nullable=True),
+    sa.Column('market_id', sa.Integer(), nullable=True),
     sa.Column('list_number', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(), nullable=False),
     sa.ForeignKeyConstraint(['stock_ticker'], ['stocks.ticker'], ),
+    sa.ForeignKeyConstraint(['market_id'], ['markets.id'], ),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('user_id', 'list_number', 'stock_ticker')

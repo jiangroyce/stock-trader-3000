@@ -24,6 +24,16 @@ def getAllStock():
     stocks = Stock.query.all()
     return jsonify([stock.to_dict() for stock in stocks])
 
+@stock_routes.route("/sectors")
+@login_required
+def getAllSectors():
+    """
+    Get All Sectors
+    """
+    stocks = Stock.query.all()
+    sectors = set([stock.sector for stock in stocks])
+    return jsonify(list(sectors))
+
 @stock_routes.route("/sells")
 @login_required
 def getSells():

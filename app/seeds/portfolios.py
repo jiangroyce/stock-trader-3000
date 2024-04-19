@@ -5,11 +5,11 @@ from sqlalchemy.sql import text
 # Adds a demo Portfolio, you can add other Portfolios here if you want
 def seed_portfolios():
     demo = Portfolio(
-        user_id=1, cash=100000, order_number=4)
+        user_id=1, cash=0, order_number=4)
     marnie = Portfolio(
-        user_id=2, cash=100000, order_number=4)
+        user_id=2, cash=0, order_number=7)
     bobbie = Portfolio(
-        user_id=3, cash=100000, order_number=4)
+        user_id=3, cash=0, order_number=4)
 
     db.session.add(demo)
     db.session.add(marnie)

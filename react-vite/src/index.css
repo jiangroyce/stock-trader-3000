@@ -1,28 +1,42 @@
 /* TODO: Add sitewide styles */
 /* CSS HEX */
 :root {
-    --glaucous: #5F84BAff;
-    --lapis-lazuli: #325DA2ff;
-    --yale-blue: #1B3B7Eff;
-    --pale-dogwood: rgb(255, 255, 255);
-    --raisin-black: #2B272Bff;
+    --orange: #E76F00;
+    --black: #000000;
+    --gray: #1E2124;
+    --white: #FFFFFF;
+    --green: #00C805;
+    --red: #CE1200;
+    --light-gray: #40494E;
+    --white-gray: #8D9CA2;
 }
 
 * {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Roboto", sans-serif;
 }
 
 * > a:visited {
-    color: var(--pale-dogwood);
+    color: var(--white);
 }
 
 * > a {
-    color: var(--pale-dogwood);
+    color: var(--white);
     text-decoration: none;
+    text-emphasis: none;
 }
 
+a.active {
+    text-decoration: none;
+    text-emphasis: none;
+}
+
+
 html {
-    background-color: var(--yale-blue);
+    background-color: var(--black);
 }
 
 /* mediaquery width 1100 */
+
+::placeholder {
+    color: var(--light-gray);
+}

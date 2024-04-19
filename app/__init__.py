@@ -12,6 +12,7 @@ from .api.watchlist_routes import watchlist_routes
 from .api.stock_routes import stock_routes
 from .api.order_routes import order_routes
 from .api.screener_routes import screener_routes
+from .api.market_routes import market_routes
 from .seeds import seed_commands
 from .config import Config
 
@@ -38,6 +39,7 @@ app.register_blueprint(watchlist_routes, url_prefix='/api/watchlists')
 app.register_blueprint(stock_routes, url_prefix='/api/stocks')
 app.register_blueprint(order_routes, url_prefix='/api/orders')
 app.register_blueprint(screener_routes, url_prefix='/api/screener')
+app.register_blueprint(market_routes, url_prefix='/api/markets')
 db.init_app(app)
 Migrate(app, db)
 

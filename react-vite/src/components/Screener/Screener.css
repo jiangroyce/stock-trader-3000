@@ -2,11 +2,13 @@
     display: flex;
     flex-direction: row;
     gap: 15px;
-    color: var(--pale-dogwood);
+    color: var(--white);
 }
 
 .filter-container {
-    width: 250px;
+    height: 1000px;
+    max-height: 1000px;
+    overflow-y: scroll;
 }
 
 .filter-header {
@@ -16,12 +18,14 @@
 
 .filter-card {
     font-size: smaller;
+    width: 250px;
+    max-width: 250px;
 }
 
 .filter-header > button {
     background-color: transparent;
     border: none;
-    color: var(--pale-dogwood);
+    color: var(--white);
     cursor: pointer;
 }
 
@@ -29,12 +33,12 @@ td > button {
     background-color: transparent;
     font-size: larger;
     border: none;
-    color: var(--pale-dogwood);
+    color: var(--white);
     cursor: pointer;
     z-index: 1;
 }
 td > button:hover {
-    opacity: 0.7;
+    color: var(--green);
 }
 
 .stock-card {
@@ -42,4 +46,51 @@ td > button:hover {
 }
 .stock-card:hover {
     opacity: 0.7;
+}
+
+.all-stocks {
+    max-height: 1000px;
+    width: 100%;
+}
+
+.all-stocks {
+    width: 100%;
+    height: 1000px;
+    max-height: 1000px;
+    overflow-y: scroll;
+}
+
+.all-stocks > table {
+    width: 100%;
+}
+
+fieldset{
+    min-width: 0;
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+fieldset > div {
+    display: flex;
+    gap: 5px;
+}
+
+.custom-actions {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.custom-inputs {
+    display: flex;
+    gap: 5px;
+
+}
+
+.custom-inputs > input {
+    width: 50%;
 }

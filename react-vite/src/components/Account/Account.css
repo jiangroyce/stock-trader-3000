@@ -16,5 +16,5 @@ li.account-navbar-item:has(> a.active) {
 
 .account-page {
     padding: 20px;
-    color: var(--pale-dogwood);
+    color: var(--white);
 }

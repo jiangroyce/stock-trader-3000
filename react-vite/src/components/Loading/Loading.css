@@ -1,0 +1,16 @@
+.loading {
+    padding: 5%;
+    color: var(--white);
+}
+
+
+.animation-logo {
+    height: 100px;
+    width: 100px;
+    animation: load 2s linear 0.5;
+}
+
+@keyframes load {
+    0% { transform: translate(-100%, 100%)}
+    100% {transform: translate(0%, 0%);}
+}

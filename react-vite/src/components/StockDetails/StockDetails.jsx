@@ -1,13 +1,14 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import Plot from "react-plotly.js";
-import "./StockDetails.css"
 import { fetchStock } from "../../redux/stock";
 import { fetchShares } from "../../redux/portfolio";
 import OrderForm from "../OrderForm";
 import OpenModalButton from "../OpenModalButton";
 import AddToWatchlistModal from "../AddToWatchlistModal";
+import StockChart from "./StockChart";
+import "./StockDetails.css"
+import Loading from "../Loading";
 
 function StockDetails() {
     const { ticker } = useParams();
@@ -18,15 +19,6 @@ function StockDetails() {
     const ownedShares = portfolio[ticker];
     const [isLoaded, setIsLoaded] = useState(false)
     const ref = useRef(null);
-    const data = stock?.history;
-    const [x, open, high, low, close] = [[],[],[],[],[]];
-    data?.forEach(({ Date, Open, High, Low, Close }) => {
-        x.push(Date);
-        open.push(Number(Open));
-        high.push(Number(High));
-        low.push(Number(Low));
-        close.push(Number(Close));
-    })
 
     useEffect(() => {
         const loadData = async () => {
@@ -38,85 +30,15 @@ function StockDetails() {
     }, [dispatch, ticker])
 
     document.title = `${ticker} - $${stock?.price} Stonk Trader 3000`
-    if (!isLoaded) return <h1>Loading</h1>
+    if (!isLoaded) return <Loading />
     else return (
         <>
-        { stock && data && (
+        { stock && (
             <div className="stock-details-page">
                 <div className="stock-details" ref={ref}>
                     <h1>{stock.name}</h1>
                     <h2>{currencyFormat.format(stock.price)}</h2>
-                    <Plot
-                        className="stock-chart"
-                        data={[
-                            {
-                                x,
-                                open,
-                                high,
-                                low,
-                                close,
-                                increasing: {line: {color: 'green'}},
-                                decreasing: {line: {color: 'red'}},
-                                line: {color: 'black'},
-                                type: 'candlestick',
-                                xaxis: 'x',
-                                yaxis: 'y'
-                            }]}
-                        useResizeHandler={true}
-                        layout={ {
-                            margin: {
-                                t: 0,
-                                b: 0,
-                                l: 50,
-                                r: 0
-                            },
-                            paper_bgcolor:"#1B3B7Eff",
-                            plot_bgcolor:"#1B3B7Eff",
-                            hovermode: "x",
-                            xaxis: {
-                                color: "white",
-                                autorange: true,
-                                rangeslider: {
-                                    visible: false
-                                },
-                                rangeselector: {
-                                    x: -0.02,
-                                    y: -0.1,
-                                    buttons:
-                                    [{
-                                        step: 'month',
-                                        stepmode: 'backward',
-                                        count: 1,
-                                        label: "1M"
-                                    },
-                                    {
-                                        step: 'month',
-                                        stepmode: 'backward',
-                                        count: 6,
-                                        label: "6M"
-                                    },
-                                    {
-                                        step: 'year',
-                                        stepmode: 'backward',
-                                        count: 1,
-                                        label: "1Y"
-                                    },
-                                    {
-                                        step: 'all',
-                                        label: "2Y"
-                                    }],
-                                    bgcolor: "#325DA2ff",
-                                    font: {
-                                        color: "white"
-                                    }
-                                }
-                            },
-                            yaxis: {
-                                tickprefix: "$ ",
-                                color: "white"
-                            }
-                        } }
-                    />
+                    <StockChart stock={stock} />
                     <div className="stock-about">
                         <h2>About</h2>
                         <div className="stock-about-content">{stock.info.longBusinessSummary}</div>

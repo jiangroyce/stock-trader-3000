@@ -3,6 +3,7 @@
     align-items: center;
     gap: 5px;
     cursor: pointer;
+    color: var(--white);
 }
 .create-watchlist:hover {
     opacity: 0.7;
@@ -14,6 +15,7 @@
     justify-content: center;
     align-items: center;
     gap: 5px;
+    color: var(--white);
 }
 
 .create-watchlist-form > form > label {
@@ -25,8 +27,8 @@
 
 .create-watchlist-form > form > label > input {
     width: 60%;
-    background-color: var(--lapis-lazuli);
-    color: var(--pale-dogwood);
+    background-color: var(--light-gray);
+    color: var(--white);
     border: none;
 }
 
@@ -45,9 +47,9 @@
     width: 50%;
     font-size: medium;
     padding: 3%;
-    border: 1px solid var(--pale-dogwood);
+    border: 1px solid var(--white);
     background-color: transparent;
-    color: var(--pale-dogwood);
+    color: var(--white);
     border-radius: 25px;
     cursor: pointer;
 }
@@ -98,6 +100,8 @@
     flex-direction: column;
     gap: 10px;
     max-height: 600px;
+    color: var(--white);
+    background-color: var(--gray);
 }
 
 .add-stock-modal > h2 {

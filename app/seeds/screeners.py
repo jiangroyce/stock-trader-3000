@@ -6,7 +6,7 @@ import json
 # Adds a demo user, you can add other users here if you want
 def seed_screeners():
     demo = Screener(
-        name='Technology Stocks (Default)', user_id=1, params={"sector": "technology "})
+        name='Technology Stocks (Default)', user_id=1, params={"sector": "technology"})
     marnie = Screener(
         name='Mega Cap Stocks (Default)', user_id=1, params={"market_cap": "> 200000"})
     johnson = Screener(
@@ -15,6 +15,7 @@ def seed_screeners():
         name='Winning Value Stocks (Default)', user_id=1, params={"trailing_pe": "< 20", "past_outperformance": "> 0"})
     db.session.add(demo)
     db.session.add(marnie)
+    db.session.add(johnson)
     db.session.add(test)
     db.session.commit()
 

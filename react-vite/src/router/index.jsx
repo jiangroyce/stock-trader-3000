@@ -10,9 +10,11 @@ import SearchBar from '../components/SearchBar';
 import Screener from '../components/Screener';
 import Account from '../components/Account';
 import AccountSummary from '../components/AccountSummary';
-import Trade from '../components/Trade';
 import Transfers from '../components/Transfers';
 import OrderHistory from '../components/OrderHistory';
+import Loading from '../components/Loading/Loading';
+import AccountWatchlists from '../components/AccountWatchlists';
+import AccountScreeners from '../components/AccountScreeners';
 
 export const router = createBrowserRouter([
   {
@@ -43,24 +45,32 @@ export const router = createBrowserRouter([
         element: <StockDetails/>
       },
       {
-        path: "search",
-        element: <SearchBar />
-      },
-      {
         path: "screener",
         element: <Screener />
+      },
+      {
+        path: "loading",
+        element: <Loading />
       },
       {
         path: "account",
         element: <Account />,
         children: [
           {
-            path: "summary",
+            path: "positions",
             element: <AccountSummary />
           },
           {
             path: "transfers",
             element: <Transfers />
+          },
+          {
+            path: "watchlists",
+            element: <AccountWatchlists />
+          },
+          {
+            path: "screeners",
+            element: <AccountScreeners />
           },
           {
             path: "strategies",
@@ -71,7 +81,7 @@ export const router = createBrowserRouter([
             element: <OrderHistory />
           },
         ]
-      }
+      },
     ],
   },
 ]);

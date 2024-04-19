@@ -1,4 +1,11 @@
 .transfers-page {
-    width: 30%;
+    width: 100%;
     align-self: center;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.transfer-actions {
+    width: 30%;
 }
