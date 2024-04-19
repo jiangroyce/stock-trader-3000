@@ -10,7 +10,8 @@ import portfolioReducer from "./portfolio";
 import watchlistReducer from "./watchlist";
 import stockReducer from "./stock";
 import orderReducer from "./order";
-import screenerReducer from "./screener"
+import screenerReducer from "./screener";
+import marketReducer from "./market";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
@@ -18,7 +19,8 @@ const rootReducer = combineReducers({
   watchlists: watchlistReducer,
   stocks: stockReducer,
   orders: orderReducer,
-  screeners: screenerReducer
+  screeners: screenerReducer,
+  markets: marketReducer
 });
 
 let enhancer;

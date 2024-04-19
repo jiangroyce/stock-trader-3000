@@ -30,7 +30,7 @@ def seed_orders():
     portfolio.cash -= bobbie1.cost_basis * bobbie1.quantity
     demo2 = Order(
         portfolio_id=2, stock_ticker='AAPL', order_number=3, cost_basis=aapl_price2, quantity=-math.floor(7000/aapl_price1), createdAt=date3)
-    portfolio.cash += demo2.cost_basis * demo2.quantity
+    portfolio.cash -= demo2.cost_basis * demo2.quantity
     marnie2 = Order(
         portfolio_id=2, stock_ticker='TSLA', order_number=4, cost_basis=tsla_price1, quantity=math.floor(5000/tsla_price1), createdAt=date4)
     portfolio.cash -= marnie2.cost_basis * marnie2.quantity
@@ -39,7 +39,7 @@ def seed_orders():
     portfolio.cash -= bobbie2.cost_basis * bobbie2.quantity
     demo3 = Order(
         portfolio_id=2, stock_ticker='TSLA', order_number=6, cost_basis=tsla_price3, quantity=-math.floor(10000/tsla_price2), createdAt=date6)
-    portfolio.cash += demo3.cost_basis * demo3.quantity
+    portfolio.cash -= demo3.cost_basis * demo3.quantity
     db.session.add(demo1)
     db.session.add(bobbie1)
     db.session.add(demo2)

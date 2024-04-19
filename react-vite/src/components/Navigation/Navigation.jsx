@@ -20,7 +20,7 @@ function Navigation() {
           </div>
           <div className="nav-bar-right">
             <NavLink to={"/dashboard"}>Dashboard</NavLink>
-            <NavLink to={"/account/watchlists"}>Watchlists</NavLink>
+            <NavLink to={"/account/summary"}>Positions</NavLink>
             <NavLink to={"/account/screeners"}>Screeners</NavLink>
             <NavLink to={"/account/strategies"}>Strategies</NavLink>
             <ProfileButton />

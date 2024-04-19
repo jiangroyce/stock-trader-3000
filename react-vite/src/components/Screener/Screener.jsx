@@ -42,15 +42,15 @@ function AllStocksPage() {
     }
     const dispatch = useDispatch();
 
-    const saveScreen = () => {
-
-    }
-
     const clearFilters = () => {
         setSelected({});
         setFilters({});
         setAllStocks(stocks);
     }
+
+    useEffect(() => {
+        clearFilters();
+    }, [id])
 
     useEffect(() => {
         if (id) {

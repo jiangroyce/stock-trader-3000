@@ -1,5 +1,6 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
-
+import json
+import pandas as pd
 class Portfolio(db.Model):
     __tablename__ = 'portfolios'
     if environment == "production":
@@ -9,14 +10,15 @@ class Portfolio(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
     cash = db.Column(db.Float)
     order_number = db.Column(db.Integer, default = 1)
+    _history = db.Column(db.JSON)
+    value = db.Column(db.Float)
     transfers = db.relationship("Transfer", back_populates="portfolio")
     orders = db.relationship("Order", back_populates="portfolio")
 
     @property
-    def value(self):
-        data = sum([order.cost_basis * order.quantity for order in self.orders])
-        return data + self.cash
-
-    @property
     def history(self):
-        pass
+        return self._history
+
+    @history.setter
+    def history(self, df):
+        self._history = df.to_json(orient="records")

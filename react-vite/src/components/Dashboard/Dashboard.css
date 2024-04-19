@@ -14,6 +14,9 @@
     margin-top: 2em;
 }
 
+.portfolio-chart {
+    width: 100%;
+}
 .watchlists-header {
     display: flex;
     justify-content: space-between;
@@ -53,4 +56,33 @@ table > tbody tr {
     border: 1px solid var(--light-gray);
     border-radius: 5px;
     height: 100%;
+}
+
+.market-snapshot-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.market-snapshot-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+}
+
+.market-snapshot {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    border: 1px solid var(--white);
+    border-radius: 5px;
+}
+
+.win {
+    color: var(--green);
+}
+
+.lose {
+    color: var(--red);
 }

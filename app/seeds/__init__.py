@@ -42,12 +42,8 @@ def seed():
 def stock_seeder():
     if environment == 'production':
         undo_stocks()
-    seed_stocks()
-
-@seed_commands.command('markets')
-def market_seeder():
-    if environment == 'production':
         undo_markets()
+    seed_stocks()
     seed_markets()
 
 # Creates the `flask seed undo` command
@@ -64,7 +60,4 @@ def undo():
 @seed_commands.command('undo-stocks')
 def stock_unseeder():
     undo_stocks()
-
-@seed_commands.command('undo-markets')
-def market_unseeder():
     undo_markets()

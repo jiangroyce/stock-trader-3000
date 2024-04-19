@@ -10,6 +10,7 @@ import { clearWatchlists } from "../../redux/watchlist";
 
 function ProfileButton() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [showMenu, setShowMenu] = useState(false);
   const user = useSelector((store) => store.session.user);
   const ulRef = useRef();
@@ -41,6 +42,7 @@ function ProfileButton() {
     await dispatch(clearScreeners());
     await dispatch(clearWatchlists());
     await dispatch(thunkLogout());
+    navigate("/")
     closeMenu();
   };
 

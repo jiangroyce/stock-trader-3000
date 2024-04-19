@@ -45,10 +45,6 @@ export const router = createBrowserRouter([
         element: <StockDetails/>
       },
       {
-        path: "search",
-        element: <SearchBar />
-      },
-      {
         path: "screener",
         element: <Screener />
       },
@@ -61,7 +57,7 @@ export const router = createBrowserRouter([
         element: <Account />,
         children: [
           {
-            path: "summary",
+            path: "positions",
             element: <AccountSummary />
           },
           {

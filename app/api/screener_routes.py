@@ -46,10 +46,10 @@ def applyScreener(id):
     screener = Screener.query.get(id)
     conditions = []
 
-    def floatConditions(key, value):
+    def floatConditions(key, value, scaler=1):
         ps = value.split(" ")
         op = ps[0] # < >
-        cond = float(ps[1])
+        cond = float(ps[1])/scaler
         if op == ">":
             conditions.append((getattr(Stock, key) > cond))
         elif op == "<":
@@ -57,7 +57,7 @@ def applyScreener(id):
         elif op == "=":
             conditions.append((getattr(Stock, key) == cond))
         else:
-            cond2 = float(ps[2])
+            cond2 = float(ps[2])/scaler
             conditions.append((getattr(Stock, key).between(cond, cond2)))
     def stringConditions(key, value):
             conditions.append((getattr(Stock, key).in_(value.split(" "))))
@@ -68,11 +68,11 @@ def applyScreener(id):
         if key == "market_cap":
             floatConditions(key, value)
         if key == "shares_outstanding":
-            floatConditions(key, value)
+            floatConditions(key, value, 1000000)
         if key == "past_year_return":
-            floatConditions(key, value)
+            floatConditions(key, value, 100)
         if key == "past_outperformance":
-            floatConditions(key, value)
+            floatConditions(key, value, 100)
         if key == "trailing_pe":
             floatConditions(key, value)
         if key == "forward_pe":
@@ -80,29 +80,29 @@ def applyScreener(id):
         if key == "pb":
             floatConditions(key, value)
         if key == "dividend_yield":
-            floatConditions(key, value)
+            floatConditions(key, value, 100)
         if key == "recommendation":
             stringConditions(key, value)
         if key == "target_mean":
             floatConditions(key, value)
         if key == "short_interest":
-            floatConditions(key, value)
+            floatConditions(key, value, 100)
         if key == "fifty_two_high":
             floatConditions(key, value)
         if key == "distance_to_52_high":
-            floatConditions(key, value)
+            floatConditions(key, value, 100)
         if key == "fifty_two_low":
             floatConditions(key, value)
         if key == "distance_to_52_low":
-            floatConditions(key, value)
+            floatConditions(key, value, 100)
         if key == "industry":
             stringConditions(key, value)
         if key == "sector":
             stringConditions(key, value)
         if key == "past_day_return":
-            floatConditions(key, value)
+            floatConditions(key, value, 100)
         if key == "past_month_return":
-            floatConditions(key, value)
+            floatConditions(key, value, 100)
         if key == "avg_volume":
             floatConditions(key, value)
     stocks = Stock.query.filter(and_(*conditions))

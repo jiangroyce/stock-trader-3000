@@ -76,6 +76,8 @@ def upgrade():
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.Column('cash', sa.Float(), nullable=True),
     sa.Column('order_number', sa.Integer(), nullable=True),
+    sa.Column('value', sa.Float, nullable=True),
+    sa.Column('_history', sa.JSON, nullable=True),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
