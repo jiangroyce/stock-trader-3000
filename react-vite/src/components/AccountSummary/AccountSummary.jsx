@@ -1,16 +1,19 @@
 import "./AccountSummary.css"
 import { useSelector, useDispatch } from "react-redux"
 import { NavLink } from "react-router-dom";
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { fetchPortfolio } from "../../redux/portfolio";
+import Loading from "../Loading";
 export default function AccountSummary() {
+    const [loaded, setLoaded] = useState(false)
     const dispatch = useDispatch();
     const portfolio = useSelector((state) => state.portfolio.portfolio);
     const currencyFormat = new Intl.NumberFormat("en-US", {style: "currency", currency: "USD"});
     useEffect(() => {
-        dispatch(fetchPortfolio());
+        dispatch(fetchPortfolio()).then(setLoaded(true))
     }, [dispatch]);
-    return (
+    if (!loaded) return <Loading />
+    else return (
         <div className="account-summary-page">
             <table>
                 <thead>

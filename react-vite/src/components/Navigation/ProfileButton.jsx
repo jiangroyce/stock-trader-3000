@@ -57,7 +57,7 @@ function ProfileButton() {
             <>
               <h2>{user.name}</h2>
               __________________________________________
-              <li><NavLink to="/account/summary" onClick={closeMenu}><FaSmileBeam />Account</NavLink></li>
+              <li><NavLink to="/account/positions" onClick={closeMenu}><FaSmileBeam />Account</NavLink></li>
               <li><NavLink to="/account/transfers" onClick={closeMenu}><FaMoneyBill />Transfers</NavLink></li>
               <li><NavLink to="/account/strategies" onClick={closeMenu}><ImLoop2 />Strategies</NavLink></li>
               <li><NavLink to="/account/history" onClick={closeMenu}><FaHistory />History</NavLink></li>
