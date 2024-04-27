@@ -58,7 +58,7 @@ function SearchBar() {
 
     return (
         <div className="search-container">
-            <div className="search-bar" ref={searchRef}>
+            <div className={`search-bar ${open && "opened"}`} ref={searchRef}>
                 <FaSearch />
                 <input
                     onFocus={() => setOpen(true)}

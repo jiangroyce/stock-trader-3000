@@ -1,10 +1,16 @@
 import Plot from "react-plotly.js";
+import { FaCaretUp, FaCaretDown } from "react-icons/fa6";
 import { useState } from "react";
 
-export default function PortfolioChart({portfolio}) {
+export default function PortfolioChart({portfolio, value, gl, ret}) {
+    const currencyFormat = new Intl.NumberFormat("en-US", {style: "currency", currency: "USD"})
     if (portfolio.length < 1) return <h2>No Orders Placed</h2>
     const [returns, setReturns] = useState("$")
     const [x, dollars, percents] = [[],[],[]];
+    const percent_color = portfolio[portfolio.length-1].cum_ret > 0 ? "green" : "red";
+    const dollar_color = portfolio[portfolio.length-1].cum_gl > 0 ? "green" : "red";
+    const [selected, setSelected] = useState(1);
+    const [dateRange, setDateRange] = useState(1.0);
     portfolio.forEach(({ Date, cum_gl, cum_ret }) => {
         x.push(Date);
         dollars.push(Number(cum_gl));
@@ -13,17 +19,30 @@ export default function PortfolioChart({portfolio}) {
     const handleReturns = (e) => {
         setReturns(e.target.value)
     }
+    const handleRange = (e) => {
+        setSelected(e.target.value);
+        setDateRange(1/e.target.value);
+    }
     return (
         <>
+        <h2>{currencyFormat.format(value)}</h2>
         { returns == "%" ? (
             <>
+            <h3 className={"day-change " + ret > 0 ? "win" : "lose"}>{ret > 0 ? <FaCaretUp /> : <FaCaretDown />}{Math.abs(ret * 100).toFixed(2)}% <span style={{"color": "white", "marginLeft": "5px"}}>Today</span></h3>
+            <div className="portfolio-display">
+                <h3>Display In: </h3>
+                <div className="range-selector">
+                    <button className={returns == "%" ? "selected" : ""}value={"%"} onClick={(e) => handleReturns(e)}>%</button>
+                    <button className={returns =="$" ? "selected" : ""}value={"$"} onClick={(e) => handleReturns(e)}>$</button>
+                </div>
+            </div>
             <Plot
             className="portfolio-chart"
             data={[
                 {
                     x,
                     y: percents,
-                    line: {color: 'green'},
+                    line: {color: percent_color},
                     type: 'line',
                     xaxis: 'x',
                     yaxis: 'y'
@@ -72,21 +91,25 @@ export default function PortfolioChart({portfolio}) {
                 }
             } }
         />
-        <div className="range-selector">
-            <button className={returns == "%" ? "selected" : ""}value={"%"} onClick={(e) => handleReturns(e)}>%</button>
-            <button className={returns =="$" ? "selected" : ""}value={"$"} onClick={(e) => handleReturns(e)}>$</button>
-        </div>
         </>
         ) :
         (
             <>
+            <h3 className={"day-change " + ret > 0 ? "win" : "lose"}>{gl > 0 ? <FaCaretUp /> : <FaCaretDown />}{currencyFormat.format(Math.abs(gl))} <span style={{"color": "white", "marginLeft": "5px"}}>Today</span></h3>
+            <div className="portfolio-display">
+                <h3>Display In: </h3>
+                <div className="range-selector">
+                    <button className={returns == "%" ? "selected" : ""}value={"%"} onClick={(e) => handleReturns(e)}>%</button>
+                    <button className={returns =="$" ? "selected" : ""}value={"$"} onClick={(e) => handleReturns(e)}>$</button>
+                </div>
+            </div>
             <Plot
             className="portfolio-chart"
             data={[
                 {
                     x,
                     y: dollars,
-                    line: {color: 'green'},
+                    line: {color: dollar_color},
                     type: 'line',
                     xaxis: 'x',
                     yaxis: 'y'
@@ -135,13 +158,12 @@ export default function PortfolioChart({portfolio}) {
                 }
             } }
         />
-        <div className="range-selector">
-            <button className={returns == "%" ? "selected" : ""}value={"%"} onClick={(e) => handleReturns(e)}>%</button>
-            <button className={returns =="$" ? "selected" : ""}value={"$"} onClick={(e) => handleReturns(e)}>$</button>
-        </div>
         </>
         )}
-
+        {/* <div className="range-selector">
+            <button className={selected == 24 ? "selected" : ""}value={24} onClick={(e) => handleRange(e)}>1D</button>
+            <button className={selected == 1 ? "selected" : ""}value={1} onClick={(e) => handleRange(e)}>MAX</button>
+        </div> */}
         </>
         )
 }

@@ -34,16 +34,14 @@ def getAllSectors():
     sectors = set([stock.sector for stock in stocks])
     return jsonify(list(sectors))
 
-@stock_routes.route("/sells")
+@stock_routes.route("/movers")
 @login_required
-def getSells():
+def getDailyMovers():
     """
-    Get Details for given Stock
+    Gets Daily Movers
     """
-    # stocks = Stock.query.filter_by(recommendation="buy").all()
-    # return jsonify([stock.to_dict() for stock in stocks])
-    key1 = "price"
-    key2 = "sector"
-    conditions = [(getattr(Stock, key1) > 500), (getattr(Stock, key2) == "technology")]
-    stocks = Stock.query.filter(and_(*conditions))
-    return jsonify([stock.to_dict() for stock in stocks])
+    stocks=Stock.query.all()
+    stocks.sort(key=lambda stock: stock.past_day_return, reverse=True)
+    winners = stocks[0:5]
+    losers = stocks[-6:-1]
+    return jsonify({"winners": [stock.to_dict() for stock in winners], "losers": [stock.to_dict() for stock in losers]})

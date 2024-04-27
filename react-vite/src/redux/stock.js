@@ -1,4 +1,5 @@
 const LOAD_STOCK = 'stocks/load';
+const LOAD_MOVERS = `stocks/loadMovers`
 const LOAD_ALL_STOCKS = 'stocks/loadAll';
 const CLEAR_STOCKS = 'stocks/clearAll';
 const LOAD_SECTORS = 'stocks/loadSectors';
@@ -13,6 +14,11 @@ const loadStocks = (stocks) => ({
   payload: stocks
 });
 
+const loadMovers = (movers) => ({
+  type: LOAD_MOVERS,
+  payload: movers
+})
+
 export const clearStocks = () => ({
   type: CLEAR_STOCKS
 });
@@ -20,7 +26,15 @@ export const clearStocks = () => ({
 const loadSectors = (sectors) => ({
   type: LOAD_SECTORS,
   payload: sectors
-})
+});
+
+export const fetchMovers = () => async (dispatch) => {
+  const response = await fetch("/api/stocks/movers");
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(loadMovers(data))
+  }
+}
 
 export const fetchStock = (ticker) => async (dispatch) => {
 	const response = await fetch(`/api/stocks/${ticker}`);
@@ -56,6 +70,8 @@ function sessionReducer(state = initialState, action) {
   switch (action.type) {
     case LOAD_STOCK:
       return { ...state, [action.payload.ticker]: action.payload };
+    case LOAD_MOVERS:
+      return { ...state, movers: action.payload }
     case LOAD_ALL_STOCKS:
       return { stocks: action.payload, ...state };
     case LOAD_SECTORS:

@@ -15,6 +15,7 @@ import OrderHistory from '../components/OrderHistory';
 import Loading from '../components/Loading/Loading';
 import AccountWatchlists from '../components/AccountWatchlists';
 import AccountScreeners from '../components/AccountScreeners';
+import { AboutPage, AboutResearchPage, AboutStrategiesPage, AboutTradingPage, ComingSoonPage } from "../components/About"
 
 export const router = createBrowserRouter([
   {
@@ -23,14 +24,6 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <LandingPage />,
-      },
-      {
-        path: "login",
-        element: <LoginFormPage />,
-      },
-      {
-        path: "signup",
-        element: <SignupFormPage />,
       },
       {
         path: "dashboard",
@@ -82,6 +75,31 @@ export const router = createBrowserRouter([
           },
         ]
       },
+      {
+        path: "about",
+        children: [
+          {
+            index: true,
+            element: <AboutPage />
+          },
+          {
+            path: "trading",
+            element: <AboutTradingPage />
+          },
+          {
+            path: "research",
+            element: <AboutResearchPage />
+          },
+          {
+            path: "strategies",
+            element: <AboutStrategiesPage />
+          },
+          {
+            path: "future",
+            element: <ComingSoonPage />
+          },
+        ]
+      }
     ],
   },
 ]);

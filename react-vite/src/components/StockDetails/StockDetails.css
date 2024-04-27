@@ -64,7 +64,11 @@
     display: none;
 }
 
+.range-selector {
+    font-size: large;
+}
 .range-selector > button {
+    font-size: large;
     color: var(--white);
     background-color: transparent;
     border: none;

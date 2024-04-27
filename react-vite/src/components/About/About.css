@@ -1,11 +1,9 @@
-.landing-page {
-    margin-top: 50px;
+.about-page {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     color: var(--white);
-}
-
-.landing-page img {
-    border-radius: 24px;
+    padding: 20%;
+    padding-top: 5%;
 }

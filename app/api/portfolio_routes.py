@@ -183,6 +183,12 @@ def getHistory():
     else:
         try:
             response = calc_history(portfolio)
-        except:
-            return []
-    return response[["Date", "cum_gl", "cum_ret"]].to_json(orient="records")
+        except Exception as e:
+            print(str(e))
+            return jsonify({"errors": str(e), "history": []})
+    formated_res = response[["Date", "cum_gl", "cum_ret", "value", "gl"]]
+    day_gl = response.iloc[-1].gl
+    value = response.iloc[-1].value
+    day_ret = day_gl/value
+    cash = response.iloc[-1].total_cash
+    return {"history": formated_res.to_json(orient="records"), "gl": day_gl, "value": value, "ret": day_ret, "cash": cash}

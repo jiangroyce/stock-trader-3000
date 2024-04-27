@@ -129,7 +129,7 @@ function sessionReducer(state = initialState, action) {
     case LOAD_PORTFOLIO:
       return { ...state, portfolio: action.payload };
     case LOAD_PORTFOLIO_HISTORY:
-      return { ...state, history: action.payload };
+      return { ...state, history: JSON.parse(action.payload.history), purchasing_power: action.payload.cash, portfolio_value: action.payload.value, day_gl: action.payload.gl, day_ret: action.payload.ret };
     case LOAD_PURCHASING_POWER:
       return { ...state, purchasing_power: action.payload.purchasing_power }
     case LOAD_TRANSFER_HISTORY:

@@ -1,6 +1,7 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import SearchBar from "../SearchBar";
 import ProfileButton from "./ProfileButton";
+import OfferingsButton from "./OfferingsButton";
 import "./Navigation.css";
 import { useSelector } from "react-redux";
 import OpenModalMenuItem from "./OpenModalMenuItem";
@@ -16,6 +17,8 @@ function Navigation() {
         <div className="nav-bar">
           <div className="nav-bar-left">
             <NavLink className="landing-logo" to="/"><img src="/stonks-logo.png" alt="stonks-logo" width="50px"/></NavLink>
+          </div>
+          <div className="nav-bar-middle">
             <SearchBar />
           </div>
           <div className="nav-bar-right">
@@ -28,7 +31,8 @@ function Navigation() {
         </div> :
         <div className="nav-bar">
           <div className="nav-bar-left">
-            <NavLink className="landing-logo" to="/"><img src="/stonks-logo.png" alt="stonks-logo" width="50px"/></NavLink>
+            <NavLink className="landing-logo" to="/">Stonk Trader<img src="/stonks-logo.png" alt="stonks-logo" width="50px"/></NavLink>
+            <OfferingsButton className={"offerings-dropdown"} />
           </div>
           <div className="logged-out">
             <OpenModalMenuItem
