@@ -6,7 +6,7 @@ function Account() {
     const user = useSelector(state => state.session.user)
     return (
         <div className="account-page">
-            <h1>{user.name}</h1>
+            <h1>{user.name}&apos;s Account</h1>
             <AccountNavBar/>
             <Outlet />
         </div>

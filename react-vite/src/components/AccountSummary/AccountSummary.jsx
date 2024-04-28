@@ -14,7 +14,7 @@ export default function AccountSummary() {
     }, [dispatch]);
     if (!loaded) return <Loading />
     else return (
-        <div className="account-summary-page">
+        <div className="account-page-body account-summary-page">
             <table>
                 <thead>
                     <tr>
@@ -32,7 +32,7 @@ export default function AccountSummary() {
                 <tbody>
                     {portfolio?.map((order, index) => (
                         <tr key={index}>
-                            <th scope="row">{order.ticker == "-" ? order.ticker : (<NavLink to={`/stocks/${order?.ticker}`}>{order.ticker}</NavLink>)}</th>
+                            <th scope="row" className="position-ticker">{order.ticker == "-" ? order.ticker : (<NavLink to={`/stocks/${order?.ticker}`}>{order.ticker}</NavLink>)}</th>
                             <td>{order.name}</td>
                             <td>{order.price? currencyFormat.format(order.price): "-"}</td>
                             <td>{order.quantity? order.quantity.toFixed(2) : "-"}</td>

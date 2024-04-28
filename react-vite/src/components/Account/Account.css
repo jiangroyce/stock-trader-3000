@@ -8,13 +8,21 @@ li.account-navbar-item:has(> a.active) {
 }
 
 .account-navbar {
+    padding: 0;
     display: flex;
     width: 50%;
-    justify-content: space-evenly;
     list-style: none;
+    gap: 40px;
 }
 
 .account-page {
     padding: 20px;
     color: var(--white);
+}
+
+.account-page-body {
+    border: 1px solid var(--light-gray);
+    border-radius: 4px;
+    min-height: 45vh;
+    padding-top: 24px;
 }

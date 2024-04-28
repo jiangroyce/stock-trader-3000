@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { addCash } from "../../redux/portfolio";
+import "./Transfers.css"
 function WithdrawModal({cash}) {
     const dispatch = useDispatch();
     const currencyFormat = new Intl.NumberFormat("en-US", {style: "currency", currency: "USD"});
@@ -29,7 +30,7 @@ function WithdrawModal({cash}) {
     };
 
     return (
-        <>
+        <div className="transfer-modal">
             <h1>Withdraw Funds</h1>
             <div>Available Cash: {currencyFormat.format(cash)}</div>
             <label>
@@ -43,8 +44,10 @@ function WithdrawModal({cash}) {
                 />
             </label>
             {errors.funds && <p>{errors.funds}</p>}
-            <button onClick={handleSubmit}>Withdraw</button>
-        </>
+            <div className="actions">
+                <button onClick={handleSubmit}>Withdraw</button>
+            </div>
+        </div>
     )
 }
 

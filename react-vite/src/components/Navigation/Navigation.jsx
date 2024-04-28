@@ -22,10 +22,11 @@ function Navigation() {
             <SearchBar />
           </div>
           <div className="nav-bar-right">
+            <OfferingsButton className={"offerings-dropdown-logged-in"} />
             <NavLink to={"/dashboard"}>Dashboard</NavLink>
             <NavLink to={"/account/positions"}>Positions</NavLink>
-            <NavLink to={"/account/screeners"}>Screeners</NavLink>
-            <NavLink to={"/account/strategies"}>Strategies</NavLink>
+            {/* <NavLink to={"/account/screeners"}>Screeners</NavLink>
+            <NavLink to={"/account/strategies"}>Strategies</NavLink> */}
             <ProfileButton />
           </div>
         </div> :

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { addCash } from "../../redux/portfolio";
+import "./Transfers.css"
 function DepositModal() {
     const dispatch = useDispatch();
     const [amount, setAmount] = useState(0);
@@ -23,7 +24,7 @@ function DepositModal() {
     };
 
     return (
-        <>
+        <div className="transfer-modal">
             <h1>Deposit Funds</h1>
             <label>
                 Deposit Amount:
@@ -36,8 +37,10 @@ function DepositModal() {
                 />
             </label>
             {errors.funds && <p>{errors.funds}</p>}
-            <button onClick={handleSubmit}>Deposit</button>
-        </>
+            <div className="actions">
+                <button onClick={handleSubmit}>Deposit</button>
+            </div>
+        </div>
     )
 }
 

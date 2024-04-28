@@ -16,9 +16,9 @@ export default function Transfers() {
         dispatch(fetchTransfers());
     }, [dispatch]);
     return (
-        <div className="transfers-page">
+        <div className="transfers-page account-page-body">
+            <h1>Start a Transfer</h1>
             <div className="transfer-actions">
-                <h1>Start a Transfer</h1>
                 <h2>Withdrawable Cash: {currencyFormat.format(buying_power)}</h2>
                 <div className="actions">
                     <OpenModalButton

@@ -145,6 +145,7 @@
 .offerings-button:hover {
   color: var(--green);
 }
+
 .offerings-dropdown {
   position: absolute;
   left: calc(40px + 203.23px + 40px);
@@ -188,4 +189,7 @@
   width: 200px;
   margin-top: 5px;
   color: var(--white);
+}
+.offerings-dropdown-logged-in > a:hover {
+  color: var(--green);
 }
