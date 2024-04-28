@@ -1,0 +1,18 @@
+table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    padding: 5px;
+}
+table > thead th:nth-child(1) {
+    width: 5%;
+}
+table > thead th {
+    width: 10%;
+}
+
+table > tbody tr {
+    height: 50px;
+    border-top: 1px solid var(--light-gray);
+    text-align: center;
+}

@@ -18,8 +18,8 @@ export function MarketCarousel({markets}) {
     }
     return (
         <Carousel responsive={responsive} containerClass='market-snapshot-cards'>
-            {markets?.map((market) => (
-                <div className="market-snapshot">
+            {markets?.map((market, index) => (
+                <div key={index} className="market-snapshot">
                     <div>{market.ticker}</div>
                     <div>{market.price.toFixed(2)}</div>
                     <div style={{"display": "flex", "gap": "5px"}} className={market.past_day_return > 0 ? "win" : "lose"}>{market.past_day_return > 0 ? <FaCaretUp /> : <FaCaretDown />}{Math.abs(market.past_day_return * 100).toFixed(2)}%</div>

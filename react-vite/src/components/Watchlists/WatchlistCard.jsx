@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
 import EditWatchlistModal from "../EditWatchlistModal/EditWatchlistModal";
 import DeleteWatchlistModal from "../DeleteWatchlistModal";
+import MiniChart from "./MiniChart";
 
 function WatchlistCard({watchlist}) {
     const currencyFormat = new Intl.NumberFormat("en-US", {style: "currency", currency: "USD"})
@@ -14,9 +15,9 @@ function WatchlistCard({watchlist}) {
     const toggle = () => setOpen(!open)
     return (
         <div className="watchlist">
-            <div className="watchlist-bar-header">
-                <NavLink to={`/watchlists/${watchlist.list_number}`}><FaLightbulb />{watchlist.name}</NavLink>
-                <div className="watchlist-right">
+            <div className="watchlist-card-header">
+                <NavLink to={`/watchlists/${watchlist.list_number}`}><div className="watchlist-lightbulb"><FaLightbulb /></div>{watchlist.name}</NavLink>
+                <div className="watchlist-header-right">
                     <div className="edit-watchlist">
                         <OpenModalMenuItem
                             itemText={<CiSettings />}
@@ -30,12 +31,15 @@ function WatchlistCard({watchlist}) {
                     <button className="watchlist-expand" onClick={toggle}>{ open ? (<FaChevronUp />) : (<FaChevronDown />) }</button>
                 </div>
             </div>
-            {open && (<div className="watchlist-info">
+            {open && (<div className="watchlist-stocks">
                 {watchlist.stocks?.map((stock, index) => (
                     <NavLink to={`/stocks/${stock?.ticker}`} className="watchlist-stock" key={index}>
-                        <div>{stock?.ticker}</div>
-                        <div>{stock?.name}</div>
-                        <div>{currencyFormat.format(stock?.price)}</div>
+                        <div style={{fontWeight: "bold"}}>{stock?.ticker}</div>
+                        <MiniChart stock={stock} />
+                        <div className="watchlist-stock-price">
+                            <div>{currencyFormat.format(stock?.price)}</div>
+                            <div style={{color: stock.past_day_return > 0 ? "green" : "red"}}>{(stock.past_day_return * 100).toFixed(2)}%</div>
+                        </div>
                     </NavLink>
                 ))}
             </div>)}

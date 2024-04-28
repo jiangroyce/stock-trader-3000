@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchStock } from "../../redux/stock";
+import { fetchStock, fetchStockData } from "../../redux/stock";
 import { fetchShares } from "../../redux/portfolio";
 import OrderForm from "../OrderForm";
 import OpenModalButton from "../OpenModalButton";
@@ -9,6 +9,7 @@ import AddToWatchlistModal from "../AddToWatchlistModal";
 import StockChart from "./StockChart";
 import "./StockDetails.css"
 import Loading from "../Loading";
+import { Link } from "react-router-dom";
 
 function StockDetails() {
     const { ticker } = useParams();
@@ -17,12 +18,15 @@ function StockDetails() {
     const stock = useSelector((state) => state.stocks)[ticker];
     const portfolio = useSelector(state => state.portfolio);
     const ownedShares = portfolio[ticker];
+    const dayGL = stock?.price - stock?.info.previousClose;
+    const news = stock?.news
     const [isLoaded, setIsLoaded] = useState(false)
     const ref = useRef(null);
 
     useEffect(() => {
         const loadData = async () => {
             await dispatch(fetchStock(ticker));
+            await dispatch(fetchStockData(ticker))
             await dispatch(fetchShares(ticker));
             setIsLoaded(true)
         }
@@ -37,7 +41,8 @@ function StockDetails() {
             <div className="stock-details-page">
                 <div className="stock-details" ref={ref}>
                     <h1>{stock.name}</h1>
-                    <h2>{currencyFormat.format(stock.price)}</h2>
+                    <h1>{currencyFormat.format(stock.price)}</h1>
+                    <h4 className={dayGL > 0 ? "win" : "lose"}>{dayGL > 0 ? "+" : "-"}{currencyFormat.format(Math.abs(dayGL))} ({dayGL > 0 ? "+" : "-"}{(stock.past_day_return * 100).toFixed(2)}%) <span style={{color: "white"}}>Today</span></h4>
                     <StockChart stock={stock} />
                     <div className="stock-about">
                         <h2>About</h2>
@@ -109,13 +114,27 @@ function StockDetails() {
                             </div>
                         </div>
                     </div>
+                    <div className="stock-news-container">
+                        <h2>News</h2>
+                        {news?.map((article, index) => (
+                            <Link key={index} className="news-card" to={article.link} target="_blank">
+                                <h5 className="news-title">{article.publisher}  <span className="news-date">{article.date}</span></h5>
+                                <div className="news-info">
+                                    <h3>{article.title}</h3>
+                                    {article.thumbnail ? <img src={article.thumbnail} alt="news-thumbnail"/> : <div className="empty"/>}
+                                </div>
+                            </Link>
+                        ))}
+                    </div>
                 </div>
-                <div className="stock-actions">
-                    <OrderForm stock={stock} ownedShares={ownedShares} />
+                <div className="stock-actions-container">
+                    <div className="stock-actions">
+                        <OrderForm stock={stock} ownedShares={ownedShares} />
+                    </div>
                     <OpenModalButton
-                        buttonText="Add to Watchlist"
-                        modalComponent={<AddToWatchlistModal stock={stock} ticker={ticker}/>}
-                    />
+                            buttonText="+ Add to Watchlist"
+                            modalComponent={<AddToWatchlistModal stock={stock} ticker={ticker}/>}
+                        />
                 </div>
             </div>
         )}

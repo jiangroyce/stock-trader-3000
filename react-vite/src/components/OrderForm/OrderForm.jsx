@@ -68,9 +68,8 @@ function OrderForm({stock, ownedShares}) {
             <div className="order-header">
                 <div className="order-info">
                     <h2>Trade {stock?.ticker}</h2>
-                    <h4>Price: {currencyFormat.format(stock?.price)}</h4>
                 </div>
-                <div className="order-buying-power">Buying Power: {buying_power ? currencyFormat.format(buying_power) : "-"}</div>
+                <div><h4>Price: {currencyFormat.format(stock?.price)}</h4></div>
             </div>
             <div className="order-types">
                 <div className={"order-type-button " + (orderType == "Buy" ? "selected" : "")} onClick={()=>calcOrderType("Buy")}>Buy</div>
@@ -120,7 +119,8 @@ function OrderForm({stock, ownedShares}) {
                     buttonText="Preview Order"
                     modalComponent={<PreviewOrderModal order={order} cash={buying_power}/>}
                 />
-            ) : null}
+            ) : <div className="empty-space" />}
+            <div className="order-buying-power">{buying_power ? currencyFormat.format(buying_power) : "-"} buying power available</div>
         </form>
     )
 }

@@ -1,46 +1,42 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchPortfolioHistory } from "../../redux/portfolio";
-import { fetchWatchlists } from "../../redux/watchlist";
 import { NavLink, Navigate, useNavigate, Link } from "react-router-dom";
 import "./Dashboard.css"
 import Watchlists from "../Watchlists";
 import PortfolioChart from "./PortfolioChart";
+import { fetchWatchlists } from "../../redux/watchlist";
 import { fetchAllScreeners } from "../../redux/screener";
 import Loading from "../Loading";
-import { fetchAllMarkets, fetchAllNews } from "../../redux/market";
-import { fetchMovers } from "../../redux/stock";
 import { MoverCarousel } from "./MoverCarousel";
 import { MarketCarousel } from "./MarketCarousel";
+import { useData } from "../../context/DataContext";
 
 
 function Dashboard() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const { loaded, loadData } = useData();
     const user = useSelector((state) => state.session.user);
     const watchlists = useSelector((state) => state.watchlists);
     const portfolioData = useSelector((state) => state.portfolio.history);
+    const markets = useSelector((state) => state.markets.markets);
     const value = useSelector((state) => state.portfolio.portfolio_value);
     const cash = useSelector((state) => state.portfolio.purchasing_power);
     const gl = useSelector((state) => state.portfolio.day_gl);
     const ret = useSelector((state) => state.portfolio.day_ret);
-    const markets = useSelector((state) => state.markets.markets);
     const news = useSelector((state) => state.markets.news);
-    const movers = useSelector((state) => state.stocks.movers)
-    const [loaded, setLoaded] = useState(false);
+    const movers = useSelector((state) => state.stocks.movers);
     const currencyFormat = new Intl.NumberFormat("en-US", {style: "currency", currency: "USD"})
     document.title = "Dashboard | Stonk Trader 3000"
     useEffect(() => {
-        const loadData = async () => {
-            await dispatch(fetchPortfolioHistory());
+        if (!loaded) {
+            loadData();
+        }
+        const loadOtherData = async () => {
             await dispatch(fetchWatchlists());
             await dispatch(fetchAllScreeners());
-            await dispatch(fetchAllMarkets());
-            await dispatch(fetchAllNews());
-            await dispatch(fetchMovers());
-            setLoaded(true)
         }
-        loadData();
+        loadOtherData();
     }, [dispatch])
 
     if (!loaded) return <Loading />
@@ -67,8 +63,8 @@ function Dashboard() {
                         <h2>News</h2>
                         <MarketCarousel markets={markets} />
                         <div className="news-cards">
-                            {news?.map((article) => (
-                                <Link className="news-card" to={article.link} target="_blank">
+                            {news?.map((article, index) => (
+                                <Link key={index} className="news-card" to={article.link} target="_blank">
                                     <h5 className="news-title">{article.publisher}  <span className="news-date">{article.date}</span></h5>
                                     <div className="news-info">
                                         <h3>{article.title}</h3>

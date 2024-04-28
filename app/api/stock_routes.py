@@ -2,6 +2,8 @@ from flask import Blueprint, jsonify
 from flask_login import login_required, current_user
 from app.models import Stock, Order
 import pandas as pd
+import yfinance as yf
+import datetime as dt
 from sqlalchemy import and_
 
 stock_routes = Blueprint('stocks', __name__)
@@ -45,3 +47,31 @@ def getDailyMovers():
     winners = stocks[0:5]
     losers = stocks[-6:-1]
     return jsonify({"winners": [stock.to_dict() for stock in winners], "losers": [stock.to_dict() for stock in losers]})
+
+@stock_routes.route("/<ticker>/data")
+@login_required
+def getStockData(ticker):
+    """
+    Get YF Data for given Stock
+    """
+    stock = yf.Ticker(ticker)
+    # daily = stock.history(period="1d", interval="1m")
+    # weekly = stock.history(period="5d", interval="60m")
+    news = stock.news
+    # response = {"1d": daily.to_json(orient="records"), "1w": weekly.to_json(orient="records"), "news": {}}
+    response = {"news" : {}}
+    for article in news:
+        if article["publisher"] in ["Motley Fool", "Insider Monkey"]:
+            continue
+        formatted_article = {}
+        formatted_article["title"] = article["title"]
+        formatted_article["publisher"] = article["publisher"]
+        formatted_article["link"] = article["link"]
+        formatted_article["date"] = dt.datetime.fromtimestamp(article["providerPublishTime"]).strftime("%Y-%m-%d")
+        try:
+            formatted_article["thumbnail"] = article["thumbnail"]["resolutions"][1]["url"]
+        except:
+            formatted_article["thumbnail"] = None
+        response["news"][article["uuid"]] = formatted_article
+    response["news"] = list(response["news"].values())
+    return jsonify(response)

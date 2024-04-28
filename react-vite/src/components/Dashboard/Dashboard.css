@@ -1,3 +1,4 @@
+/* Dashboard Page */
 .dashboard {
     display: flex;
     padding: 0 40px;
@@ -8,7 +9,6 @@
     max-width: 1416px;
     margin: 0 auto;
 }
-
 .dashboard-left {
     width: min(75%, 900px);
     box-sizing: border-box;
@@ -19,6 +19,7 @@
     margin-top: 2em;
 }
 
+/* Portfolio Styling */
 .portfolio-container > h2, h3 {
     margin: 0;
 }
@@ -39,7 +40,12 @@
 
 .portfolio-display > h3 {
     font-size: medium;
+    font-weight: normal;
     margin: 0;
+}
+
+.portfolio-display > .range-selector > button {
+    font-size: large;
 }
 .portfolio-chart {
     width: 100%;
@@ -52,47 +58,6 @@
     border-top: 1px solid var(--light-gray);
     border-bottom: 1px solid var(--light-gray);
 }
-.watchlists-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid var(--white);
-}
-
-.watchlist {
-    border: 1px solid gray
-}
-.watchlist-title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-table {
-    table-layout: fixed;
-    width: 100%;
-    border-collapse: collapse;
-    padding: 5px;
-}
-table > thead th:nth-child(1) {
-    width: 5%;
-}
-table > thead th {
-    width: 10%;
-}
-
-table > tbody tr {
-    height: 50px;
-    border-top: 1px solid var(--light-gray);
-    text-align: center;
-}
-
-.watchlists-container {
-    border: 1px solid var(--light-gray);
-    border-radius: 5px;
-    height: 100%;
-}
-
 
 .win {
     color: var(--green);

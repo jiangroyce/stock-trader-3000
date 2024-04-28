@@ -146,6 +146,7 @@ class Stock(db.Model):
             "market_cap": self.market_cap,
             "shares_outstanding": self.shares_outstanding,
             "info": self.info,
+            "past_day_return" : self.past_day_return,
             "history": self.history,
         }
 

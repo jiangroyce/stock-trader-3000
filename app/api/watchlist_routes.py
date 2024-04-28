@@ -18,9 +18,9 @@ def watchlists():
     response = {}
     for watchlist in watchlists:
         if watchlist.list_number not in response:
-            response[watchlist.list_number] = {"name": watchlist.name, "list_number": watchlist.list_number, "stocks": [watchlist.stock.to_dict()] if watchlist.stock else []}
+            response[watchlist.list_number] = {"name": watchlist.name, "list_number": watchlist.list_number, "stocks": [watchlist.stock.full_details()] if watchlist.stock else []}
         else:
-            response[watchlist.list_number]["stocks"].append(watchlist.stock.to_dict() if watchlist.stock else None)
+            response[watchlist.list_number]["stocks"].append(watchlist.stock.full_details() if watchlist.stock else None)
     return jsonify(response)
 
 @watchlist_routes.route("/current/<ticker>")

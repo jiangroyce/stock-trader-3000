@@ -2,23 +2,52 @@ import Plot from "react-plotly.js";
 import { useState } from "react";
 
 export default function StockChart({stock}) {
+    const [horizon, setHorizon] = useState(true)
     const [dateRange, setDateRange] = useState(1.0);
     const [selected, setSelected] = useState(1);
     const stockData = stock.history;
     const dataStart = stockData.length * dateRange;
     const data = stockData.slice(Math.floor(stockData.length - dataStart));
     const [x, open, high, low, close] = [[],[],[],[],[]];
-    data.forEach(({ Date, Open, High, Low, Close }) => {
-        x.push(Date);
-        open.push(Number(Open));
-        high.push(Number(High));
-        low.push(Number(Low));
-        close.push(Number(Close));
-    });
+    if (horizon) {
+        data.forEach(({ Date, Open, High, Low, Close }) => {
+            x.push(Date);
+            open.push(Number(Open));
+            high.push(Number(High));
+            low.push(Number(Low));
+            close.push(Number(Close));
+        });
+    } else {
+        if (horizon == 0.1) {
+            const daily = JSON.parse(stock["1d"])
+            daily.forEach(({ Date, Open, High, Low, Close }) => {
+                x.push(Date);
+                open.push(Number(Open));
+                high.push(Number(High));
+                low.push(Number(Low));
+                close.push(Number(Close));
+            });
+        } else {
+            const weekly = JSON.parse(stock["1w"])
+            weekly.forEach(({ Date, Open, High, Low, Close }) => {
+                x.push(Date);
+                open.push(Number(Open));
+                high.push(Number(High));
+                low.push(Number(Low));
+                close.push(Number(Close));
+            });
+        }
+    }
 
     const handleRange = (e) => {
-        setSelected(e.target.value);
-        setDateRange(1/e.target.value);
+        if (e.target.value >= 1) {
+            setHorizon(true)
+            setSelected(e.target.value);
+            setDateRange(1/e.target.value);
+        } else {
+            setHorizon(false);
+            setSelected(e.target.value);
+        }
     }
     return (
         <>
@@ -83,8 +112,8 @@ export default function StockChart({stock}) {
             } }
         />
         <div className="range-selector">
-            {/* <button>1D</button>
-            <button>1W</button> */}
+            {/* <button className={selected == 0.1 ? "selected" : ""}value={0.1} onClick={(e) => handleRange(e)}>1D</button>
+            <button className={selected == 0.5 ? "selected" : ""}value={0.5} onClick={(e) => handleRange(e)}>1W</button> */}
             <button className={selected == 24 ? "selected" : ""}value={24} onClick={(e) => handleRange(e)}>1M</button>
             <button className={selected == 8 ? "selected" : ""}value={8} onClick={(e) => handleRange(e)}>3M</button>
             <button className={selected == 4 ? "selected" : ""}value={4} onClick={(e) => handleRange(e)}>6M</button>

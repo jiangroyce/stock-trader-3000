@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import "./LandingPage.css";
-import { NavLink, Navigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 function LandingPage() {
     const loggedIn = useSelector((state) => state.session.user)

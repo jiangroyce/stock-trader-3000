@@ -14,7 +14,7 @@ function Watchlists({watchlists}) {
                     modalComponent={<CreateWatchlistModal />}
                 />
             </div>
-            <div className="watchlist-card-bar">
+            <div className="watchlist-cards">
                 {Object.entries(watchlists)?.map(([key, watchlist], index) => {
                 if (key != "lists") return (<WatchlistCard watchlist={watchlist} key={index} />)})}
             </div>

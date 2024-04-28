@@ -10,6 +10,7 @@
     padding: 5%;
     border-radius: 5px;
     cursor: pointer;
+    font-size: small;
 }
 
 .order-type-button:hover {
@@ -28,13 +29,15 @@
     gap: 20px;
     width: 250px;
     margin-bottom: 15px;
-    height: 375px;
+    height: 415px;
 }
 
 .order-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--light-gray);
 }
 
 .order-info > * {
@@ -44,11 +47,14 @@
 .order-info {
     display: flex;
     flex-direction: column;
+    font-size: small;
     gap: 5px;
+    margin-top: 0;
 }
 .order-buying-power {
-    width: 35%;
-    text-align: right;
+    border-top: 1px solid var(--light-gray);
+    text-align: center;
+    padding: 20px 0;
 }
 
 .quantity-inputs {
@@ -56,6 +62,7 @@
     justify-content: space-between;
     align-items: flex-end;
     gap: 5px;
+    font-size: small;
 }
 
 .quantity-inputs > label {
@@ -86,6 +93,7 @@
     align-self: flex-end;
     margin-bottom: 15px;
     text-align: right;
+    font-size: small;
 }
 
 .error-funds {
@@ -93,6 +101,7 @@
     flex-direction: column;
     align-items: center;
 }
+
 .errors {
     margin: 0;
     color: red;
@@ -100,7 +109,7 @@
 
 .order-form > button {
     align-self: center;
-    font-size: large;
+    font-size: small;
     width: 70%;
     border: 1px solid var(--green);
     background-color: transparent;
@@ -110,8 +119,31 @@
     padding: 5%;
     border-radius: 25px;
     cursor: pointer;
+    margin-top: 19px;
 }
 
 .order-form > button:hover {
     opacity: 0.7;
+}
+
+.error-funds > button {
+    align-self: center;
+    font-size: small;
+    width: 70%;
+    border: 1px solid var(--red);
+    background-color: transparent;
+    color: var(--red);
+    display: flex;
+    justify-content: center;
+    padding: 5%;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.error-funds > button:hover {
+    opacity: 0.7
+}
+
+.empty-space {
+    min-height: 61px;
 }

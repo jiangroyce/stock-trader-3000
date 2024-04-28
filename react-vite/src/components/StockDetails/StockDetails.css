@@ -1,28 +1,77 @@
+/* Page Styling */
 .stock-details-page{
     display: flex;
     justify-content: space-between;
-    gap: 10px;
     color: var(--white);
     padding: 0 40px;
     height: 100%;
+    box-sizing: border-box;
+    min-width: 1190px;
+    max-width: 1416px;
 }
 
 .stock-details{
-    width: 75%;
+    width: min(75%, 900px);
+    box-sizing: border-box;
+    margin-top: 2em;
+    padding-right: 24px;
 }
 
-.stock-info{
+.stock-details > h1, h4 {
+    margin: 0;
+    font-weight: normal;
+}
+
+.stock-details > h4 {
+    font-size: small;
+    margin-top: 0.5em;
+}
+
+.stock-about > h2 {
+    padding: 24px 0;
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.stock-info {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 2px;
+    gap: 24px;
+    margin-top: 24px;
 }
 
+.stock-info-card, .stock-stat-card {
+    font-size: small;
+    font-weight: normal;
+}
+
+.stock-statistics-container > h2 {
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.stock-statistics-container {
+    margin-top: 48px;
+}
 .stock-statistics{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 2px;
+    gap: 24px;
 }
 
+.stock-news-container {
+    margin-top: 48px;
+}
+
+/* Order Bar Styling */
+.stock-actions-container {
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: sticky;
+    top: 100px;
+    right: 2%;
+}
 .stock-actions {
     height: fit-content;
     display: flex;
@@ -31,20 +80,15 @@
     align-items: center;
     padding: 20px;
     position: sticky;
-    top: 150px;
+    top: 100px;
     right: 2%;
-    border: 1px solid var(--white);
-    border-radius: 10px;
+    border: 1px solid var(--light-gray);
+    border-radius: 4px;
     background-color: var(--gray);
 }
-
-.stock-chart {
-    width: 100%;
-}
-
-.stock-actions > button {
+.stock-actions-container > button {
     align-self: center;
-    font-size: large;
+    font-size: small;
     width: 70%;
     border: 1px solid var(--green);
     background-color: transparent;
@@ -54,21 +98,27 @@
     padding: 5%;
     border-radius: 25px;
     cursor: pointer;
+    margin-top: 24px;
 }
 
-.stock-actions > button:hover {
+.stock-actions-container > button:hover {
     opacity: 0.7;
 }
 
+
+/* Chart Styling */
+.stock-chart {
+    width: 100%;
+}
 .infolayer {
     display: none;
 }
 
 .range-selector {
-    font-size: large;
+    font-size: medium;
 }
 .range-selector > button {
-    font-size: large;
+    font-size: small;
     color: var(--white);
     background-color: transparent;
     border: none;
