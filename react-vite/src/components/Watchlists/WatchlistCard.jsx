@@ -18,7 +18,7 @@ function WatchlistCard({watchlist}) {
             <div className="watchlist-card-header">
                 <NavLink to={`/watchlists/${watchlist.list_number}`}><div className="watchlist-lightbulb"><FaLightbulb /></div>{watchlist.name}</NavLink>
                 <div className="watchlist-header-right">
-                    <div className="edit-watchlist">
+                    <div className={watchlist.list_number < 20000 ? "edit-watchlist" : "hidden"}>
                         <OpenModalMenuItem
                             itemText={<CiSettings />}
                             modalComponent={<EditWatchlistModal watchlist={watchlist}/>}

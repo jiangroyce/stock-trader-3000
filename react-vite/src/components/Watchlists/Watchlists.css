@@ -110,7 +110,7 @@
     display: flex;
 }
 
-.watchlist-card-header:hover > .watchlist-right > .edit-watchlist, .edit-watchlist:hover {
+.watchlist-card-header:hover > .watchlist-header-right > .edit-watchlist, .edit-watchlist:hover {
     visibility: visible;
 }
 

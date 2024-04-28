@@ -27,7 +27,7 @@ function WatchlistCheckCard({watchlist, lists, setLists}) {
         <div className="watchlist-card">
             <input type="checkbox" ref={checkRef} value={watchlist.list_number} onChange={handleCheck} checked={lists?.includes(watchlist.list_number)}/>
             <div className="watchlist-info-card" onClick={handleClick}>
-                <FaLightbulb />
+                <div className="watchlist-icon"><FaLightbulb /></div>
                 <div className="watchlist-info">
                     <div className="watchlist-name">{watchlist?.name}</div>
                     <div className="watchlist-length">{watchlist?.stocks?.length} item(s)</div>

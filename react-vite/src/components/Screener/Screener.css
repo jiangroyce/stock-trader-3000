@@ -1,25 +1,74 @@
+/* Page Styling */
 .screener-page {
     display: flex;
-    flex-direction: row;
-    gap: 15px;
+    padding: 20px;
+    justify-content: space-between;
     color: var(--white);
+    box-sizing: border-box;
+    min-width: 1190px;
+    margin: 0 auto;
+    gap: 24px;
+}
+.filters {
+    border: 1px solid var(--light-gray);
+    min-width: 300px;
+    padding: 20px;
+    border-radius: 4px;
+}
+.filters > h2 {
+    margin: 0;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--light-gray);
+    font-size: large;
+}
+.all-stocks {
+    width: 100%;
+    min-height: 1000px;
+    max-height: 90vh;
+    overflow-y: scroll;
+    border: 1px solid var(--light-gray);
+    border-radius: 4px;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+.all-stocks::-webkit-scrollbar {
+    display: none;
 }
 
+/* Filters Bar Styling */
 .filter-container {
+    width: 100%;
     height: 1000px;
     max-height: 1000px;
     overflow-y: scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+.filter-container::-webkit-scrollbar {
+    display: none;
 }
 
+/* Filter Card Styling */
 .filter-header {
     display:flex;
     justify-content: space-between;
+    align-items: center;
+    height: 55px;
+    border-bottom: 1px solid var(--light-gray);
+    cursor: pointer;
+}
+
+.filter-header > h3 {
+    font-size: small;
+    font-weight: normal;
+}
+
+.filter-header:hover {
+    background-color: var(--gray);
 }
 
 .filter-card {
     font-size: smaller;
-    width: 250px;
-    max-width: 250px;
 }
 
 .filter-header > button {
@@ -29,6 +78,120 @@
     cursor: pointer;
 }
 
+fieldset {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border: none;
+    margin: 0;
+    border-bottom: 1px solid var(--light-gray);
+    padding: 20px 0;
+}
+
+label:has(input[type="radio"]) {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+label:has(input[type="radio"]):hover {
+    color: var(--green);
+}
+
+input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    align-self: center;
+    accent-color: var(--green);
+    border-radius: 4px;
+}
+
+/* Custom Range Styling */
+.custom-actions {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.custom-inputs {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.custom-inputs > input {
+    width: 50%;
+}
+.range-slider .range-slider__range {
+    background-color: var(--green);
+}
+.range-slider .range-slider__thumb {
+    background-color: black;
+    border: 2px solid var(--green);
+}
+.custom-actions > button {
+    font-size: medium;
+    padding: 3%;
+    border: 1px solid var(--green);
+    background-color: transparent;
+    color: var(--green);
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.custom-actions > button:hover {
+    opacity: 0.7;
+}
+/* Filter Buttons Styling */
+.filter-actions {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 15px;
+}
+.filter-actions > button {
+    width: 50%;
+    font-size: medium;
+    padding: 3%;
+    border: 1px solid var(--green);
+    background-color: transparent;
+    color: var(--green);
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.filter-actions > button:hover {
+    opacity: 0.7;
+}
+
+/* All Stocks Styling */
+.screener-header {
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid var(--light-gray);
+    font-size: large;
+    padding-bottom: 20px;
+}
+
+.screener-header > h2 {
+    margin-bottom: 0;
+}
+.screener-header > p {
+    margin: 0;
+    margin-top: 5px;
+    font-size: medium;
+    color: var(--white-gray);
+    font-weight: normal;
+}
+
+.all-stocks {
+    padding-left: 20px;
+}
+.all-stocks > table {
+    width: 100%;
+}
 td > button {
     background-color: transparent;
     font-size: larger;
@@ -48,49 +211,6 @@ td > button:hover {
     opacity: 0.7;
 }
 
-.all-stocks {
-    max-height: 1000px;
-    width: 100%;
-}
-
-.all-stocks {
-    width: 100%;
-    height: 1000px;
-    max-height: 1000px;
-    overflow-y: scroll;
-}
-
-.all-stocks > table {
-    width: 100%;
-}
-
-fieldset{
-    min-width: 0;
-}
-
-fieldset {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-fieldset > div {
-    display: flex;
-    gap: 5px;
-}
-
-.custom-actions {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.custom-inputs {
-    display: flex;
-    gap: 5px;
-
-}
-
-.custom-inputs > input {
-    width: 50%;
+.stock-name {
+    font-size: small;
 }

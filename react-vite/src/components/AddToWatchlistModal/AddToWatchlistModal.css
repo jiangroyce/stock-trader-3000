@@ -1,14 +1,26 @@
 .create-watchlist {
     display: flex;
     align-items: center;
-    gap: 5px;
     cursor: pointer;
     color: var(--white);
+    min-width: 251px;
+    min-height: 65px;
 }
 .create-watchlist:hover {
-    opacity: 0.7;
+    color: var(--green);
 }
 
+.create-watchlist > .watchlist-icon {
+    background-color: rgba(0, 200, 5, 0.5);
+    color: var(--green);
+}
+
+.create-list-dummy {
+    width: 18px;
+    height: 18px;
+    background-color: transparent;
+    z-index: -5;
+}
 .create-watchlist-form > form {
     display: flex;
     flex-direction: column;
@@ -16,6 +28,8 @@
     align-items: center;
     gap: 5px;
     color: var(--white);
+    min-width: 251px;
+    min-height: 65px;
 }
 
 .create-watchlist-form > form > label {
@@ -47,9 +61,9 @@
     width: 50%;
     font-size: medium;
     padding: 3%;
-    border: 1px solid var(--white);
+    border: 1px solid var(--green);
     background-color: transparent;
-    color: var(--white);
+    color: var(--green);
     border-radius: 25px;
     cursor: pointer;
 }
@@ -82,7 +96,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5px;
 }
 
 .watchlist-info-card > svg {
@@ -92,6 +105,7 @@
 .watchlist-info {
     display: flex;
     flex-direction: column;
+    gap: 5px;
 }
 
 .add-stock-modal {
@@ -106,4 +120,52 @@
 
 .add-stock-modal > h2 {
     margin: 0;
+}
+
+.watchlist-name {
+    font-size: large;
+}
+
+.watchlist-icon{
+    background-color: #30363A;
+    width: 48px;
+    height: 64px;
+    display: flex;
+    border-radius: 4px;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5px;
+    margin-right: 10px;
+    color: yellow;
+}
+
+.watchlist-length {
+    font-size: small;
+    color: var(--white-gray);
+}
+
+.watchlist-card > input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    align-self: center;
+    outline: 1px solid var(--green);
+    accent-color: var(--green);
+    border-radius: 4px;
+}
+.watchlist-card > input:before {
+    background-color: var(--green);
+}
+
+.save-watchlist {
+    font-size: medium;
+    padding: 3%;
+    border: 1px solid var(--green);
+    background-color: transparent;
+    color: var(--green);
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.save-watchlist:hover {
+    background-color: rgba(0, 200, 5, 0.5);;
 }

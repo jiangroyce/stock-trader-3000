@@ -7,8 +7,10 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { clearPortfolio } from "../../redux/portfolio";
 import { clearScreeners } from "../../redux/screener";
 import { clearWatchlists } from "../../redux/watchlist";
+import { useData } from "../../context/DataContext";
 
 function ProfileButton() {
+  const { setLoaded } = useData();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [showMenu, setShowMenu] = useState(false);
@@ -42,6 +44,7 @@ function ProfileButton() {
     await dispatch(clearScreeners());
     await dispatch(clearWatchlists());
     await dispatch(thunkLogout());
+    setLoaded(false);
     navigate("/")
     closeMenu();
   };

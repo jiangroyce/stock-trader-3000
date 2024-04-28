@@ -60,7 +60,7 @@ export default function AddToWatchlistModal({stock, ticker}) {
             const addToListResponse = await dispatch(addToList(payload));
             if (addToListResponse?.errors) setErrors(addToListResponse.errors);
             else {
-                checkedLists.push(payload.list_number)
+                setInitialList([...initialList, payload.list_number])
                 setLists([...lists, payload.list_number])
                 setName("");
             }
@@ -84,7 +84,8 @@ export default function AddToWatchlistModal({stock, ticker}) {
         <div className="add-stock-modal">
             <h2>Add {stock.ticker} to Your Lists</h2>
             <div className={"create-watchlist " + (click ? "hidden" : "")} onClick={() => setClick(true)}>
-                <FaPlus />
+                <input className="create-list-dummy" type="checkbox" disabled/>
+                <div className="watchlist-icon"><FaPlus /></div>
                 Create New List
             </div>
             <div className={"create-watchlist-form " + (!click ? "hidden" : "")}>
@@ -115,7 +116,7 @@ export default function AddToWatchlistModal({stock, ticker}) {
                         <WatchlistCheckCard watchlist={watchlist} lists={lists} setLists={setLists} key={index}/>
                 )})}
             </div>
-            <button onClick={handleSubmit}>Save Changes</button>
+            <button className="save-watchlist" onClick={handleSubmit}>Save Changes</button>
         </div>
     )
 }

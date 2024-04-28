@@ -59,9 +59,9 @@ function FilterCard({title, options, callback, filters, setFilters, attr, setSel
     }
     return (
         <div className="filter-card">
-            <div className="filter-header">
+            <div className="filter-header" onClick={toggle}>
                 {title}
-                <button onClick={toggle}>{ open ? (<FaChevronUp />) : (<FaChevronDown />) }</button>
+                <button>{ open ? (<FaChevronUp />) : (<FaChevronDown />) }</button>
             </div>
             {open && <fieldset onChange={e => handleSelect(e)}>
                 {options}

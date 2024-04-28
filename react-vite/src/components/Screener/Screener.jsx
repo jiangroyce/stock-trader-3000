@@ -506,10 +506,12 @@ function AllStocksPage() {
                             </div>
                         </>} />
                 </div>
-                <button onClick={() => clearFilters()}>Clear Filters</button>
-                <OpenModalButton
-                    buttonText={"Create New Screener"}
-                    modalComponent={<CreateScreenerModal params={selected} />}/>
+                <div className="filter-actions">
+                    <button onClick={() => clearFilters()}>Clear Filters</button>
+                    <OpenModalButton
+                        buttonText={"Create Screener"}
+                        modalComponent={<CreateScreenerModal params={selected} />}/>
+                </div>
             </div>
             <div className="all-stocks">
                 <div className="screener-header">
@@ -536,8 +538,8 @@ function AllStocksPage() {
                     {allStocks?.map((stock) => (
                         <tr className="stock-card" onClick={() => navigate(`/stocks/${stock.ticker}`)} key={stock.ticker}>
                             <th scope="row">{stock.ticker}</th>
-                            <td>{stock.name}</td>
-                            <td>{(stock.past_day_return * 100).toFixed(2)}%</td>
+                            <td className="stock-name">{stock.name}</td>
+                            <td className={stock?.past_day_return > 0 ? "win" : "lose"}>{(stock?.past_day_return * 100).toFixed(2)}%</td>
                             <td>{currencyFormat.format(stock.price)}</td>
                             <td>{stock?.avg_volume?.toLocaleString("en", {
                                 minimumFractionDigits: 0,
@@ -547,9 +549,9 @@ function AllStocksPage() {
                                 minimumFractionDigits: 0,
                                 maximumFractionDigits: 0,
                             })} M</td>
-                            <td>{(stock?.past_month_return * 100).toFixed(2)}%</td>
-                            <td>{(stock?.past_year_return * 100).toFixed(2)}%</td>
-                            <td>{(stock?.past_outperformance * 100).toFixed(2)}%</td>
+                            <td className={stock?.past_month_return > 0 ? "win" : "lose"}>{(stock?.past_month_return * 100).toFixed(2)}%</td>
+                            <td className={stock?.past_year_return > 0 ? "win" : "lose"}>{(stock?.past_year_return * 100).toFixed(2)}%</td>
+                            <td className={stock?.past_outperformance > 0 ? "win" : "lose"}>{(stock?.past_outperformance * 100).toFixed(2)}%</td>
                             <td>
                                 <OpenModalButton
                                     buttonText={<FaPlus/>}
