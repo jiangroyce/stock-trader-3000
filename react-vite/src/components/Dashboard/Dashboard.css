@@ -10,7 +10,7 @@
     margin: 0 auto;
 }
 .dashboard-left {
-    width: min(75%, 900px);
+    width: min(75%, 1000px);
     box-sizing: border-box;
     margin-top: 2em;
     padding-right: 24px;
