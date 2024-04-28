@@ -9,6 +9,7 @@
     --red: #CE1200;
     --light-gray: #40494E;
     --white-gray: #8D9CA2;
+    min-width: 1240px;
 }
 
 * {
