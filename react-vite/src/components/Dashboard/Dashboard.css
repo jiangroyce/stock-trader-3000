@@ -175,3 +175,8 @@
     margin: 0;
     font-weight: normal;
 }
+
+.day-change {
+    display: flex;
+    align-items: center;
+}

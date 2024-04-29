@@ -1,885 +1,2160 @@
-[
-    {
-        "uuid": "b768cf82-3e8a-3880-921e-d8fad2f2e2cc",
-        "title": "4 Ways to Grow $100,000 Into $1 Million for Retirement Savings",
-        "publisher": "Motley Fool",
-        "link": "https://finance.yahoo.com/m/b768cf82-3e8a-3880-921e-d8fad2f2e2cc/4-ways-to-grow-%24100%2C000-into.html",
-        "providerPublishTime": 1714230780,
-        "type": "STORY",
-        "thumbnail": {
-            "resolutions": [
-                {
-                    "url": "https://s.yimg.com/uu/api/res/1.2/Dj_kNdnjpDfopTWTGVmIqA--~B/aD0zNDIxO3c9NjA4MjthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/motleyfool.com/e93d539d45f1cad30f416ecbf02959bf",
-                    "width": 6082,
-                    "height": 3421,
-                    "tag": "original"
-                },
-                {
-                    "url": "https://s.yimg.com/uu/api/res/1.2/YVjcsUkHBYqkUSKLLb9rkw--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/e93d539d45f1cad30f416ecbf02959bf",
-                    "width": 140,
-                    "height": 140,
-                    "tag": "140x140"
-                }
-            ]
+{
+    "history": [
+        {
+            "Date": "2023-02-08",
+            "cum_gl": 0.0,
+            "cum_ret": 0.0,
+            "value": 6931.9380493154,
+            "gl": 0.0
         },
-        "relatedTickers": [
-            "^GSPC"
-        ]
-    },
-    {
-        "uuid": "95ef1134-63f1-3f0f-80c7-f94402acfcf9",
-        "title": "AI Boom’s Secret Winners? The Companies Expected to Power It",
-        "publisher": "Bloomberg",
-        "link": "https://finance.yahoo.com/news/ai-boom-secret-winners-companies-150007470.html",
-        "providerPublishTime": 1714230007,
-        "type": "STORY",
-        "thumbnail": {
-            "resolutions": [
-                {
-                    "url": "https://s.yimg.com/uu/api/res/1.2/Lps0dDEgEDKfMkPbbL3BUQ--~B/aD00MTI7dz0zODQ7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/bloomberg_markets_842/62c354dfaa81f85dbfb2b79aa0d6dfb0",
-                    "width": 384,
-                    "height": 412,
-                    "tag": "original"
-                },
-                {
-                    "url": "https://s.yimg.com/uu/api/res/1.2/xe5d8LNoLiToiGOW2jTp5w--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/bloomberg_markets_842/62c354dfaa81f85dbfb2b79aa0d6dfb0",
-                    "width": 140,
-                    "height": 140,
-                    "tag": "140x140"
-                }
-            ]
+        {
+            "Date": "2023-02-09",
+            "cum_gl": 133.4039306632,
+            "cum_ret": 0.0192448244,
+            "value": 7065.3419799786,
+            "gl": 133.4039306632
         },
-        "relatedTickers": [
-            "^GSPC",
-            "NEE",
-            "CMS",
-            "SO"
-        ]
-    },
-    {
-        "uuid": "116025e7-3b07-3513-b72a-a85e24990721",
-        "title": "How Should a Beginner Invest in Stocks? Try This ETF.",
-        "publisher": "Motley Fool",
-        "link": "https://finance.yahoo.com/m/116025e7-3b07-3513-b72a-a85e24990721/how-should-a-beginner-invest.html",
-        "providerPublishTime": 1714226160,
-        "type": "STORY",
-        "thumbnail": {
-            "resolutions": [
-                {
-                    "url": "https://s.yimg.com/uu/api/res/1.2/AwgtBbFPgPShfxsM7Yh40g--~B/aD00NTY7dz03MjA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/motleyfool.com/0dd0a90d148baaee88bb2db2f4878be4",
-                    "width": 720,
-                    "height": 456,
-                    "tag": "original"
-                },
-                {
-                    "url": "https://s.yimg.com/uu/api/res/1.2/6rhk.Ppu27Om2T4jt_6fxw--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/0dd0a90d148baaee88bb2db2f4878be4",
-                    "width": 140,
-                    "height": 140,
-                    "tag": "140x140"
-                }
-            ]
+        {
+            "Date": "2023-02-10",
+            "cum_gl": 8.6804504424,
+            "cum_ret": 0.00125224,
+            "value": 6940.6184997578,
+            "gl": -124.7234802208
         },
-        "relatedTickers": [
-            "^GSPC"
-        ]
-    },
-    {
-        "uuid": "9ea55a16-cb50-33b2-a542-bd3f97ac30d4",
-        "title": "30 Most Miserable Countries in the World",
-        "publisher": "Insider Monkey",
-        "link": "https://finance.yahoo.com/news/30-most-miserable-countries-world-134458761.html",
-        "providerPublishTime": 1714225498,
-        "type": "STORY",
-        "thumbnail": {
-            "resolutions": [
-                {
-                    "url": "https://s.yimg.com/uu/api/res/1.2/NVCyJbH6gfsh4m8Et.oh_Q--~B/aD01ODI7dz04MjM7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/insidermonkey.com/1d6f427b42d82f88a300c5ad9b0c1fdb",
-                    "width": 823,
-                    "height": 582,
-                    "tag": "original"
-                },
-                {
-                    "url": "https://s.yimg.com/uu/api/res/1.2/B1K.bt6PRJA9Rrt_MUkgrA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/insidermonkey.com/1d6f427b42d82f88a300c5ad9b0c1fdb",
-                    "width": 140,
-                    "height": 140,
-                    "tag": "140x140"
-                }
-            ]
+        {
+            "Date": "2023-02-13",
+            "cum_gl": -39.2890930188,
+            "cum_ret": -0.0056678367,
+            "value": 6892.6489562966,
+            "gl": -47.9695434612
         },
-        "relatedTickers": [
-            "^GSPC",
-            "CVS",
-            "MA"
-        ]
-    },
-    {
-        "uuid": "43734f33-9157-3df9-9162-a65ad24cec8a",
-        "title": "15 Friendliest Countries in Africa",
-        "publisher": "Insider Monkey",
-        "link": "https://finance.yahoo.com/news/15-friendliest-countries-africa-133100858.html",
-        "providerPublishTime": 1714224660,
-        "type": "STORY",
-        "thumbnail": {
-            "resolutions": [
-                {
-                    "url": "https://s.yimg.com/uu/api/res/1.2/K0d.nu2AEnylGbvsp_Bq_Q--~B/aD00Mzc7dz0xMDAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/insidermonkey.com/0813c705175a23e68ebee05af7729a5f",
-                    "width": 1000,
-                    "height": 437,
-                    "tag": "original"
-                },
-                {
-                    "url": "https://s.yimg.com/uu/api/res/1.2/_ZNyN5Gs.VxERrJFlO_8jw--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/insidermonkey.com/0813c705175a23e68ebee05af7729a5f",
-                    "width": 140,
-                    "height": 140,
-                    "tag": "140x140"
-                }
-            ]
+        {
+            "Date": "2023-02-14",
+            "cum_gl": -22.3598632824,
+            "cum_ret": -0.0032256294,
+            "value": 6909.578186033,
+            "gl": 16.9292297364
         },
-        "relatedTickers": [
-            "^GSPC",
-            "HLT",
-            "MAR"
-        ]
-    },
-    {
-        "uuid": "1aa2494d-84c4-35b5-80b0-a725cb649e50",
-        "title": "10 Best Long Term Low Risk Stocks to Buy",
-        "publisher": "Insider Monkey",
-        "link": "https://finance.yahoo.com/news/10-best-long-term-low-131546279.html",
-        "providerPublishTime": 1714223746,
-        "type": "STORY",
-        "thumbnail": {
-            "resolutions": [
-                {
-                    "url": "https://s.yimg.com/uu/api/res/1.2/3YB6e6N84x51h.fM3l_YQg--~B/aD0yNjc7dz00MDA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/insidermonkey.com/10600dcef1438417df038b1301bce389",
-                    "width": 400,
-                    "height": 267,
-                    "tag": "original"
-                },
-                {
-                    "url": "https://s.yimg.com/uu/api/res/1.2/xP4xronQn.B88rCZAE.DDg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/insidermonkey.com/10600dcef1438417df038b1301bce389",
-                    "width": 140,
-                    "height": 140,
-                    "tag": "140x140"
-                }
-            ]
+        {
+            "Date": "2023-02-15",
+            "cum_gl": 107.587890625,
+            "cum_ret": 0.0155206076,
+            "value": 7039.5259399404,
+            "gl": 129.9477539074
         },
-        "relatedTickers": [
-            "^GSPC",
-            "COMP",
-            "^DJI",
-            "KO",
-            "COST",
-            "PG",
-            "CVS",
-            "JNJ",
-            "UNH",
-            "BRK-B"
-        ]
-    },
-    {
-        "uuid": "d4e25d1c-b5c6-36bf-a4e1-1c434136453f",
-        "title": "12 Most Profitable Dividend Stocks To Invest In",
-        "publisher": "Insider Monkey",
-        "link": "https://finance.yahoo.com/news/12-most-profitable-dividend-stocks-124927376.html",
-        "providerPublishTime": 1714222167,
-        "type": "STORY",
-        "thumbnail": {
-            "resolutions": [
-                {
-                    "url": "https://s.yimg.com/uu/api/res/1.2/0tE0Pol4ZOHDz.gCyKRdKg--~B/aD04NTM7dz0xMjgwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/insidermonkey.com/bfd8c3ad6721d8e1b3ec91aa8061802b",
-                    "width": 1280,
-                    "height": 853,
-                    "tag": "original"
-                },
-                {
-                    "url": "https://s.yimg.com/uu/api/res/1.2/.TaePbMNpG7n80xIfPLFSw--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/insidermonkey.com/bfd8c3ad6721d8e1b3ec91aa8061802b",
-                    "width": 140,
-                    "height": 140,
-                    "tag": "140x140"
-                }
-            ]
+        {
+            "Date": "2023-02-16",
+            "cum_gl": 77.8460998556,
+            "cum_ret": 0.0112300628,
+            "value": 7009.784149171,
+            "gl": -29.7417907694
         },
-        "relatedTickers": [
-            "T",
-            "AVGO",
-            "HD",
-            "PG",
-            "^GSPC",
-            "UNH",
-            "WMT",
-            "WFC",
-            "JPM"
-        ]
-    },
-    {
-        "uuid": "ae13c909-3596-347c-9707-4eb73495cacb",
-        "title": "Dow Jones Futures: Nvidia Leads 7 New Buys As Market Roars; Fed, Apple, Super Micro Loom",
-        "publisher": "Investor's Business Daily",
-        "link": "https://finance.yahoo.com/m/ae13c909-3596-347c-9707-4eb73495cacb/dow-jones-futures%3A-nvidia.html",
-        "providerPublishTime": 1714221346,
-        "type": "STORY",
-        "thumbnail": {
-            "resolutions": [
-                {
-                    "url": "https://s.yimg.com/uu/api/res/1.2/IvIjybL8.xM9a6GZEj5E4Q--~B/aD01NjM7dz0xMDAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/ibd.com/f2af49b362dd4269b5c38eb3c5a0fd01",
-                    "width": 1000,
-                    "height": 563,
-                    "tag": "original"
-                },
-                {
-                    "url": "https://s.yimg.com/uu/api/res/1.2/jcq50erAfzoBQATAjzcgPg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/ibd.com/f2af49b362dd4269b5c38eb3c5a0fd01",
-                    "width": 140,
-                    "height": 140,
-                    "tag": "140x140"
-                }
-            ]
+        {
+            "Date": "2023-02-17",
+            "cum_gl": 175.3055114754,
+            "cum_ret": 0.0252895381,
+            "value": 7107.2435607908,
+            "gl": 97.4594116198
         },
-        "relatedTickers": [
-            "^GSPC",
-            "COMP",
-            "^DJI",
-            "NVDA",
-            "LLY",
-            "SMCI",
-            "AVGO",
-            "AMD",
-            "CAVA",
-            "NVO",
-            "AAPL",
-            "APP"
-        ]
-    },
-    {
-        "uuid": "1aa2494d-84c4-35b5-80b0-a725cb649e50",
-        "title": "10 Best Long Term Low Risk Stocks to Buy",
-        "publisher": "Insider Monkey",
-        "link": "https://finance.yahoo.com/news/10-best-long-term-low-131546279.html",
-        "providerPublishTime": 1714223746,
-        "type": "STORY",
-        "thumbnail": {
-            "resolutions": [
-                {
-                    "url": "https://s.yimg.com/uu/api/res/1.2/3YB6e6N84x51h.fM3l_YQg--~B/aD0yNjc7dz00MDA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/insidermonkey.com/10600dcef1438417df038b1301bce389",
-                    "width": 400,
-                    "height": 267,
-                    "tag": "original"
-                },
-                {
-                    "url": "https://s.yimg.com/uu/api/res/1.2/xP4xronQn.B88rCZAE.DDg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/insidermonkey.com/10600dcef1438417df038b1301bce389",
-                    "width": 140,
-                    "height": 140,
-                    "tag": "140x140"
-                }
-            ]
+        {
+            "Date": "2023-02-21",
+            "cum_gl": 101.180908206,
+            "cum_ret": 0.0145963376,
+            "value": 7033.1189575214,
+            "gl": -74.1246032694
         },
-        "relatedTickers": [
-            "^GSPC",
-            "COMP",
-            "^DJI",
-            "KO",
-            "COST",
-            "PG",
-            "CVS",
-            "JNJ",
-            "UNH",
-            "BRK-B"
-        ]
-    },
-    {
-        "uuid": "ae13c909-3596-347c-9707-4eb73495cacb",
-        "title": "Dow Jones Futures: Nvidia Leads 7 New Buys As Market Roars; Fed, Apple, Super Micro Loom",
-        "publisher": "Investor's Business Daily",
-        "link": "https://finance.yahoo.com/m/ae13c909-3596-347c-9707-4eb73495cacb/dow-jones-futures%3A-nvidia.html",
-        "providerPublishTime": 1714221346,
-        "type": "STORY",
-        "thumbnail": {
-            "resolutions": [
-                {
-                    "url": "https://s.yimg.com/uu/api/res/1.2/IvIjybL8.xM9a6GZEj5E4Q--~B/aD01NjM7dz0xMDAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/ibd.com/f2af49b362dd4269b5c38eb3c5a0fd01",
-                    "width": 1000,
-                    "height": 563,
-                    "tag": "original"
-                },
-                {
-                    "url": "https://s.yimg.com/uu/api/res/1.2/jcq50erAfzoBQATAjzcgPg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/ibd.com/f2af49b362dd4269b5c38eb3c5a0fd01",
-                    "width": 140,
-                    "height": 140,
-                    "tag": "140x140"
-                }
-            ]
+        {
+            "Date": "2023-02-22",
+            "cum_gl": 48.1050109864,
+            "cum_ret": 0.0069396193,
+            "value": 6980.0430603018,
+            "gl": -53.0758972196
         },
-        "relatedTickers": [
-            "^GSPC",
-            "COMP",
-            "^DJI",
-            "NVDA",
-            "LLY",
-            "SMCI",
-            "AVGO",
-            "AMD",
-            "CAVA",
-            "NVO",
-            "AAPL",
-            "APP"
-        ]
-    },
-    {
-        "uuid": "632a585f-e926-376e-ae47-f08597b6fc78",
-        "title": "Big Tech drives S&P 500 to best week since November as investors shrug off inflation worries",
-        "publisher": "MarketWatch",
-        "link": "https://finance.yahoo.com/m/632a585f-e926-376e-ae47-f08597b6fc78/big-tech-drives-s%26p-500-to.html",
-        "providerPublishTime": 1714209720,
-        "type": "STORY",
-        "thumbnail": {
-            "resolutions": [
-                {
-                    "url": "https://s.yimg.com/uu/api/res/1.2/kIcBzCgQPwLMtT65xoGHdQ--~B/aD02NDA7dz0xMjgwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/marketwatch_hosted_869/f08dadadc8f4ce5d2d65c19b6c7cdceb",
-                    "width": 1280,
-                    "height": 640,
-                    "tag": "original"
-                },
-                {
-                    "url": "https://s.yimg.com/uu/api/res/1.2/0ukHTqK24c_RmGwemtb4hQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/marketwatch_hosted_869/f08dadadc8f4ce5d2d65c19b6c7cdceb",
-                    "width": 140,
-                    "height": 140,
-                    "tag": "140x140"
-                }
-            ]
+        {
+            "Date": "2023-02-23",
+            "cum_gl": -138.121429443,
+            "cum_ret": -0.0199253699,
+            "value": 6793.8166198724,
+            "gl": -186.2264404294
         },
-        "relatedTickers": [
-            "^GSPC",
-            "GOOG",
-            "MSFT",
-            "^DJI"
-        ]
-    },
-    {
-        "uuid": "d9d4312f-d1ee-3d8a-98a8-ed4d2de1c94e",
-        "title": "Why it may be time to start looking at value stocks",
-        "publisher": "Yahoo Finance Video",
-        "link": "https://finance.yahoo.com/video/why-may-time-start-looking-215111453.html",
-        "providerPublishTime": 1714168271,
-        "type": "VIDEO",
-        "thumbnail": {
-            "resolutions": [
-                {
-                    "url": "https://s.yimg.com/uu/api/res/1.2/L8HZ5uHK_kIfECeC6gMllg--~B/aD0zMTUwO3c9NTYwMDthcHBpZD15dGFjaHlvbg--/https://s.yimg.com/os/creatr-uploaded-images/2024-04/585a4200-0411-11ef-bdff-2b5f6df47d44",
-                    "width": 5600,
-                    "height": 3150,
-                    "tag": "original"
-                },
-                {
-                    "url": "https://s.yimg.com/uu/api/res/1.2/aZdHKkCn4fl7oJ5SFeyV5Q--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://s.yimg.com/os/creatr-uploaded-images/2024-04/585a4200-0411-11ef-bdff-2b5f6df47d44",
-                    "width": 140,
-                    "height": 140,
-                    "tag": "140x140"
-                }
-            ]
+        {
+            "Date": "2023-02-24",
+            "cum_gl": -118.4470520026,
+            "cum_ret": -0.0170871481,
+            "value": 6813.4909973128,
+            "gl": 19.6743774404
         },
-        "relatedTickers": [
-            "^GSPC",
-            "^IXIC",
-            "JPM",
-            "^DJI"
-        ]
-    },
-    {
-        "uuid": "7a46c758-7700-3e17-ae05-6e6fabf2024b",
-        "title": "RPT-GLOBAL MARKETS-Global stocks gain on Big Tech lift; yen slides to 34-year low",
-        "publisher": "Reuters",
-        "link": "https://finance.yahoo.com/news/rpt-global-markets-global-stocks-214108870.html",
-        "providerPublishTime": 1714167668,
-        "type": "STORY",
-        "relatedTickers": [
-            "COMP",
-            "^GSPC",
-            "^DJI"
-        ]
-    },
-    {
-        "uuid": "81da9e70-b338-3e57-81de-ce0f5c162749",
-        "title": "GLOBAL MARKETS-Global stocks gain on Big Tech lift; yen slides to 34-year low",
-        "publisher": "Reuters",
-        "link": "https://finance.yahoo.com/news/global-markets-global-stocks-gain-210534380.html",
-        "providerPublishTime": 1714165534,
-        "type": "STORY",
-        "relatedTickers": [
-            "COMP",
-            "^GSPC",
-            "^DJI"
-        ]
-    },
-    {
-        "uuid": "3105b437-3339-3ea4-8481-70c982361c66",
-        "title": "Alphabet, Microsoft Rallies Help Lift Equities Ahead of Next Week's Fed Decision",
-        "publisher": "MT Newswires",
-        "link": "https://finance.yahoo.com/news/alphabet-microsoft-rallies-help-lift-205600325.html",
-        "providerPublishTime": 1714164960,
-        "type": "STORY",
-        "thumbnail": {
-            "resolutions": [
-                {
-                    "url": "https://s.yimg.com/uu/api/res/1.2/_8ROLj_eGdOJIxXAZcVMog--~B/aD03Njg7dz0xMDI0O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/mt_newswires_premium_news_706/0c887a492733aab96ac405a5871f559a",
-                    "width": 1024,
-                    "height": 768,
-                    "tag": "original"
-                },
-                {
-                    "url": "https://s.yimg.com/uu/api/res/1.2/E4TzOW1lc8PhY5tQFinAUA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/mt_newswires_premium_news_706/0c887a492733aab96ac405a5871f559a",
-                    "width": 140,
-                    "height": 140,
-                    "tag": "140x140"
-                }
-            ]
+        {
+            "Date": "2023-02-27",
+            "cum_gl": -96.0268249488,
+            "cum_ret": -0.0138528106,
+            "value": 6835.9112243666,
+            "gl": 22.4202270538
         },
-        "relatedTickers": [
-            "COMP",
-            "^GSPC",
-            "^DJI",
-            "GOOG",
-            "MSFT"
-        ]
-    },
-    {
-        "uuid": "40fab0d7-accb-3325-9c3f-322640f59664",
-        "title": "US Equity Indexes Advance This Week as Fed's Preferred Measure of Inflation Meets Expectations",
-        "publisher": "MT Newswires",
-        "link": "https://finance.yahoo.com/news/us-equity-indexes-advance-week-204439059.html",
-        "providerPublishTime": 1714164279,
-        "type": "STORY",
-        "relatedTickers": [
-            "GOOG",
-            "^DJI"
-        ]
-    },
-    {
-        "uuid": "1aa2494d-84c4-35b5-80b0-a725cb649e50",
-        "title": "10 Best Long Term Low Risk Stocks to Buy",
-        "publisher": "Insider Monkey",
-        "link": "https://finance.yahoo.com/news/10-best-long-term-low-131546279.html",
-        "providerPublishTime": 1714223746,
-        "type": "STORY",
-        "thumbnail": {
-            "resolutions": [
-                {
-                    "url": "https://s.yimg.com/uu/api/res/1.2/3YB6e6N84x51h.fM3l_YQg--~B/aD0yNjc7dz00MDA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/insidermonkey.com/10600dcef1438417df038b1301bce389",
-                    "width": 400,
-                    "height": 267,
-                    "tag": "original"
-                },
-                {
-                    "url": "https://s.yimg.com/uu/api/res/1.2/xP4xronQn.B88rCZAE.DDg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/insidermonkey.com/10600dcef1438417df038b1301bce389",
-                    "width": 140,
-                    "height": 140,
-                    "tag": "140x140"
-                }
-            ]
+        {
+            "Date": "2023-02-28",
+            "cum_gl": -219.1092529294,
+            "cum_ret": -0.0316086571,
+            "value": 6712.828796386,
+            "gl": -123.0824279806
         },
-        "relatedTickers": [
-            "^GSPC",
-            "COMP",
-            "^DJI",
-            "KO",
-            "COST",
-            "PG",
-            "CVS",
-            "JNJ",
-            "UNH",
-            "BRK-B"
-        ]
-    },
-    {
-        "uuid": "ae13c909-3596-347c-9707-4eb73495cacb",
-        "title": "Dow Jones Futures: Nvidia Leads 7 New Buys As Market Roars; Fed, Apple, Super Micro Loom",
-        "publisher": "Investor's Business Daily",
-        "link": "https://finance.yahoo.com/m/ae13c909-3596-347c-9707-4eb73495cacb/dow-jones-futures%3A-nvidia.html",
-        "providerPublishTime": 1714221346,
-        "type": "STORY",
-        "thumbnail": {
-            "resolutions": [
-                {
-                    "url": "https://s.yimg.com/uu/api/res/1.2/IvIjybL8.xM9a6GZEj5E4Q--~B/aD01NjM7dz0xMDAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/ibd.com/f2af49b362dd4269b5c38eb3c5a0fd01",
-                    "width": 1000,
-                    "height": 563,
-                    "tag": "original"
-                },
-                {
-                    "url": "https://s.yimg.com/uu/api/res/1.2/jcq50erAfzoBQATAjzcgPg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/ibd.com/f2af49b362dd4269b5c38eb3c5a0fd01",
-                    "width": 140,
-                    "height": 140,
-                    "tag": "140x140"
-                }
-            ]
+        {
+            "Date": "2023-03-01",
+            "cum_gl": -163.745147704,
+            "cum_ret": -0.0236218423,
+            "value": 6768.1929016114,
+            "gl": 55.3641052254
         },
-        "relatedTickers": [
-            "^GSPC",
-            "COMP",
-            "^DJI",
-            "NVDA",
-            "LLY",
-            "SMCI",
-            "AVGO",
-            "AMD",
-            "CAVA",
-            "NVO",
-            "AAPL",
-            "APP"
-        ]
-    },
-    {
-        "uuid": "4c5fbab0-8de4-37a7-82a8-e276af6976e6",
-        "title": "4 Dominant Growth Stocks You'll Regret Not Buying in the New Nasdaq Bull Market",
-        "publisher": "Motley Fool",
-        "link": "https://finance.yahoo.com/m/4c5fbab0-8de4-37a7-82a8-e276af6976e6/4-dominant-growth-stocks.html",
-        "providerPublishTime": 1714208760,
-        "type": "STORY",
-        "thumbnail": {
-            "resolutions": [
-                {
-                    "url": "https://s.yimg.com/uu/api/res/1.2/4g.rHt32nIVM0n_3fC0SIA--~B/aD05MzQ7dz0xNDAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/0b4e15bc801fe7b30ce838115d1dfed4",
-                    "width": 1400,
-                    "height": 934,
-                    "tag": "original"
-                },
-                {
-                    "url": "https://s.yimg.com/uu/api/res/1.2/L.tTA2ecKvSLfJb6GzrfaQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/0b4e15bc801fe7b30ce838115d1dfed4",
-                    "width": 140,
-                    "height": 140,
-                    "tag": "140x140"
-                }
-            ]
+        {
+            "Date": "2023-03-02",
+            "cum_gl": -187.0799560544,
+            "cum_ret": -0.0269881171,
+            "value": 6744.858093261,
+            "gl": -23.3348083504
         },
-        "relatedTickers": [
-            "INTC",
-            "COMP",
-            "BMRN",
-            "PYPL",
-            "S"
-        ]
-    },
-    {
-        "uuid": "d9d4312f-d1ee-3d8a-98a8-ed4d2de1c94e",
-        "title": "Why it may be time to start looking at value stocks",
-        "publisher": "Yahoo Finance Video",
-        "link": "https://finance.yahoo.com/video/why-may-time-start-looking-215111453.html",
-        "providerPublishTime": 1714168271,
-        "type": "VIDEO",
-        "thumbnail": {
-            "resolutions": [
-                {
-                    "url": "https://s.yimg.com/uu/api/res/1.2/L8HZ5uHK_kIfECeC6gMllg--~B/aD0zMTUwO3c9NTYwMDthcHBpZD15dGFjaHlvbg--/https://s.yimg.com/os/creatr-uploaded-images/2024-04/585a4200-0411-11ef-bdff-2b5f6df47d44",
-                    "width": 5600,
-                    "height": 3150,
-                    "tag": "original"
-                },
-                {
-                    "url": "https://s.yimg.com/uu/api/res/1.2/aZdHKkCn4fl7oJ5SFeyV5Q--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://s.yimg.com/os/creatr-uploaded-images/2024-04/585a4200-0411-11ef-bdff-2b5f6df47d44",
-                    "width": 140,
-                    "height": 140,
-                    "tag": "140x140"
-                }
-            ]
+        {
+            "Date": "2023-03-03",
+            "cum_gl": -283.1664428698,
+            "cum_ret": -0.0408495346,
+            "value": 6648.7716064456,
+            "gl": -96.0864868154
         },
-        "relatedTickers": [
-            "^GSPC",
-            "^IXIC",
-            "JPM",
-            "^DJI"
-        ]
-    },
-    {
-        "uuid": "7a46c758-7700-3e17-ae05-6e6fabf2024b",
-        "title": "RPT-GLOBAL MARKETS-Global stocks gain on Big Tech lift; yen slides to 34-year low",
-        "publisher": "Reuters",
-        "link": "https://finance.yahoo.com/news/rpt-global-markets-global-stocks-214108870.html",
-        "providerPublishTime": 1714167668,
-        "type": "STORY",
-        "relatedTickers": [
-            "COMP",
-            "^GSPC",
-            "^DJI"
-        ]
-    },
-    {
-        "uuid": "81da9e70-b338-3e57-81de-ce0f5c162749",
-        "title": "GLOBAL MARKETS-Global stocks gain on Big Tech lift; yen slides to 34-year low",
-        "publisher": "Reuters",
-        "link": "https://finance.yahoo.com/news/global-markets-global-stocks-gain-210534380.html",
-        "providerPublishTime": 1714165534,
-        "type": "STORY",
-        "relatedTickers": [
-            "COMP",
-            "^GSPC",
-            "^DJI"
-        ]
-    },
-    {
-        "uuid": "3105b437-3339-3ea4-8481-70c982361c66",
-        "title": "Alphabet, Microsoft Rallies Help Lift Equities Ahead of Next Week's Fed Decision",
-        "publisher": "MT Newswires",
-        "link": "https://finance.yahoo.com/news/alphabet-microsoft-rallies-help-lift-205600325.html",
-        "providerPublishTime": 1714164960,
-        "type": "STORY",
-        "thumbnail": {
-            "resolutions": [
-                {
-                    "url": "https://s.yimg.com/uu/api/res/1.2/_8ROLj_eGdOJIxXAZcVMog--~B/aD03Njg7dz0xMDI0O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/mt_newswires_premium_news_706/0c887a492733aab96ac405a5871f559a",
-                    "width": 1024,
-                    "height": 768,
-                    "tag": "original"
-                },
-                {
-                    "url": "https://s.yimg.com/uu/api/res/1.2/E4TzOW1lc8PhY5tQFinAUA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/mt_newswires_premium_news_706/0c887a492733aab96ac405a5871f559a",
-                    "width": 140,
-                    "height": 140,
-                    "tag": "140x140"
-                }
-            ]
+        {
+            "Date": "2023-03-06",
+            "cum_gl": -255.7128601062,
+            "cum_ret": -0.0368890862,
+            "value": 6676.2251892092,
+            "gl": 27.4535827636
         },
-        "relatedTickers": [
-            "COMP",
-            "^GSPC",
-            "^DJI",
-            "GOOG",
-            "MSFT"
-        ]
-    },
-    {
-        "uuid": "76cc3c41-e133-3b6a-9c80-b996d49b0bf4",
-        "title": "Wall Street Humbled as Fast-Reversing Markets Confound the Pros",
-        "publisher": "Bloomberg",
-        "link": "https://finance.yahoo.com/news/wall-street-humbled-fast-reversing-203427974.html",
-        "providerPublishTime": 1714163667,
-        "type": "STORY",
-        "thumbnail": {
-            "resolutions": [
-                {
-                    "url": "https://s.yimg.com/uu/api/res/1.2/5P55I91fxseI9mRZFES4aA--~B/aD02NzU7dz0xMjAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/bloomberg_markets_842/1dd5acf546e8788fb5254e3401acef5d",
-                    "width": 1200,
-                    "height": 675,
-                    "tag": "original"
-                },
-                {
-                    "url": "https://s.yimg.com/uu/api/res/1.2/sP_0ij9m3wx31js6sDzknw--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/bloomberg_markets_842/1dd5acf546e8788fb5254e3401acef5d",
-                    "width": 140,
-                    "height": 140,
-                    "tag": "140x140"
-                }
-            ]
+        {
+            "Date": "2023-03-07",
+            "cum_gl": -21.4445800764,
+            "cum_ret": -0.0030935908,
+            "value": 6910.493469239,
+            "gl": 234.2682800298
         },
-        "relatedTickers": [
-            "COMP",
-            "GOOG",
-            "IBM"
-        ]
-    },
-    {
-        "uuid": "f4e92526-82b1-38b5-9ae3-42d5f411dea5",
-        "title": "How major US stock indexes fared Friday, 4/26/2024",
-        "publisher": "Associated Press",
-        "link": "https://finance.yahoo.com/news/major-us-stock-indexes-fared-201356598.html",
-        "providerPublishTime": 1714162436,
-        "type": "STORY",
-        "relatedTickers": [
-            "COMP",
-            "^GSPC",
-            "^DJI",
-            "^RUT"
-        ]
-    },
-    {
-        "uuid": "94420cae-a83b-335c-8be8-b5af9b8cca6f",
-        "title": "Dow Jones Rises On Inflation Data; Tesla Slides On Probe Into Autopilot Recall",
-        "publisher": "Investor's Business Daily",
-        "link": "https://finance.yahoo.com/m/94420cae-a83b-335c-8be8-b5af9b8cca6f/dow-jones-rises-on-inflation.html",
-        "providerPublishTime": 1714140258,
-        "type": "STORY",
-        "thumbnail": {
-            "resolutions": [
-                {
-                    "url": "https://s.yimg.com/uu/api/res/1.2/4WfxCi9gw5G1l9k1XkSg7g--~B/aD01NjM7dz0xMDAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/ibd.com/55ca4252bd7c66820fc61ce444908e68",
-                    "width": 1000,
-                    "height": 563,
-                    "tag": "original"
-                },
-                {
-                    "url": "https://s.yimg.com/uu/api/res/1.2/osAHvE0hUTUj8GgUic6xfA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/ibd.com/55ca4252bd7c66820fc61ce444908e68",
-                    "width": 140,
-                    "height": 140,
-                    "tag": "140x140"
-                }
-            ]
+        {
+            "Date": "2023-03-08",
+            "cum_gl": 106.6726074236,
+            "cum_ret": 0.0153885691,
+            "value": 7038.610656739,
+            "gl": 128.1171875
         },
-        "relatedTickers": [
-            "^DJI",
-            "MSFT",
-            "GOOG",
-            "COMP",
-            "^RUT",
-            "TW",
-            "CMG"
-        ]
-    },
-    {
-        "uuid": "08915db9-73d0-3cfc-b993-65487b8ae38c",
-        "title": "Dow Jones Futures Rise As Microsoft, Google Jump; New Market Rally Still Must Do This",
-        "publisher": "Investor's Business Daily",
-        "link": "https://finance.yahoo.com/m/08915db9-73d0-3cfc-b993-65487b8ae38c/dow-jones-futures-rise-as.html",
-        "providerPublishTime": 1714134156,
-        "type": "STORY",
-        "thumbnail": {
-            "resolutions": [
-                {
-                    "url": "https://s.yimg.com/uu/api/res/1.2/WCXtRXzsFO8LJ2L3RPsWEw--~B/aD01NjM7dz0xMDAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/ibd.com/2a63b3a5c89337cc866de24c58755cd9",
-                    "width": 1000,
-                    "height": 563,
-                    "tag": "original"
-                },
-                {
-                    "url": "https://s.yimg.com/uu/api/res/1.2/XsR.sKJBgtikejxuvJzrYQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/ibd.com/2a63b3a5c89337cc866de24c58755cd9",
-                    "width": 140,
-                    "height": 140,
-                    "tag": "140x140"
-                }
-            ]
+        {
+            "Date": "2023-03-09",
+            "cum_gl": 4.6367797876,
+            "cum_ret": 0.0006689009,
+            "value": 6936.574829103,
+            "gl": -102.035827636
         },
-        "relatedTickers": [
-            "GOOG",
-            "^DJI",
-            "MSFT",
-            "^GSPC",
-            "COMP",
-            "^RUT",
-            "META",
-            "NVDA",
-            "XOM",
-            "AVGO",
-            "WDC"
-        ]
-    },
-    {
-        "uuid": "43562497-390b-3e23-9103-2c39459df720",
-        "title": "How major US stock indexes fared Thursday, 4/25/2024",
-        "publisher": "Associated Press Finance",
-        "link": "https://finance.yahoo.com/news/major-us-stock-indexes-fared-202220236.html",
-        "providerPublishTime": 1714076540,
-        "type": "STORY",
-        "relatedTickers": [
-            "COMP",
-            "^DJI",
-            "^GSPC",
-            "^RUT"
-        ]
-    },
-    {
-        "uuid": "1636c636-7bf2-32e6-b1ab-da9ae362c738",
-        "title": "Dow Jones Dives 650 Points On Weak GDP Data; Meta Plunges 16% On Earnings",
-        "publisher": "Investor's Business Daily",
-        "link": "https://finance.yahoo.com/m/1636c636-7bf2-32e6-b1ab-da9ae362c738/dow-jones-dives-650-points-on.html",
-        "providerPublishTime": 1714053267,
-        "type": "STORY",
-        "thumbnail": {
-            "resolutions": [
-                {
-                    "url": "https://s.yimg.com/uu/api/res/1.2/WAuaz6qrZ4OYu_AuKxC0vQ--~B/aD02MDA7dz0xMDY1O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/ibd.com/f84dddde254e978a0083114ec56c1e2b",
-                    "width": 1065,
-                    "height": 600,
-                    "tag": "original"
-                },
-                {
-                    "url": "https://s.yimg.com/uu/api/res/1.2/IVbsawCKXte9EBfO391xMQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/ibd.com/f84dddde254e978a0083114ec56c1e2b",
-                    "width": 140,
-                    "height": 140,
-                    "tag": "140x140"
-                }
-            ]
+        {
+            "Date": "2023-03-10",
+            "cum_gl": 62.746032717,
+            "cum_ret": 0.0090517302,
+            "value": 6994.6840820324,
+            "gl": 58.1092529294
         },
-        "relatedTickers": [
-            "^DJI",
-            "GOOG",
-            "^RUT",
-            "TW",
-            "MSFT"
-        ]
-    },
-    {
-        "uuid": "3424e570-e066-3e3b-9659-7cc651837e9d",
-        "title": "Dow Jones Futures Fall As Meta Dives, Chipotle Eyes Buy Point; Key Economic Data Due",
-        "publisher": "Investor's Business Daily",
-        "link": "https://finance.yahoo.com/m/3424e570-e066-3e3b-9659-7cc651837e9d/dow-jones-futures-fall-as.html",
-        "providerPublishTime": 1714046937,
-        "type": "STORY",
-        "thumbnail": {
-            "resolutions": [
-                {
-                    "url": "https://s.yimg.com/uu/api/res/1.2/yZVKb.8FYmXXqXijsksCJQ--~B/aD0zMzg7dz02MDA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/ibd.com/0d9920f3772a69ebfc959fb2f331ecff",
-                    "width": 600,
-                    "height": 338,
-                    "tag": "original"
-                },
-                {
-                    "url": "https://s.yimg.com/uu/api/res/1.2/ZGNJrMk6VPiQU3VL8OdPJQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/ibd.com/0d9920f3772a69ebfc959fb2f331ecff",
-                    "width": 140,
-                    "height": 140,
-                    "tag": "140x140"
-                }
-            ]
+        {
+            "Date": "2023-03-13",
+            "cum_gl": -41.5773010246,
+            "cum_ret": -0.0059979332,
+            "value": 6890.3607482908,
+            "gl": -104.3233337416
         },
-        "relatedTickers": [
-            "META",
-            "^DJI",
-            "^GSPC",
-            "CMG",
-            "COMP",
-            "^RUT",
-            "NVDA",
-            "IBM"
-        ]
-    },
-    {
-        "uuid": "f20f895c-ac57-3464-aaf7-3146fbfd4e01",
-        "title": "How major US stock indexes fared Wednesday, 4/24/2024",
-        "publisher": "Associated Press Finance",
-        "link": "https://finance.yahoo.com/news/major-us-stock-indexes-fared-202152352.html",
-        "providerPublishTime": 1713990112,
-        "type": "STORY",
-        "relatedTickers": [
-            "COMP",
-            "^DJI",
-            "^GSPC",
-            "^RUT"
-        ]
-    },
-    {
-        "uuid": "2f679a09-7d39-3059-9252-f75b2007c7a3",
-        "title": "Dow Gains 263 Points Ahead Of Inflation Report; Tesla Soars After Q1 Results",
-        "publisher": "Investor's Business Daily",
-        "link": "https://finance.yahoo.com/m/2f679a09-7d39-3059-9252-f75b2007c7a3/dow-gains-263-points-ahead-of.html",
-        "providerPublishTime": 1713905604,
-        "type": "STORY",
-        "thumbnail": {
-            "resolutions": [
-                {
-                    "url": "https://s.yimg.com/uu/api/res/1.2/wzg4x1Jg4Hzkv.Sb5vXshQ--~B/aD01NjU7dz0xMDAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/ibd.com/ac471af41d726565b2bb270d00749364",
-                    "width": 1000,
-                    "height": 565,
-                    "tag": "original"
-                },
-                {
-                    "url": "https://s.yimg.com/uu/api/res/1.2/3i6YA9VvDg3aS29ky.NZBw--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/ibd.com/ac471af41d726565b2bb270d00749364",
-                    "width": 140,
-                    "height": 140,
-                    "tag": "140x140"
-                }
-            ]
+        {
+            "Date": "2023-03-14",
+            "cum_gl": -137.206146237,
+            "cum_ret": -0.0197933313,
+            "value": 6794.7319030784,
+            "gl": -95.6288452124
         },
-        "relatedTickers": [
-            "^DJI",
-            "^GSPC",
-            "^TNX",
-            "^RUT",
-            "TSLA"
-        ]
-    }
-]
+        {
+            "Date": "2023-03-15",
+            "cum_gl": -47.0675964326,
+            "cum_ret": -0.0067899621,
+            "value": 6884.8704528828,
+            "gl": 90.1385498044
+        },
+        {
+            "Date": "2023-03-16",
+            "cum_gl": 49.934875489,
+            "cum_ret": 0.0072035952,
+            "value": 6981.8729248044,
+            "gl": 97.0024719216
+        },
+        {
+            "Date": "2023-03-17",
+            "cum_gl": 68.2370300298,
+            "cum_ret": 0.0098438603,
+            "value": 7000.1750793452,
+            "gl": 18.3021545408
+        },
+        {
+            "Date": "2023-03-20",
+            "cum_gl": 199.098663329,
+            "cum_ret": 0.0287219334,
+            "value": 7131.0367126444,
+            "gl": 130.8616332992
+        },
+        {
+            "Date": "2023-03-21",
+            "cum_gl": 160.2061462416,
+            "cum_ret": 0.0231113067,
+            "value": 7092.144195557,
+            "gl": -38.8925170874
+        },
+        {
+            "Date": "2023-03-22",
+            "cum_gl": 270.0197753912,
+            "cum_ret": 0.0389529989,
+            "value": 7201.9578247066,
+            "gl": 109.8136291496
+        },
+        {
+            "Date": "2023-03-23",
+            "cum_gl": 356.040954592,
+            "cum_ret": 0.0513623971,
+            "value": 7287.9790039074,
+            "gl": 86.0211792008
+        },
+        {
+            "Date": "2023-03-24",
+            "cum_gl": 289.6948547364,
+            "cum_ret": 0.0417913219,
+            "value": 7221.6329040518,
+            "gl": -66.3460998556
+        },
+        {
+            "Date": "2023-03-27",
+            "cum_gl": 340.0263061522,
+            "cum_ret": 0.0490521271,
+            "value": 7271.9643554676,
+            "gl": 50.3314514158
+        },
+        {
+            "Date": "2023-03-28",
+            "cum_gl": 400.423767092,
+            "cum_ret": 0.0577650528,
+            "value": 7332.3618164074,
+            "gl": 60.3974609398
+        },
+        {
+            "Date": "2023-03-29",
+            "cum_gl": 310.2852172876,
+            "cum_ret": 0.0447616835,
+            "value": 7242.223266603,
+            "gl": -90.1385498044
+        },
+        {
+            "Date": "2023-03-30",
+            "cum_gl": 281.4587097196,
+            "cum_ret": 0.0406031773,
+            "value": 7213.396759035,
+            "gl": -28.826507568
+        },
+        {
+            "Date": "2023-03-31",
+            "cum_gl": 424.2169189456,
+            "cum_ret": 0.0611974481,
+            "value": 7356.154968261,
+            "gl": 142.758209226
+        },
+        {
+            "Date": "2023-04-03",
+            "cum_gl": 496.9685974152,
+            "cum_ret": 0.0716925907,
+            "value": 7428.9066467306,
+            "gl": 72.7516784696
+        },
+        {
+            "Date": "2023-04-04",
+            "cum_gl": 613.1878051788,
+            "cum_ret": 0.0884583504,
+            "value": 7545.1258544942,
+            "gl": 116.2192077636
+        },
+        {
+            "Date": "2023-04-05",
+            "cum_gl": 671.297760013,
+            "cum_ret": 0.0968412809,
+            "value": 7603.2358093284,
+            "gl": 58.1099548342
+        },
+        {
+            "Date": "2023-04-06",
+            "cum_gl": 646.5900268582,
+            "cum_ret": 0.0932769483,
+            "value": 7578.5280761736,
+            "gl": -24.7077331548
+        },
+        {
+            "Date": "2023-04-10",
+            "cum_gl": 561.0264892604,
+            "cum_ret": 0.0809335694,
+            "value": 7492.9645385758,
+            "gl": -85.5635375978
+        },
+        {
+            "Date": "2023-04-11",
+            "cum_gl": 602.207916263,
+            "cum_ret": 0.0868743939,
+            "value": 7534.1459655784,
+            "gl": 41.1814270026
+        },
+        {
+            "Date": "2023-04-12",
+            "cum_gl": 481.8692321768,
+            "cum_ret": 0.0695143593,
+            "value": 7413.8072814922,
+            "gl": -120.3386840862
+        },
+        {
+            "Date": "2023-04-13",
+            "cum_gl": 425.58984375,
+            "cum_ret": 0.0613955059,
+            "value": 7357.5278930654,
+            "gl": -56.2793884268
+        },
+        {
+            "Date": "2023-04-14",
+            "cum_gl": 393.5612487798,
+            "cum_ret": 0.0567750672,
+            "value": 7325.4992980952,
+            "gl": -32.0285949702
+        },
+        {
+            "Date": "2023-04-17",
+            "cum_gl": 643.3865356464,
+            "cum_ret": 0.0928148133,
+            "value": 7575.3245849618,
+            "gl": 249.8252868666
+        },
+        {
+            "Date": "2023-04-18",
+            "cum_gl": 627.3725891114,
+            "cum_ret": 0.0905046445,
+            "value": 7559.3106384268,
+            "gl": -16.013946535
+        },
+        {
+            "Date": "2023-04-19",
+            "cum_gl": 628.2878723174,
+            "cum_ret": 0.0906366831,
+            "value": 7560.2259216328,
+            "gl": 0.915283206
+        },
+        {
+            "Date": "2023-04-20",
+            "cum_gl": 685.0249023426,
+            "cum_ret": 0.0988215557,
+            "value": 7616.962951658,
+            "gl": 56.7370300252
+        },
+        {
+            "Date": "2023-04-21",
+            "cum_gl": 738.1022033718,
+            "cum_ret": 0.1064784766,
+            "value": 7670.0402526872,
+            "gl": 53.0773010292
+        },
+        {
+            "Date": "2023-04-24",
+            "cum_gl": 693.261047364,
+            "cum_ret": 0.1000097004,
+            "value": 7625.1990966794,
+            "gl": -44.8411560078
+        },
+        {
+            "Date": "2023-04-25",
+            "cum_gl": 618.6795043964,
+            "cum_ret": 0.0892505819,
+            "value": 7550.6175537118,
+            "gl": -74.5815429676
+        },
+        {
+            "Date": "2023-04-26",
+            "cum_gl": 632.862884524,
+            "cum_ret": 0.0912966735,
+            "value": 7564.8009338394,
+            "gl": 14.1833801276
+        },
+        {
+            "Date": "2023-04-27",
+            "cum_gl": 561.4841308588,
+            "cum_ret": 0.0809995887,
+            "value": 7493.4221801742,
+            "gl": -71.3787536652
+        },
+        {
+            "Date": "2023-04-28",
+            "cum_gl": 561.0264892604,
+            "cum_ret": 0.0809335694,
+            "value": 7492.9645385758,
+            "gl": -0.4576415984
+        },
+        {
+            "Date": "2023-05-01",
+            "cum_gl": 773.7919311522,
+            "cum_ret": 0.1116270696,
+            "value": 7705.7299804676,
+            "gl": 212.7654418918
+        },
+        {
+            "Date": "2023-05-02",
+            "cum_gl": 831.9011840816,
+            "cum_ret": 0.1200098988,
+            "value": 7763.839233397,
+            "gl": 58.1092529294
+        },
+        {
+            "Date": "2023-05-03",
+            "cum_gl": 827.7831115732,
+            "cum_ret": 0.1194158265,
+            "value": 7759.7211608886,
+            "gl": -4.1180725084
+        },
+        {
+            "Date": "2023-05-04",
+            "cum_gl": 779.739166263,
+            "cum_ret": 0.1124850166,
+            "value": 7711.6772155784,
+            "gl": -48.0439453102
+        },
+        {
+            "Date": "2023-05-05",
+            "cum_gl": 729.8653564456,
+            "cum_ret": 0.1052902307,
+            "value": 7661.803405761,
+            "gl": -49.8738098174
+        },
+        {
+            "Date": "2023-05-08",
+            "cum_gl": 653.9108886736,
+            "cum_ret": 0.0943330543,
+            "value": 7585.848937989,
+            "gl": -75.954467772
+        },
+        {
+            "Date": "2023-05-09",
+            "cum_gl": 1009.8914794942,
+            "cum_ret": 0.1456867433,
+            "value": 7941.8295288096,
+            "gl": 355.9805908206
+        },
+        {
+            "Date": "2023-05-10",
+            "cum_gl": 1006.6879882824,
+            "cum_ret": 0.1452246083,
+            "value": 7938.6260375978,
+            "gl": -3.2034912118
+        },
+        {
+            "Date": "2023-05-11",
+            "cum_gl": 927.5307312034,
+            "cum_ret": 0.1338053982,
+            "value": 7859.4687805188,
+            "gl": -79.157257079
+        },
+        {
+            "Date": "2023-05-12",
+            "cum_gl": 1009.4331359864,
+            "cum_ret": 0.1456206228,
+            "value": 7941.3711853018,
+            "gl": 81.902404783
+        },
+        {
+            "Date": "2023-05-15",
+            "cum_gl": 1018.1269226062,
+            "cum_ret": 0.1468747867,
+            "value": 7950.0649719216,
+            "gl": 8.6937866198
+        },
+        {
+            "Date": "2023-05-16",
+            "cum_gl": 975.0566711438,
+            "cum_ret": 0.1406614808,
+            "value": 7906.9947204592,
+            "gl": -43.0702514624
+        },
+        {
+            "Date": "2023-05-17",
+            "cum_gl": 952.1479187034,
+            "cum_ret": 0.1373566688,
+            "value": 7884.0859680188,
+            "gl": -22.9087524404
+        },
+        {
+            "Date": "2023-05-18",
+            "cum_gl": 952.1479187034,
+            "cum_ret": 0.1373566688,
+            "value": 7884.0859680188,
+            "gl": 0.0
+        },
+        {
+            "Date": "2023-05-19",
+            "cum_gl": 980.5553894048,
+            "cum_ret": 0.1414547248,
+            "value": 7912.4934387202,
+            "gl": 28.4074707014
+        },
+        {
+            "Date": "2023-05-22",
+            "cum_gl": 1088.6886596684,
+            "cum_ret": 0.1570540088,
+            "value": 8020.6267089838,
+            "gl": 108.1332702636
+        },
+        {
+            "Date": "2023-05-23",
+            "cum_gl": 1093.7283325214,
+            "cum_ret": 0.157781031,
+            "value": 8025.6663818368,
+            "gl": 5.039672853
+        },
+        {
+            "Date": "2023-05-24",
+            "cum_gl": 1049.7420959482,
+            "cum_ret": 0.1514355853,
+            "value": 7981.6801452636,
+            "gl": -43.9862365732
+        },
+        {
+            "Date": "2023-05-25",
+            "cum_gl": 928.7801208504,
+            "cum_ret": 0.1339856349,
+            "value": 7860.7181701658,
+            "gl": -120.9619750978
+        },
+        {
+            "Date": "2023-05-26",
+            "cum_gl": 941.6088256846,
+            "cum_ret": 0.1358363013,
+            "value": 7873.546875,
+            "gl": 12.8287048342
+        },
+        {
+            "Date": "2023-05-30",
+            "cum_gl": 994.30078125,
+            "cum_ret": 0.1434376323,
+            "value": 7926.2388305654,
+            "gl": 52.6919555654
+        },
+        {
+            "Date": "2023-05-31",
+            "cum_gl": 1106.0993957526,
+            "cum_ret": 0.1595656782,
+            "value": 8038.037445068,
+            "gl": 111.7986145026
+        },
+        {
+            "Date": "2023-06-01",
+            "cum_gl": 1191.780853274,
+            "cum_ret": 0.1719260681,
+            "value": 8123.7189025894,
+            "gl": 85.6814575214
+        },
+        {
+            "Date": "2023-06-02",
+            "cum_gl": 1189.489837649,
+            "cum_ret": 0.1715955667,
+            "value": 8121.4278869644,
+            "gl": -2.291015625
+        },
+        {
+            "Date": "2023-06-05",
+            "cum_gl": 1319.6158752468,
+            "cum_ret": 0.1903675229,
+            "value": 8251.5539245622,
+            "gl": 130.1260375978
+        },
+        {
+            "Date": "2023-06-06",
+            "cum_gl": 1359.0207824702,
+            "cum_ret": 0.1960520669,
+            "value": 8290.9588317856,
+            "gl": 39.4049072234
+        },
+        {
+            "Date": "2023-06-07",
+            "cum_gl": 1296.2487792986,
+            "cum_ret": 0.1869965903,
+            "value": 8228.186828614,
+            "gl": -62.7720031716
+        },
+        {
+            "Date": "2023-06-08",
+            "cum_gl": 1279.2963867176,
+            "cum_ret": 0.1845510415,
+            "value": 8211.234436033,
+            "gl": -16.952392581
+        },
+        {
+            "Date": "2023-06-09",
+            "cum_gl": 1215.6069946302,
+            "cum_ret": 0.1753632225,
+            "value": 8147.5450439456,
+            "gl": -63.6893920874
+        },
+        {
+            "Date": "2023-06-12",
+            "cum_gl": 1341.6093444812,
+            "cum_ret": 0.1935402964,
+            "value": 8273.5473937966,
+            "gl": 126.002349851
+        },
+        {
+            "Date": "2023-06-13",
+            "cum_gl": 1359.479125978,
+            "cum_ret": 0.1961181875,
+            "value": 8291.4171752934,
+            "gl": 17.8697814968
+        },
+        {
+            "Date": "2023-06-14",
+            "cum_gl": 1489.146820068,
+            "cum_ret": 0.2148240232,
+            "value": 8421.0848693834,
+            "gl": 129.66769409
+        },
+        {
+            "Date": "2023-06-15",
+            "cum_gl": 1467.153350829,
+            "cum_ret": 0.2116512497,
+            "value": 8399.0914001444,
+            "gl": -21.993469239
+        },
+        {
+            "Date": "2023-06-16",
+            "cum_gl": 1496.477508546,
+            "cum_ret": 0.2158815468,
+            "value": 8428.4155578614,
+            "gl": 29.324157717
+        },
+        {
+            "Date": "2023-06-20",
+            "cum_gl": 1590.8646850596,
+            "cum_ret": 0.2294978221,
+            "value": 8522.802734375,
+            "gl": 94.3871765136
+        },
+        {
+            "Date": "2023-06-21",
+            "cum_gl": 1540.9220886224,
+            "cum_ret": 0.2222931131,
+            "value": 8472.8601379378,
+            "gl": -49.9425964372
+        },
+        {
+            "Date": "2023-06-22",
+            "cum_gl": 1545.0457763692,
+            "cum_ret": 0.2228879954,
+            "value": 8476.9838256846,
+            "gl": 4.1236877468
+        },
+        {
+            "Date": "2023-06-23",
+            "cum_gl": 1496.9358520538,
+            "cum_ret": 0.2159476674,
+            "value": 8428.8739013692,
+            "gl": -48.1099243154
+        },
+        {
+            "Date": "2023-06-26",
+            "cum_gl": 1636.2259521516,
+            "cum_ret": 0.2360416294,
+            "value": 8568.164001467,
+            "gl": 139.2901000978
+        },
+        {
+            "Date": "2023-06-27",
+            "cum_gl": 1621.563171386,
+            "cum_ret": 0.2339263796,
+            "value": 8553.5012207014,
+            "gl": -14.6627807656
+        },
+        {
+            "Date": "2023-06-28",
+            "cum_gl": 1556.9591979974,
+            "cum_ret": 0.2246066233,
+            "value": 8488.8972473128,
+            "gl": -64.6039733886
+        },
+        {
+            "Date": "2023-06-29",
+            "cum_gl": 1684.7935180654,
+            "cum_ret": 0.2430479768,
+            "value": 8616.7315673808,
+            "gl": 127.834320068
+        },
+        {
+            "Date": "2023-06-30",
+            "cum_gl": 1739.3181457526,
+            "cum_ret": 0.2509136887,
+            "value": 8671.256195068,
+            "gl": 54.5246276872
+        },
+        {
+            "Date": "2023-07-03",
+            "cum_gl": 1754.8969116198,
+            "cum_ret": 0.2531610783,
+            "value": 8686.8349609352,
+            "gl": 15.5787658672
+        },
+        {
+            "Date": "2023-07-05",
+            "cum_gl": 1955.5846862798,
+            "cum_ret": 0.2821122567,
+            "value": 8887.5227355952,
+            "gl": 200.68777466
+        },
+        {
+            "Date": "2023-07-06",
+            "cum_gl": 1886.3986816412,
+            "cum_ret": 0.2721314975,
+            "value": 8818.3367309566,
+            "gl": -69.1860046386
+        },
+        {
+            "Date": "2023-07-07",
+            "cum_gl": 1834.622711182,
+            "cum_ret": 0.2646623063,
+            "value": 8766.5607604974,
+            "gl": -51.7759704592
+        },
+        {
+            "Date": "2023-07-10",
+            "cum_gl": 1856.6154785162,
+            "cum_ret": 0.2678349785,
+            "value": 8788.5535278316,
+            "gl": 21.9927673342
+        },
+        {
+            "Date": "2023-07-11",
+            "cum_gl": 1804.839508057,
+            "cum_ret": 0.2603657873,
+            "value": 8736.7775573724,
+            "gl": -51.7759704592
+        },
+        {
+            "Date": "2023-07-12",
+            "cum_gl": 1709.9946899404,
+            "cum_ret": 0.2466834928,
+            "value": 8641.9327392558,
+            "gl": -94.8448181166
+        },
+        {
+            "Date": "2023-07-13",
+            "cum_gl": 1685.7109069812,
+            "cum_ret": 0.2431803191,
+            "value": 8617.6489562966,
+            "gl": -24.2837829592
+        },
+        {
+            "Date": "2023-07-14",
+            "cum_gl": 1763.1449890136,
+            "cum_ret": 0.2543509443,
+            "value": 8695.083038329,
+            "gl": 77.4340820324
+        },
+        {
+            "Date": "2023-07-17",
+            "cum_gl": 1798.4248046898,
+            "cum_ret": 0.2594404035,
+            "value": 8730.3628540052,
+            "gl": 35.2798156762
+        },
+        {
+            "Date": "2023-07-18",
+            "cum_gl": 1805.2985534696,
+            "cum_ret": 0.2604320091,
+            "value": 8737.236602785,
+            "gl": 6.8737487798
+        },
+        {
+            "Date": "2023-07-19",
+            "cum_gl": 1956.5013732908,
+            "cum_ret": 0.2822444978,
+            "value": 8888.4394226062,
+            "gl": 151.2028198212
+        },
+        {
+            "Date": "2023-07-20",
+            "cum_gl": 1944.5879516626,
+            "cum_ret": 0.2805258699,
+            "value": 8876.526000978,
+            "gl": -11.9134216282
+        },
+        {
+            "Date": "2023-07-21",
+            "cum_gl": 2007.3599548342,
+            "cum_ret": 0.2895813466,
+            "value": 8939.2980041496,
+            "gl": 62.7720031716
+        },
+        {
+            "Date": "2023-07-24",
+            "cum_gl": 1917.0971679676,
+            "cum_ret": 0.276560055,
+            "value": 8849.035217283,
+            "gl": -90.2627868666
+        },
+        {
+            "Date": "2023-07-25",
+            "cum_gl": 1862.572540285,
+            "cum_ret": 0.2686943431,
+            "value": 8794.5105896004,
+            "gl": -54.5246276826
+        },
+        {
+            "Date": "2023-07-26",
+            "cum_gl": 1899.6850280784,
+            "cum_ret": 0.2740481831,
+            "value": 8831.6230773938,
+            "gl": 37.1124877934
+        },
+        {
+            "Date": "2023-07-27",
+            "cum_gl": 1939.5482788096,
+            "cum_ret": 0.2797988477,
+            "value": 8871.486328125,
+            "gl": 39.8632507312
+        },
+        {
+            "Date": "2023-07-28",
+            "cum_gl": 1979.868469239,
+            "cum_ret": 0.2856154304,
+            "value": 8911.8065185544,
+            "gl": 40.3201904294
+        },
+        {
+            "Date": "2023-07-31",
+            "cum_gl": 1921.2201538096,
+            "cum_ret": 0.2771548361,
+            "value": 8853.158203125,
+            "gl": -58.6483154294
+        },
+        {
+            "Date": "2023-08-01",
+            "cum_gl": 2040.8085021982,
+            "cum_ret": 0.2944066274,
+            "value": 8972.7465515136,
+            "gl": 119.5883483886
+        },
+        {
+            "Date": "2023-08-02",
+            "cum_gl": 2069.2159728996,
+            "cum_ret": 0.2985046834,
+            "value": 9001.154022215,
+            "gl": 28.4074707014
+        },
+        {
+            "Date": "2023-08-03",
+            "cum_gl": 2030.7277526872,
+            "cum_ret": 0.2929523805,
+            "value": 8962.6658020026,
+            "gl": -38.4882202124
+        },
+        {
+            "Date": "2023-08-04",
+            "cum_gl": 1891.8959960926,
+            "cum_ret": 0.2729245389,
+            "value": 8823.834045408,
+            "gl": -138.8317565946
+        },
+        {
+            "Date": "2023-08-07",
+            "cum_gl": 1827.2913208038,
+            "cum_ret": 0.2636046814,
+            "value": 8759.2293701192,
+            "gl": -64.6046752888
+        },
+        {
+            "Date": "2023-08-08",
+            "cum_gl": 1406.6730651872,
+            "cum_ret": 0.2029263757,
+            "value": 8338.6111145026,
+            "gl": -420.6182556166
+        },
+        {
+            "Date": "2023-08-09",
+            "cum_gl": 1262.8009338394,
+            "cum_ret": 0.1821714108,
+            "value": 8194.7389831548,
+            "gl": -143.8721313478
+        },
+        {
+            "Date": "2023-08-10",
+            "cum_gl": 1306.328125,
+            "cum_ret": 0.1884506347,
+            "value": 8238.2661743154,
+            "gl": 43.5271911606
+        },
+        {
+            "Date": "2023-08-11",
+            "cum_gl": 1232.5607910162,
+            "cum_ret": 0.1778089738,
+            "value": 8164.4988403316,
+            "gl": -73.7673339838
+        },
+        {
+            "Date": "2023-08-14",
+            "cum_gl": 1222.4793396004,
+            "cum_ret": 0.1763546256,
+            "value": 8154.4173889158,
+            "gl": -10.0814514158
+        },
+        {
+            "Date": "2023-08-15",
+            "cum_gl": 1225.2322082526,
+            "cum_ret": 0.1767517539,
+            "value": 8157.170257568,
+            "gl": 2.7528686522
+        },
+        {
+            "Date": "2023-08-16",
+            "cum_gl": 1301.8548889158,
+            "cum_ret": 0.1878053265,
+            "value": 8233.7929382312,
+            "gl": 76.6226806632
+        },
+        {
+            "Date": "2023-08-17",
+            "cum_gl": 1209.63308716,
+            "cum_ret": 0.1745014278,
+            "value": 8141.5711364754,
+            "gl": -92.2218017558
+        },
+        {
+            "Date": "2023-08-18",
+            "cum_gl": 1169.258148193,
+            "cum_ret": 0.1686769472,
+            "value": 8101.1961975084,
+            "gl": -40.374938967
+        },
+        {
+            "Date": "2023-08-21",
+            "cum_gl": 1051.3445434566,
+            "cum_ret": 0.1516667541,
+            "value": 7983.282592772,
+            "gl": -117.9136047364
+        },
+        {
+            "Date": "2023-08-22",
+            "cum_gl": 1073.8265380868,
+            "cum_ret": 0.1549100021,
+            "value": 8005.7645874022,
+            "gl": 22.4819946302
+        },
+        {
+            "Date": "2023-08-23",
+            "cum_gl": 1135.764678954,
+            "cum_ret": 0.163845186,
+            "value": 8067.7027282694,
+            "gl": 61.9381408672
+        },
+        {
+            "Date": "2023-08-24",
+            "cum_gl": 1199.5397033718,
+            "cum_ret": 0.1730453583,
+            "value": 8131.4777526872,
+            "gl": 63.7750244178
+        },
+        {
+            "Date": "2023-08-25",
+            "cum_gl": 1378.0164184566,
+            "cum_ret": 0.1987923736,
+            "value": 8309.954467772,
+            "gl": 178.4767150848
+        },
+        {
+            "Date": "2023-08-28",
+            "cum_gl": 1160.5411987332,
+            "cum_ret": 0.1674194418,
+            "value": 8092.4792480486,
+            "gl": -217.4752197234
+        },
+        {
+            "Date": "2023-08-29",
+            "cum_gl": 1262.8556823724,
+            "cum_ret": 0.1821793088,
+            "value": 8194.7937316878,
+            "gl": 102.3144836392
+        },
+        {
+            "Date": "2023-08-30",
+            "cum_gl": 1335.34765625,
+            "cum_ret": 0.1926369865,
+            "value": 8267.2857055654,
+            "gl": 72.4919738776
+        },
+        {
+            "Date": "2023-08-31",
+            "cum_gl": 1515.6584472662,
+            "cum_ret": 0.2186485852,
+            "value": 8447.5964965816,
+            "gl": 180.3107910162
+        },
+        {
+            "Date": "2023-09-01",
+            "cum_gl": 1677.6186523426,
+            "cum_ret": 0.2420129321,
+            "value": 8609.556701658,
+            "gl": 161.9602050764
+        },
+        {
+            "Date": "2023-09-05",
+            "cum_gl": 1687.7120361354,
+            "cum_ret": 0.2434690016,
+            "value": 8619.6500854508,
+            "gl": 10.0933837928
+        },
+        {
+            "Date": "2023-09-06",
+            "cum_gl": 1760.663055421,
+            "cum_ret": 0.2539929011,
+            "value": 8692.6011047364,
+            "gl": 72.9510192856
+        },
+        {
+            "Date": "2023-09-07",
+            "cum_gl": 1771.6745300298,
+            "cum_ret": 0.2555814142,
+            "value": 8703.6125793452,
+            "gl": 11.0114746088
+        },
+        {
+            "Date": "2023-09-08",
+            "cum_gl": 1460.1427307144,
+            "cum_ret": 0.210639899,
+            "value": 8392.0807800298,
+            "gl": -311.5317993154
+        },
+        {
+            "Date": "2023-09-11",
+            "cum_gl": 1214.6797790518,
+            "cum_ret": 0.1752294626,
+            "value": 8146.6178283672,
+            "gl": -245.4629516626
+        },
+        {
+            "Date": "2023-09-12",
+            "cum_gl": 1243.1258544942,
+            "cum_ret": 0.1793330878,
+            "value": 8175.0639038096,
+            "gl": 28.4460754424
+        },
+        {
+            "Date": "2023-09-13",
+            "cum_gl": 1297.2658386224,
+            "cum_ret": 0.1871433111,
+            "value": 8229.2038879378,
+            "gl": 54.1399841282
+        },
+        {
+            "Date": "2023-09-14",
+            "cum_gl": 1156.8709411652,
+            "cum_ret": 0.1668899712,
+            "value": 8088.8089904806,
+            "gl": -140.3948974572
+        },
+        {
+            "Date": "2023-09-15",
+            "cum_gl": 1060.9795837416,
+            "cum_ret": 0.1530567031,
+            "value": 7992.917633057,
+            "gl": -95.8913574236
+        },
+        {
+            "Date": "2023-09-18",
+            "cum_gl": 1131.1770324702,
+            "cum_ret": 0.163183373,
+            "value": 8063.1150817856,
+            "gl": 70.1974487286
+        },
+        {
+            "Date": "2023-09-19",
+            "cum_gl": 1097.6835632312,
+            "cum_ret": 0.1583516118,
+            "value": 8029.6216125466,
+            "gl": -33.493469239
+        },
+        {
+            "Date": "2023-09-20",
+            "cum_gl": 1233.491516114,
+            "cum_ret": 0.17794324,
+            "value": 8165.4295654294,
+            "gl": 135.8079528828
+        },
+        {
+            "Date": "2023-09-21",
+            "cum_gl": 1283.960540774,
+            "cum_ret": 0.1852238914,
+            "value": 8215.8985900894,
+            "gl": 50.46902466
+        },
+        {
+            "Date": "2023-09-22",
+            "cum_gl": 1119.7065124534,
+            "cum_ret": 0.1615286381,
+            "value": 8051.6445617688,
+            "gl": -164.2540283206
+        },
+        {
+            "Date": "2023-09-25",
+            "cum_gl": 1048.1319274916,
+            "cum_ret": 0.1512033027,
+            "value": 7980.069976807,
+            "gl": -71.5745849618
+        },
+        {
+            "Date": "2023-09-26",
+            "cum_gl": 1039.8953552252,
+            "cum_ret": 0.0841017816,
+            "value": 14019.4230041495,
+            "gl": -8.2365722664
+        },
+        {
+            "Date": "2023-09-27",
+            "cum_gl": 1109.1131591783,
+            "cum_ret": 0.0894542946,
+            "value": 14088.6408081026,
+            "gl": 69.2178039531
+        },
+        {
+            "Date": "2023-09-28",
+            "cum_gl": 817.8800354009,
+            "cum_ret": 0.0669336568,
+            "value": 13797.4076843252,
+            "gl": -291.2331237774
+        },
+        {
+            "Date": "2023-09-29",
+            "cum_gl": 759.98364258,
+            "cum_ret": 0.0624566121,
+            "value": 13739.5112915043,
+            "gl": -57.8963928209
+        },
+        {
+            "Date": "2023-10-02",
+            "cum_gl": 788.0012817388,
+            "cum_ret": 0.0646231758,
+            "value": 13767.5289306631,
+            "gl": 28.0176391588
+        },
+        {
+            "Date": "2023-10-03",
+            "cum_gl": 851.7946167005,
+            "cum_ret": 0.0695562225,
+            "value": 13831.3222656248,
+            "gl": 63.7933349617
+        },
+        {
+            "Date": "2023-10-04",
+            "cum_gl": 1082.8361206078,
+            "cum_ret": 0.0874223291,
+            "value": 14062.3637695321,
+            "gl": 231.0415039073
+        },
+        {
+            "Date": "2023-10-05",
+            "cum_gl": 861.7246093788,
+            "cum_ret": 0.0703240945,
+            "value": 13841.2522583031,
+            "gl": -221.111511229
+        },
+        {
+            "Date": "2023-10-06",
+            "cum_gl": 1024.9563293458,
+            "cum_ret": 0.0829465682,
+            "value": 14004.4839782701,
+            "gl": 163.231719967
+        },
+        {
+            "Date": "2023-10-09",
+            "cum_gl": 1089.877838134,
+            "cum_ret": 0.087966855,
+            "value": 14069.4054870583,
+            "gl": 64.9215087882
+        },
+        {
+            "Date": "2023-10-10",
+            "cum_gl": 1357.7705383326,
+            "cum_ret": 0.1086826115,
+            "value": 14337.2981872569,
+            "gl": 267.8927001986
+        },
+        {
+            "Date": "2023-10-11",
+            "cum_gl": 1475.0437622105,
+            "cum_ret": 0.1177511809,
+            "value": 14454.5714111348,
+            "gl": 117.2732238779
+        },
+        {
+            "Date": "2023-10-12",
+            "cum_gl": 1420.4507446285,
+            "cum_ret": 0.1135295815,
+            "value": 14399.9783935528,
+            "gl": -54.593017582
+        },
+        {
+            "Date": "2023-10-13",
+            "cum_gl": 1561.4161376984,
+            "cum_ret": 0.1244302323,
+            "value": 14540.9437866227,
+            "gl": 140.9653930699
+        },
+        {
+            "Date": "2023-10-16",
+            "cum_gl": 1579.3208007851,
+            "cum_ret": 0.1258147741,
+            "value": 14558.8484497094,
+            "gl": 17.9046630867
+        },
+        {
+            "Date": "2023-10-17",
+            "cum_gl": 1429.0649414058,
+            "cum_ret": 0.1141957049,
+            "value": 14408.5925903301,
+            "gl": -150.2558593793
+        },
+        {
+            "Date": "2023-10-18",
+            "cum_gl": 1516.0282897957,
+            "cum_ret": 0.1209204554,
+            "value": 14495.55593872,
+            "gl": 86.9633483899
+        },
+        {
+            "Date": "2023-10-19",
+            "cum_gl": 1433.0173645053,
+            "cum_ret": 0.1145013401,
+            "value": 14412.5450134296,
+            "gl": -83.0109252904
+        },
+        {
+            "Date": "2023-10-20",
+            "cum_gl": 1336.006866454,
+            "cum_ret": 0.1069996581,
+            "value": 14315.5345153783,
+            "gl": -97.0104980513
+        },
+        {
+            "Date": "2023-10-23",
+            "cum_gl": 1341.4740905781,
+            "cum_ret": 0.1074224307,
+            "value": 14321.0017395024,
+            "gl": 5.4672241241
+        },
+        {
+            "Date": "2023-10-24",
+            "cum_gl": 1135.0929565463,
+            "cum_ret": 0.0914632749,
+            "value": 14114.6206054706,
+            "gl": -206.3811340318
+        },
+        {
+            "Date": "2023-10-25",
+            "cum_gl": 1190.7537536645,
+            "cum_ret": 0.0957674442,
+            "value": 14170.2814025888,
+            "gl": 55.6607971182
+        },
+        {
+            "Date": "2023-10-26",
+            "cum_gl": 1233.8423461921,
+            "cum_ret": 0.0990994229,
+            "value": 14213.3699951164,
+            "gl": 43.0885925276
+        },
+        {
+            "Date": "2023-10-27",
+            "cum_gl": 1318.3963623079,
+            "cum_ret": 0.1056378632,
+            "value": 14297.9240112322,
+            "gl": 84.5540161158
+        },
+        {
+            "Date": "2023-10-30",
+            "cum_gl": 883.3559875512,
+            "cum_ret": 0.0719968178,
+            "value": 13862.8836364755,
+            "gl": -435.0403747567
+        },
+        {
+            "Date": "2023-10-31",
+            "cum_gl": 980.7162170408,
+            "cum_ret": 0.0795255441,
+            "value": 13960.2438659651,
+            "gl": 97.3602294896
+        },
+        {
+            "Date": "2023-11-01",
+            "cum_gl": 1217.6380615246,
+            "cum_ret": 0.0978463689,
+            "value": 14197.1657104489,
+            "gl": 236.9218444838
+        },
+        {
+            "Date": "2023-11-02",
+            "cum_gl": 1254.8029174814,
+            "cum_ret": 0.1007202737,
+            "value": 14234.3305664057,
+            "gl": 37.1648559568
+        },
+        {
+            "Date": "2023-11-03",
+            "cum_gl": 1552.2770080579,
+            "cum_ret": 0.1237235165,
+            "value": 14531.8046569822,
+            "gl": 297.4740905765
+        },
+        {
+            "Date": "2023-11-06",
+            "cum_gl": 1760.03317261,
+            "cum_ret": 0.1397890014,
+            "value": 14739.5608215343,
+            "gl": 207.7561645521
+        },
+        {
+            "Date": "2023-11-07",
+            "cum_gl": 1802.6123352035,
+            "cum_ret": 0.1430815867,
+            "value": 14782.1399841278,
+            "gl": 42.5791625935
+        },
+        {
+            "Date": "2023-11-08",
+            "cum_gl": 1991.5816345234,
+            "cum_ret": 0.1576943103,
+            "value": 14971.1092834477,
+            "gl": 188.9692993199
+        },
+        {
+            "Date": "2023-11-09",
+            "cum_gl": 2186.1199340849,
+            "cum_ret": 0.1727376768,
+            "value": 15165.6475830092,
+            "gl": 194.5382995615
+        },
+        {
+            "Date": "2023-11-10",
+            "cum_gl": 2285.7462158218,
+            "cum_ret": 0.1804416336,
+            "value": 15265.2738647461,
+            "gl": 99.6262817369
+        },
+        {
+            "Date": "2023-11-13",
+            "cum_gl": 2216.2174682659,
+            "cum_ret": 0.1750650757,
+            "value": 15195.7451171902,
+            "gl": -69.5287475559
+        },
+        {
+            "Date": "2023-11-14",
+            "cum_gl": 2580.5098571815,
+            "cum_ret": 0.2032352813,
+            "value": 15560.0375061058,
+            "gl": 364.2923889156
+        },
+        {
+            "Date": "2023-11-15",
+            "cum_gl": 2450.4136962914,
+            "cum_ret": 0.1931751326,
+            "value": 15429.9413452157,
+            "gl": -130.0961608901
+        },
+        {
+            "Date": "2023-11-16",
+            "cum_gl": 2639.6446533207,
+            "cum_ret": 0.2078080898,
+            "value": 15619.172302245,
+            "gl": 189.2309570293
+        },
+        {
+            "Date": "2023-11-17",
+            "cum_gl": 2668.6758422865,
+            "cum_ret": 0.2100530299,
+            "value": 15648.2034912108,
+            "gl": 29.0311889658
+        },
+        {
+            "Date": "2023-11-20",
+            "cum_gl": 2870.0495605495,
+            "cum_ret": 0.2256249694,
+            "value": 15849.5772094738,
+            "gl": 201.373718263
+        },
+        {
+            "Date": "2023-11-21",
+            "cum_gl": 2749.2714233426,
+            "cum_ret": 0.21628537,
+            "value": 15728.7990722669,
+            "gl": -120.7781372069
+        },
+        {
+            "Date": "2023-11-22",
+            "cum_gl": 2974.0717773439,
+            "cum_ret": 0.2336688575,
+            "value": 15953.5994262682,
+            "gl": 224.8003540013
+        },
+        {
+            "Date": "2023-11-24",
+            "cum_gl": 2853.9827880871,
+            "cum_ret": 0.224382549,
+            "value": 15833.5104370114,
+            "gl": -120.0889892568
+        },
+        {
+            "Date": "2023-11-27",
+            "cum_gl": 2975.4158020047,
+            "cum_ret": 0.233772789,
+            "value": 15954.943450929,
+            "gl": 121.4330139176
+        },
+        {
+            "Date": "2023-11-28",
+            "cum_gl": 2905.8888244633,
+            "cum_ret": 0.228396368,
+            "value": 15885.4164733876,
+            "gl": -69.5269775414
+        },
+        {
+            "Date": "2023-11-29",
+            "cum_gl": 2919.9976806654,
+            "cum_ret": 0.2294873855,
+            "value": 15899.5253295897,
+            "gl": 14.1088562021
+        },
+        {
+            "Date": "2023-11-30",
+            "cum_gl": 3025.5892028823,
+            "cum_ret": 0.2376526258,
+            "value": 16005.1168518066,
+            "gl": 105.5915222169
+        },
+        {
+            "Date": "2023-12-01",
+            "cum_gl": 2905.2540283233,
+            "cum_ret": 0.2283472801,
+            "value": 15884.7816772476,
+            "gl": -120.335174559
+        },
+        {
+            "Date": "2023-12-04",
+            "cum_gl": 2933.0379333519,
+            "cum_ret": 0.2304957695,
+            "value": 15912.5655822762,
+            "gl": 27.7839050286
+        },
+        {
+            "Date": "2023-12-05",
+            "cum_gl": 2908.8575744656,
+            "cum_ret": 0.2286259372,
+            "value": 15888.3852233899,
+            "gl": -24.1803588863
+        },
+        {
+            "Date": "2023-12-06",
+            "cum_gl": 2723.8615112301,
+            "cum_ret": 0.2143204581,
+            "value": 15703.3891601544,
+            "gl": -184.9960632355
+        },
+        {
+            "Date": "2023-12-07",
+            "cum_gl": 2971.2686767587,
+            "cum_ret": 0.2334520978,
+            "value": 15950.796325683,
+            "gl": 247.4071655286
+        },
+        {
+            "Date": "2023-12-08",
+            "cum_gl": 2850.1841125498,
+            "cum_ret": 0.2240888029,
+            "value": 15829.7117614741,
+            "gl": -121.0845642089
+        },
+        {
+            "Date": "2023-12-11",
+            "cum_gl": 2980.5446472165,
+            "cum_ret": 0.2341693952,
+            "value": 15960.0722961408,
+            "gl": 130.3605346667
+        },
+        {
+            "Date": "2023-12-12",
+            "cum_gl": 3108.9049987836,
+            "cum_ret": 0.2440953162,
+            "value": 16088.4326477079,
+            "gl": 128.3603515671
+        },
+        {
+            "Date": "2023-12-13",
+            "cum_gl": 2937.1053466783,
+            "cum_ret": 0.2308102967,
+            "value": 15916.6329956026,
+            "gl": -171.7996521053
+        },
+        {
+            "Date": "2023-12-14",
+            "cum_gl": 3065.8086242685,
+            "cum_ret": 0.2407627357,
+            "value": 16045.3362731928,
+            "gl": 128.7032775902
+        },
+        {
+            "Date": "2023-12-15",
+            "cum_gl": 3214.9275207526,
+            "cum_ret": 0.2522938851,
+            "value": 16194.4551696769,
+            "gl": 149.1188964841
+        },
+        {
+            "Date": "2023-12-18",
+            "cum_gl": 3061.7550659176,
+            "cum_ret": 0.2404492799,
+            "value": 16041.2827148419,
+            "gl": -153.172454835
+        },
+        {
+            "Date": "2023-12-19",
+            "cum_gl": 3127.9791564951,
+            "cum_ret": 0.2455702934,
+            "value": 16107.5068054194,
+            "gl": 66.2240905775
+        },
+        {
+            "Date": "2023-12-20",
+            "cum_gl": 3087.208892823,
+            "cum_ret": 0.2424175876,
+            "value": 16066.7365417473,
+            "gl": -40.7702636721
+        },
+        {
+            "Date": "2023-12-21",
+            "cum_gl": 3147.0173950212,
+            "cum_ret": 0.2470424929,
+            "value": 16126.5450439455,
+            "gl": 59.8085021982
+        },
+        {
+            "Date": "2023-12-22",
+            "cum_gl": 3000.0128173837,
+            "cum_ret": 0.2356748408,
+            "value": 15979.540466308,
+            "gl": -147.0045776375
+        },
+        {
+            "Date": "2023-12-26",
+            "cum_gl": 3048.499023437,
+            "cum_ret": 0.2394242092,
+            "value": 16028.0266723613,
+            "gl": 48.4862060533
+        },
+        {
+            "Date": "2023-12-27",
+            "cum_gl": 3018.6065673866,
+            "cum_ret": 0.2371126687,
+            "value": 15998.1342163109,
+            "gl": -29.8924560504
+        },
+        {
+            "Date": "2023-12-28",
+            "cum_gl": 3020.1239929227,
+            "cum_ret": 0.1842541774,
+            "value": 7105.4004516598,
+            "gl": 1.5174255361
+        },
+        {
+            "Date": "2023-12-29",
+            "cum_gl": 3008.9349365258,
+            "cum_ret": 0.182389302,
+            "value": 7094.2113952629,
+            "gl": -11.1890563969
+        },
+        {
+            "Date": "2024-01-02",
+            "cum_gl": 3031.8818664575,
+            "cum_ret": 0.1862138573,
+            "value": 7117.1583251946,
+            "gl": 22.9469299317
+        },
+        {
+            "Date": "2024-01-03",
+            "cum_gl": 3046.2953796424,
+            "cum_ret": 0.1886161517,
+            "value": 7131.5718383795,
+            "gl": 14.4135131849
+        },
+        {
+            "Date": "2024-01-04",
+            "cum_gl": 2948.2466125522,
+            "cum_ret": 0.1722744039,
+            "value": 7033.5230712893,
+            "gl": -98.0487670902
+        },
+        {
+            "Date": "2024-01-05",
+            "cum_gl": 2943.1260986366,
+            "cum_ret": 0.1714209699,
+            "value": 7028.4025573737,
+            "gl": -5.1205139156
+        },
+        {
+            "Date": "2024-01-08",
+            "cum_gl": 2892.6793823267,
+            "cum_ret": 0.1630130364,
+            "value": 6977.9558410638,
+            "gl": -50.4467163099
+        },
+        {
+            "Date": "2024-01-09",
+            "cum_gl": 2889.0762939491,
+            "cum_ret": 0.1624125112,
+            "value": 6974.3527526862,
+            "gl": -3.6030883776
+        },
+        {
+            "Date": "2024-01-10",
+            "cum_gl": 3020.6928100625,
+            "cum_ret": 0.1843489819,
+            "value": 7105.9692687996,
+            "gl": 131.6165161134
+        },
+        {
+            "Date": "2024-01-11",
+            "cum_gl": 3041.5546569852,
+            "cum_ret": 0.1878260174,
+            "value": 7126.8311157223,
+            "gl": 20.8618469227
+        },
+        {
+            "Date": "2024-01-12",
+            "cum_gl": 3173.929016116,
+            "cum_ret": 0.2098887975,
+            "value": 7259.2054748531,
+            "gl": 132.3743591308
+        },
+        {
+            "Date": "2024-01-16",
+            "cum_gl": 3209.2043762236,
+            "cum_ret": 0.2157681273,
+            "value": 7294.4808349607,
+            "gl": 35.2753601076
+        },
+        {
+            "Date": "2024-01-17",
+            "cum_gl": 3282.0297851598,
+            "cum_ret": 0.2279059083,
+            "value": 7367.3062438969,
+            "gl": 72.8254089362
+        },
+        {
+            "Date": "2024-01-18",
+            "cum_gl": 3231.7563934339,
+            "cum_ret": 0.1289000872,
+            "value": 12274.6829223624,
+            "gl": -50.2733917259
+        },
+        {
+            "Date": "2024-01-19",
+            "cum_gl": 3223.7144012469,
+            "cum_ret": 0.1281604668,
+            "value": 12266.6409301754,
+            "gl": -8.041992187
+        },
+        {
+            "Date": "2024-01-22",
+            "cum_gl": 3229.1900634794,
+            "cum_ret": 0.1286640623,
+            "value": 12272.1165924079,
+            "gl": 5.4756622325
+        },
+        {
+            "Date": "2024-01-23",
+            "cum_gl": 3328.0421752939,
+            "cum_ret": 0.1377554709,
+            "value": 12370.9687042224,
+            "gl": 98.8521118145
+        },
+        {
+            "Date": "2024-01-24",
+            "cum_gl": 3256.9475402873,
+            "cum_ret": 0.1312169118,
+            "value": 12299.8740692158,
+            "gl": -71.0946350066
+        },
+        {
+            "Date": "2024-01-25",
+            "cum_gl": 2722.6738128688,
+            "cum_ret": 0.082079866,
+            "value": 11765.6003417973,
+            "gl": -534.2737274185
+        },
+        {
+            "Date": "2024-01-26",
+            "cum_gl": 2806.3450469987,
+            "cum_ret": 0.0897750923,
+            "value": 11849.2715759272,
+            "gl": 83.6712341299
+        },
+        {
+            "Date": "2024-01-29",
+            "cum_gl": 3026.7942352328,
+            "cum_ret": 0.1100497592,
+            "value": 12069.7207641613,
+            "gl": 220.4491882341
+        },
+        {
+            "Date": "2024-01-30",
+            "cum_gl": 3024.1473236106,
+            "cum_ret": 0.1098063233,
+            "value": 12067.0738525391,
+            "gl": -2.6469116222
+        },
+        {
+            "Date": "2024-01-31",
+            "cum_gl": 3035.0538940442,
+            "cum_ret": 0.1108093984,
+            "value": 12077.9804229727,
+            "gl": 10.9065704336
+        },
+        {
+            "Date": "2024-02-01",
+            "cum_gl": 3049.733978275,
+            "cum_ret": 0.1121595227,
+            "value": 12092.6605072035,
+            "gl": 14.6800842308
+        },
+        {
+            "Date": "2024-02-02",
+            "cum_gl": 2819.0800323507,
+            "cum_ret": 0.0909463263,
+            "value": 11862.0065612792,
+            "gl": -230.6539459243
+        },
+        {
+            "Date": "2024-02-05",
+            "cum_gl": 2779.112686159,
+            "cum_ret": 0.0872705376,
+            "value": 11822.0392150875,
+            "gl": -39.9673461917
+        },
+        {
+            "Date": "2024-02-06",
+            "cum_gl": 3013.1320037864,
+            "cum_ret": 0.1087932466,
+            "value": 12056.0585327149,
+            "gl": 234.0193176274
+        },
+        {
+            "Date": "2024-02-07",
+            "cum_gl": 2964.5371704136,
+            "cum_ret": 0.1043239897,
+            "value": 12007.4636993421,
+            "gl": -48.5948333728
+        },
+        {
+            "Date": "2024-02-08",
+            "cum_gl": 3007.042221072,
+            "cum_ret": 0.1082331705,
+            "value": 12049.9687500005,
+            "gl": 42.5050506584
+        },
+        {
+            "Date": "2024-02-09",
+            "cum_gl": 3261.6120452897,
+            "cum_ret": 0.1316459054,
+            "value": 12304.5385742182,
+            "gl": 254.5698242177
+        },
+        {
+            "Date": "2024-02-12",
+            "cum_gl": 3137.6302032496,
+            "cum_ret": 0.1202433206,
+            "value": 12180.5567321781,
+            "gl": -123.9818420401
+        },
+        {
+            "Date": "2024-02-13",
+            "cum_gl": 3165.2341003448,
+            "cum_ret": 0.1227820454,
+            "value": 12208.1606292733,
+            "gl": 27.6038970952
+        },
+        {
+            "Date": "2024-02-14",
+            "cum_gl": 3172.7801208533,
+            "cum_ret": 0.1234760514,
+            "value": 12215.7066497818,
+            "gl": 7.5460205085
+        },
+        {
+            "Date": "2024-02-15",
+            "cum_gl": 3273.2535400399,
+            "cum_ret": 0.1327165713,
+            "value": 12316.1800689684,
+            "gl": 100.4734191866
+        },
+        {
+            "Date": "2024-02-16",
+            "cum_gl": 3336.2332153337,
+            "cum_ret": 0.1385087992,
+            "value": 12379.1597442622,
+            "gl": 62.9796752938
+        },
+        {
+            "Date": "2024-02-20",
+            "cum_gl": 3138.1932983413,
+            "cum_ret": 0.1202951084,
+            "value": 12181.1198272698,
+            "gl": -198.0399169924
+        },
+        {
+            "Date": "2024-02-21",
+            "cum_gl": 3113.9235229524,
+            "cum_ret": 0.1180630221,
+            "value": 12156.8500518809,
+            "gl": -24.2697753889
+        },
+        {
+            "Date": "2024-02-22",
+            "cum_gl": 3150.5137176529,
+            "cum_ret": 0.1214282148,
+            "value": 12193.4402465814,
+            "gl": 36.5901947005
+        },
+        {
+            "Date": "2024-02-23",
+            "cum_gl": 3013.8033599878,
+            "cum_ret": 0.1088549911,
+            "value": 12056.7298889163,
+            "gl": -136.7103576651
+        },
+        {
+            "Date": "2024-02-26",
+            "cum_gl": 3364.6232147245,
+            "cum_ret": 0.1411198216,
+            "value": 12407.549743653,
+            "gl": 350.8198547367
+        },
+        {
+            "Date": "2024-02-27",
+            "cum_gl": 3347.3233032241,
+            "cum_ret": 0.1395287523,
+            "value": 12390.2498321526,
+            "gl": -17.2999115004
+        },
+        {
+            "Date": "2024-02-28",
+            "cum_gl": 3347.2534790049,
+            "cum_ret": 0.1395223306,
+            "value": 12390.1800079334,
+            "gl": -0.0698242192
+        },
+        {
+            "Date": "2024-02-29",
+            "cum_gl": 3342.4337921156,
+            "cum_ret": 0.139079065,
+            "value": 12385.3603210441,
+            "gl": -4.8196868893
+        },
+        {
+            "Date": "2024-03-01",
+            "cum_gl": 3364.4734802256,
+            "cum_ret": 0.1411060506,
+            "value": 12407.4000091541,
+            "gl": 22.03968811
+        },
+        {
+            "Date": "2024-03-04",
+            "cum_gl": 3143.4537353519,
+            "cum_ret": 0.1207789097,
+            "value": 12186.3802642804,
+            "gl": -221.0197448737
+        },
+        {
+            "Date": "2024-03-05",
+            "cum_gl": 2601.5939331131,
+            "cum_ret": 0.0566154785,
+            "value": 21992.2204284696,
+            "gl": -541.8598022388
+        },
+        {
+            "Date": "2024-03-06",
+            "cum_gl": 2262.9732360856,
+            "cum_ret": 0.0403464587,
+            "value": 21653.5997314421,
+            "gl": -338.6206970275
+        },
+        {
+            "Date": "2024-03-07",
+            "cum_gl": 2194.422912604,
+            "cum_ret": 0.0370529607,
+            "value": 21585.0494079605,
+            "gl": -68.5503234816
+        },
+        {
+            "Date": "2024-03-08",
+            "cum_gl": 1925.6031494198,
+            "cum_ret": 0.0241375244,
+            "value": 21316.2296447763,
+            "gl": -268.8197631842
+        },
+        {
+            "Date": "2024-03-11",
+            "cum_gl": 2249.0941162181,
+            "cum_ret": 0.0396796368,
+            "value": 21639.7206115746,
+            "gl": 323.4909667983
+        },
+        {
+            "Date": "2024-03-12",
+            "cum_gl": 2175.6730041526,
+            "cum_ret": 0.036152122,
+            "value": 21566.2994995091,
+            "gl": -73.4211120655
+        },
+        {
+            "Date": "2024-03-13",
+            "cum_gl": 1514.6929626488,
+            "cum_ret": 0.0043953585,
+            "value": 20905.3194580053,
+            "gl": -660.9800415038
+        },
+        {
+            "Date": "2024-03-14",
+            "cum_gl": 1174.6934814502,
+            "cum_ret": -0.0119399049,
+            "value": 20565.3199768067,
+            "gl": -339.9994811986
+        },
+        {
+            "Date": "2024-03-15",
+            "cum_gl": 1254.7341918976,
+            "cum_ret": -0.0080943517,
+            "value": 20645.3606872541,
+            "gl": 80.0407104474
+        },
+        {
+            "Date": "2024-03-18",
+            "cum_gl": 2244.9537658772,
+            "cum_ret": 0.0394807139,
+            "value": 21635.5802612337,
+            "gl": 990.2195739796
+        },
+        {
+            "Date": "2024-03-19",
+            "cum_gl": 1884.3143310574,
+            "cum_ret": 0.0221538045,
+            "value": 21274.9408264139,
+            "gl": -360.6394348198
+        },
+        {
+            "Date": "2024-03-20",
+            "cum_gl": 2239.9339294471,
+            "cum_ret": 0.039239536,
+            "value": 21630.5604248036,
+            "gl": 355.6195983897
+        },
+        {
+            "Date": "2024-03-21",
+            "cum_gl": 2096.124145511,
+            "cum_ret": 0.0323301998,
+            "value": 21486.7506408675,
+            "gl": -143.8097839361
+        },
+        {
+            "Date": "2024-03-22",
+            "cum_gl": 2013.483856209,
+            "cum_ret": 0.02835975,
+            "value": 21404.1103515655,
+            "gl": -82.640289302
+        },
+        {
+            "Date": "2024-03-25",
+            "cum_gl": 2232.5437927287,
+            "cum_ret": 0.0388844771,
+            "value": 21623.1702880852,
+            "gl": 219.0599365197
+        },
+        {
+            "Date": "2024-03-26",
+            "cum_gl": 2613.6931762713,
+            "cum_ret": 0.0571967862,
+            "value": 22004.3196716278,
+            "gl": 381.1493835426
+        },
+        {
+            "Date": "2024-03-27",
+            "cum_gl": 2670.4533691497,
+            "cum_ret": 0.0599238277,
+            "value": 22061.0798645062,
+            "gl": 56.7601928784
+        },
+        {
+            "Date": "2024-03-28",
+            "cum_gl": 2332.3428649928,
+            "cum_ret": 0.0436793201,
+            "value": 21722.9693603493,
+            "gl": -338.1105041569
+        },
+        {
+            "Date": "2024-04-01",
+            "cum_gl": 2283.7034606983,
+            "cum_ret": 0.0413424416,
+            "value": 21674.3299560548,
+            "gl": -48.6394042945
+        },
+        {
+            "Date": "2024-04-02",
+            "cum_gl": 1600.1939086952,
+            "cum_ret": 0.0085032486,
+            "value": 20990.8204040517,
+            "gl": -683.5095520031
+        },
+        {
+            "Date": "2024-04-03",
+            "cum_gl": 1809.8440246617,
+            "cum_ret": 0.0185758812,
+            "value": 21200.4705200182,
+            "gl": 209.6501159665
+        },
+        {
+            "Date": "2024-04-04",
+            "cum_gl": 1813.1638336233,
+            "cum_ret": 0.0473660511,
+            "value": 11942.8900604258,
+            "gl": 3.3198089616
+        },
+        {
+            "Date": "2024-04-05",
+            "cum_gl": 1651.52386475,
+            "cum_ret": 0.0331905697,
+            "value": 11781.2500915525,
+            "gl": -161.6399688733
+        },
+        {
+            "Date": "2024-04-08",
+            "cum_gl": 1788.5337677032,
+            "cum_ret": 0.0452060467,
+            "value": 11918.2599945057,
+            "gl": 137.0099029532
+        },
+        {
+            "Date": "2024-04-09",
+            "cum_gl": 2023.3936767622,
+            "cum_ret": 0.0658027611,
+            "value": 12153.1199035647,
+            "gl": 234.859909059
+        },
+        {
+            "Date": "2024-04-10",
+            "cum_gl": 1887.963577274,
+            "cum_ret": 0.0539258295,
+            "value": 12017.6898040765,
+            "gl": -135.4300994882
+        },
+        {
+            "Date": "2024-04-11",
+            "cum_gl": 1985.3938903847,
+            "cum_ret": 0.0624702607,
+            "value": 12115.1201171872,
+            "gl": 97.4303131107
+        },
+        {
+            "Date": "2024-04-12",
+            "cum_gl": 1846.3640289353,
+            "cum_ret": 0.0502776376,
+            "value": 11976.0902557378,
+            "gl": -139.0298614494
+        },
+        {
+            "Date": "2024-04-15",
+            "cum_gl": 1714.9835357702,
+            "cum_ret": 0.0387558478,
+            "value": 11844.7097625727,
+            "gl": -131.3804931651
+        },
+        {
+            "Date": "2024-04-16",
+            "cum_gl": 1499.9036712702,
+            "cum_ret": 0.0198938013,
+            "value": 11629.6298980727,
+            "gl": -215.0798645
+        },
+        {
+            "Date": "2024-04-17",
+            "cum_gl": 1304.7839813257,
+            "cum_ret": 0.0027822196,
+            "value": 11434.5102081282,
+            "gl": -195.1196899445
+        },
+        {
+            "Date": "2024-04-18",
+            "cum_gl": 1195.6833496146,
+            "cum_ret": -0.0067856737,
+            "value": 11325.4095764171,
+            "gl": -109.1006317111
+        },
+        {
+            "Date": "2024-04-19",
+            "cum_gl": 1077.383773809,
+            "cum_ret": -0.0171602949,
+            "value": 11207.1100006115,
+            "gl": -118.2995758056
+        },
+        {
+            "Date": "2024-04-22",
+            "cum_gl": 818.5536346492,
+            "cum_ret": -0.0398591474,
+            "value": 10948.2798614517,
+            "gl": -258.8301391598
+        },
+        {
+            "Date": "2024-04-23",
+            "cum_gl": 781.1935119677,
+            "cum_ret": -0.0431355507,
+            "value": 10910.9197387702,
+            "gl": -37.3601226815
+        },
+        {
+            "Date": "2024-04-24",
+            "cum_gl": 1217.5037231488,
+            "cum_ret": -0.0048720734,
+            "value": 11347.2299499513,
+            "gl": 436.3102111811
+        },
+        {
+            "Date": "2024-04-25",
+            "cum_gl": 1528.2437439007,
+            "cum_ret": 0.0223791653,
+            "value": 11657.9699707032,
+            "gl": 310.7400207519
+        },
+        {
+            "Date": "2024-04-26",
+            "cum_gl": 1513.0835723912,
+            "cum_ret": 0.0210496506,
+            "value": 11642.8097991937,
+            "gl": -15.1601715095
+        },
+        {
+            "Date": 0,
+            "cum_gl": 1322.7037811309,
+            "cum_ret": -0.3350957631,
+            "value": 7581.7601623531,
+            "gl": -190.3797912603
+        },
+        {
+            "Date": 0,
+            "cum_gl": 1461.0237579376,
+            "cum_ret": -0.3229653954,
+            "value": 7720.0801391598,
+            "gl": 138.3199768067
+        }
+    ]
+}

@@ -12,23 +12,21 @@ export default function PortfolioChart({portfolio, value, gl, ret}) {
     const [selected, setSelected] = useState(1);
     const [dateRange, setDateRange] = useState(1.0);
     portfolio.forEach(({ Date, cum_gl, cum_ret }) => {
-        x.push(Date);
-        dollars.push(Number(cum_gl));
-        percents.push(Number(cum_ret) * 100);
+        if (Date != 0) {
+            x.push(Date);
+            dollars.push(Number(cum_gl));
+            percents.push(Number(cum_ret) * 100);
+        }
     });
     const handleReturns = (e) => {
         setReturns(e.target.value)
-    }
-    const handleRange = (e) => {
-        setSelected(e.target.value);
-        setDateRange(1/e.target.value);
-    }
+    };
     return (
         <>
         <h2>{currencyFormat.format(value)}</h2>
         { returns == "%" ? (
             <>
-            <h3 className={"day-change " + ret > 0 ? "win" : "lose"}>{ret > 0 ? <FaCaretUp /> : <FaCaretDown />}{Math.abs(ret * 100).toFixed(2)}% <span style={{"color": "white", "marginLeft": "5px", fontWeight: "normal"}}>Today</span></h3>
+            <h3 className={"day-change " + (ret > 0 ? "win" : "lose")}>{ret > 0 ? <FaCaretUp /> : <FaCaretDown />}{Math.abs(ret * 100).toFixed(2)}% <span style={{"color": "white", "marginLeft": "5px", fontWeight: "normal"}}>Today</span></h3>
             <div className="portfolio-display">
                 <h3>Display In: </h3>
                 <div className="range-selector">
