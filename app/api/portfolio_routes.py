@@ -79,11 +79,11 @@ def calc_history(portfolio):
     total_cash = 0
     total_value = 0
     for i, row in stock_data.iterrows():
+        row_value = 0
+        row_gl = 0
+        row_cost_basis = 0
         if row[change_columns].any():
             total_cash += row.cash
-            row_value = 0
-            row_gl = 0
-            row_cost_basis = 0
             for stock in stocks:
                 total_cash += row[f"{stock}_order"]
                 row[f"{stock}_value"] = row[stock] * row[f"{stock}_quantity"]
