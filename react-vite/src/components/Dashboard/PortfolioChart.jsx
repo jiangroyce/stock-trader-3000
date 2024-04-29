@@ -7,8 +7,6 @@ export default function PortfolioChart({portfolio, value, gl, ret}) {
     if (portfolio.length < 1) return <h2>No Orders Placed</h2>
     const [returns, setReturns] = useState("$")
     const [x, dollars, percents] = [[],[],[]];
-    const percent_color = portfolio[portfolio.length-1].cum_ret > 0 ? "green" : "red";
-    const dollar_color = portfolio[portfolio.length-1].cum_gl > 0 ? "green" : "red";
     const [selected, setSelected] = useState(1);
     const [dateRange, setDateRange] = useState(1.0);
     portfolio.forEach(({ Date, cum_gl, cum_ret }) => {
@@ -18,6 +16,8 @@ export default function PortfolioChart({portfolio, value, gl, ret}) {
             percents.push(Number(cum_ret) * 100);
         }
     });
+    const percent_color = percents[percents.length-1] > 0 ? "green" : "red";
+    const dollar_color = dollars[dollars.length-1] > 0 ? "green" : "red";
     const handleReturns = (e) => {
         setReturns(e.target.value)
     };
