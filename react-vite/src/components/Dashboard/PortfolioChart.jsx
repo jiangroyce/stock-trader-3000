@@ -93,7 +93,7 @@ export default function PortfolioChart({portfolio, value, gl, ret}) {
         ) :
         (
             <>
-            <h3 className={"day-change " + ret > 0 ? "win" : "lose"}>{gl > 0 ? <FaCaretUp /> : <FaCaretDown />}{currencyFormat.format(Math.abs(gl))} <span style={{"color": "white", "marginLeft": "5px", fontWeight: "normal"}}>Today</span></h3>
+            <h3 className={"day-change " + (gl > 0 ? "win" : "lose")}>{gl > 0 ? <FaCaretUp /> : <FaCaretDown />}{currencyFormat.format(Math.abs(gl))} <span style={{"color": "white", "marginLeft": "5px", fontWeight: "normal"}}>Today</span></h3>
             <div className="portfolio-display">
                 <h3>Display In: </h3>
                 <div className="range-selector">
