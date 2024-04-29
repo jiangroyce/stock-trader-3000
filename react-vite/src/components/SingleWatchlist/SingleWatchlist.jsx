@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { FaLightbulb } from "react-icons/fa";
 import { putWatchlist, fetchWatchlists, fetchWatchlist } from "../../redux/watchlist";
 import Watchlists from "../Watchlists";
 import "./SingleWatchlist.css"
 
 function SingleWatchlist() {
+    const navigate = useNavigate()
     const { listId } = useParams();
     const user = useSelector((state) => state.session.user)
     const dispatch = useDispatch();
@@ -37,17 +38,17 @@ function SingleWatchlist() {
             <div className="single-watchlist">
                 <div className="watchlist-details">
                     <div className="single-watchlist-header">
-                    <label>
                     <FaLightbulb />
+                    <label>
                     {watchlist.list_number < 20000 ?
                         <input
-                            className="watchlist-name"
+                            className="watchlist-name-input"
                             type="text"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                             onBlur={handleSubmit}
                         /> :
-                        <div className="watchlist-name defaults">{watchlist.name}</div>
+                        <div className="watchlist-name-input defaults">{watchlist.name}</div>
                     }
                     </label>
                         <div>{watchlist.stocks.length} Items</div>
@@ -64,8 +65,8 @@ function SingleWatchlist() {
                         </thead>
                         <tbody>
                             {watchlist?.stocks?.map((stock, index) => (
-                                <tr key={index}>
-                                    <th scope="row"><NavLink to={`/stocks/${stock?.ticker}`}>{stock?.ticker}</NavLink></th>
+                                <tr className="stock-card" key={index} onClick={() => navigate(`/stocks/${stock.ticker}`)}>
+                                    <th scope="row">{stock?.ticker}</th>
                                     <td>{stock?.name}</td>
                                     <td>{stock?.price ? currencyFormat.format(stock.price): "-"}</td>
                                     <td>{stock?.sector}</td>

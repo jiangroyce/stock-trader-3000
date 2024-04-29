@@ -22,8 +22,7 @@ export default function PreviewOrderModal({order, cash}) {
             setErrors(response.errors)
         } else {
             closeModal();
-            window.alert("Order Successfully Placed, Redirecting to Dashboard")
-            navigate("/dashboard")
+            navigate("/account/positions")
         }
     }
     return (

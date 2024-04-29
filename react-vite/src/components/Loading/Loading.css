@@ -7,7 +7,7 @@
 .animation-logo {
     height: 100px;
     width: 100px;
-    animation: load 2s linear;
+    animation: load 5s linear;
 }
 
 @keyframes load {

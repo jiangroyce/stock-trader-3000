@@ -16,9 +16,9 @@
     width: 70%;
     border-radius: 25px;
     font-size: large;
-    border: 1px solid var(--pale-dogwood);
+    border: 1px solid var(--green);
     background-color: transparent;
-    color: var(--pale-dogwood);
+    color: var(--green);
     cursor: pointer;
 }
 
