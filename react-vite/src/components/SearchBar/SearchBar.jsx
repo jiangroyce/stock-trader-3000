@@ -51,10 +51,10 @@ function SearchBar() {
         setOpen(false)
     }
 
-    useEffect(() => {
-        dispatch(fetchAllStocks());
-        dispatch(fetchAllScreeners());
-    }, [dispatch]);
+    // useEffect(() => {
+    //     dispatch(fetchAllStocks());
+    //     dispatch(fetchAllScreeners());
+    // }, [dispatch]);
 
     return (
         <div className="search-container">

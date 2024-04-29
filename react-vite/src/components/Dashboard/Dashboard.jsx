@@ -38,9 +38,8 @@ function Dashboard() {
         }
         loadOtherData();
     }, [dispatch])
-
     if (!loaded) return <Loading />
-    return (
+    else return (
         <div className="dashboard">
             { user ? portfolioData && markets && (
             <>
